@@ -1,5 +1,7 @@
 import streamlit as st
 from streamlit_monaco import st_monaco
+import io
+from contextlib import redirect_stdout
 
 
 st.title("Urban Coders Guild")
@@ -19,6 +21,16 @@ content = st_monaco(
     theme="vs-dark"
 )
 
+# Run button
 if st.button("Run"):
-    st.write("Output:")
-    st.code(content)
+    output = io.StringIO()
+
+    try:
+        with redirect_stdout(output):
+            exec(content)
+
+        st.write("Output:")
+        st.code(output.getvalue())
+
+    except Exception as e:
+        st.error(str(e))
