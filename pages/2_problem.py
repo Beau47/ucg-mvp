@@ -1,19 +1,17 @@
 import streamlit as st
 
-st.set_page_config(page_title="Problem 1", page_icon="📈")
+st.set_page_config(page_title="Problem 2", page_icon="📈")
 
 from streamlit_monaco import st_monaco
 import io
 from contextlib import redirect_stdout
 
-
 st.title("Urban Coders Guild")
 
-st.subheader("Lesson 1: Variables")
+st.subheader("Lesson 2: Data Types")
 
 st.write("""
-Create a variable x and set it equal to 5.
-Then print x.
+Create a variable of a number, a word, a decimal, and a bool.
 """)
 
 # Initialize the Monaco Editor component
@@ -23,8 +21,6 @@ content = st_monaco(
     language="python",
     theme="vs-dark"
 )
-
-test_case = 5
 
 # Run button
 if st.button("Run"):
@@ -40,14 +36,14 @@ if st.button("Run"):
     except Exception as e:
         st.error(str(e))
 
-    namespace = {}
+    # namespace = {}
 
-    exec(content, namespace)
+    # exec(content, namespace)
 
-    if namespace.get("x") == 5:
-        st.success("You did it!")
-    else:
-        st.error("Try again.")
+    # if namespace.get("x") == 5:
+    #     st.success("You did it!")
+    # else:
+    #     st.error("Try again.")
 
 
 
