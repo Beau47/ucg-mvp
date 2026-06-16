@@ -21,6 +21,8 @@ content = st_monaco(
     theme="vs-dark"
 )
 
+test_case = 5
+
 # Run button
 if st.button("Run"):
     output = io.StringIO()
@@ -34,3 +36,16 @@ if st.button("Run"):
 
     except Exception as e:
         st.error(str(e))
+
+    namespace = {}
+
+    exec(content, namespace)
+
+    if namespace.get("x") == 5:
+        st.success("You did it!")
+    else:
+        st.error("Try again.")
+
+
+
+st.sidebar.success("Select an exercise above.")
