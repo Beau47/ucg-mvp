@@ -55,61 +55,66 @@ test_case = 5
 if st.button("Run"):
 
     output = io.StringIO()
-    namespace = {}
+namespace = {}
 
-    try:
-        # Run student code and capture print output
-        with redirect_stdout(output):
-            exec(content, namespace)
+try:
+    passed = 0
+    total = len(problem["test_cases"])
 
-        st.subheader("Output")
-        st.code(output.getvalue())
+    with redirect_stdout(output):
+
+        # Load student code
+        exec(content, namespace)
 
         func_name = problem["function_name"]
 
         if func_name not in namespace:
-            st.error(f"Function '{func_name}' not found.")
+            raise Exception(f"Function '{func_name}' not found.")
 
-        else:
-            student_func = namespace[func_name]
+        student_func = namespace[func_name]
 
-            passed = 0
-            total = len(problem["test_cases"])
+        test_results = []
 
-            st.subheader("Test Results")
+        for test in problem["test_cases"]:
+            actual = student_func(test["input"])
+            expected = test["expected"]
 
-            for test in problem["test_cases"]:
-
-                try:
-                    actual = student_func(test["input"])
-                    expected = test["expected"]
-
-                    if actual == expected:
-                        passed += 1
-                        st.success(
-                            f"Input={test['input']} | Expected={expected} | Got={actual}"
-                        )
-
-                    else:
-                        st.error(
-                            f"Input={test['input']} | Expected={expected} | Got={actual}"
-                        )
-
-                except Exception as e:
-                    st.error(
-                        f"Input={test['input']} | Runtime Error: {e}"
-                    )
-
-            st.subheader("Score")
-
-            st.write(f"Passed: {passed}/{total}")
-
-            if total > 0:
-                st.write(
-                    f"Percentage: {(passed / total) * 100:.1f}%"
+            if actual == expected:
+                passed += 1
+                test_results.append(
+                    ("pass", test["input"], expected, actual)
                 )
             else:
-                st.write("Percentage: N/A")
+                test_results.append(
+                    ("fail", test["input"], expected, actual)
+                )
 
-    except Exception as e:
-        st.error(f"Code Error: {e}")
+    # Display console output
+    st.subheader("Console")
+    st.code(output.getvalue())
+
+    # Display test results
+    st.subheader("Test Results")
+
+    for result in test_results:
+        status, inp, expected, actual = result
+
+        if status == "pass":
+            st.success(
+                f"Input={inp} | Expected={expected} | Got={actual}"
+            )
+        else:
+            st.error(
+                f"Input={inp} | Expected={expected} | Got={actual}"
+            )
+
+    st.subheader("Score")
+    st.write(f"Passed: {passed}/{total}")
+
+    if total > 0:
+        st.write(f"Percentage: {(passed/total)*100:.1f}%")
+    else:
+        st.write("Percentage: N/A")
+
+except Exception as e:
+    st.error(f"Code Error: {e}")
