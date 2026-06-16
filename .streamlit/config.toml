@@ -1,0 +1,15 @@
+[theme]
+base = "dark"
+
+# General color setup
+textColor = "#B5373A"
+primaryColor = "#5A4A40"
+backgroundColor = "#fff5d7"
+secondaryBackgroundColor = "#FDE9A2"
+
+# Base text
+font = "'Space Grotesk':https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+baseFontSize = 20
+
+# Heading text
+headingFont = "Space Grotesk"
