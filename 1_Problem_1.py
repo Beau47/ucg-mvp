@@ -6,19 +6,41 @@ from streamlit_monaco import st_monaco
 import io
 from contextlib import redirect_stdout
 
+#Hard-coded problem (add one function)
+problem = {
+    "title": "Add One",
+
+    "function_name": "add_one",
+
+    "starter_code": '''
+def add_one(x):
+    """
+    Given an integer x,
+    return x + 1.
+
+    Examples:
+    add_one(5) -> 6
+    add_one(-1) -> 0
+    """
+
+    # Your code here
+    pass
+''',
+
+    "test_cases": [
+        {"input": 1, "expected": 2},
+        {"input": 5, "expected": 6},
+        {"input": -1, "expected": 0},
+    ]
+}
 
 st.title("Urban Coders Guild")
 
-st.subheader("Lesson 1: Variables")
-
-st.write("""
-Create a variable x and set it equal to 5.
-Then print x.
-""")
+st.subheader(problem["title"])
 
 # Initialize the Monaco Editor component
 content = st_monaco(
-    value="# Type your Python code here\nprint('Hello from Monaco!')",
+    value=problem["starter_code"],
     height="400px",
     language="python",
     theme="vs-dark"
@@ -26,21 +48,6 @@ content = st_monaco(
 
 test_case = 5
 
-
-#Hard-coded problem (add one function)
-problem = {
-    "title": "Add One",
-    "function_name": "add_one",
-    "starter_code": """
-def add_one(x):
-    pass
-""",
-    "test_cases": [
-        {"input": 1, "expected": 2},
-        {"input": 5, "expected": 6},
-        {"input": -1, "expected": 0},
-    ]
-}
 # Asks student to finish a func that takes in int x, returns x + 1
 
 
