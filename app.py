@@ -1,4 +1,6 @@
 import streamlit as st
+from streamlit_monaco import st_monaco
+
 
 st.title("Urban Coders Guild")
 
@@ -9,12 +11,14 @@ Create a variable x and set it equal to 5.
 Then print x.
 """)
 
-code = st.text_area(
-    "Code Editor",
-    value="print('Hello World')",
-    height=300
+# Initialize the Monaco Editor component
+content = st_monaco(
+    value="# Type your Python code here\nprint('Hello from Monaco!')",
+    height="400px",
+    language="python",
+    theme="vs-dark"
 )
 
 if st.button("Run"):
     st.write("Output:")
-    st.code(code)
+    st.code(content)
