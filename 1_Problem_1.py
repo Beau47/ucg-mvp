@@ -1,3 +1,7 @@
+# =========================
+# Imports
+# =========================
+
 import streamlit as st
 from streamlit_monaco import st_monaco
 import io
@@ -52,22 +56,27 @@ content = st_monaco(
     theme="vs-dark",
 )
 
-# Initializes the sidebar appearance
-st.sidebar.success("Select an exercise above.")
-
-# Asks student to finish a func that takes in int x, returns x + 1
+test_case = 5
 
 
+# =========================
 # Run button
-if st.button("Run"):
+# =========================
 
+if st.button("Run"):
+    # Capture print statements from student code
     output = io.StringIO()
-namespace = {}
+
+    # Stores all functions/variables created by exec()
+    namespace = {}
 
 try:
+
+    # Initialize Grading
     passed = 0
     total = len(problem["test_cases"])
 
+    # Execute Student Code
     with redirect_stdout(output):
 
         # Load student code
@@ -81,6 +90,10 @@ try:
         student_func = namespace[func_name]
 
         test_results = []
+
+        # =========================
+        # Run Test Cases
+        # =========================
 
         for test in problem["test_cases"]:
             actual = student_func(test["input"])
@@ -115,6 +128,10 @@ try:
                 f"Input={inp} | Expected={expected} | Got={actual}"
             )
 
+    # =========================
+    # Display Score
+    # =========================
+
     st.subheader("Score")
     st.write(f"Passed: {passed}/{total}")
 
@@ -124,4 +141,5 @@ try:
         st.write("Percentage: N/A")
 
 except Exception as e:
+    # Display Runtime Errors
     st.error(f"Code Error: {e}")
