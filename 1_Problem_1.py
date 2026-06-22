@@ -3,18 +3,17 @@
 # =========================
 
 import streamlit as st
-
-st.set_page_config(page_title="Problem 1",
-                   page_icon="https://images.squarespace-cdn.com/content/v1/61133a4771763d4aab457698/cc1f440b-2d12-49c1-a937-2288bccdba18/Mark+Only+%28Single+Color%29+copy.png")
-
 from streamlit_monaco import st_monaco
 import io
 from contextlib import redirect_stdout
 
-# =========================
-# Add One Problem
-# =========================
+# Initializes page set up with title and page icon
+st.set_page_config(page_title="Problem 1",
+                   page_icon="https://images.squarespace-cdn.com/content/v1/61133a4771763d4aab457698/cc1f440b-2d12-49c1-a937-2288bccdba18/Mark+Only+%28Single+Color%29+copy.png")
 
+
+# Hard-coded problem ("Add One" function)
+# Problem dictionary; details the properties of each problem
 problem = {
     "title": "Add One",
 
@@ -42,15 +41,14 @@ def add_one(x):
     ]
 }
 
+# Initializes the header, subheader, and problem text, respectively
 st.title("Urban Coders Guild")
-
 st.subheader(problem["title"])
-
 st.write("""
 Create a function that adds one to a variable x.
 """)
 
-# Initialize the Monaco Editor component
+# Initialize the Monaco Editor component w/appearance
 content = st_monaco(
     value=problem["starter_code"],
     height="400px",
