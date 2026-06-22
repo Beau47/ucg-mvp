@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+This is the Urban Coders Guild learing platform used to teach students from 6-12th grade the foundations of programming
+in Python. The platform is a sign-on system divided into instructor and student accounts, and allows for learning in the classroom and asynchronously.
+
+You can run the program by typing "streamlit run 1_Problem_1.py" in the terminal.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+streamlit run 1_Problem_1.py
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will open up a host server that will display the platform on the browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The platform will open into an example problem that takes in user inputted code and supports run functionality.
+The run button will run the code, print the output, and display the results through test cases passed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
+
+What third-party programs / packages / APIs did we use?
+
+- Monaco Editor
+- Streamlit packages
+
+## Project Strucutre
+
+Main page file: 1_Problem_1.Python
+Subpages: pages folder
+- Using a folder names "pages" allows for the functionality of the sidebar. Any files not in the pages folder will not show
+up on the sidebar tab
+- Pages folder is primarily used for other additional problems in which the user can navigate using the sidebar.
 
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Streamlit Documentation](https://docs.streamlit.io/) - learn about Streamlit features and packages.
+- [Learn Streamlit](https://docs.streamlit.io/develop/tutorials) - lists interactive Streamlit tutorials.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can check out [the Streamlit GitHub repository](https://github.com/streamlit/streamlit) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Streamlit website is to use the [Streamlit Community Cloud](https://streamlit.io/cloud) from the delvelopers of Streamlit.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Check out our [Next.js deployment documentation](https://docs.streamlit.io/deploy) for more details.
