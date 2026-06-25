@@ -6,7 +6,9 @@ from streamlit_monaco import st_monaco
 import io
 from contextlib import redirect_stdout
 
-# Hard-coded problem replaced by a Problem class for better structure and reuse
+# Problem is a class (not a dict) because instructors will eventually create these
+# through a form or DB row — a class gives us validation and helper methods
+# (add_example, add_test) instead of raw dict key-poking.
 class Problem:
     def __init__(self, title, function_name, starter_code, description=None, examples=None, test_cases=None):
         self.title = title
@@ -55,7 +57,6 @@ st.title("Urban Coders Guild")
 
 st.subheader(problem.title)
 
-# Initialize the Monaco Editor component
 content = st_monaco(
     value=problem.starter_code,
     height="400px",
@@ -63,58 +64,52 @@ content = st_monaco(
     theme="vs-dark"
 )
 
-test_case = 5
-
-# Asks student to finish a func that takes in int x, returns x squared
-
-
-# Run button
 if st.button("Run"):
 
     output = io.StringIO()
     namespace = {}
 
     try:
-        # Run student code and capture print output
         with redirect_stdout(output):
             exec(content, namespace)
 
-        st.subheader("Output")
-        st.code(output.getvalue())
+            func_name = problem.function_name
+            if func_name not in namespace:
+                raise Exception(f"Function '{func_name}' not found.")
 
-        func_name = problem.function_name
-
-        if func_name not in namespace:
-            st.error(f"Function '{func_name}' not found.")
-        else:
             student_func = namespace[func_name]
-
             passed = 0
             total = len(problem.test_cases)
-
-            st.subheader("Test Results")
+            test_results = []
 
             for test in problem.test_cases:
                 try:
                     actual = student_func(test["input"])
                     expected = test["expected"]
-
                     if actual == expected:
                         passed += 1
-                        st.success(f"Input={test['input']} | Expected={expected} | Got={actual}")
+                        test_results.append(("pass", test["input"], expected, actual))
                     else:
-                        st.error(f"Input={test['input']} | Expected={expected} | Got={actual}")
-
+                        test_results.append(("fail", test["input"], expected, actual))
                 except Exception as e:
-                    st.error(f"Input={test['input']} | Runtime Error: {e}")
+                    test_results.append(("error", test["input"], None, str(e)))
 
-            st.subheader("Score")
-            st.write(f"Passed: {passed}/{total}")
+        # everything below runs AFTER redirect_stdout closes — output is now complete
+        st.subheader("Output")
+        st.code(output.getvalue())
 
-            if total > 0:
-                st.write(f"Percentage: {(passed / total) * 100:.1f}%")
+        st.subheader("Test Results")
+        for status, inp, expected, actual in test_results:
+            if status == "pass":
+                st.success(f"Input={inp} | Expected={expected} | Got={actual}")
+            elif status == "fail":
+                st.error(f"Input={inp} | Expected={expected} | Got={actual}")
             else:
-                st.write("Percentage: N/A")
+                st.error(f"Input={inp} | Runtime Error: {actual}")
+
+        st.subheader("Score")
+        st.write(f"Passed: {passed}/{total}")
+        st.write(f"Percentage: {(passed/total)*100:.1f}%" if total else "Percentage: N/A")
 
     except Exception as e:
         st.error(f"Code Error: {e}")
