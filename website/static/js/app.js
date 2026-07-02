@@ -1,9 +1,12 @@
 const runButton = document.getElementById("run-button");
 let editor;
+
 const consoleOutput = document.getElementById("console-output");
 const testResults = document.getElementById("test-results");
 const score = document.getElementById("score");
 
+// 🔥 TRACK CURRENT PROBLEM
+let currentProblem = "add_one";
 
 require.config({
     paths: {
@@ -21,25 +24,56 @@ require(["vs/editor/editor.main"], function () {
     return x + 1`,
 
             language: "python",
-
             theme: "vs-dark",
-
             automaticLayout: true,
-
             fontSize: 16,
-
             fontFamily: "JetBrains Mono",
-
-            minimap: {
-                enabled: false
-            }
+            minimap: { enabled: false }
         }
     );
 
 });
 
 
+// =========================
+// LOAD PROBLEM FUNCTION
+// =========================
+async function loadProblem(problemId) {
+
+    currentProblem = problemId;
+
+    const response = await fetch(`/problem/${problemId}`);
+    const data = await response.json();
+
+    // 🔥 update editor with starter code
+    editor.setValue(data.starter_code);
+
+    // reset UI
+    consoleOutput.textContent = "";
+    testResults.innerHTML = "";
+    score.textContent = "Passed: 0/0 | Percentage: N/A";
+
+    // optional: update lesson title if exists
+    const lessonTitle = document.querySelector(".lesson-card h2");
+    if (lessonTitle) {
+        lessonTitle.textContent =
+            problemId === "add_one"
+                ? "Add One"
+                : "Square Number";
+    }
+}
+
+// expose to HTML buttons
+window.loadProblem = loadProblem;
+
+
+// =========================
+// RUN CODE BUTTON
+// =========================
 runButton.addEventListener("click", async () => {
+
+    if (!editor) return;
+
     const code = editor.getValue();
 
     consoleOutput.textContent = "Running code...";
@@ -53,7 +87,7 @@ runButton.addEventListener("click", async () => {
         },
         body: JSON.stringify({
             code: code,
-            problem_id: "add_one"
+            problem_id: currentProblem
         })
     });
 
@@ -65,16 +99,14 @@ runButton.addEventListener("click", async () => {
 
     data.results.forEach(result => {
         const div = document.createElement("div");
-        div.textContent = `Input=${result.input} | Expected=${result.expected} | Got=${result.actual}`;
+        div.textContent =
+            `Input=${result.input} | Expected=${result.expected} | Got=${result.actual}`;
 
-        if (result.passed) {
-            div.style.color = "green";
-        } else {
-            div.style.color = "red";
-        }
+        div.style.color = result.passed ? "green" : "red";
 
         testResults.appendChild(div);
     });
 
-    score.textContent = `Passed: ${data.passed}/${data.total} | Percentage: ${data.percentage}`;
+    score.textContent =
+        `Passed: ${data.passed}/${data.total} | Percentage: ${data.percentage}`;
 });

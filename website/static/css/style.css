@@ -352,3 +352,19 @@ body {
 
     font-weight: 600;
 }
+
+.problem-buttons button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: white;
+    text-align: left;
+    transition: 0.2s;
+}
+
+.problem-buttons button:hover {
+    background: #e7e6f7;
+}

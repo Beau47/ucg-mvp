@@ -4,8 +4,8 @@
     <title>Urban Coders Guild</title>
 
     <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
     />
 
     <link rel="stylesheet" href="/static/css/style.css">
@@ -45,18 +45,36 @@
                 </div>
             </div>
 
+            <!-- ========================= -->
+            <!-- PROBLEM SELECTOR -->
+            <!-- ========================= -->
             <div class="lesson-card">
-                <p class="lesson-number">LESSON 3 OF 8</p>
+
+                <p class="lesson-number">PROBLEMS</p>
 
                 <h2>Add One</h2>
 
-                <p>
-                    Write a function called
-                    <code>add_one</code>
-                    that returns x + 1.
+                <p id="problem-description">
+                    Click a problem to load it into the editor.
                 </p>
+
+                <div class="problem-buttons">
+
+                    <button onclick="loadProblem('add_one')">
+                        Problem 1: Add One
+                    </button>
+
+                    <button onclick="loadProblem('square_number')">
+                        Problem 2: Square Number
+                    </button>
+
+                </div>
+
             </div>
 
+            <!-- ========================= -->
+            <!-- CHALLENGES (unchanged) -->
+            <!-- ========================= -->
             <div class="challenge-section">
 
                 <h3>CHALLENGES</h3>
@@ -102,7 +120,10 @@
 
     </div>
 
+    <!-- Monaco Editor -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+
+    <!-- Your JS -->
     <script src="/static/js/app.js"></script>
 
 </body>
