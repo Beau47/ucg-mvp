@@ -1,11 +1,46 @@
 const runButton = document.getElementById("run-button");
-const codeEditor = document.getElementById("code-editor");
+let editor;
 const consoleOutput = document.getElementById("console-output");
 const testResults = document.getElementById("test-results");
 const score = document.getElementById("score");
 
+
+require.config({
+    paths: {
+        vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs"
+    }
+});
+
+require(["vs/editor/editor.main"], function () {
+
+    editor = monaco.editor.create(
+        document.getElementById("monaco-editor"),
+        {
+            value:
+`def add_one(x):
+    return x + 1`,
+
+            language: "python",
+
+            theme: "vs-dark",
+
+            automaticLayout: true,
+
+            fontSize: 16,
+
+            fontFamily: "JetBrains Mono",
+
+            minimap: {
+                enabled: false
+            }
+        }
+    );
+
+});
+
+
 runButton.addEventListener("click", async () => {
-    const code = codeEditor.value;
+    const code = editor.getValue();
 
     consoleOutput.textContent = "Running code...";
     testResults.innerHTML = "";
