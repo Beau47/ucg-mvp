@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Urban Coders Guild</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="page">
+        <aside class="sidebar">
+            <h2>Problems</h2>
+            <button>Add One</button>
+            <button>Square Number</button>
+        </aside>
+
+        <main class="main">
+            <h1>Urban Coders Guild</h1>
+
+            <section class="problem">
+                <h2>Add One</h2>
+                <p>Write a function called <code>add_one</code> that returns x + 1.</p>
+            </section>
+
+            <section class="editor">
+                <h2>Code Editor</h2>
+                <textarea id="code-editor">def add_one(x):
+    return x + 1</textarea>
+            </section>
+
+            <button id="run-button">Run</button>
+
+            <section class="output">
+                <h2>Console</h2>
+                <pre id="console-output"></pre>
+
+                <h2>Test Results</h2>
+                <div id="test-results"></div>
+
+                <h2>Score</h2>
+                <p id="score">Passed: 0/0 | Percentage: N/A</p>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
