@@ -2,45 +2,108 @@
 <html>
 <head>
     <title>Urban Coders Guild</title>
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
 <body>
+
+    <header class="topbar">
+        <div class="logo">
+            🚀 Urban Coders Guild
+        </div>
+
+        <button id="run-button">
+            ▶ Run My Code
+        </button>
+    </header>
+
     <div class="page">
+
         <aside class="sidebar">
-            <h2>Problems</h2>
-            <button>Add One</button>
-            <button>Square Number</button>
+
+            <div class="profile-card">
+                <div class="avatar">A</div>
+
+                <div>
+                    <h3>Alex</h3>
+                    <p>Level 4 Coder</p>
+                </div>
+            </div>
+
+            <div class="xp-section">
+                <span>XP</span>
+                <span>320 / 500</span>
+
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+            </div>
+
+            <div class="lesson-card">
+                <p class="lesson-number">LESSON 3 OF 8</p>
+
+                <h2>Add One</h2>
+
+                <p>
+                    Write a function called
+                    <code>add_one</code>
+                    that returns x + 1.
+                </p>
+            </div>
+
+            <div class="challenge-section">
+
+                <h3>CHALLENGES</h3>
+
+                <button>Function Exists</button>
+                <button>Returns Correct Value</button>
+                <button>No Extra Output</button>
+
+            </div>
+
         </aside>
 
         <main class="main">
-            <h1>Urban Coders Guild</h1>
 
-            <section class="problem">
-                <h2>Add One</h2>
-                <p>Write a function called <code>add_one</code> that returns x + 1.</p>
-            </section>
+            <div class="editor-container">
 
-            <section class="editor">
-                <h2>Code Editor</h2>
+                <div class="editor-header">
+                    main.py
+                </div>
+
                 <textarea id="code-editor">def add_one(x):
     return x + 1</textarea>
-            </section>
 
-            <button id="run-button">Run</button>
+            </div>
 
-            <section class="output">
-                <h2>Console</h2>
+            <div class="output">
+
+                <div class="output-header">
+                    Output
+                </div>
+
                 <pre id="console-output"></pre>
 
-                <h2>Test Results</h2>
+                <h3>Test Results</h3>
                 <div id="test-results"></div>
 
-                <h2>Score</h2>
-                <p id="score">Passed: 0/0 | Percentage: N/A</p>
-            </section>
+                <p id="score">
+                    Passed: 0/0 | Percentage: N/A
+                </p>
+
+            </div>
+
         </main>
+
     </div>
 
     <script src="/static/js/app.js"></script>
+
 </body>
 </html>
