@@ -70,7 +70,16 @@ PROBLEMS = {
 # =====================================================
 
 @app.route("/")
-def home():
+def dashboard():
+    return render_template("dashboard.html")
+
+# =====================================================
+# PROBLEM PAGE
+# Displays the page for the problems / exercises.
+# =====================================================
+
+@app.route("/workspace")
+def workspace():
     return render_template("index.html")
 
 
