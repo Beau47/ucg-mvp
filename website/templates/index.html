@@ -46,14 +46,12 @@
             </div>
 
             <div class="lesson-card">
-                <p class="lesson-number">LESSON 3 OF 8</p>
+                <p class="lesson-number">{{ problem.lesson_number }}</p>
 
-                <h2>Add One</h2>
+                <h2>{{ problem.title }}</h2>
 
                 <p>
-                    Write a function called
-                    <code>add_one</code>
-                    that returns x + 1.
+                    {{ problem.description }}
                 </p>
             </div>
 
@@ -61,9 +59,9 @@
 
                 <h3>CHALLENGES</h3>
 
-                <button>Function Exists</button>
-                <button>Returns Correct Value</button>
-                <button>No Extra Output</button>
+                {% for challenge in problem.challenges %}
+                <button>{{ challenge }}</button>
+                {% endfor %}
 
             </div>
 
@@ -103,6 +101,9 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+    <script>
+        window.problem = {{ problem | tojson }};
+    </script>
     <script src="/static/js/app.js"></script>
 
 </body>

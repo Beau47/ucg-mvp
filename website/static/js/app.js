@@ -16,9 +16,7 @@ require(["vs/editor/editor.main"], function () {
     editor = monaco.editor.create(
         document.getElementById("monaco-editor"),
         {
-            value:
-`def add_one(x):
-    return x + 1`,
+            value: window.problem.starter_code,
 
             language: "python",
 
@@ -53,11 +51,16 @@ runButton.addEventListener("click", async () => {
         },
         body: JSON.stringify({
             code: code,
-            problem_id: "add_one"
+            problem_id: window.problem.id
         })
     });
 
     const data = await response.json();
+
+    if (data.error) {
+        consoleOutput.textContent = data.error;
+        return;
+    }
 
     consoleOutput.textContent = data.console;
 
