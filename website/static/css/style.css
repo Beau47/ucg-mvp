@@ -1,9 +1,15 @@
+/* ===================================================== */
+/* GLOBAL STYLES                                         */
+/* Reset browser defaults and define base font settings. */
+/* ===================================================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
+
 body {
     font-family: Inter, sans-serif;
     background: #f2f3fa;
@@ -12,7 +18,10 @@ body {
 }
 
 
-/* TOP BAR */
+/* ===================================================== */
+/* TOP NAVIGATION BAR                                    */
+/* Styles the header containing the logo and Run button. */
+/* ===================================================== */
 
 .topbar {
     height: 70px;
@@ -36,30 +45,30 @@ body {
     font-weight: 700;
 }
 
+/* Run Code button */
+
 #run-button {
     background: rgba(255,255,255,.15);
-
     color: white;
-
     border: 1px solid rgba(255,255,255,.25);
-
     padding: 14px 24px;
-
     border-radius: 12px;
-
     cursor: pointer;
-
     font-size: 15px;
-
     transition: .2s;
 }
+
+/* Hover effect for Run Code button */
 
 #run-button:hover {
     background: rgba(255,255,255,.25);
 }
 
 
-/* PAGE */
+/* ===================================================== */
+/* PAGE LAYOUT                                           */
+/* Creates the sidebar and main content layout.          */
+/* ===================================================== */
 
 .page {
     display: flex;
@@ -67,43 +76,40 @@ body {
 }
 
 
-/* SIDEBAR */
+/* ===================================================== */
+/* SIDEBAR                                               */
+/* Contains profile, XP, problems, and challenges.       */
+/* ===================================================== */
 
 .sidebar {
     width: 320px;
-
     background: #eceaf8;
-
     border-right: 1px solid #d9d8e6;
-
     padding: 25px;
-
     overflow-y: auto;
 }
+
+
+/* User profile section */
 
 .profile-card {
     display: flex;
     align-items: center;
-
     gap: 15px;
-
     margin-bottom: 30px;
 }
+
+/* Circular avatar */
 
 .avatar {
     width: 55px;
     height: 55px;
-
     border-radius: 50%;
-
     background: #7c6cf6;
-
     color: white;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-weight: bold;
     font-size: 22px;
 }
@@ -117,6 +123,8 @@ body {
 }
 
 
+/* XP progress section */
+
 .xp-section {
     margin-bottom: 30px;
 }
@@ -126,25 +134,26 @@ body {
     margin-bottom: 10px;
 }
 
+/* Align XP total to the right */
+
 .xp-section span:last-child {
     float: right;
 }
 
+/* XP progress bar background */
+
 .xp-bar {
     height: 12px;
-
     background: #ddd;
-
     border-radius: 100px;
-
     overflow: hidden;
 }
 
+/* Filled portion of the XP bar */
+
 .xp-fill {
     width: 64%;
-
     height: 100%;
-
     background: linear-gradient(
         90deg,
         #f5a623,
@@ -153,21 +162,18 @@ body {
 }
 
 
+/* Problem selection card */
+
 .lesson-card {
     background: white;
-
     padding: 20px;
-
     border-radius: 16px;
-
     margin-bottom: 30px;
 }
 
 .lesson-number {
     color: #8a88a0;
-
     font-size: 12px;
-
     margin-bottom: 10px;
 }
 
@@ -177,69 +183,64 @@ body {
 
 .lesson-card p {
     color: #555;
-
     line-height: 1.6;
 }
 
 
+/* Challenge checklist */
+
 .challenge-section h3 {
     color: #7a7892;
-
     font-size: 14px;
-
     margin-bottom: 15px;
 }
 
 .challenge-section button {
     width: 100%;
-
     background: white;
-
     border: none;
-
     padding: 15px;
-
     margin-bottom: 10px;
-
     border-radius: 12px;
-
     text-align: left;
-
     cursor: pointer;
-
     font-size: 14px;
 }
 
 
-/* MAIN */
+/* ===================================================== */
+/* MAIN CONTENT                                          */
+/* Holds the code editor and output panel.               */
+/* ===================================================== */
 
 .main {
     flex: 1;
-
     display: flex;
     flex-direction: column;
-
     overflow: hidden;
 }
 
 
-/* EDITOR */
+/* ===================================================== */
+/* CODE EDITOR                                           */
+/* Styles the Monaco editor container.                   */
+/* ===================================================== */
 
 .editor-container {
     flex: 1;
-
     background: #1e1e1e;
 }
 
+/* Header above the editor */
+
 .editor-header {
     background: #2d2d2d;
-
     color: white;
-
     padding: 15px 25px;
-
     font-weight: 600;
 }
+
+/* Prevent editor from overflowing */
 
 .editor-container {
     flex: 1;
@@ -247,26 +248,19 @@ body {
     overflow: hidden;
 }
 
+/* Monaco editor */
+
 #monaco-editor {
     width: 100%;
     height: calc(100% - 55px);
-
     border: none;
-
     outline: none;
-
     resize: none;
-
     background: #1e1e1e;
-
     color: white;
-
     padding: 30px;
-
     font-size: 16px;
-
     line-height: 1.8;
-
     font-family:
         "JetBrains Mono",
         "Fira Code",
@@ -274,62 +268,53 @@ body {
 }
 
 
-/* OUTPUT */
+/* ===================================================== */
+/* OUTPUT PANEL                                          */
+/* Displays console output and test results.             */
+/* ===================================================== */
 
 .output {
     height: 260px;
-
     background: #18181b;
-
     color: white;
-
     border-top: 1px solid #333;
-
     padding: 0;
-
     overflow-y: auto;
 }
 
+/* Header for the output panel */
+
 .output-header {
     background: #232326;
-
     padding: 14px 24px;
-
     color: #b8b8c7;
-
     font-weight: 600;
-
     border-bottom: 1px solid #333;
 }
 
 .output h3 {
     color: #d6d6e7;
-
     margin-top: 20px;
     margin-bottom: 12px;
-
     font-size: 15px;
-
     font-weight: 600;
 }
 
+/* Console output */
+
 #console-output {
     padding: 24px;
-
     white-space: pre-wrap;
-
     color: #e4e4e7;
-
     border-bottom: 1px solid #333;
-
     min-height: 70px;
-
     font-family:
         "JetBrains Mono",
         monospace;
-
     font-size: 14px;
 }
+
+/* Individual test results */
 
 #test-results {
     padding: 0 24px;
@@ -339,16 +324,37 @@ body {
     margin-bottom: 8px;
 }
 
+/* Overall score display */
+
 #score {
     margin: 24px;
-
     padding: 14px;
-
     background: #232326;
-
     border-radius: 12px;
-
     color: #d4d4d8;
-
     font-weight: 600;
+}
+
+
+/* ===================================================== */
+/* PROBLEM BUTTONS                                       */
+/* Buttons used to switch between coding problems.       */
+/* ===================================================== */
+
+.problem-buttons button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: white;
+    text-align: left;
+    transition: 0.2s;
+}
+
+/* Hover effect for problem buttons */
+
+.problem-buttons button:hover {
+    background: #e7e6f7;
 }
