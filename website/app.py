@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    problem = get_problem()
+    problem = get_problem("add_one")
     return render_template("index.html", problem=problem)
 
 # =====================================================
