@@ -1,0 +1,280 @@
+/* ===================================================== */
+/* GLOBAL STYLES                                         */
+/* Reset browser defaults and define base font styles.   */
+/* ===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+
+    background:#f2f3fa;
+
+}
+
+
+/* ===================================================== */
+/* TOP NAVIGATION BAR                                    */
+/* Styles the header and navigation links.               */
+/* ===================================================== */
+
+.topbar{
+
+    height:70px;
+
+    background:linear-gradient(
+        90deg,
+        #ff512f,
+        #ff8a00
+    );
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 40px;
+
+    color:white;
+
+}
+
+/* Website logo */
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+/* Navigation container */
+
+nav{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+/* Navigation links (base reset) */
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+}
+
+
+/* ===================================================== */
+/* NAVIGATION BUTTON STYLE                               */
+/* Turns links into modern pill-shaped buttons           */
+/* ===================================================== */
+
+nav a{
+
+    display:inline-block;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,0.12);
+
+    border:1px solid rgba(255,255,255,0.18);
+
+    transition:0.2s ease;
+
+    backdrop-filter: blur(6px);
+}
+
+/* Hover state */
+
+nav a:hover{
+
+    background:rgba(255,255,255,0.22);
+
+    transform:translateY(-1px);
+
+    opacity:1;
+}
+
+
+/* ===================================================== */
+/* ACTIVE PAGE INDICATOR                                 */
+/* ===================================================== */
+
+nav a.active{
+
+    background:white;
+
+    color:#ff512f;
+
+    border:1px solid white;
+
+}
+
+
+/* ===================================================== */
+/* MAIN CONTENT                                          */
+/* Centers the dashboard on the page.                    */
+/* ===================================================== */
+
+.container{
+
+    width:1200px;
+
+    margin:40px auto;
+
+}
+
+/* Dashboard heading */
+
+.container h1{
+
+    margin-bottom:30px;
+
+}
+
+
+/* ===================================================== */
+/* DASHBOARD GRID                                        */
+/* Displays the cards in a two-column layout.            */
+/* ===================================================== */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+
+/* ===================================================== */
+/* DASHBOARD CARDS                                       */
+/* Shared styling for all dashboard cards.               */
+/* ===================================================== */
+
+.card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.05);
+
+}
+
+/* Card headings */
+
+.card h2{
+
+    margin-bottom:20px;
+
+}
+
+/* Card text */
+
+.card p{
+
+    color:#666;
+
+    margin-bottom:20px;
+
+}
+
+
+/* ===================================================== */
+/* CARD BUTTONS                                          */
+/* Used for lesson and exercise shortcuts.               */
+/* ===================================================== */
+
+.card button{
+
+    display:block;
+
+    width:100%;
+
+    margin-top:10px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ff6a2b;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.2s;
+
+}
+
+/* Button hover effect */
+
+.card button:hover{
+
+    background:#e85a1f;
+
+}
+
+
+/* ===================================================== */
+/* XP PROGRESS BAR                                       */
+/* ===================================================== */
+
+/* Progress bar background */
+
+.xp-bar{
+
+    width:100%;
+
+    height:14px;
+
+    background:#ddd;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+/* Filled portion of the progress bar */
+
+.xp-fill{
+
+    width:64%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #ff8a00,
+        #ff512f
+    );
+
+}
+

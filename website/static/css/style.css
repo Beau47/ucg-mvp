@@ -7,11 +7,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-    font-family: Inter, sans-serif;
+    font-family: "Poppins", sans-serif;
     background: #f2f3fa;
     height: 100vh;
     overflow: hidden;
@@ -27,8 +27,8 @@ body {
     height: 70px;
     background: linear-gradient(
         90deg,
-        #7c6cf6,
-        #8c73ff
+        #ff512f,
+        #ff8a00
     );
 
     display: flex;
@@ -45,23 +45,81 @@ body {
     font-weight: 700;
 }
 
-/* Run Code button */
+/* Run button matches nav style */
 
 #run-button {
-    background: rgba(255,255,255,.15);
-    color: white;
-    border: 1px solid rgba(255,255,255,.25);
-    padding: 14px 24px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 15px;
-    transition: .2s;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    background:rgba(255,255,255,0.12);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.2s;
+
 }
 
-/* Hover effect for Run Code button */
-
 #run-button:hover {
-    background: rgba(255,255,255,.25);
+
+    background:rgba(255,255,255,0.22);
+
+    transform:translateY(-1px);
+
+}
+
+
+/* ===================================================== */
+/* NAVIGATION BUTTONS                                    */
+/* ===================================================== */
+
+.nav-item {
+
+    display:inline-block;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,0.12);
+
+    border:1px solid rgba(255,255,255,0.18);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+    transition:0.2s;
+
+}
+
+/* HOVER */
+
+.nav-item:hover {
+
+    background:rgba(255,255,255,0.22);
+
+    transform:translateY(-1px);
+
+}
+
+/* ACTIVE TAB */
+
+.nav-item.active {
+
+    background:white;
+
+    color:#ff512f;
+
+    border:1px solid white;
+
 }
 
 
@@ -105,7 +163,7 @@ body {
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    background: #7c6cf6;
+    background: #ff512f;
     color: white;
     display: flex;
     justify-content: center;
@@ -156,8 +214,8 @@ body {
     height: 100%;
     background: linear-gradient(
         90deg,
-        #f5a623,
-        #ffbe4d
+        #ff8a00,
+        #ff512f
     );
 }
 
@@ -358,3 +416,5 @@ body {
 .problem-buttons button:hover {
     background: #e7e6f7;
 }
+
+

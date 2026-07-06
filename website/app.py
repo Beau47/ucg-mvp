@@ -20,6 +20,12 @@ def home():
     problem = get_problem()
     return render_template("index.html", problem=problem)
 
+# =====================================================
+# RUN USER CODE
+# Receives code from the frontend, runs the tests,
+# and returns the results as JSON.
+# =====================================================
+
 @app.route("/run", methods=["POST"])
 def run_code():
 

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <!-- Font present -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Browser tab title -->
+    <title>Urban Coders Guild</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Dashboard stylesheet -->
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- TOP NAVIGATION BAR                                    -->
+    <!-- Contains the logo and links to each major section.    -->
+    <!-- ===================================================== -->
+
+    <header class="topbar">
+
+        <!-- Website logo -->
+        <div class="logo">
+            Urban Coders Guild
+        </div>
+
+        <!-- Navigation links -->
+        <nav>
+
+            <a href="/" class="active">Dashboard</a>
+
+            <a href="#">Lessons</a>
+
+            <a href="#">Exercises</a>
+
+            <a href="#">Profile</a>
+
+        </nav>
+
+    </header>
+
+    <!-- ===================================================== -->
+    <!-- MAIN DASHBOARD CONTENT                                -->
+    <!-- ===================================================== -->
+
+    <div class="container">
+
+        <!-- Welcome message -->
+        <h1>Welcome Back, Alex!</h1>
+
+        <!-- Dashboard cards -->
+        <div class="grid">
+
+            <!-- ============================================= -->
+            <!-- Continue Learning Card                        -->
+            <!-- ============================================= -->
+
+            <div class="card">
+
+                <h2>Continue Learning</h2>
+
+                <p>
+                    Variables
+                </p>
+
+                <button onclick="location.href='/workspace'">
+                    Continue
+                </button>
+
+            </div>
+
+            <!-- ============================================= -->
+            <!-- XP Progress Card                              -->
+            <!-- ============================================= -->
+
+            <div class="card">
+
+                <h2>XP Progress</h2>
+
+                <p>320 / 500 XP</p>
+
+                <!-- Progress bar -->
+                <div class="xp-bar">
+
+                    <div class="xp-fill"></div>
+
+                </div>
+
+            </div>
+
+            <!-- ============================================= -->
+            <!-- Quick Exercises                               -->
+            <!-- ============================================= -->
+
+            <div class="card">
+
+                <h2>Quick Exercises</h2>
+
+                <button onclick="location.href='/workspace'">
+                    Add One
+                </button>
+
+                <button onclick="location.href='/workspace'">
+                    Square Number
+                </button>
+
+            </div>
+
+            <!-- ============================================= -->
+            <!-- Lessons                                       -->
+            <!-- ============================================= -->
+
+            <div class="card">
+
+                <h2>Lessons</h2>
+
+                <button>Variables</button>
+
+                <button>Functions</button>
+
+                <button>Loops</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
