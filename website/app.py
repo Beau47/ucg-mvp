@@ -17,6 +17,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+    return render_template("dashboard.html")
+
+@app.route("/workspace")
+def workspace():
     problem = get_problem("add_one")
     return render_template("index.html", problem=problem)
 
