@@ -48,18 +48,6 @@ def run_code():
 
 
 # =====================================================
-# LOAD A PROBLEM
-# Sends the starter code and test cases for the
-# selected problem to the frontend.
-# =====================================================
-
-@app.route("/problem/<problem_id>")
-def get_problem(problem_id):
-
-    return jsonify(PROBLEMS[problem_id])
-
-
-# =====================================================
 # START THE DEVELOPMENT SERVER
 # Runs the Flask application locally.
 # =====================================================
