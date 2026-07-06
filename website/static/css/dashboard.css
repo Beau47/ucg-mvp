@@ -7,7 +7,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Inter,sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body{
@@ -28,8 +28,8 @@ body{
 
     background:linear-gradient(
         90deg,
-        #7c6cf6,
-        #8c73ff
+        #ff512f,
+        #ff8a00
     );
 
     display:flex;
@@ -64,7 +64,7 @@ nav{
 
 }
 
-/* Navigation links */
+/* Navigation links (base reset) */
 
 nav a{
 
@@ -97,10 +97,9 @@ nav a{
     transition:0.2s ease;
 
     backdrop-filter: blur(6px);
-
 }
 
-/* Hover state (enhanced over your current opacity hover) */
+/* Hover state */
 
 nav a:hover{
 
@@ -108,7 +107,22 @@ nav a:hover{
 
     transform:translateY(-1px);
 
-    opacity:1; /* overrides your current hover opacity */
+    opacity:1;
+}
+
+
+/* ===================================================== */
+/* ACTIVE PAGE INDICATOR                                 */
+/* ===================================================== */
+
+nav a.active{
+
+    background:white;
+
+    color:#ff512f;
+
+    border:1px solid white;
+
 }
 
 
@@ -122,18 +136,6 @@ nav a:hover{
     width:1200px;
 
     margin:40px auto;
-
-}
-
-/* Active page indicator */
-
-nav a.active{
-
-    background:white;
-
-    color:#7c6cf6;
-
-    border:1px solid white;
 
 }
 
@@ -219,7 +221,7 @@ nav a.active{
 
     border-radius:10px;
 
-    background:#7c6cf6;
+    background:#ff6a2b;
 
     color:white;
 
@@ -235,7 +237,7 @@ nav a.active{
 
 .card button:hover{
 
-    background:#6956ef;
+    background:#e85a1f;
 
 }
 
@@ -270,8 +272,9 @@ nav a.active{
 
     background:linear-gradient(
         90deg,
-        #f5a623,
-        #ffbe4d
+        #ff8a00,
+        #ff512f
     );
 
 }
+

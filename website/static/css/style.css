@@ -7,11 +7,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-    font-family: Inter, sans-serif;
+    font-family: "Poppins", sans-serif;
     background: #f2f3fa;
     height: 100vh;
     overflow: hidden;
@@ -27,8 +27,8 @@ body {
     height: 70px;
     background: linear-gradient(
         90deg,
-        #7c6cf6,
-        #8c73ff
+        #ff512f,
+        #ff8a00
     );
 
     display: flex;
@@ -73,7 +73,11 @@ body {
 
 }
 
-/* NAV BUTTON BASE */
+
+/* ===================================================== */
+/* NAVIGATION BUTTONS                                    */
+/* ===================================================== */
+
 .nav-item {
 
     display:inline-block;
@@ -97,6 +101,7 @@ body {
 }
 
 /* HOVER */
+
 .nav-item:hover {
 
     background:rgba(255,255,255,0.22);
@@ -106,11 +111,12 @@ body {
 }
 
 /* ACTIVE TAB */
+
 .nav-item.active {
 
     background:white;
 
-    color:#7c6cf6;
+    color:#ff512f;
 
     border:1px solid white;
 
@@ -157,7 +163,7 @@ body {
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    background: #7c6cf6;
+    background: #ff512f;
     color: white;
     display: flex;
     justify-content: center;
@@ -208,8 +214,8 @@ body {
     height: 100%;
     background: linear-gradient(
         90deg,
-        #f5a623,
-        #ffbe4d
+        #ff8a00,
+        #ff512f
     );
 }
 
@@ -410,3 +416,5 @@ body {
 .problem-buttons button:hover {
     background: #e7e6f7;
 }
+
+
