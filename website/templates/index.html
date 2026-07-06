@@ -1,69 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Page title shown in the browser tab -->
     <title>Urban Coders Guild</title>
 
+    <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet"
     />
 
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
 <body>
 
+    <!-- ===================================================== -->
+    <!-- TOP NAVIGATION BAR                                    -->
+    <!-- Contains the logo/title and Run Code button           -->
+    <!-- ===================================================== -->
     <header class="topbar">
+
+        <!-- Application logo/title -->
         <div class="logo">
             🚀 Urban Coders Guild
         </div>
 
+        <!-- Executes the user's code (handled in app.js) -->
         <button id="run-button">
             ▶ Run My Code
         </button>
+
     </header>
 
+    <!-- ===================================================== -->
+    <!-- MAIN PAGE LAYOUT                                      -->
+    <!-- Sidebar on the left, editor/output on the right       -->
+    <!-- ===================================================== -->
     <div class="page">
 
+        <!-- ================================================= -->
+        <!-- LEFT SIDEBAR                                      -->
+        <!-- Contains user info, problems, and challenge list  -->
+        <!-- ================================================= -->
         <aside class="sidebar">
 
+            <!-- User profile card -->
             <div class="profile-card">
+
+                <!-- User avatar -->
                 <div class="avatar">A</div>
 
+                <!-- User information -->
                 <div>
                     <h3>Alex</h3>
                     <p>Level 4 Coder</p>
                 </div>
+
             </div>
 
+            <!-- XP progress section -->
             <div class="xp-section">
+
+                <!-- XP labels -->
                 <span>XP</span>
                 <span>320 / 500</span>
 
+                <!-- Progress bar -->
                 <div class="xp-bar">
                     <div class="xp-fill"></div>
                 </div>
+
             </div>
 
-            <!-- ========================= -->
-            <!-- PROBLEM SELECTOR -->
-            <!-- ========================= -->
+            <!-- ================================================= -->
+            <!-- PROBLEM SELECTOR                                  -->
+            <!-- Loads coding problems into the editor             -->
+            <!-- ================================================= -->
             <div class="lesson-card">
 
+                <!-- Section label -->
                 <p class="lesson-number">PROBLEMS</p>
 
+                <!-- Current problem title -->
                 <h2>Add One</h2>
 
+                <!-- Problem description -->
                 <p id="problem-description">
                     Click a problem to load it into the editor.
                 </p>
 
+                <!-- Buttons for switching between problems -->
                 <div class="problem-buttons">
 
+                    <!-- Loads the Add One problem -->
                     <button onclick="loadProblem('add_one')">
                         Problem 1: Add One
                     </button>
 
+                    <!-- Loads the Square Number problem -->
                     <button onclick="loadProblem('square_number')">
                         Problem 2: Square Number
                     </button>
@@ -72,9 +108,10 @@
 
             </div>
 
-            <!-- ========================= -->
-            <!-- CHALLENGES (unchanged) -->
-            <!-- ========================= -->
+            <!-- ================================================= -->
+            <!-- CHALLENGE CHECKLIST                               -->
+            <!-- Can later be updated dynamically by JavaScript    -->
+            <!-- ================================================= -->
             <div class="challenge-section">
 
                 <h3>CHALLENGES</h3>
@@ -87,29 +124,46 @@
 
         </aside>
 
+        <!-- ===================================================== -->
+        <!-- MAIN CONTENT AREA                                     -->
+        <!-- Monaco editor and program output                      -->
+        <!-- ===================================================== -->
         <main class="main">
 
+            <!-- ================================ -->
+            <!-- Code editor panel                -->
+            <!-- ================================ -->
             <div class="editor-container">
 
+                <!-- File name shown above editor -->
                 <div class="editor-header">
                     main.py
                 </div>
 
+                <!-- Monaco Editor is injected here -->
                 <div id="monaco-editor"></div>
 
             </div>
 
+            <!-- ================================ -->
+            <!-- Output panel                     -->
+            <!-- Displays console output and test results -->
+            <!-- ================================ -->
             <div class="output">
 
+                <!-- Output section title -->
                 <div class="output-header">
                     Output
                 </div>
 
+                <!-- Program stdout -->
                 <pre id="console-output"></pre>
 
+                <!-- Unit test results -->
                 <h3>Test Results</h3>
                 <div id="test-results"></div>
 
+                <!-- Overall score -->
                 <p id="score">
                     Passed: 0/0 | Percentage: N/A
                 </p>
@@ -120,10 +174,14 @@
 
     </div>
 
-    <!-- Monaco Editor -->
+    <!-- ===================================================== -->
+    <!-- JavaScript                                             -->
+    <!-- ===================================================== -->
+
+    <!-- Monaco Editor loader -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
 
-    <!-- Your JS -->
+    <!-- Main application logic -->
     <script src="/static/js/app.js"></script>
 
 </body>
