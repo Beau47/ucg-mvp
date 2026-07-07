@@ -2,30 +2,64 @@
 
 LESSONS = {
     "variables": {
+
         "id": "variables",
-        "title": "Variables",
+
         "lesson_number": "Lesson 1",
 
-        "sections": [
+        "title": "Variables",
+
+        "blocks": [
+
             {
-                "heading": "What is a Variable?",
-                "content":
-                "Variables are containers that store values."
+                "type": "heading",
+                "text": "What is a Variable?"
             },
+
             {
-                "heading": "Creating Variables",
-                "content":
-                "You create a variable using the = operator."
+                "type": "paragraph",
+                "text":
+                "Variables allow you to store information that can be used later."
             },
+
             {
-                "heading": "Example",
-                "code":
+                "type": "code",
+                "language": "python",
+                "text":
 """x = 5
 print(x)"""
-            }
-        ],
+            },
 
-        "exercise": "add_one"
+            {
+                "type": "paragraph",
+                "text":
+                "Notice that x now stores the value 5."
+            },
+
+            {
+                "type": "image",
+                "src": "/static/images/variable_box.png",
+                "caption": "A variable stores a value."
+            },
+
+            {
+                "type": "tip",
+                "text":
+                "Choose descriptive variable names."
+            },
+
+            {
+                "type": "warning",
+                "text":
+                "Variable names cannot start with numbers."
+            },
+
+            {
+                "type": "exercise",
+                "problem": "add_one"
+            }
+
+        ]
     }
 }
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Exercises</title>
+
+<link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+<div class="logo">
+Urban Coders Guild
+</div>
+
+
+<nav class="nav-links">
+
+<a href="/">
+Dashboard
+</a>
+
+
+<a href="/lessons">
+Lessons
+</a>
+
+
+<a href="/exercises" class="active">
+Exercises
+</a>
+
+
+</nav>
+
+</header>
+
+
+
+<div class="page">
+
+
+<main class="main" style="padding:40px; overflow-y:auto;">
+
+
+<h1>
+Exercises
+</h1>
+
+
+
+{% for problem in problems %}
+
+
+<div class="lesson-card">
+
+
+<h2>
+{{ problem.title }}
+</h2>
+
+
+<p>
+{{ problem.description }}
+</p>
+
+
+
+<a href="/workspace/{{ problem.id }}">
+
+<button>
+Start Exercise →
+</button>
+
+</a>
+
+
+</div>
+
+
+{% endfor %}
+
+
+</main>
+
+
+</div>
+
+
+</body>
+
+</html>

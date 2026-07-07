@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- ===================================================== -->
+    <!-- FONTS                                                  -->
+    <!-- ===================================================== -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- ===================================================== -->
+    <!-- PAGE TITLE                                             -->
+    <!-- ===================================================== -->
+
+    <title>Urban Coders Guild</title>
+
+    <!-- ===================================================== -->
+    <!-- MAIN STYLESHEET                                        -->
+    <!-- ===================================================== -->
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- TOP NAVIGATION BAR                                     -->
+    <!-- ===================================================== -->
+
+    <header class="topbar">
+
+        <div class="logo">
+            Urban Coders Guild
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="/" class="nav-item">Dashboard</a>
+
+            <a href="/lessons" class="nav-item active">Lessons</a>
+
+            <a href="/workspace" class="nav-item">Exercises</a>
+
+            <a href="/profile" class="nav-item">Profile</a>
+
+        </nav>
+
+    </header>
+
+    <!-- ===================================================== -->
+    <!-- MAIN PAGE LAYOUT                                       -->
+    <!-- ===================================================== -->
+
+    <div class="page">
+
+        <!-- ================================================= -->
+        <!-- SIDEBAR                                           -->
+        <!-- ================================================= -->
+
+        <aside class="sidebar">
+
+            <div class="lesson-card">
+
+                <p class="lesson-number">
+                    {{ lesson.lesson_number }}
+                </p>
+
+                <h2>
+                    {{ lesson.title }}
+                </h2>
+
+            </div>
+
+        </aside>
+
+        <!-- ================================================= -->
+        <!-- LESSON CONTENT                                     -->
+        <!-- ================================================= -->
+
+        <main
+            class="main"
+            style="
+                overflow-y:auto;
+                padding:50px;
+                background:white;
+            "
+        >
+
+            {% for block in lesson.blocks %}
+
+                <!-- ============================ -->
+                <!-- HEADING                     -->
+                <!-- ============================ -->
+
+                {% if block.type == "heading" %}
+
+                    <h2 style="margin-bottom:20px;">
+                        {{ block.text }}
+                    </h2>
+
+                <!-- ============================ -->
+                <!-- PARAGRAPH                   -->
+                <!-- ============================ -->
+
+                {% elif block.type == "paragraph" %}
+
+                    <p
+                        style="
+                            line-height:1.8;
+                            margin-bottom:30px;
+                            color:#444;
+                        "
+                    >
+                        {{ block.text }}
+                    </p>
+
+                <!-- ============================ -->
+                <!-- CODE BLOCK                  -->
+                <!-- ============================ -->
+
+                {% elif block.type == "code" %}
+
+                    <pre
+                        style="
+                            background:#1e1e1e;
+                            color:white;
+                            padding:20px;
+                            border-radius:12px;
+                            overflow-x:auto;
+                            margin-bottom:30px;
+                            font-family:'JetBrains Mono', monospace;
+                        "
+                    ><code>{{ block.text }}</code></pre>
+
+                <!-- ============================ -->
+                <!-- IMAGE                       -->
+                <!-- ============================ -->
+
+                {% elif block.type == "image" %}
+
+                    <img
+                        src="{{ block.src }}"
+                        alt=""
+                        style="
+                            max-width:100%;
+                            border-radius:12px;
+                            margin-bottom:10px;
+                        "
+                    >
+
+                    {% if block.caption %}
+
+                        <p
+                            style="
+                                color:#777;
+                                font-size:14px;
+                                margin-bottom:30px;
+                            "
+                        >
+                            {{ block.caption }}
+                        </p>
+
+                    {% endif %}
+
+                <!-- ============================ -->
+                <!-- TIP BOX                     -->
+                <!-- ============================ -->
+
+                {% elif block.type == "tip" %}
+
+                    <div
+                        style="
+                            background:#eef9f0;
+                            border-left:5px solid #2ecc71;
+                            padding:20px;
+                            border-radius:10px;
+                            margin-bottom:30px;
+                        "
+                    >
+
+                        <strong>💡 Tip</strong>
+
+                        <p style="margin-top:10px;">
+                            {{ block.text }}
+                        </p>
+
+                    </div>
+
+                <!-- ============================ -->
+                <!-- WARNING BOX                 -->
+                <!-- ============================ -->
+
+                {% elif block.type == "warning" %}
+
+                    <div
+                        style="
+                            background:#fff6e5;
+                            border-left:5px solid orange;
+                            padding:20px;
+                            border-radius:10px;
+                            margin-bottom:30px;
+                        "
+                    >
+
+                        <strong>⚠ Warning</strong>
+
+                        <p style="margin-top:10px;">
+                            {{ block.text }}
+                        </p>
+
+                    </div>
+
+                <!-- ============================ -->
+                <!-- BULLET LIST                 -->
+                <!-- ============================ -->
+
+                {% elif block.type == "list" %}
+
+                    <ul
+                        style="
+                            margin-bottom:30px;
+                            margin-left:30px;
+                            line-height:2;
+                        "
+                    >
+
+                        {% for item in block.items %}
+
+                            <li>{{ item }}</li>
+
+                        {% endfor %}
+
+                    </ul>
+
+                <!-- ============================ -->
+                <!-- DIVIDER                     -->
+                <!-- ============================ -->
+
+                {% elif block.type == "divider" %}
+
+                    <hr
+                        style="
+                            margin:50px 0;
+                            border:none;
+                            border-top:1px solid #ddd;
+                        "
+                    >
+
+                <!-- ============================ -->
+                <!-- QUOTE                       -->
+                <!-- ============================ -->
+
+                {% elif block.type == "quote" %}
+
+                    <blockquote
+                        style="
+                            border-left:5px solid #ff8a00;
+                            padding-left:20px;
+                            color:#555;
+                            font-style:italic;
+                            margin-bottom:30px;
+                        "
+                    >
+
+                        {{ block.text }}
+
+                    </blockquote>
+
+                <!-- ============================ -->
+                <!-- EXERCISE BUTTON             -->
+                <!-- ============================ -->
+
+                {% elif block.type == "exercise" %}
+
+                    <a href="/workspace/{{ block.problem }}">
+
+                        <button
+                            id="run-button"
+                            style="
+                                margin-top:20px;
+                            "
+                        >
+                            Start Exercise →
+                        </button>
+
+                    </a>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
