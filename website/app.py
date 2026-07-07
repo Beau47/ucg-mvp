@@ -25,6 +25,20 @@ def workspace():
     return render_template("index.html", problem=problem)
 
 # =====================================================
+# LOAD A PROBLEM
+# Sends problem data to the frontend as JSON.
+# =====================================================
+
+@app.route("/problem/<problem_id>")
+def problem_api(problem_id):
+    problem = get_problem(problem_id)
+
+    if problem is None:
+        return jsonify({"error": "Problem not found."}), 404
+
+    return jsonify(problem)
+
+# =====================================================
 # RUN USER CODE
 # Receives code from the frontend, runs the tests,
 # and returns the results as JSON.
