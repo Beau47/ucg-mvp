@@ -5,6 +5,8 @@
 
 <title>Lessons</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
@@ -15,30 +17,30 @@
 
 <header class="topbar">
 
-<div class="logo">
-Urban Coders Guild
-</div>
+    <div class="logo">
+        Urban Coders Guild
+    </div>
 
 
-<nav class="nav-links">
+    <nav class="nav-links">
 
-<a href="/">
-Dashboard
-</a>
+        <a href="/" class="nav-item">
+            Dashboard
+        </a>
 
-<a href="/lessons" class="active">
-Lessons
-</a>
+        <a href="/lessons" class="nav-item active">
+            Lessons
+        </a>
 
-<a href="/exercises">
-Exercises
-</a>
+        <a href="/exercises" class="nav-item">
+            Exercises
+        </a>
 
-<a href="/profile">
-Profile
-</a>
+        <a href="/profile" class="nav-item">
+            Profile
+        </a>
 
-</nav>
+    </nav>
 
 
 </header>
@@ -48,33 +50,45 @@ Profile
 <div class="page">
 
 
-<main class="main" style="padding:40px; overflow-y:auto;">
+<main class="main content-page">
 
 
-<h1>
-Lessons
-</h1>
+<section class="page-header">
 
+    <h1>
+        Coding Lessons
+    </h1>
+
+
+    <p>
+        Learn programming concepts through guided lessons and examples.
+    </p>
+
+</section>
+
+
+
+<section class="card-grid">
 
 
 {% for lesson in lessons.values() %}
 
 
-<div class="lesson-card">
+<div class="content-card">
 
 
-<p class="lesson-number">
-{{ lesson.lesson_number }}
-</p>
+<div class="card-number">
+    Lesson {{ lesson.lesson_number }}
+</div>
 
 
 <h2>
-{{ lesson.title }}
+    {{ lesson.title }}
 </h2>
 
 
 <p>
-{{ lesson.description }}
+    {{ lesson.description }}
 </p>
 
 
@@ -92,6 +106,9 @@ Start Lesson →
 
 
 {% endfor %}
+
+
+</section>
 
 
 </main>
