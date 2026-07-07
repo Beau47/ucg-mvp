@@ -21,7 +21,12 @@ def home():
 
 @app.route("/workspace")
 def workspace():
-    problem = get_problem("add_one")
+    problem_id = request.args.get("problem_id", "add_one")
+    problem = get_problem(problem_id)
+
+    if problem is None:
+        return "Problem not found.", 404
+
     return render_template("index.html", problem=problem)
 
 # =====================================================
