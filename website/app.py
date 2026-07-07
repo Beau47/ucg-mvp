@@ -67,6 +67,10 @@ def workspace():
     return render_template("index.html", problem=problem)
 
 
+@app.route("/profile")
+def profile():
+    return "Profile page coming soon."
+
 # =====================================================
 # LOAD A PROBLEM
 # Sends problem data to the frontend as JSON.
