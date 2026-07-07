@@ -5,6 +5,8 @@
 
 <title>Exercises</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
@@ -15,33 +17,30 @@
 
 <header class="topbar">
 
-<div class="logo">
-Urban Coders Guild
-</div>
+    <div class="logo">
+        Urban Coders Guild
+    </div>
 
 
-<nav class="nav-links">
+    <nav class="nav-links">
 
-<a href="/">
-Dashboard
-</a>
+        <a href="/" class="nav-item">
+            Dashboard
+        </a>
 
+        <a href="/lessons" class="nav-item active">
+            Lessons
+        </a>
 
-<a href="/lessons">
-Lessons
-</a>
+        <a href="/exercises" class="nav-item">
+            Exercises
+        </a>
 
+        <a href="/profile" class="nav-item">
+            Profile
+        </a>
 
-<a href="/exercises" class="active">
-Exercises
-</a>
-
-<a href="/profile">
-Profile
-</a>
-
-
-</nav>
+    </nav>
 
 </header>
 
@@ -50,28 +49,45 @@ Profile
 <div class="page">
 
 
-<main class="main" style="padding:40px; overflow-y:auto;">
+<main class="main content-page">
 
 
-<h1>
-Exercises
-</h1>
+<section class="page-header">
 
+    <h1>
+        Coding Exercises
+    </h1>
+
+
+    <p>
+        Practice your skills with interactive coding challenges.
+    </p>
+
+</section>
+
+
+
+<section class="card-grid">
 
 
 {% for problem in problems.values() %}
 
 
-<div class="lesson-card">
+<div class="content-card">
+
+
+<div class="card-number">
+    Exercise
+</div>
 
 
 <h2>
-{{ problem.title }}
+    {{ problem.title }}
 </h2>
 
 
 <p>
-{{ problem.description }}
+    {{ problem.description }}
 </p>
 
 
@@ -89,6 +105,9 @@ Start Exercise →
 
 
 {% endfor %}
+
+
+</section>
 
 
 </main>
