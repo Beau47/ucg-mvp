@@ -43,15 +43,25 @@ def lessons():
 # Displays a specific lesson.
 # =====================================================
 
-@app.route("/lesson/<lesson_id>")
-def lesson(lesson_id):
+@app.route("/lesson/<lesson_id>/<int:page>")
+def lesson(lesson_id, page):
 
     lesson = get_lesson(lesson_id)
 
     if lesson is None:
         return "Lesson not found.", 404
 
-    return render_template("lesson.html", lesson=lesson)
+    # Find the total number of pages in this lesson
+    total_pages = max(
+        block["page"] for block in lesson["blocks"]
+    )
+
+    return render_template(
+        "lesson.html",
+        lesson=lesson,
+        page=page,
+        total_pages=total_pages
+    )
 
 
 # =====================================================
