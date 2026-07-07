@@ -446,7 +446,315 @@ print(type(x))"""
             }
 
         ]
-    }
+    },
+    "recursion_capstone": {
+
+        "id": "recursion_capstone",
+
+        "lesson_number": "Lesson 6",
+
+        "title": "Recursion & the Capstone",
+
+        "description": "Trace and implement recursive functions, understand the call stack, and bring every skill from this course together into a community capstone project.",
+
+        "blocks": [
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Lesson 6 - Recursion & the Capstone"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Estimated Time: 30-40 minutes"
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Learning Objectives"
+            },
+
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Trace and implement a simple recursive function.",
+                    "Identify the base case and the recursive call in a function.",
+                    "Sketch the call stack for factorial(4).",
+                    "Convert an iterative family-tree printer into a recursive one.",
+                    "Plan a capstone project using a checklist of required constructs.",
+                    "Refactor code for clarity by adding docstrings and comments.",
+                    "Deliver a 2-minute capstone demo and capture peer feedback."
+                ]
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Word Bank"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">recursion</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">base case</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">call stack</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">capstone project</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">refactor</span>'
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Introduction"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'Imagine asking a grandparent to tell you a family story. They tell you their part, then say, "for the rest, ask your great-aunt - she knows what came before me." Your great-aunt does the same thing, pointing further back, until someone finally says, "that\'s the beginning - there\'s no one before me." That is exactly how a recursive function works: each step solves a small piece and hands the rest down, until someone finally stops the chain.'
+            },
+
+            {
+                "page": 1,
+                "type": "quote",
+                "text":
+                "Recursion = passing down knowledge. - inspired by Roy Clay Sr., known as the \"Godfather of Silicon Valley\""
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 1 - What Is Recursion?"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">Recursion</span> is a function calling itself to solve a smaller piece of the same problem. Every recursive function needs a <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">base case</span> - the simple situation where the function stops calling itself. Without one, the function would call itself forever.'
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def factorial(n):
+    # base case: the "no one before me" moment
+    if n == 0:
+        return 1
+    # recursive call: hand off a smaller version of the problem
+    return n * factorial(n - 1)"""
+            },
+
+            {
+                "page": 1,
+                "type": "tip",
+                "text":
+                "Every recursive function needs two things: a base case that stops it, and a recursive call that hands off a smaller version of the same problem."
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 2 - Tracing the Call Stack"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'The <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">call stack</span> is the list of function calls the computer is managing at any moment.<sup>1</sup> Each call waits, paused, for the next one to finish. Here is the full trace for factorial(4) - the stack grows downward as calls are made, then collapses back upward as each call returns its answer:'
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "language": "text",
+                "text":
+"""factorial(4)
+  factorial(3)
+    factorial(2)
+      factorial(1)
+        factorial(0) -> base case hit, returns 1
+      returns 1 * 1 = 1
+    returns 2 * 1 = 2
+  returns 3 * 2 = 6
+returns 4 * 6 = 24"""
+            },
+
+            {
+                "page": 1,
+                "type": "footnote",
+                "number": "1",
+                "text": "The call stack is managed automatically by the Python interpreter - you never have to build it yourself."
+            },
+
+            {
+                "page": 1,
+                "type": "warning",
+                "text":
+                "If a recursive function never reaches its base case, the call stack keeps growing until Python runs out of room and raises a RecursionError. Always double-check that every recursive call moves toward the base case."
+            },
+
+            {
+                "page": 1,
+                "type": "check",
+                "question": "In the trace above, which call is the base case?",
+                "choices": [
+                    "A. factorial(4)",
+                    "B. factorial(2)",
+                    "C. factorial(0)",
+                    "D. factorial(1)"
+                ],
+                "answer": "C. factorial(0) is the base case - it returns 1 immediately without making another recursive call."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 3 - From Loops to Lineage: The Family-Tree Printer"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "An iterative printer walks a family tree with a loop and its own manual stack. A recursive printer lets the call stack do that bookkeeping for you - each generation just prints itself and hands the next generation down."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "language": "python",
+                "text":
+"""# Iterative
+def print_tree(root):
+    stack = [(root, 0)]
+    while stack:
+        person, depth = stack.pop()
+        print("  " * depth + person.name)
+        for child in person.children:
+            stack.append((child, depth + 1))
+
+# Recursive
+def print_tree(person, depth=0):
+    # base case: a person with no children simply prints and stops
+    print("  " * depth + person.name)
+    for child in person.children:
+        print_tree(child, depth + 1)"""
+            },
+
+            {
+                "page": 2,
+                "type": "tip",
+                "text":
+                "Notice the recursive version has no explicit stack list - the call stack is doing that job invisibly. Your task: rewrite one iterative function from an earlier unit into recursive form, and label its base case in a comment."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 4 - Planning Your Capstone"
+            },
+
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html":
+                'Your <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">capstone project</span> is a final project that showcases everything you\'ve learned this course. Before writing a line of code, plan against this checklist, then <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">refactor</span> - improve the code without changing what it does - and deliver a 2-minute demo.'
+            },
+
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "At least one recursive function with a clearly labeled base case.",
+                    "A data structure from this unit - a list, tree, or heap - used meaningfully.",
+                    "Clear docstrings and comments explaining each function.",
+                    "A 2-minute demo, plus one piece of peer feedback you collect afterward."
+                ]
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 5 - Passing It Down"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "Recursion works because each generation trusts the next one to finish the job. Roy Clay Sr., the \"Black Godfather of Silicon Valley,\" led the team that built HP's first computer and spent his career mentoring the next generation of Black engineers. Fred Begay, the first Native American to earn a Ph.D. in physics, researched nuclear fusion at Los Alamos while mentoring Indigenous students in STEM - drawing on the Navajo stories his own parents passed down to him."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Recap Questions"
+            },
+
+            {
+                "page": 2,
+                "type": "check",
+                "question": "Fred Begay combined Navajo tradition with physics. Which comparison best matches recursion and iteration to two things he grew up with?",
+                "choices": [
+                    "A. Recursion is like oral storytelling, where each call adds a layer; iteration is like a lab experiment, repeated step-by-step.",
+                    "B. Recursion is like a lab experiment; iteration is like oral storytelling.",
+                    "C. Both recursion and iteration work like oral storytelling.",
+                    "D. Neither recursion nor iteration resembles either tradition."
+                ],
+                "answer": "A. Each recursive call adds a layer the way a storyteller passes a story down, layer by layer, while iteration repeats the same step over and over, the way a lab experiment repeats a procedure."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def echo(word, times):
+    if times > 0:
+        print(word)
+        echo(word, times - 1)"""
+            },
+
+            {
+                "page": 2,
+                "type": "check",
+                "question": "What does echo(\"hi\", 3) print?",
+                "choices": [
+                    "A. hi (once)",
+                    "B. hi hi hi (three times, one per line)",
+                    "C. hi hi hi hi (four times)",
+                    "D. Nothing - it raises a RecursionError"
+                ],
+                "answer": "B. hi hi hi (three times, one per line). times starts at 3 and counts down to 0, printing once on each call before hitting the base case (times > 0 is false)."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Key Takeaways"
+            },
+
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "A recursive function needs a base case and a recursive call.",
+                    "The call stack tracks every waiting call until the base case is hit, then unwinds those calls one by one.",
+                    "Recursion can replace a loop plus a manual stack - the call stack does that bookkeeping for you.",
+                    "Passing down knowledge - from Roy Clay Sr. to Fred Begay to your own capstone - is what keeps a field like computer science moving forward."
+                ]
+            }
+
+        ]
+    },
+    
 }
 
 def get_lesson(id):
