@@ -91,6 +91,67 @@
             {{ block.text }}
         </p>
 
+    {% elif block.type == "rich_paragraph" %}
+
+        <p
+            style="
+                line-height:1.8;
+                margin-bottom:30px;
+                color:#444;
+            "
+        >
+            {{ block.html | safe }}
+        </p>
+
+    {% elif block.type == "footnote" %}
+
+        <p
+            style="
+                color:#666;
+                font-size:14px;
+                line-height:1.7;
+                margin-top:-10px;
+                margin-bottom:30px;
+                border-top:1px solid #eee;
+                padding-top:14px;
+            "
+        >
+            <sup>{{ block.number }}</sup>
+            {{ block.text }}
+        </p>
+
+    {% elif block.type == "check" %}
+
+        <div
+            style="
+                background:#fff8ef;
+                border-left:5px solid #ff8a00;
+                padding:22px;
+                border-radius:10px;
+                margin-bottom:30px;
+            "
+        >
+
+            <strong style="color:#ff512f;">
+                Check Your Understanding
+            </strong>
+
+            <p style="margin-top:12px; line-height:1.7;">
+                {{ block.question }}
+            </p>
+
+            <ul style="margin-left:24px; line-height:1.9;">
+                {% for choice in block.choices %}
+                    <li>{{ choice }}</li>
+                {% endfor %}
+            </ul>
+
+            <p style="margin-top:12px; color:#444;">
+                <strong>Answer:</strong> {{ block.answer }}
+            </p>
+
+        </div>
+
 
     {% elif block.type == "code" %}
 
