@@ -9,7 +9,7 @@ from problems import get_problem, PROBLEMS
 from runner import run_problem
 
 # Lesson loader
-from lessons import get_lesson
+from lessons import get_lesson, LESSONS
 
 
 # =====================================================
@@ -31,7 +31,11 @@ def home():
 
 @app.route("/lessons")
 def lessons():
-    return render_template("lessons.html")
+
+    return render_template(
+        "lessons.html",
+        lessons=LESSONS
+    )
 
 
 # =====================================================
