@@ -93,6 +93,27 @@ def profile():
 
 
 # =====================================================
+# LIST PROBLEMS
+# Sends summary data for all available problems.
+# =====================================================
+
+@app.route("/problems")
+def problems_api():
+
+    problem_summaries = []
+
+    for problem in PROBLEMS.values():
+        problem_summaries.append({
+            "id": problem["id"],
+            "lesson_number": problem["lesson_number"],
+            "title": problem["title"],
+            "description": problem["description"],
+        })
+
+    return jsonify(problem_summaries)
+
+
+# =====================================================
 # LOAD A PROBLEM
 # Sends problem data to the frontend as JSON.
 # =====================================================
