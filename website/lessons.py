@@ -133,7 +133,7 @@ LESSONS = {
                     "C. A web browser",
                     "D. An operating system"
                 ],
-                "answer": "B. Python is a programming language - a way for humans to communicate instructions to a computer."
+                "answer": "B. A programming language used to give computers instructions"
             },
 
             {
@@ -272,7 +272,7 @@ print("Hello, Dine Nation!")"""
                     "C. Saves a file",
                     "D. Creates a website"
                 ],
-                "answer": "B. It displays information on the screen."
+                "answer": "B. Displays information on the screen."
             },
 
             {
@@ -618,7 +618,7 @@ returns 4 * 6 = 24"""
                     "C. factorial(0)",
                     "D. factorial(1)"
                 ],
-                "answer": "C. factorial(0) is the base case - it returns 1 immediately without making another recursive call."
+                "answer": "C. factorial(0)"
             },
 
             {
@@ -716,7 +716,7 @@ def print_tree(person, depth=0):
                     "C. Both recursion and iteration work like oral storytelling.",
                     "D. Neither recursion nor iteration resembles either tradition."
                 ],
-                "answer": "A. Each recursive call adds a layer the way a storyteller passes a story down, layer by layer, while iteration repeats the same step over and over, the way a lab experiment repeats a procedure."
+                "answer": "A. Recursion is like oral storytelling, where each call adds a layer; iteration is like a lab experiment, repeated step-by-step."
             },
 
             {
@@ -740,7 +740,7 @@ def print_tree(person, depth=0):
                     "C. hi hi hi hi (four times)",
                     "D. Nothing - it raises a RecursionError"
                 ],
-                "answer": "B. hi hi hi (three times, one per line). times starts at 3 and counts down to 0, printing once on each call before hitting the base case (times > 0 is false)."
+                "answer": "B. hi hi hi (three times, one per line)"
             },
 
             {
