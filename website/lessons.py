@@ -125,9 +125,9 @@ LESSONS = {
 
             {
                 "page": 1,
-                "type": "check",
+                "type": "quiz",
                 "question": "Which statement best describes Python?",
-                "choices": [
+                "options": [
                     "A. A type of computer",
                     "B. A programming language used to give computers instructions",
                     "C. A web browser",
@@ -175,9 +175,9 @@ LESSONS = {
 
             {
                 "page": 1,
-                "type": "check",
+                "type": "quiz",
                 "question": "Which of these is an example of using programming to help a community?",
-                "choices": [
+                "options": [
                     "A. Automatically organizing volunteer schedules",
                     "B. Building a digital language dictionary",
                     "C. Analyzing public community data",
@@ -215,9 +215,9 @@ LESSONS = {
 
             {
                 "page": 1,
-                "type": "check",
+                "type": "quiz",
                 "question": "What does Garbage In, Garbage Out mean?",
-                "choices": [
+                "options": [
                     "A. Computers sometimes become broken",
                     "B. Computers only produce correct results when given correct instructions",
                     "C. Computers automatically fix mistakes",
@@ -264,9 +264,9 @@ print("Hello, Dine Nation!")"""
 
             {
                 "page": 1,
-                "type": "check",
+                "type": "quiz",
                 "question": "What does the print() function do?",
-                "choices": [
+                "options": [
                     "A. Deletes text",
                     "B. Displays information on the screen",
                     "C. Saves a file",
@@ -610,9 +610,9 @@ returns 4 * 6 = 24"""
 
             {
                 "page": 1,
-                "type": "check",
+                "type": "quiz",
                 "question": "In the trace above, which call is the base case?",
-                "choices": [
+                "options": [
                     "A. factorial(4)",
                     "B. factorial(2)",
                     "C. factorial(0)",
@@ -708,9 +708,9 @@ def print_tree(person, depth=0):
 
             {
                 "page": 2,
-                "type": "check",
+                "type": "quiz",
                 "question": "Fred Begay combined Navajo tradition with physics. Which comparison best matches recursion and iteration to two things he grew up with?",
-                "choices": [
+                "options": [
                     "A. Recursion is like oral storytelling, where each call adds a layer; iteration is like a lab experiment, repeated step-by-step.",
                     "B. Recursion is like a lab experiment; iteration is like oral storytelling.",
                     "C. Both recursion and iteration work like oral storytelling.",
@@ -732,9 +732,9 @@ def print_tree(person, depth=0):
 
             {
                 "page": 2,
-                "type": "check",
+                "type": "quiz",
                 "question": "What does echo(\"hi\", 3) print?",
-                "choices": [
+                "options": [
                     "A. hi (once)",
                     "B. hi hi hi (three times, one per line)",
                     "C. hi hi hi hi (four times)",
@@ -762,6 +762,104 @@ def print_tree(person, depth=0):
 
         ]
     },
+    "if_statements": {
+
+    "id": "if_statements",
+
+    "lesson_number": "5",
+
+    "title": "If Statements",
+
+    "blocks": [
+
+        {
+            "type": "heading",
+            "page": 1,
+            "text": "Making Decisions with if Statements"
+        },
+
+        {
+            "type": "paragraph",
+            "page": 1,
+            "text": "Programs often need to make decisions. An if statement lets your code execute only when a condition is True."
+        },
+
+        {
+            "type": "code",
+            "page": 1,
+            "text": "temperature = 75\n\nif temperature > 70:\n    print('It is warm outside!')"
+        },
+
+        {
+            "type": "tip",
+            "page": 1,
+            "text": "The code inside an if statement must be indented. Python uses indentation to determine which code belongs inside the if block."
+        },
+
+
+
+        {
+            "type": "heading",
+            "page": 2,
+            "text": "Comparison Operators"
+        },
+
+        {
+            "type": "paragraph",
+            "page": 2,
+            "text": "Conditions are created using comparison operators."
+        },
+
+        {
+            "type": "list",
+            "page": 2,
+            "items": [
+                "==   Equal to",
+                "!=   Not equal to",
+                ">    Greater than",
+                "<    Less than",
+                ">=   Greater than or equal to",
+                "<=   Less than or equal to"
+            ]
+        },
+
+        {
+            "type": "code",
+            "page": 2,
+            "text": "score = 92\n\nif score >= 90:\n    print('Excellent!')"
+        },
+
+
+
+        {
+            "type": "heading",
+            "page": 3,
+            "text": "Quiz"
+        },
+
+        {
+            "type": "quiz",
+            "page": 3,
+            "question": "Which condition checks whether x is equal to 10?",
+            "options": [
+                "x = 10",
+                "x == 10",
+                "x := 10",
+                "x != 10"
+            ],
+            "answer": "x == 10"
+        },
+
+
+
+        {
+            "type": "exercise",
+            "page": 4,
+            "problem": "if_statements_intro"
+        }
+
+    ]
+}
 }
 
 
