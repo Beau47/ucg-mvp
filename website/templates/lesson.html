@@ -44,7 +44,7 @@
     <div class="lesson-card">
 
         <p class="lesson-number">
-            {{ lesson.lesson_number }}
+            Lesson {{ lesson.lesson_number }}
         </p>
 
         <h2>
@@ -67,129 +67,71 @@
 >
 
 
-{% for block in lesson.blocks %}
+{% for block in lesson["blocks"] %}
 
-{% if block.page == page %}
+{% if block["page"] == page %}
 
-
-    {% if block.type == "heading" %}
+    {% if block["type"] == "heading" %}
 
         <h2 style="margin-bottom:20px;">
-            {{ block.text }}
+            {{ block["text"] }}
         </h2>
 
+    {% elif block["type"] == "paragraph" %}
 
-    {% elif block.type == "paragraph" %}
-
-        <p
-            style="
-                line-height:1.8;
-                margin-bottom:30px;
-                color:#444;
-            "
-        >
-            {{ block.text }}
+        <p style="line-height:1.8; margin-bottom:30px; color:#444;">
+            {{ block["text"] }}
         </p>
 
+    {% elif block["type"] == "code" %}
 
-    {% elif block.type == "code" %}
+        <pre style="background:#1e1e1e;color:white;padding:20px;border-radius:12px;overflow-x:auto;margin-bottom:30px;font-family:'JetBrains Mono', monospace;"><code>{{ block["text"] }}</code></pre>
 
-        <pre
-            style="
-                background:#1e1e1e;
-                color:white;
-                padding:20px;
-                border-radius:12px;
-                overflow-x:auto;
-                margin-bottom:30px;
-                font-family:'JetBrains Mono', monospace;
-            "
-        ><code>{{ block.text }}</code></pre>
-
-
-    {% elif block.type == "image" %}
+    {% elif block["type"] == "image" %}
 
         <img
-            src="{{ block.src }}"
+            src="{{ block["src"] }}"
             alt=""
-            style="
-                max-width:100%;
-                border-radius:12px;
-                margin-bottom:10px;
-            "
+            style="max-width:100%;border-radius:12px;margin-bottom:10px;"
         >
 
-        {% if block.caption %}
+        {% if block["caption"] %}
 
-        <p
-            style="
-                color:#777;
-                font-size:14px;
-                margin-bottom:30px;
-            "
-        >
-            {{ block.caption }}
+        <p style="color:#777;font-size:14px;margin-bottom:30px;">
+            {{ block["caption"] }}
         </p>
 
         {% endif %}
 
+    {% elif block["type"] == "tip" %}
 
-
-    {% elif block.type == "tip" %}
-
-        <div
-            style="
-                background:#eef9f0;
-                border-left:5px solid #2ecc71;
-                padding:20px;
-                border-radius:10px;
-                margin-bottom:30px;
-            "
-        >
+        <div style="background:#eef9f0;border-left:5px solid #2ecc71;padding:20px;border-radius:10px;margin-bottom:30px;">
 
             <strong>💡 Tip</strong>
 
             <p style="margin-top:10px;">
-                {{ block.text }}
+                {{ block["text"] }}
             </p>
 
         </div>
 
+    {% elif block["type"] == "warning" %}
 
-
-    {% elif block.type == "warning" %}
-
-        <div
-            style="
-                background:#fff6e5;
-                border-left:5px solid orange;
-                padding:20px;
-                border-radius:10px;
-                margin-bottom:30px;
-            "
-        >
+        <div style="background:#fff6e5;border-left:5px solid orange;padding:20px;border-radius:10px;margin-bottom:30px;">
 
             <strong>⚠ Warning</strong>
 
             <p style="margin-top:10px;">
-                {{ block.text }}
+                {{ block["text"] }}
             </p>
 
         </div>
 
+    {% elif block["type"] == "list" %}
 
+        <ul style="margin-bottom:30px;margin-left:30px;line-height:2;">
 
-    {% elif block.type == "list" %}
-
-        <ul
-            style="
-                margin-bottom:30px;
-                margin-left:30px;
-                line-height:2;
-            "
-        >
-
-        {% for item in block.items %}
+        {% for item in block["items"] %}
 
             <li>{{ item }}</li>
 
@@ -197,64 +139,87 @@
 
         </ul>
 
+    {% elif block["type"] == "divider" %}
 
+        <hr style="margin:50px 0;border:none;border-top:1px solid #ddd;">
 
-    {% elif block.type == "divider" %}
+    {% elif block["type"] == "quote" %}
 
-        <hr
-            style="
-                margin:50px 0;
-                border:none;
-                border-top:1px solid #ddd;
-            "
-        >
+        <blockquote style="border-left:5px solid #ff8a00;padding-left:20px;color:#555;font-style:italic;margin-bottom:30px;">
 
-
-
-    {% elif block.type == "quote" %}
-
-        <blockquote
-            style="
-                border-left:5px solid #ff8a00;
-                padding-left:20px;
-                color:#555;
-                font-style:italic;
-                margin-bottom:30px;
-            "
-        >
-
-            {{ block.text }}
+            {{ block["text"] }}
 
         </blockquote>
 
-
-
-    {% elif block.type == "exercise" %}
+    {% elif block["type"] == "exercise" %}
 
         <div class="content-card">
 
-            <h2>
-                Ready for an Exercise?
-            </h2>
+            <h2>Ready for an Exercise?</h2>
 
             <p>
                 Complete this coding challenge to test what you learned.
             </p>
 
-
-            <a href="/workspace/{{ block.problem }}">
-
+            <a href="/workspace/{{ block["problem"] }}">
                 <button>
                     Start Exercise →
                 </button>
-
             </a>
 
         </div>
 
+    {% elif block["type"] == "ide" %}
+
+        <div class="lesson-ide">
+
+            <div class="ide-header">
+                <button class="ide-run">
+                    Run ▶
+                </button>
+            </div>
+
+            <div class="ide-instructions">
+                {{ block["instructions"] }}
+            </div>
+
+            <textarea class="ide-editor">{{ block["starter_code"] }}</textarea>
+
+            <div class="ide-output-header">
+                Output
+            </div>
+
+            <pre class="ide-output"></pre>
+
+        </div>
+
+    {% elif block["type"] == "quiz" %}
+
+    <div class="quiz-card" data-required="true">
+
+        <h2>{{ block["question"] }}</h2>
+
+        <div class="quiz-options">
+
+            {% for option in block["options"] %}
+
+            <button
+                class="quiz-option"
+                data-answer="{{ option }}"
+                data-correct="{{ block["answer"] }}"
+            >
+                {{ option }}
+            </button>
+
+            {% endfor %}
+
+        </div>
+
+        <p class="quiz-feedback"></p>
+
+    </div>
 
     {% endif %}
-
 
 {% endif %}
 
@@ -320,6 +285,7 @@
 <a href="/lesson/{{ lesson.id }}/{{ page+1 }}">
 
 <button
+    id="next-button"
     style="
         padding:12px 28px;
         border-radius:999px;
@@ -352,3 +318,176 @@
 </body>
 
 </html>
+
+<script>
+
+document.querySelectorAll(".ide-run").forEach(button => {
+
+    button.addEventListener("click", async () => {
+
+
+        const ide = button.closest(".lesson-ide");
+
+
+        const code =
+            ide.querySelector(".ide-editor").value;
+
+
+        const output =
+            ide.querySelector(".ide-output");
+
+
+        output.textContent = "Running...";
+
+
+        const response = await fetch("/run_snippet", {
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+                code:code
+            })
+
+        });
+
+
+        const data = await response.json();
+
+
+        output.textContent = data.output;
+
+
+    });
+
+});
+
+document.querySelectorAll(".quiz-card").forEach(quiz => {
+
+    let attempts = 0;
+
+    quiz.querySelectorAll(".quiz-option").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const feedback =
+                quiz.querySelector(".quiz-feedback");
+
+
+            if (button.dataset.answer === button.dataset.correct) {
+
+                feedback.textContent = "✅ Correct!";
+
+                quiz.querySelectorAll("button")
+                    .forEach(btn => btn.disabled = true);
+
+            }
+            else {
+
+                attempts++;
+
+                if (attempts < 2) {
+
+                    feedback.textContent =
+                        "❌ Incorrect. Try again!";
+
+                } else {
+
+                    feedback.textContent =
+                        "❌ The correct answer is: "
+                        + button.dataset.correct;
+
+                    quiz.querySelectorAll("button")
+                        .forEach(btn => btn.disabled = true);
+                }
+            }
+
+        });
+
+    });
+
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const quizzes = document.querySelectorAll(".quiz-card[data-required='true']");
+    const nextButton = document.getElementById("next-button");
+
+    let completedQuizzes = 0;
+
+
+    // If no quizzes exist, allow navigation normally
+    if (quizzes.length === 0) {
+        return;
+    }
+
+
+    // Disable next button initially
+    if (nextButton) {
+        nextButton.disabled = true;
+        nextButton.style.opacity = "0.5";
+        nextButton.style.cursor = "not-allowed";
+    }
+
+
+    quizzes.forEach(quiz => {
+
+        const feedback = quiz.querySelector(".quiz-feedback");
+
+        quiz.querySelectorAll(".quiz-option").forEach(button => {
+
+            button.addEventListener("click", () => {
+
+
+                // Prevent multiple completions
+                if (quiz.dataset.completed === "true") {
+                    return;
+                }
+
+
+                if (button.dataset.answer === button.dataset.correct) {
+
+                    feedback.textContent = "✅ Correct!";
+
+                    quiz.dataset.completed = "true";
+
+                    completedQuizzes++;
+
+
+                    quiz.querySelectorAll(".quiz-option")
+                        .forEach(btn => btn.disabled = true);
+
+
+
+                    // Enable next button when all quizzes done
+                    if (completedQuizzes === quizzes.length) {
+
+                        if (nextButton) {
+
+                            nextButton.disabled = false;
+                            nextButton.style.opacity = "1";
+                            nextButton.style.cursor = "pointer";
+
+                        }
+
+                    }
+
+
+                } else {
+
+                    feedback.textContent = "❌ Incorrect. Try again!";
+
+                }
+
+            });
+
+        });
+
+    });
+
+});
+
+</script>

@@ -67,3 +67,28 @@ def run_problem(code, problem):
             "percentage": "N/A",
             "error": str(e)
         }
+
+
+# =====================================================
+# RUN QUICK CODE SNIPPETS
+# Executes small pieces of code from lesson IDE blocks.
+# No grading or test cases are used.
+# =====================================================
+
+def run_snippet(code):
+
+    import io
+    from contextlib import redirect_stdout
+
+    output = io.StringIO()
+
+    try:
+
+        with redirect_stdout(output):
+            exec(code, {})
+
+        return output.getvalue()
+
+    except Exception as e:
+
+        return str(e)

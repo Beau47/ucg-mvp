@@ -571,3 +571,367 @@ body {
     transform: translateY(-2px);
 
 }
+
+/* ===================================================== */
+/* LESSON MINI IDE                                       */
+/* Interactive coding blocks inside lessons              */
+/* ===================================================== */
+
+
+.lesson-ide {
+
+    background:#1e1e1e;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    margin:30px 0;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+
+}
+
+
+
+.ide-header {
+
+    height:50px;
+
+    background:#2d2d2d;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 20px;
+
+}
+
+
+
+.ide-file {
+
+    color:#d4d4d4;
+
+    font-family:"JetBrains Mono", monospace;
+
+    font-size:14px;
+
+}
+
+
+
+.ide-run {
+
+    background:linear-gradient(
+        90deg,
+        #ff512f,
+        #ff8a00
+    );
+
+    border:none;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    font-family:"Poppins", sans-serif;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+
+.ide-run:hover {
+
+    transform:translateY(-1px);
+
+}
+
+
+
+.ide-instructions {
+
+    background:#252526;
+
+    color:#bcbcbc;
+
+    padding:15px 20px;
+
+    font-size:14px;
+
+    font-family:"Poppins", sans-serif;
+
+}
+
+
+
+.ide-editor {
+
+    width:100%;
+
+    height:180px;
+
+    resize:none;
+
+    border:none;
+
+    outline:none;
+
+    padding:20px;
+
+    background:#1e1e1e;
+
+    color:#d4d4d4;
+
+    font-family:"JetBrains Mono", monospace;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+}
+
+
+
+.ide-output-header {
+
+    background:#252526;
+
+    color:#aaa;
+
+    padding:12px 20px;
+
+    font-size:14px;
+
+    border-top:1px solid #333;
+
+}
+
+
+
+.ide-output {
+
+    min-height:60px;
+
+    padding:20px;
+
+    margin:0;
+
+    color:#d4d4d4;
+
+    font-family:"JetBrains Mono", monospace;
+
+    background:#181818;
+
+}/* ===================================================== */
+/* LESSON MINI IDE                                       */
+/* Interactive coding blocks inside lessons              */
+/* ===================================================== */
+
+
+.lesson-ide {
+
+    background:#1e1e1e;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    margin:30px 0;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+
+}
+
+
+
+.ide-header {
+
+    height:50px;
+
+    background:#2d2d2d;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 20px;
+
+}
+
+
+
+.ide-file {
+
+    color:#d4d4d4;
+
+    font-family:"JetBrains Mono", monospace;
+
+    font-size:14px;
+
+}
+
+
+
+.ide-run {
+
+    background:linear-gradient(
+        90deg,
+        #ff512f,
+        #ff8a00
+    );
+
+    border:none;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    font-family:"Poppins", sans-serif;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+
+.ide-run:hover {
+
+    transform:translateY(-1px);
+
+}
+
+
+
+.ide-instructions {
+
+    background:#252526;
+
+    color:#bcbcbc;
+
+    padding:15px 20px;
+
+    font-size:14px;
+
+    font-family:"Poppins", sans-serif;
+
+}
+
+
+
+.ide-editor {
+
+    width:100%;
+
+    height:180px;
+
+    resize:none;
+
+    border:none;
+
+    outline:none;
+
+    padding:20px;
+
+    background:#1e1e1e;
+
+    color:#d4d4d4;
+
+    font-family:"JetBrains Mono", monospace;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+}
+
+
+
+.ide-output-header {
+
+    background:#252526;
+
+    color:#aaa;
+
+    padding:12px 20px;
+
+    font-size:14px;
+
+    border-top:1px solid #333;
+
+}
+
+
+
+.ide-output {
+
+    min-height:60px;
+
+    padding:20px;
+
+    margin:0;
+
+    color:#d4d4d4;
+
+    font-family:"JetBrains Mono", monospace;
+
+    background:#181818;
+
+}
+
+.quiz-card {
+    background:#f8f8fc;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:30px;
+}
+
+
+.quiz-options {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:20px;
+}
+
+
+.quiz-option {
+    text-align:left;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    cursor:pointer;
+    font-family:'Poppins';
+    font-size:15px;
+}
+
+
+.quiz-option:hover {
+    background:#eee;
+}
+
+
+.quiz-feedback {
+    margin-top:15px;
+    font-weight:600;
+}
+
+button:disabled {
+    pointer-events: none;
+}

@@ -6,7 +6,7 @@
 # Flask modules for creating routes and returning responses
 from flask import Flask, render_template, request, jsonify
 from problems import get_problem, PROBLEMS
-from runner import run_problem
+from runner import run_problem, run_snippet
 
 # Lesson loader
 from lessons import get_lesson, LESSONS
@@ -165,6 +165,26 @@ def run_code():
 
     # Send the results back to the frontend
     return jsonify(result)
+
+# =====================================================
+# RUN QUICK CODE SNIPPETS
+# Executes small pieces of code from lesson IDE blocks.
+# Unlike exercises, snippets are not graded and only
+# return the program output.
+# =====================================================
+
+@app.route("/run_snippet", methods=["POST"])
+def run_snippet_api():
+
+    data = request.get_json()
+
+    code = data["code"]
+
+    result = run_snippet(code)
+
+    return jsonify({
+        "output": result
+    })
 
 
 # =====================================================
