@@ -282,7 +282,10 @@
 
 {% if page < total_pages %}
 
-<a href="/lesson/{{ lesson.id }}/{{ page+1 }}">
+<a
+    id="next-link"
+    href="/lesson/{{ lesson.id }}/{{ page+1 }}"
+>
 
 <button
     id="next-button"
@@ -325,17 +328,13 @@ document.querySelectorAll(".ide-run").forEach(button => {
 
     button.addEventListener("click", async () => {
 
-
         const ide = button.closest(".lesson-ide");
-
 
         const code =
             ide.querySelector(".ide-editor").value;
 
-
         const output =
             ide.querySelector(".ide-output");
-
 
         output.textContent = "Running...";
 
@@ -360,133 +359,194 @@ document.querySelectorAll(".ide-run").forEach(button => {
 
         output.textContent = data.output;
 
-
     });
 
 });
 
-document.querySelectorAll(".quiz-card").forEach(quiz => {
 
-    let attempts = 0;
-
-    quiz.querySelectorAll(".quiz-option").forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            const feedback =
-                quiz.querySelector(".quiz-feedback");
-
-
-            if (button.dataset.answer === button.dataset.correct) {
-
-                feedback.textContent = "✅ Correct!";
-
-                quiz.querySelectorAll("button")
-                    .forEach(btn => btn.disabled = true);
-
-            }
-            else {
-
-                attempts++;
-
-                if (attempts < 2) {
-
-                    feedback.textContent =
-                        "❌ Incorrect. Try again!";
-
-                } else {
-
-                    feedback.textContent =
-                        "❌ The correct answer is: "
-                        + button.dataset.correct;
-
-                    quiz.querySelectorAll("button")
-                        .forEach(btn => btn.disabled = true);
-                }
-            }
-
-        });
-
-    });
-
-});
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const quizzes = document.querySelectorAll(".quiz-card[data-required='true']");
-    const nextButton = document.getElementById("next-button");
+
+    const quizzes =
+        document.querySelectorAll(".quiz-card[data-required='true']");
+
+
+    const nextButton =
+        document.getElementById("next-button");
+
+
+    const nextLink =
+        document.getElementById("next-link");
+
 
     let completedQuizzes = 0;
 
 
-    // If no quizzes exist, allow navigation normally
+
+    // No quizzes on this page
     if (quizzes.length === 0) {
         return;
     }
 
 
-    // Disable next button initially
-    if (nextButton) {
+
+    // Lock next button initially
+    if (nextButton && nextLink) {
+
         nextButton.disabled = true;
-        nextButton.style.opacity = "0.5";
-        nextButton.style.cursor = "not-allowed";
+
+        nextLink.style.pointerEvents = "none";
+
+        nextLink.style.opacity = "0.5";
+
     }
+
 
 
     quizzes.forEach(quiz => {
 
-        const feedback = quiz.querySelector(".quiz-feedback");
 
-        quiz.querySelectorAll(".quiz-option").forEach(button => {
+        const feedback =
+            quiz.querySelector(".quiz-feedback");
+
+
+
+        quiz.querySelectorAll(".quiz-option")
+            .forEach(button => {
+
+
 
             button.addEventListener("click", () => {
 
 
-                // Prevent multiple completions
+
+                // Ignore clicks after completion
                 if (quiz.dataset.completed === "true") {
                     return;
                 }
 
 
-                if (button.dataset.answer === button.dataset.correct) {
 
-                    feedback.textContent = "✅ Correct!";
+                /*
+                    Remove previous answer colors
+                    so only one option is highlighted
+                */
 
-                    quiz.dataset.completed = "true";
+                quiz.querySelectorAll(".quiz-option")
+                    .forEach(btn => {
+
+                        btn.style.backgroundColor = "";
+                        btn.style.color = "";
+
+                    });
+
+
+
+                /*
+                    Correct answer
+                */
+
+                if (
+                    button.dataset.answer ===
+                    button.dataset.correct
+                ) {
+
+
+                    button.style.backgroundColor =
+                        "#2ecc71";
+
+                    button.style.color =
+                        "white";
+
+
+                    feedback.textContent =
+                        "✅ Correct!";
+
+
+                    quiz.dataset.completed =
+                        "true";
+
 
                     completedQuizzes++;
 
 
+
                     quiz.querySelectorAll(".quiz-option")
-                        .forEach(btn => btn.disabled = true);
+                        .forEach(btn => {
+
+                            btn.disabled = true;
+
+                        });
 
 
 
-                    // Enable next button when all quizzes done
-                    if (completedQuizzes === quizzes.length) {
+                    /*
+                        Unlock next page
+                        when all quizzes are completed
+                    */
 
-                        if (nextButton) {
+                    if (
+                        completedQuizzes === quizzes.length
+                    ) {
+
+
+                        if (nextButton && nextLink) {
 
                             nextButton.disabled = false;
-                            nextButton.style.opacity = "1";
-                            nextButton.style.cursor = "pointer";
+
+
+                            nextLink.style.pointerEvents =
+                                "auto";
+
+
+                            nextLink.style.opacity =
+                                "1";
 
                         }
 
                     }
 
 
-                } else {
-
-                    feedback.textContent = "❌ Incorrect. Try again!";
 
                 }
 
+
+
+                /*
+                    Incorrect answer
+                */
+
+                else {
+
+
+                    button.style.backgroundColor =
+                        "#e74c3c";
+
+
+                    button.style.color =
+                        "white";
+
+
+                    feedback.textContent =
+                        "❌ Incorrect. Try again!";
+
+
+                }
+
+
+
             });
+
+
 
         });
 
+
+
     });
+
+
 
 });
 
