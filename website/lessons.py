@@ -272,7 +272,7 @@ print("Hello, Dine Nation!")"""
                     "C. Saves a file",
                     "D. Creates a website"
                 ],
-                "answer": "B. Displays information on the screen."
+                "answer": "B. Displays information on the screen"
             },
 
             {
@@ -1155,7 +1155,465 @@ else:
         }
 
     ]
-    }
+    },
+    "loops": {
+
+    "id": "loops",
+
+    "lesson_number": "4",
+
+    "title": "Loops",
+
+    "blocks": [
+
+        {
+            "page": 1,
+            "type": "heading",
+            "text": "Unit 4: Loops"
+        },
+
+        {
+            "page": 1,
+            "type": "paragraph",
+            "text":
+            "By the end of this lesson, students will be able to use for and while loops, "
+            "control loops with break and continue, understand range(), and process data "
+            "from CSV files. Students will learn how computers repeat tasks efficiently "
+            "and how loops are used in real-world data systems."
+        },
+
+
+        {
+            "page": 1,
+            "type": "heading",
+            "text": "Vocabulary"
+        },
+
+        {
+            "page": 1,
+            "type": "list",
+            "items": [
+                "Loop - Code that repeats until a condition is met",
+                "range() - A Python function that generates a sequence of numbers",
+                "CSV - A spreadsheet-like file where values are separated by commas",
+                "Iteration - One repetition of a loop",
+                "break - A keyword that immediately exits a loop",
+                "continue - A keyword that skips the current iteration"
+            ]
+        },
+
+
+        {
+            "page": 1,
+            "type": "tip",
+            "text":
+            "Women of Color Spotlight: Lorena Mesa is a Latina Python Software Foundation "
+            "chair who has helped improve Python communities. Dr. Gladys West is a Black "
+            "mathematician whose work helped create modern GPS technology."
+        },
+
+
+        {
+            "page": 2,
+            "type": "heading",
+            "text": "Why Do We Use Loops?"
+        },
+
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text":
+            "Imagine you had to send the same message to 1,000 people. Instead of writing "
+            "the same code 1,000 times, a loop lets the computer repeat instructions "
+            "automatically."
+        },
+
+
+        {
+            "page": 2,
+            "type": "heading",
+            "text": "For Loops"
+        },
+
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text":
+            "A for loop is used when you know what you want to loop through. "
+            "This can be a list, string, or range of numbers."
+        },
+
+
+        {
+            "page": 2,
+            "type": "code",
+            "text":
+"""artists = [
+    "Rhapsody",
+    "Peso Pluma",
+    "Usher",
+    "Jhené Aiko"
+]
+
+for artist in artists:
+    print(f"{artist} stays on repeat!")
+"""
+        },
+
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text":
+            "Your Turn: Create a list of your favorite artists or songs. "
+            "Use a for loop to print a message for each item."
+        },
+
+
+        {
+            "page": 3,
+            "type": "heading",
+            "text": "Using range()"
+        },
+
+
+        {
+            "page": 3,
+            "type": "paragraph",
+            "text":
+            "The range() function creates a sequence of numbers. "
+            "It is commonly used with for loops."
+        },
+
+
+        {
+            "page": 3,
+            "type": "code",
+            "text":
+"""for i in range(1, 6):
+    print(f"Verse {i}")
+"""
+        },
+
+
+        {
+            "page": 3,
+            "type": "paragraph",
+            "text":
+            "range(start, stop, step) allows you to control where counting begins, "
+            "where it ends, and how much it changes each time."
+        },
+
+
+        {
+            "page": 3,
+            "type": "code",
+            "text":
+"""for number in range(10, 0, -1):
+    print(number)
+
+print("Let's go!")
+"""
+        },
+
+
+        {
+            "page": 4,
+            "type": "heading",
+            "text": "Break and Continue"
+        },
+
+
+        {
+            "page": 4,
+            "type": "paragraph",
+            "text":
+            "break stops a loop completely. continue skips the current iteration "
+            "and moves to the next one."
+        },
+
+
+        {
+            "page": 4,
+            "type": "code",
+            "text":
+"""foods = [
+    "Wings",
+    "Tofu",
+    "Pork",
+    "Mac & Cheese"
+]
+
+for food in foods:
+
+    if food == "Pork":
+        continue
+
+    print(food)
+"""
+        },
+
+
+        {
+            "page": 4,
+            "type": "paragraph",
+            "text":
+            "Your Turn: Create a list and use continue to skip something. "
+            "Then use break to stop when a certain item appears."
+        },
+
+
+        {
+            "page": 5,
+            "type": "heading",
+            "text": "While Loops"
+        },
+
+
+        {
+            "page": 5,
+            "type": "paragraph",
+            "text":
+            "A while loop repeats while a condition remains True. "
+            "Use while loops when you do not know exactly how many repetitions you need."
+        },
+
+
+        {
+            "page": 5,
+            "type": "code",
+            "text":
+"""energy = 5
+
+while energy > 0:
+    print("Still working!")
+    energy -= 1
+
+print("Break time!")
+"""
+        },
+
+
+        {
+            "page": 5,
+            "type": "warning",
+            "text":
+            "Be careful! If the condition never becomes False, the loop will run forever."
+        },
+
+
+        {
+            "page": 6,
+            "type": "heading",
+            "text": "Working With CSV Files"
+        },
+
+
+        {
+            "page": 6,
+            "type": "paragraph",
+            "text":
+            "CSV files store information in rows and columns. Python can read these files "
+            "using the csv module."
+        },
+
+
+        {
+            "page": 6,
+            "type": "code",
+            "text":
+"""import csv
+
+with open("students.csv") as file:
+
+    reader = csv.DictReader(file)
+
+    for row in reader:
+
+        print(
+            f"{row['name']} lives in {row['city']}"
+        )
+"""
+        },
+
+
+        {
+            "page": 6,
+            "type": "tip",
+            "text":
+            "Loops are powerful because they allow programmers to analyze thousands "
+            "of rows of information quickly."
+        },
+
+
+        {
+            "page": 7,
+            "type": "heading",
+            "text": "Nested Loops"
+        },
+
+
+        {
+            "page": 7,
+            "type": "paragraph",
+            "text":
+            "A nested loop is a loop inside another loop. They are useful for searching "
+            "through groups of data, such as folders inside folders."
+        },
+
+
+        {
+            "page": 7,
+            "type": "code",
+            "text":
+"""domains = [
+    ".edu",
+    ".gov",
+    ".africa"
+]
+
+pages = [
+    "/home",
+    "/research",
+    "/team"
+]
+
+
+for domain in domains:
+
+    for page in pages:
+
+        print(
+            f"https://www{domain}{page}"
+        )
+"""
+        },
+
+
+        {
+            "page": 8,
+            "type": "heading",
+            "text": "Searching With Loops"
+        },
+
+
+        {
+            "page": 8,
+            "type": "paragraph",
+            "text":
+            "Linear search checks each item one by one. Binary search is faster because "
+            "it repeatedly cuts a sorted list in half."
+        },
+
+
+        {
+            "page": 8,
+            "type": "code",
+            "text":
+"""left = 0
+right = len(arr) - 1
+
+while left <= right:
+
+    mid = (left + right) // 2
+
+    if arr[mid] == target:
+        return mid
+
+    elif arr[mid] < target:
+        left = mid + 1
+
+    else:
+        right = mid - 1
+
+return -1
+"""
+        },
+
+
+        {
+            "page": 9,
+            "type": "heading",
+            "text": "Debug Challenge"
+        },
+
+
+        {
+            "page": 9,
+            "type": "paragraph",
+            "text":
+            "Find the error in this code:"
+        },
+
+
+        {
+            "page": 9,
+            "type": "code",
+            "text":
+"""for i in range(5)
+
+    print(i)
+"""
+        },
+
+
+        {
+            "page": 9,
+            "type": "paragraph",
+            "text":
+            "Hint: Python requires punctuation after certain statements."
+        },
+
+
+        {
+            "page": 9,
+            "type": "code",
+            "text":
+"""# Fixed version
+
+for i in range(5):
+
+    print(i)
+"""
+        },
+
+
+        {
+            "page": 10,
+            "type": "heading",
+            "text": "Practice Challenge"
+        },
+
+
+        {
+            "page": 10,
+            "type": "paragraph",
+            "text":
+            "Create a program that searches through a list of names and prints only "
+            "names that start with the letter A."
+        },
+
+
+        {
+            "page": 10,
+            "type": "code",
+            "text":
+"""names = [
+    "Ali",
+    "Beth",
+    "Andrew",
+    "Zane",
+    "Angela"
+]
+
+# Write your loop here
+"""
+        }
+
+    ]
+}
 }
 
 
