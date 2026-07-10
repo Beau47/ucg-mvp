@@ -302,6 +302,8 @@ print("Hello, Dine Nation!")"""
 
         "lesson_number": "1",
 
+        "description": "Learn how Python stores information using variables, strings, numbers, and basic data types.",
+
         "title": "Variables",
 
         "blocks": [
@@ -368,93 +370,1265 @@ print(x)""",
     },
 
 
-    "data_types": {
+    "conditionals": {
 
-        "id": "data_types",
+    "id": "conditionals",
 
-        "lesson_number": "2",
+    "lesson_number": "2",
 
-        "title": "Data Types",
+    "description": "Use if, elif, and else statements to help programs make decisions with logical thinking.",
 
-        "blocks": [
+    "title": "Conditionals",
 
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "What are Data Types?"
-            },
+    "blocks": [
 
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text":
-                "Data types describe the kind of information a variable stores. Python automatically determines the type of a value when it is assigned."
-            },
+        # =====================================================
+        # PAGE 1: INTRODUCTION
+        # =====================================================
 
-            {
-                "page": 2,
-                "type": "ide",
-                "language": "python",
-                "starter_code":
-"""name = "Alex"
-age = 15
-height = 5.8
+        {
+            "page": 1,
+            "type": "heading",
+            "text": "Unit 2: Conditionals — Teaching Python to Make Decisions"
+        },
 
-print(name)
-print(age)
-print(height)""",
-                "instructions":
-                "Change the values of the variables and observe how the output changes."
-            },
+        {
+            "page": 1,
+            "type": "paragraph",
+            "text": """
+            Programs make decisions the same way people do every day.
+            A concert bouncer checks: Is your ticket valid? Are you on the VIP list?
+            Are you old enough to enter?
 
-            {
-                "page": 2,
-                "type": "paragraph",
-                "text":
-                "The variable name stores text (a string), age stores a whole number (an integer), and height stores a decimal number (a float)."
-            },
+            Python uses conditional statements to follow these same yes/no
+            decision paths. With if, elif, and else, programs can choose what
+            happens next.
+            """
+        },
 
-            {
-                "page": 2,
-                "type": "image",
-                "src": "/static/images/data_types.png",
-                "caption": "Python has different types of data for storing information."
-            },
+        {
+            "page": 1,
+            "type": "tip",
+            "text": """
+            By the end of this lesson, you will be able to:
+            • Write if/elif/else statements
+            • Combine conditions using and/or/not
+            • Debug common conditional errors
+            • Build programs that make real-world decisions
+            """
+        },
 
-            {
-                "page": 2,
-                "type": "tip",
-                "text":
-                "Use the type() function to check what type of value a variable contains."
-            },
+        {
+            "page": 1,
+            "type": "heading",
+            "text": "Focus: Latinx in AI & Decision-Making"
+        },
 
-            {
-                "page": 2,
-                "type": "ide",
-                "language": "python",
-                "starter_code":
-"""x = 10
+        {
+            "page": 1,
+            "type": "paragraph",
+            "text": """
+            Luis von Ahn, a Guatemalan-American computer scientist and
+            co-founder of Duolingo, used technology and decision-making
+            systems to make language learning more accessible.
 
-print(type(x))""",
-                "instructions":
-                "Change the value of x and check how Python identifies different data types."
-            },
+            Conditional logic powers many systems people use every day,
+            from learning apps to accessibility tools.
+            """
+        },
 
-            {
-                "page": 2,
-                "type": "warning",
-                "text":
-                "Remember that strings must be surrounded by quotes."
-            },
 
-            {
-                "page": 3,
-                "type": "exercise",
-                "problem": "create_variables"
-            }
+        # =====================================================
+        # PAGE 2: BOOLEAN VALUES
+        # =====================================================
 
-        ]
+        {
+            "page": 2,
+            "type": "heading",
+            "text": "Boolean Values: True or False"
+        },
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text": """
+            A Boolean is a value that can only be True or False.
+
+            Think of a Boolean like a traffic light:
+            True means go.
+            False means stop.
+
+            Python creates Boolean values when it compares information.
+            """
+        },
+
+        {
+            "page": 2,
+            "type": "code",
+            "text": """
+print(5 > 3)
+
+# Output:
+True
+"""
+        },
+
+        {
+            "page": 2,
+            "type": "heading",
+            "text": "Comparison Operators"
+        },
+
+        {
+            "page": 2,
+            "type": "list",
+            "items": [
+                "== checks if two values are equal",
+                "!= checks if two values are different",
+                "> checks if one value is greater",
+                "< checks if one value is smaller",
+                ">= checks if one value is greater than or equal"
+            ]
+        },
+
+        {
+            "page": 2,
+            "type": "quiz",
+            "question": "What type of value can a Boolean store?",
+            "options": [
+                "A number",
+                "A True or False value",
+                "A sentence",
+                "A list"
+            ],
+            "answer": "A True or False value"
+        },
+
+
+        # =====================================================
+        # PAGE 3: IF STATEMENTS
+        # =====================================================
+
+        {
+            "page": 3,
+            "type": "heading",
+            "text": "Making Decisions with if"
+        },
+
+        {
+            "page": 3,
+            "type": "paragraph",
+            "text": """
+            An if statement runs code only when a condition is True.
+
+            Python uses indentation to show which lines belong inside
+            the decision block.
+            """
+        },
+
+        {
+            "page": 3,
+            "type": "code",
+            "text": """
+age = 18
+
+if age >= 18:
+    print("You can vote.")
+"""
+        },
+
+        {
+            "page": 3,
+            "type": "ide",
+            "instructions": "Create an if statement that prints VIP when a gold ticket is selected.",
+            "starter_code": """
+ticket_type = "gold"
+
+# Write your condition below
+
+"""
+        },
+
+
+        # =====================================================
+        # PAGE 4: ELSE AND ELIF
+        # =====================================================
+
+        {
+            "page": 4,
+            "type": "heading",
+            "text": "Adding More Paths with elif and else"
+        },
+
+        {
+            "page": 4,
+            "type": "paragraph",
+            "text": """
+            Sometimes programs need more than two choices.
+
+            elif creates another possible path.
+            else provides a default option when no conditions are true.
+            """
+        },
+
+        {
+            "page": 4,
+            "type": "code",
+            "text": """
+grade = 85
+
+if grade >= 90:
+    print("A")
+elif grade >= 70:
+    print("C")
+else:
+    print("Keep practicing.")
+"""
+        },
+
+        {
+            "page": 4,
+            "type": "quiz",
+            "question": "Which keyword checks another condition after an if fails?",
+            "options": [
+                "then",
+                "elif",
+                "elseif",
+                "check"
+            ],
+            "answer": "elif"
+        },
+
+
+        # =====================================================
+        # PAGE 5: LOGICAL OPERATORS
+        # =====================================================
+
+        {
+            "page": 5,
+            "type": "heading",
+            "text": "Combining Conditions with Logic"
+        },
+
+        {
+            "page": 5,
+            "type": "paragraph",
+            "text": """
+            Logical operators allow programs to combine multiple conditions.
+
+            AND means every condition must be True.
+
+            OR means at least one condition must be True.
+
+            NOT reverses a Boolean value.
+            """
+        },
+
+        {
+            "page": 5,
+            "type": "code",
+            "text": """
+late = False
+homework_done = True
+
+if not late and homework_done:
+    print("You're on track!")
+else:
+    print("Check your work.")
+"""
+        },
+
+        {
+            "page": 5,
+            "type": "ide",
+            "instructions": "Modify the conditions to test different outcomes.",
+            "starter_code": """
+hungry = True
+money = False
+coupon = True
+
+if (hungry and money) or coupon:
+    print("Time to eat!")
+else:
+    print("Wait for another option.")
+"""
+        },
+
+
+        # =====================================================
+        # PAGE 6: DEBUGGING
+        # =====================================================
+
+        {
+            "page": 6,
+            "type": "heading",
+            "text": "Debugging Conditional Errors"
+        },
+
+        {
+            "page": 6,
+            "type": "paragraph",
+            "text": """
+            A common mistake is using = instead of ==.
+
+            = assigns a value.
+            == compares two values.
+            """
+        },
+
+        {
+            "page": 6,
+            "type": "code",
+            "text": """
+# Incorrect
+
+snack = "Hot Cheetos"
+
+if snack = "Hot Cheetos":
+    print("Spicy choice!")
+
+
+# Correct
+
+if snack == "Hot Cheetos":
+    print("Spicy choice!")
+"""
+        },
+
+        {
+            "page": 6,
+            "type": "ide",
+            "instructions": "Fix the conditional error.",
+            "starter_code": """
+score = 92
+
+if score > 90
+    print("A+ Student!")
+"""
+        },
+
+        {
+            "page": 6,
+            "type": "quiz",
+            "question": "What error occurs when a colon is missing after an if statement?",
+            "options": [
+                "SyntaxError",
+                "RuntimeError",
+                "LogicError",
+                "No error"
+            ],
+            "answer": "SyntaxError"
+        },
+
+
+        # =====================================================
+        # PAGE 7: REAL WORLD APPLICATION
+        # =====================================================
+
+        {
+            "page": 7,
+            "type": "heading",
+            "text": "Applying Conditionals: SNAP Eligibility Checker"
+        },
+
+        {
+            "page": 7,
+            "type": "paragraph",
+            "text": """
+            Decision-making programs are used in real-world systems.
+
+            This example checks whether someone meets requirements:
+            • Income must be below 2000
+            • The person must be a student or unemployed
+            """
+        },
+
+        {
+            "page": 7,
+            "type": "code",
+            "text": """
+income = 1800
+is_student = True
+is_unemployed = False
+
+if income < 2000 and (is_student or is_unemployed):
+    print("Approved")
+else:
+    print("Needs Review")
+"""
+        },
+
+        {
+            "page": 7,
+            "type": "exercise",
+            "problem": "snap_checker"
+        }
+
+    ]
     },
+    "lists_dictionaries": {
+
+    "id": "lists_dictionaries",
+
+    "lesson_number": "3",
+
+    "description": "Organize, access, and modify collections of data using Python lists and dictionaries.",
+
+    "title": "Lists & Dictionaries",
+
+    "blocks": [
+
+        {
+            "page": 1,
+            "type": "heading",
+            "text": "Unit 3: Lists & Dictionaries"
+        },
+
+        {
+            "page": 1,
+            "type": "paragraph",
+            "text":
+            "In this lesson, you will learn how Python stores and organizes information using lists and dictionaries. "
+            "You will practice accessing data, changing values, looping through collections, and loading JSON data."
+        },
+
+        {
+            "page": 1,
+            "type": "tip",
+            "text":
+            "Focus: African & Afro-Caribbean Data Science\n\n"
+            "Spotlight: Anne-Marie Imafidon — STEM advocate who uses technology and education to expand access to computer science.\n\n"
+            "Spotlight: Alan Emtage — Barbadian computer scientist who created Archie, one of the first internet search tools."
+        },
+
+        {
+            "page": 1,
+            "type": "heading",
+            "text": "Vocabulary"
+        },
+
+        {
+            "page": 1,
+            "type": "list",
+            "items": [
+                "List — An ordered collection of items: ['apple', 'banana']",
+                "Index — The position of an item in a list. Indexing starts at 0.",
+                "Append — Adds a new item to the end of a list.",
+                "Slice — Selects part of a list using a range of indexes.",
+                "Dictionary — A collection of key-value pairs.",
+                "Key / Value — A lookup name and the information connected to it.",
+                "JSON — A text format for storing and sharing structured data."
+            ]
+        },
+
+
+        {
+            "page": 2,
+            "type": "heading",
+            "text": "1. Creating and Accessing Lists"
+        },
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text":
+            "Lists store multiple values in one variable. Each item has a position called an index. "
+            "Python starts counting indexes at 0."
+        },
+
+        {
+            "page": 2,
+            "type": "code",
+            "text":
+"""playlist = [
+    "Kendrick Lamar",
+    "SZA",
+    "Bad Bunny",
+    "Tems"
+]
+
+print(playlist[0])
+print(playlist[-1])"""
+        },
+
+        {
+            "page": 2,
+            "type": "tip",
+            "text":
+            "Remember: playlist[0] gives the first item, while playlist[-1] gives the last item."
+        },
+
+        {
+            "page": 2,
+            "type": "ide",
+            "instructions":
+            "Create your own playlist list with four artists or creators. Print the second and last items.",
+
+            "starter_code":
+"""my_playlist = [
+    "Artist 1",
+    "Artist 2",
+    "Artist 3",
+    "Artist 4"
+]
+
+# Print the second and last artists here
+"""
+        },
+
+
+        {
+            "page": 3,
+            "type": "heading",
+            "text": "2. Changing Lists"
+        },
+
+        {
+            "page": 3,
+            "type": "paragraph",
+            "text":
+            "Lists can be changed after they are created. This is called mutation. "
+            "You can replace values or add new items."
+        },
+
+        {
+            "page": 3,
+            "type": "code",
+            "text":
+"""playlist = [
+    "Kendrick Lamar",
+    "SZA",
+    "Bad Bunny"
+]
+
+playlist[1] = "Beyoncé"
+
+playlist.append("Burna Boy")
+
+print(playlist)
+
+print(len(playlist))"""
+        },
+
+        {
+            "page": 3,
+            "type": "exercise",
+            "problem": "list_mutation"
+        },
+
+
+        {
+            "page": 4,
+            "type": "heading",
+            "text": "3. Working With Dictionaries"
+        },
+
+        {
+            "page": 4,
+            "type": "paragraph",
+            "text":
+            "Dictionaries store information using key-value pairs. "
+            "Instead of accessing data by position, you access it using a key."
+        },
+
+        {
+            "page": 4,
+            "type": "code",
+            "text":
+"""profile = {
+    "name": "Zion",
+    "city": "Tulsa",
+    "favorite_artist": "J. Cole"
+}
+
+print(profile["city"])"""
+        },
+
+        {
+            "page": 4,
+            "type": "ide",
+            "instructions":
+            "Create a dictionary about yourself. Include name, grade, and favorite food. Print your favorite food.",
+
+            "starter_code":
+"""profile = {
+    "name": "",
+    "grade": "",
+    "favorite_food": ""
+}
+
+# Print your favorite food
+"""
+        },
+
+
+        {
+            "page": 5,
+            "type": "heading",
+            "text": "4. Updating Dictionaries"
+        },
+
+        {
+            "page": 5,
+            "type": "code",
+            "text":
+"""profile = {
+    "name": "Zion",
+    "city": "Tulsa"
+}
+
+profile["hobby"] = "Coding"
+
+profile["favorite_food"] = "Fried Rice"
+
+print(profile)"""
+        },
+
+        {
+            "page": 5,
+            "type": "paragraph",
+            "text":
+            "You can add new keys or change existing values by assigning a new value."
+        },
+
+
+        {
+            "page": 6,
+            "type": "heading",
+            "text": "5. Looping Through Collections"
+        },
+
+        {
+            "page": 6,
+            "type": "paragraph",
+            "text":
+            "Loops allow programs to analyze every item in a collection without writing repeated code."
+        },
+
+        {
+            "page": 6,
+            "type": "code",
+            "text":
+"""leaders = [
+    "Angela Davis",
+    "Malcolm X",
+    "Cesar Chavez"
+]
+
+for leader in leaders:
+    print(f"{leader} inspired change.")"""
+        },
+
+        {
+            "page": 6,
+            "type": "code",
+            "text":
+"""sneaker = {
+    "brand": "Nike",
+    "style": "Air Max",
+    "year": 2023
+}
+
+for key, value in sneaker.items():
+    print(key, value)"""
+        },
+
+
+        {
+            "page": 7,
+            "type": "heading",
+            "text": "6. Working With JSON Data"
+        },
+
+        {
+            "page": 7,
+            "type": "paragraph",
+            "text":
+            "JSON is a common format used to transfer data between programs. "
+            "Python can convert JSON text into dictionaries using json.loads()."
+        },
+
+        {
+            "page": 7,
+            "type": "code",
+            "text":
+"""import json
+
+json_data = '{"name":"Maria","interests":["coding","music","basketball"]}'
+
+person = json.loads(json_data)
+
+print(person["name"])
+print(person["interests"][1])"""
+        },
+
+        {
+            "page": 7,
+            "type": "tip",
+            "text":
+            "JSON looks similar to a Python dictionary because both store information using keys and values."
+        },
+
+
+        {
+            "page": 8,
+            "type": "heading",
+            "text": "7. Data Structures in Real Applications"
+        },
+
+        {
+            "page": 8,
+            "type": "paragraph",
+            "text":
+            "Programs often combine lists and dictionaries to organize complex information. "
+            "For example, language preservation tools can store words, translations, and audio files."
+        },
+
+        {
+            "page": 8,
+            "type": "code",
+            "text":
+"""word = {
+    "original": "ᎣᏏᏲ",
+    "english": "hello",
+    "audio_clip": "osiyo.mp3"
+}
+
+print(word["english"])"""
+        },
+
+
+        {
+            "page": 9,
+            "type": "heading",
+            "text": "Mini Debug Mission"
+        },
+
+        {
+            "page": 9,
+            "type": "paragraph",
+            "text":
+            "Find the mistake in this code:"
+        },
+
+        {
+            "page": 9,
+            "type": "code",
+            "text":
+"""fruits = [
+    "apple",
+    "orange",
+    "banana"
+]
+
+print(fruits[3])"""
+        },
+
+        {
+            "page": 9,
+            "type": "tip",
+            "text":
+            "Lists start at index 0. A list with three items has indexes 0, 1, and 2."
+        },
+
+        {
+            "page": 9,
+            "type": "ide",
+            "instructions":
+            "Fix the indexing error so the program prints the last item in the list.",
+
+            "starter_code":
+"""fruits = [
+    "apple",
+    "orange",
+    "banana"
+]
+
+print(fruits[3])
+"""
+        },
+
+
+        {
+            "page": 10,
+            "type": "heading",
+            "text": "Key Takeaways"
+        },
+
+        {
+            "page": 10,
+            "type": "list",
+            "items": [
+                "Lists store ordered collections and use indexes starting at 0.",
+                "append() adds new items to lists.",
+                "Dictionaries store information using key-value pairs.",
+                "Loops help process every item in a collection.",
+                "json.loads() converts JSON text into Python dictionaries."
+            ]
+        }
+
+    ]
+},
+    "loops": {
+
+    "id": "loops",
+
+    "lesson_number": "4",
+
+    "description": "Repeat tasks efficiently using for and while loops, ranges, and data processing techniques.",
+
+    "title": "Loops",
+
+    "blocks": [
+
+        {
+            "page": 1,
+            "type": "heading",
+            "text": "Unit 4: Loops"
+        },
+
+        {
+            "page": 1,
+            "type": "paragraph",
+            "text":
+            "By the end of this lesson, students will be able to use for and while loops, "
+            "control loops with break and continue, understand range(), and process data "
+            "from CSV files. Students will learn how computers repeat tasks efficiently "
+            "and how loops are used in real-world data systems."
+        },
+
+
+        {
+            "page": 1,
+            "type": "heading",
+            "text": "Vocabulary"
+        },
+
+        {
+            "page": 1,
+            "type": "list",
+            "items": [
+                "Loop - Code that repeats until a condition is met",
+                "range() - A Python function that generates a sequence of numbers",
+                "CSV - A spreadsheet-like file where values are separated by commas",
+                "Iteration - One repetition of a loop",
+                "break - A keyword that immediately exits a loop",
+                "continue - A keyword that skips the current iteration"
+            ]
+        },
+
+
+        {
+            "page": 1,
+            "type": "tip",
+            "text":
+            "Women of Color Spotlight: Lorena Mesa is a Latina Python Software Foundation "
+            "chair who has helped improve Python communities. Dr. Gladys West is a Black "
+            "mathematician whose work helped create modern GPS technology."
+        },
+
+
+        {
+            "page": 2,
+            "type": "heading",
+            "text": "Why Do We Use Loops?"
+        },
+
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text":
+            "Imagine you had to send the same message to 1,000 people. Instead of writing "
+            "the same code 1,000 times, a loop lets the computer repeat instructions "
+            "automatically."
+        },
+
+
+        {
+            "page": 2,
+            "type": "heading",
+            "text": "For Loops"
+        },
+
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text":
+            "A for loop is used when you know what you want to loop through. "
+            "This can be a list, string, or range of numbers."
+        },
+
+
+        {
+            "page": 2,
+            "type": "code",
+            "text":
+"""artists = [
+    "Rhapsody",
+    "Peso Pluma",
+    "Usher",
+    "Jhené Aiko"
+]
+
+for artist in artists:
+    print(f"{artist} stays on repeat!")
+"""
+        },
+
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text":
+            "Your Turn: Create a list of your favorite artists or songs. "
+            "Use a for loop to print a message for each item."
+        },
+
+
+        {
+            "page": 3,
+            "type": "heading",
+            "text": "Using range()"
+        },
+
+
+        {
+            "page": 3,
+            "type": "paragraph",
+            "text":
+            "The range() function creates a sequence of numbers. "
+            "It is commonly used with for loops."
+        },
+
+
+        {
+            "page": 3,
+            "type": "code",
+            "text":
+"""for i in range(1, 6):
+    print(f"Verse {i}")
+"""
+        },
+
+
+        {
+            "page": 3,
+            "type": "paragraph",
+            "text":
+            "range(start, stop, step) allows you to control where counting begins, "
+            "where it ends, and how much it changes each time."
+        },
+
+
+        {
+            "page": 3,
+            "type": "code",
+            "text":
+"""for number in range(10, 0, -1):
+    print(number)
+
+print("Let's go!")
+"""
+        },
+
+
+        {
+            "page": 4,
+            "type": "heading",
+            "text": "Break and Continue"
+        },
+
+
+        {
+            "page": 4,
+            "type": "paragraph",
+            "text":
+            "break stops a loop completely. continue skips the current iteration "
+            "and moves to the next one."
+        },
+
+
+        {
+            "page": 4,
+            "type": "code",
+            "text":
+"""foods = [
+    "Wings",
+    "Tofu",
+    "Pork",
+    "Mac & Cheese"
+]
+
+for food in foods:
+
+    if food == "Pork":
+        continue
+
+    print(food)
+"""
+        },
+
+
+        {
+            "page": 4,
+            "type": "paragraph",
+            "text":
+            "Your Turn: Create a list and use continue to skip something. "
+            "Then use break to stop when a certain item appears."
+        },
+
+
+        {
+            "page": 5,
+            "type": "heading",
+            "text": "While Loops"
+        },
+
+
+        {
+            "page": 5,
+            "type": "paragraph",
+            "text":
+            "A while loop repeats while a condition remains True. "
+            "Use while loops when you do not know exactly how many repetitions you need."
+        },
+
+
+        {
+            "page": 5,
+            "type": "code",
+            "text":
+"""energy = 5
+
+while energy > 0:
+    print("Still working!")
+    energy -= 1
+
+print("Break time!")
+"""
+        },
+
+
+        {
+            "page": 5,
+            "type": "warning",
+            "text":
+            "Be careful! If the condition never becomes False, the loop will run forever."
+        },
+
+
+        {
+            "page": 6,
+            "type": "heading",
+            "text": "Working With CSV Files"
+        },
+
+
+        {
+            "page": 6,
+            "type": "paragraph",
+            "text":
+            "CSV files store information in rows and columns. Python can read these files "
+            "using the csv module."
+        },
+
+
+        {
+            "page": 6,
+            "type": "code",
+            "text":
+"""import csv
+
+with open("students.csv") as file:
+
+    reader = csv.DictReader(file)
+
+    for row in reader:
+
+        print(
+            f"{row['name']} lives in {row['city']}"
+        )
+"""
+        },
+
+
+        {
+            "page": 6,
+            "type": "tip",
+            "text":
+            "Loops are powerful because they allow programmers to analyze thousands "
+            "of rows of information quickly."
+        },
+
+
+        {
+            "page": 7,
+            "type": "heading",
+            "text": "Nested Loops"
+        },
+
+
+        {
+            "page": 7,
+            "type": "paragraph",
+            "text":
+            "A nested loop is a loop inside another loop. They are useful for searching "
+            "through groups of data, such as folders inside folders."
+        },
+
+
+        {
+            "page": 7,
+            "type": "code",
+            "text":
+"""domains = [
+    ".edu",
+    ".gov",
+    ".africa"
+]
+
+pages = [
+    "/home",
+    "/research",
+    "/team"
+]
+
+
+for domain in domains:
+
+    for page in pages:
+
+        print(
+            f"https://www{domain}{page}"
+        )
+"""
+        },
+
+
+        {
+            "page": 8,
+            "type": "heading",
+            "text": "Searching With Loops"
+        },
+
+
+        {
+            "page": 8,
+            "type": "paragraph",
+            "text":
+            "Linear search checks each item one by one. Binary search is faster because "
+            "it repeatedly cuts a sorted list in half."
+        },
+
+
+        {
+            "page": 8,
+            "type": "code",
+            "text":
+"""left = 0
+right = len(arr) - 1
+
+while left <= right:
+
+    mid = (left + right) // 2
+
+    if arr[mid] == target:
+        return mid
+
+    elif arr[mid] < target:
+        left = mid + 1
+
+    else:
+        right = mid - 1
+
+return -1
+"""
+        },
+
+
+        {
+            "page": 9,
+            "type": "heading",
+            "text": "Debug Challenge"
+        },
+
+
+        {
+            "page": 9,
+            "type": "paragraph",
+            "text":
+            "Find the error in this code:"
+        },
+
+
+        {
+            "page": 9,
+            "type": "code",
+            "text":
+"""for i in range(5)
+
+    print(i)
+"""
+        },
+
+
+        {
+            "page": 9,
+            "type": "paragraph",
+            "text":
+            "Hint: Python requires punctuation after certain statements."
+        },
+
+
+        {
+            "page": 9,
+            "type": "code",
+            "text":
+"""# Fixed version
+
+for i in range(5):
+
+    print(i)
+"""
+        },
+
+
+        {
+            "page": 10,
+            "type": "heading",
+            "text": "Practice Challenge"
+        },
+
+
+        {
+            "page": 10,
+            "type": "paragraph",
+            "text":
+            "Create a program that searches through a list of names and prints only "
+            "names that start with the letter A."
+        },
+
+
+        {
+            "page": 10,
+            "type": "code",
+            "text":
+"""names = [
+    "Ali",
+    "Beth",
+    "Andrew",
+    "Zane",
+    "Angela"
+]
+
+# Write your loop here
+"""
+        }
+
+    ]
+},
     "functions_modularity": {
 
         "id": "functions_modularity",
@@ -1607,859 +2781,7 @@ def print_tree(person, depth=0):
             }
 
         ]
-    },
-    "conditionals": {
-
-    "id": "conditionals",
-
-    "lesson_number": "2",
-
-    "title": "Conditionals",
-
-    "blocks": [
-
-        # =====================================================
-        # PAGE 1: INTRODUCTION
-        # =====================================================
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Unit 2: Conditionals — Teaching Python to Make Decisions"
-        },
-
-        {
-            "page": 1,
-            "type": "paragraph",
-            "text": """
-            Programs make decisions the same way people do every day.
-            A concert bouncer checks: Is your ticket valid? Are you on the VIP list?
-            Are you old enough to enter?
-
-            Python uses conditional statements to follow these same yes/no
-            decision paths. With if, elif, and else, programs can choose what
-            happens next.
-            """
-        },
-
-        {
-            "page": 1,
-            "type": "tip",
-            "text": """
-            By the end of this lesson, you will be able to:
-            • Write if/elif/else statements
-            • Combine conditions using and/or/not
-            • Debug common conditional errors
-            • Build programs that make real-world decisions
-            """
-        },
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Focus: Latinx in AI & Decision-Making"
-        },
-
-        {
-            "page": 1,
-            "type": "paragraph",
-            "text": """
-            Luis von Ahn, a Guatemalan-American computer scientist and
-            co-founder of Duolingo, used technology and decision-making
-            systems to make language learning more accessible.
-
-            Conditional logic powers many systems people use every day,
-            from learning apps to accessibility tools.
-            """
-        },
-
-
-        # =====================================================
-        # PAGE 2: BOOLEAN VALUES
-        # =====================================================
-
-        {
-            "page": 2,
-            "type": "heading",
-            "text": "Boolean Values: True or False"
-        },
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text": """
-            A Boolean is a value that can only be True or False.
-
-            Think of a Boolean like a traffic light:
-            True means go.
-            False means stop.
-
-            Python creates Boolean values when it compares information.
-            """
-        },
-
-        {
-            "page": 2,
-            "type": "code",
-            "text": """
-print(5 > 3)
-
-# Output:
-True
-"""
-        },
-
-        {
-            "page": 2,
-            "type": "heading",
-            "text": "Comparison Operators"
-        },
-
-        {
-            "page": 2,
-            "type": "list",
-            "items": [
-                "== checks if two values are equal",
-                "!= checks if two values are different",
-                "> checks if one value is greater",
-                "< checks if one value is smaller",
-                ">= checks if one value is greater than or equal"
-            ]
-        },
-
-        {
-            "page": 2,
-            "type": "quiz",
-            "question": "What type of value can a Boolean store?",
-            "options": [
-                "A number",
-                "A True or False value",
-                "A sentence",
-                "A list"
-            ],
-            "answer": "A True or False value"
-        },
-
-
-        # =====================================================
-        # PAGE 3: IF STATEMENTS
-        # =====================================================
-
-        {
-            "page": 3,
-            "type": "heading",
-            "text": "Making Decisions with if"
-        },
-
-        {
-            "page": 3,
-            "type": "paragraph",
-            "text": """
-            An if statement runs code only when a condition is True.
-
-            Python uses indentation to show which lines belong inside
-            the decision block.
-            """
-        },
-
-        {
-            "page": 3,
-            "type": "code",
-            "text": """
-age = 18
-
-if age >= 18:
-    print("You can vote.")
-"""
-        },
-
-        {
-            "page": 3,
-            "type": "ide",
-            "instructions": "Create an if statement that prints VIP when a gold ticket is selected.",
-            "starter_code": """
-ticket_type = "gold"
-
-# Write your condition below
-
-"""
-        },
-
-
-        # =====================================================
-        # PAGE 4: ELSE AND ELIF
-        # =====================================================
-
-        {
-            "page": 4,
-            "type": "heading",
-            "text": "Adding More Paths with elif and else"
-        },
-
-        {
-            "page": 4,
-            "type": "paragraph",
-            "text": """
-            Sometimes programs need more than two choices.
-
-            elif creates another possible path.
-            else provides a default option when no conditions are true.
-            """
-        },
-
-        {
-            "page": 4,
-            "type": "code",
-            "text": """
-grade = 85
-
-if grade >= 90:
-    print("A")
-elif grade >= 70:
-    print("C")
-else:
-    print("Keep practicing.")
-"""
-        },
-
-        {
-            "page": 4,
-            "type": "quiz",
-            "question": "Which keyword checks another condition after an if fails?",
-            "options": [
-                "then",
-                "elif",
-                "elseif",
-                "check"
-            ],
-            "answer": "elif"
-        },
-
-
-        # =====================================================
-        # PAGE 5: LOGICAL OPERATORS
-        # =====================================================
-
-        {
-            "page": 5,
-            "type": "heading",
-            "text": "Combining Conditions with Logic"
-        },
-
-        {
-            "page": 5,
-            "type": "paragraph",
-            "text": """
-            Logical operators allow programs to combine multiple conditions.
-
-            AND means every condition must be True.
-
-            OR means at least one condition must be True.
-
-            NOT reverses a Boolean value.
-            """
-        },
-
-        {
-            "page": 5,
-            "type": "code",
-            "text": """
-late = False
-homework_done = True
-
-if not late and homework_done:
-    print("You're on track!")
-else:
-    print("Check your work.")
-"""
-        },
-
-        {
-            "page": 5,
-            "type": "ide",
-            "instructions": "Modify the conditions to test different outcomes.",
-            "starter_code": """
-hungry = True
-money = False
-coupon = True
-
-if (hungry and money) or coupon:
-    print("Time to eat!")
-else:
-    print("Wait for another option.")
-"""
-        },
-
-
-        # =====================================================
-        # PAGE 6: DEBUGGING
-        # =====================================================
-
-        {
-            "page": 6,
-            "type": "heading",
-            "text": "Debugging Conditional Errors"
-        },
-
-        {
-            "page": 6,
-            "type": "paragraph",
-            "text": """
-            A common mistake is using = instead of ==.
-
-            = assigns a value.
-            == compares two values.
-            """
-        },
-
-        {
-            "page": 6,
-            "type": "code",
-            "text": """
-# Incorrect
-
-snack = "Hot Cheetos"
-
-if snack = "Hot Cheetos":
-    print("Spicy choice!")
-
-
-# Correct
-
-if snack == "Hot Cheetos":
-    print("Spicy choice!")
-"""
-        },
-
-        {
-            "page": 6,
-            "type": "ide",
-            "instructions": "Fix the conditional error.",
-            "starter_code": """
-score = 92
-
-if score > 90
-    print("A+ Student!")
-"""
-        },
-
-        {
-            "page": 6,
-            "type": "quiz",
-            "question": "What error occurs when a colon is missing after an if statement?",
-            "options": [
-                "SyntaxError",
-                "RuntimeError",
-                "LogicError",
-                "No error"
-            ],
-            "answer": "SyntaxError"
-        },
-
-
-        # =====================================================
-        # PAGE 7: REAL WORLD APPLICATION
-        # =====================================================
-
-        {
-            "page": 7,
-            "type": "heading",
-            "text": "Applying Conditionals: SNAP Eligibility Checker"
-        },
-
-        {
-            "page": 7,
-            "type": "paragraph",
-            "text": """
-            Decision-making programs are used in real-world systems.
-
-            This example checks whether someone meets requirements:
-            • Income must be below 2000
-            • The person must be a student or unemployed
-            """
-        },
-
-        {
-            "page": 7,
-            "type": "code",
-            "text": """
-income = 1800
-is_student = True
-is_unemployed = False
-
-if income < 2000 and (is_student or is_unemployed):
-    print("Approved")
-else:
-    print("Needs Review")
-"""
-        },
-
-        {
-            "page": 7,
-            "type": "exercise",
-            "problem": "snap_checker"
-        }
-
-    ]
-    },
-    "loops": {
-
-    "id": "loops",
-
-    "lesson_number": "4",
-
-    "title": "Loops",
-
-    "blocks": [
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Unit 4: Loops"
-        },
-
-        {
-            "page": 1,
-            "type": "paragraph",
-            "text":
-            "By the end of this lesson, students will be able to use for and while loops, "
-            "control loops with break and continue, understand range(), and process data "
-            "from CSV files. Students will learn how computers repeat tasks efficiently "
-            "and how loops are used in real-world data systems."
-        },
-
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Vocabulary"
-        },
-
-        {
-            "page": 1,
-            "type": "list",
-            "items": [
-                "Loop - Code that repeats until a condition is met",
-                "range() - A Python function that generates a sequence of numbers",
-                "CSV - A spreadsheet-like file where values are separated by commas",
-                "Iteration - One repetition of a loop",
-                "break - A keyword that immediately exits a loop",
-                "continue - A keyword that skips the current iteration"
-            ]
-        },
-
-
-        {
-            "page": 1,
-            "type": "tip",
-            "text":
-            "Women of Color Spotlight: Lorena Mesa is a Latina Python Software Foundation "
-            "chair who has helped improve Python communities. Dr. Gladys West is a Black "
-            "mathematician whose work helped create modern GPS technology."
-        },
-
-
-        {
-            "page": 2,
-            "type": "heading",
-            "text": "Why Do We Use Loops?"
-        },
-
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text":
-            "Imagine you had to send the same message to 1,000 people. Instead of writing "
-            "the same code 1,000 times, a loop lets the computer repeat instructions "
-            "automatically."
-        },
-
-
-        {
-            "page": 2,
-            "type": "heading",
-            "text": "For Loops"
-        },
-
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text":
-            "A for loop is used when you know what you want to loop through. "
-            "This can be a list, string, or range of numbers."
-        },
-
-
-        {
-            "page": 2,
-            "type": "code",
-            "text":
-"""artists = [
-    "Rhapsody",
-    "Peso Pluma",
-    "Usher",
-    "Jhené Aiko"
-]
-
-for artist in artists:
-    print(f"{artist} stays on repeat!")
-"""
-        },
-
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text":
-            "Your Turn: Create a list of your favorite artists or songs. "
-            "Use a for loop to print a message for each item."
-        },
-
-
-        {
-            "page": 3,
-            "type": "heading",
-            "text": "Using range()"
-        },
-
-
-        {
-            "page": 3,
-            "type": "paragraph",
-            "text":
-            "The range() function creates a sequence of numbers. "
-            "It is commonly used with for loops."
-        },
-
-
-        {
-            "page": 3,
-            "type": "code",
-            "text":
-"""for i in range(1, 6):
-    print(f"Verse {i}")
-"""
-        },
-
-
-        {
-            "page": 3,
-            "type": "paragraph",
-            "text":
-            "range(start, stop, step) allows you to control where counting begins, "
-            "where it ends, and how much it changes each time."
-        },
-
-
-        {
-            "page": 3,
-            "type": "code",
-            "text":
-"""for number in range(10, 0, -1):
-    print(number)
-
-print("Let's go!")
-"""
-        },
-
-
-        {
-            "page": 4,
-            "type": "heading",
-            "text": "Break and Continue"
-        },
-
-
-        {
-            "page": 4,
-            "type": "paragraph",
-            "text":
-            "break stops a loop completely. continue skips the current iteration "
-            "and moves to the next one."
-        },
-
-
-        {
-            "page": 4,
-            "type": "code",
-            "text":
-"""foods = [
-    "Wings",
-    "Tofu",
-    "Pork",
-    "Mac & Cheese"
-]
-
-for food in foods:
-
-    if food == "Pork":
-        continue
-
-    print(food)
-"""
-        },
-
-
-        {
-            "page": 4,
-            "type": "paragraph",
-            "text":
-            "Your Turn: Create a list and use continue to skip something. "
-            "Then use break to stop when a certain item appears."
-        },
-
-
-        {
-            "page": 5,
-            "type": "heading",
-            "text": "While Loops"
-        },
-
-
-        {
-            "page": 5,
-            "type": "paragraph",
-            "text":
-            "A while loop repeats while a condition remains True. "
-            "Use while loops when you do not know exactly how many repetitions you need."
-        },
-
-
-        {
-            "page": 5,
-            "type": "code",
-            "text":
-"""energy = 5
-
-while energy > 0:
-    print("Still working!")
-    energy -= 1
-
-print("Break time!")
-"""
-        },
-
-
-        {
-            "page": 5,
-            "type": "warning",
-            "text":
-            "Be careful! If the condition never becomes False, the loop will run forever."
-        },
-
-
-        {
-            "page": 6,
-            "type": "heading",
-            "text": "Working With CSV Files"
-        },
-
-
-        {
-            "page": 6,
-            "type": "paragraph",
-            "text":
-            "CSV files store information in rows and columns. Python can read these files "
-            "using the csv module."
-        },
-
-
-        {
-            "page": 6,
-            "type": "code",
-            "text":
-"""import csv
-
-with open("students.csv") as file:
-
-    reader = csv.DictReader(file)
-
-    for row in reader:
-
-        print(
-            f"{row['name']} lives in {row['city']}"
-        )
-"""
-        },
-
-
-        {
-            "page": 6,
-            "type": "tip",
-            "text":
-            "Loops are powerful because they allow programmers to analyze thousands "
-            "of rows of information quickly."
-        },
-
-
-        {
-            "page": 7,
-            "type": "heading",
-            "text": "Nested Loops"
-        },
-
-
-        {
-            "page": 7,
-            "type": "paragraph",
-            "text":
-            "A nested loop is a loop inside another loop. They are useful for searching "
-            "through groups of data, such as folders inside folders."
-        },
-
-
-        {
-            "page": 7,
-            "type": "code",
-            "text":
-"""domains = [
-    ".edu",
-    ".gov",
-    ".africa"
-]
-
-pages = [
-    "/home",
-    "/research",
-    "/team"
-]
-
-
-for domain in domains:
-
-    for page in pages:
-
-        print(
-            f"https://www{domain}{page}"
-        )
-"""
-        },
-
-
-        {
-            "page": 8,
-            "type": "heading",
-            "text": "Searching With Loops"
-        },
-
-
-        {
-            "page": 8,
-            "type": "paragraph",
-            "text":
-            "Linear search checks each item one by one. Binary search is faster because "
-            "it repeatedly cuts a sorted list in half."
-        },
-
-
-        {
-            "page": 8,
-            "type": "code",
-            "text":
-"""left = 0
-right = len(arr) - 1
-
-while left <= right:
-
-    mid = (left + right) // 2
-
-    if arr[mid] == target:
-        return mid
-
-    elif arr[mid] < target:
-        left = mid + 1
-
-    else:
-        right = mid - 1
-
-return -1
-"""
-        },
-
-
-        {
-            "page": 9,
-            "type": "heading",
-            "text": "Debug Challenge"
-        },
-
-
-        {
-            "page": 9,
-            "type": "paragraph",
-            "text":
-            "Find the error in this code:"
-        },
-
-
-        {
-            "page": 9,
-            "type": "code",
-            "text":
-"""for i in range(5)
-
-    print(i)
-"""
-        },
-
-
-        {
-            "page": 9,
-            "type": "paragraph",
-            "text":
-            "Hint: Python requires punctuation after certain statements."
-        },
-
-
-        {
-            "page": 9,
-            "type": "code",
-            "text":
-"""# Fixed version
-
-for i in range(5):
-
-    print(i)
-"""
-        },
-
-
-        {
-            "page": 10,
-            "type": "heading",
-            "text": "Practice Challenge"
-        },
-
-
-        {
-            "page": 10,
-            "type": "paragraph",
-            "text":
-            "Create a program that searches through a list of names and prints only "
-            "names that start with the letter A."
-        },
-
-
-        {
-            "page": 10,
-            "type": "code",
-            "text":
-"""names = [
-    "Ali",
-    "Beth",
-    "Andrew",
-    "Zane",
-    "Angela"
-]
-
-# Write your loop here
-"""
-        }
-
-    ]
-}
+    }
 }
 
 
