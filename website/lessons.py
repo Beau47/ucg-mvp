@@ -455,6 +455,852 @@ print(type(x))""",
 
         ]
     },
+    "functions_modularity": {
+
+        "id": "functions_modularity",
+
+        "lesson_number": "5",
+
+        "title": "Functions & Modularity",
+
+        "description": "Write reusable functions with parameters and returns, document them with docstrings, import helper modules, and refactor repeated code.",
+
+        "blocks": [
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Lesson 5 - Functions & Modularity"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Estimated Time: 2 weeks"
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Learning Objectives"
+            },
+
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Write reusable functions using def and return.",
+                    "Explain the difference between a parameter and an argument.",
+                    "Draw a scope diagram showing where a variable is visible.",
+                    "Write a clear one-line docstring for a function.",
+                    "Import and use functions from a separate module.",
+                    "Refactor repeated code into a function."
+                ]
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Word Bank"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">function</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">def</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">parameter / argument</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">scope</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">module / import</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">docstring</span>'
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Introduction"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'A <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">function</span> is a reusable block of code you can call by name. You start a function definition with the <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">def</span> keyword, and you decide what value it hands back using return.'
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'A <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">parameter</span> is the input a function expects when you define it; the <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">argument</span> is the actual value you pass in when you call it. In def add(a, b), a and b are parameters. In add(5, 7), 5 and 7 are arguments.'
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">Scope</span> is where a variable is visible in your code. A variable created inside a function only exists while that function is running - it disappears once the function returns.'
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def add(a, b):
+    total = a + b   # total only exists inside add()
+    return total
+
+print(add(2, 3))
+print(total)   # this line crashes - total is out of scope here"""
+            },
+
+            {
+                "page": 1,
+                "type": "tip",
+                "text":
+                "A scope diagram is just a box drawn around each function call. Any variable created inside the box only lives there - once the box closes, the variable is gone."
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'A <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">module</span> is a separate file of functions you can bring into your program with <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">import</span>, and a <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">docstring</span> is a short description written in triple quotes at the top of a function, explaining what it does.'
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Focus: Indigenous Data Sovereignty"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "This unit's focus is Indigenous data sovereignty - the idea that a community should control the data collected about its own people, lands, and culture. A Python dictionary is just a lookup table: each key belongs to whoever controls it, and it only gives up its value to someone with the right access. A tribal database works the same way - the nation that holds the keys decides who gets to see the values."
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Spotlight: Stephanie Russo Carroll"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Stephanie Russo Carroll, Ahtna and a citizen of the Native Village of Kluti-Kaah in Alaska, is a scholar of Indigenous data governance at the University of Arizona. She co-founded the US Indigenous Data Sovereignty Network and helped write the CARE Principles for Indigenous Data Governance, which hold that Indigenous nations - not outside researchers or companies - should decide how data about their own communities gets collected, stored, and used."
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Spotlight: Michael Running Wolf"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'Michael Running Wolf, a citizen of the Northern Cheyenne Tribe, grew up in Birney, Montana, without consistent electricity. He later worked as a software engineer on Amazon\'s Alexa team before founding Indigenous in AI and the FLAIR project, building automatic speech recognition tools so endangered Indigenous languages can be spoken to - and understood by - AI.<sup>1</sup>'
+            },
+
+            {
+                "page": 1,
+                "type": "footnote",
+                "number": "1",
+                "text": "Read more: Walking in two worlds - how an Indigenous computer scientist is using AI to preserve threatened languages, Nature (2025). https://www.nature.com/articles/d41586-025-01354-y"
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Guided Practice 1 - Make It a Function"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Every function starts with def, a name, parentheses, and a colon."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def greet():
+    print("Peace and power to you.")
+
+greet()"""
+            },
+
+            {
+                "page": 2,
+                "type": "ide",
+                "language": "python",
+                "starter_code":
+"""def morning_motivation():
+    # print your favorite affirmation or quote here
+    pass
+
+morning_motivation()""",
+                "instructions":
+                "Write a function called morning_motivation() that prints your favorite affirmation or quote. Bonus: call it at the very start of your script to kick things off with good energy."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Guided Practice 2 - Build Your Own Calculator"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "A function can also hand a value back to whoever called it, using return."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def add(a, b):
+    return a + b
+
+result = add(5, 7)
+print("Sum:", result)"""
+            },
+
+            {
+                "page": 2,
+                "type": "ide",
+                "language": "python",
+                "starter_code":
+"""def multiply(a, b):
+    # return the product of a and b
+    pass
+
+print(multiply(3, 8))
+print(multiply(10, 0))""",
+                "instructions":
+                "Write a function called multiply that takes two numbers and returns the product. Try calling it with different values, like multiply(3, 8) and multiply(10, 0)."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Guided Practice 3 - Customize the Message"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Functions can take more than one parameter at a time."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def shoutout(name, talent):
+    return f"Shoutout to {name} for their skills in {talent}!"
+
+print(shoutout("Jordan", "design"))"""
+            },
+
+            {
+                "page": 2,
+                "type": "ide",
+                "language": "python",
+                "starter_code":
+"""def shoutout_admire(name, why_you_admire):
+    # return a shoutout string using both parameters
+    pass
+
+print(shoutout_admire("", ""))""",
+                "instructions":
+                "Write your own version that gives a shoutout to someone you admire in your community or friend group. Use two parameters: name and why_you_admire."
+            },
+
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Guided Practice 4 - Say It Clearly"
+            },
+
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "A docstring is a short description in triple quotes, right under the def line, explaining what the function does."
+            },
+
+            {
+                "page": 3,
+                "type": "code",
+                "language": "python",
+                "text":
+'''def calculate_average(score1, score2):
+    """
+    Calculates the average of two scores.
+    """
+    return (score1 + score2) / 2
+
+print(calculate_average(85, 90))'''
+            },
+
+            {
+                "page": 3,
+                "type": "ide",
+                "language": "python",
+                "starter_code":
+'''def my_full_name():
+    """
+    # write a one-line docstring here
+    """
+    # return your full name
+    pass
+
+print(my_full_name())''',
+                "instructions":
+                "Write a function that returns your full name. Add a docstring that explains what the function does."
+            },
+
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Guided Practice 5 - Call Me Back"
+            },
+
+            {
+                "page": 3,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def favorite_song():
+    return "Alright by Kendrick Lamar"
+
+print(favorite_song())"""
+            },
+
+            {
+                "page": 3,
+                "type": "ide",
+                "language": "python",
+                "starter_code":
+"""def favorite_show():
+    # return the title of a show or YouTube series you love
+    pass
+
+print(favorite_show())""",
+                "instructions":
+                "Create a function called favorite_show() that returns the title of a show or YouTube series you love. Test it with print() and make sure it works as expected."
+            },
+
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Guided Practice 6 - Mini Debug Mission"
+            },
+
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Can you fix this broken function?"
+            },
+
+            {
+                "page": 3,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def hype(name)
+    print("Let's go", name + "!")"""
+            },
+
+            {
+                "page": 3,
+                "type": "tip",
+                "text": "Check your function definition carefully - what's missing?"
+            },
+
+            {
+                "page": 3,
+                "type": "ide",
+                "language": "python",
+                "starter_code":
+"""def hype(name):
+    print("Let's go", name + "!")
+
+hype("your friend's name here")""",
+                "instructions":
+                "Fix the code so it runs correctly and hypes up a friend of yours."
+            },
+
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Reflection Prompts"
+            },
+
+            {
+                "page": 3,
+                "type": "list",
+                "items": [
+                    "How does breaking your code into functions make it easier to work with - like breaking a big task into smaller ones in life?",
+                    "If you could write a function that describes who you are, what would it return?",
+                    "Why is it important to test and document your functions, especially if someone else will use your code later?",
+                    "Think of a community need, like helping someone find a resource or plan an event. How could functions help automate or simplify that task?"
+                ]
+            },
+
+            {
+                "page": 4,
+                "type": "heading",
+                "text": "Importing Helper Modules"
+            },
+
+            {
+                "page": 4,
+                "type": "paragraph",
+                "text":
+                "Once you have functions you use often, you can move them into their own file - a module - and import them wherever you need them. This is how programmers avoid repeating themselves across projects."
+            },
+
+            {
+                "page": 4,
+                "type": "code",
+                "language": "python",
+                "text":
+"""# utils.py
+def square(n):
+    \"\"\"Returns n squared.\"\"\"
+    return n * n"""
+            },
+
+            {
+                "page": 4,
+                "type": "code",
+                "language": "python",
+                "text":
+"""# main.py
+from utils import square
+
+print(square(4))"""
+            },
+
+            {
+                "page": 4,
+                "type": "warning",
+                "text":
+                "utils.py and main.py must be saved in the same folder, or the import will fail with a ModuleNotFoundError."
+            },
+
+            {
+                "page": 4,
+                "type": "heading",
+                "text": "Unit 5 Quiz - Functions & Modularity"
+            },
+
+            {
+                "page": 4,
+                "type": "paragraph",
+                "text": "Read each question carefully, then choose the correct answer, write your own code, or explain the concept."
+            },
+
+            {
+                "page": 4,
+                "type": "paragraph",
+                "text": "1. Fill in the Blank (2 points): A function helps programmers to __________ complex problems and encourages code reuse."
+            },
+
+            {
+                "page": 4,
+                "type": "tip",
+                "text": "Answer: break down"
+            },
+
+            {
+                "page": 4,
+                "type": "quiz",
+                "question": "2. Multiple Choice (2 points): What does the return keyword do in a Python function?",
+                "options": [
+                    "A. It prints the result to the console",
+                    "B. It ends the function and gives a value back to the caller",
+                    "C. It stores data in a list",
+                    "D. It asks the user for input"
+                ],
+                "answer": "B. It ends the function and gives a value back to the caller."
+            },
+
+            {
+                "page": 4,
+                "type": "paragraph",
+                "text": "3. Debug This Code (5 points): Find and fix the errors in the function below, which is supposed to add two numbers and return the result."
+            },
+
+            {
+                "page": 4,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def add_numbers(a, b)
+    sum = a + b
+    return sum
+
+print(add_numbers(3 5))"""
+            },
+
+            {
+                "page": 4,
+                "type": "exercise",
+                "problem": "debug_add_numbers"
+            },
+
+            {
+                "page": 4,
+                "type": "tip",
+                "text":
+                "Answer: def add_numbers(a, b):  (missing colon) ... print(add_numbers(3, 5))  (missing comma between arguments)"
+            },
+
+            {
+                "page": 4,
+                "type": "paragraph",
+                "text":
+                "4. Code the Function (5 points): Write a function called greet_user that takes one parameter, name, and returns the string \"Hello, [name]!\" Example: greet_user(\"Alex\") returns \"Hello, Alex!\""
+            },
+
+            {
+                "page": 4,
+                "type": "exercise",
+                "problem": "greet_user"
+            },
+
+            {
+                "page": 4,
+                "type": "paragraph",
+                "text": "5. Short Answer (2 points): What is a parameter in a function? Why are parameters important?"
+            },
+
+            {
+                "page": 4,
+                "type": "tip",
+                "text":
+                "Answer: A parameter is a variable listed in a function's definition that receives data when the function is called. Parameters matter because they let a function accept input, making it flexible and reusable for different values."
+            },
+
+            {
+                "page": 4,
+                "type": "paragraph",
+                "text": "6. Code Completion (4 points): Complete the function below to return the square of a number. Example: square_number(4) returns 16."
+            },
+
+            {
+                "page": 4,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def square_number(num):
+    # your code here
+    pass"""
+            },
+
+            {
+                "page": 4,
+                "type": "exercise",
+                "problem": "square_number"
+            },
+
+            {
+                "page": 4,
+                "type": "paragraph",
+                "text":
+                "7. Write a Function with a Docstring (5 points): Write a function get_area that calculates the area of a rectangle. It should take two parameters, length and width, return the area, and include a docstring describing what the function does and its parameters."
+            },
+
+            {
+                "page": 4,
+                "type": "exercise",
+                "problem": "get_area_rectangle"
+            },
+
+            {
+                "page": 4,
+                "type": "quiz",
+                "question": "8. Multiple Choice (2 points): Which of the following is the correct way to call a function named calculate_tax with one argument, 100?",
+                "options": [
+                    "A. def calculate_tax(100)",
+                    "B. calculate_tax = 100",
+                    "C. calculate_tax(100)",
+                    "D. return calculate_tax(100)"
+                ],
+                "answer": "C. calculate_tax(100)"
+            },
+
+            {
+                "page": 4,
+                "type": "paragraph",
+                "text": "9. Fill in the Blank (2 points): The opposite of calling a function is __________ a function, where you define what it does and how it works."
+            },
+
+            {
+                "page": 4,
+                "type": "tip",
+                "text": "Answer: defining"
+            },
+
+            {
+                "page": 5,
+                "type": "heading",
+                "text": "Extension: The GPS Toolkit"
+            },
+
+            {
+                "page": 5,
+                "type": "paragraph",
+                "text":
+                "Dr. Gladys West's work on satellite geodesy helped make GPS possible, by breaking an enormous problem into smaller functions, like calculate_distance() and adjust_for_relativity(). Lorena Mesa, an open-source Python community leader, builds tools that often take direct user input, like formatting a speaker's name."
+            },
+
+            {
+                "page": 5,
+                "type": "heading",
+                "text": "Part 1 - Functions as Building Blocks"
+            },
+
+            {
+                "page": 5,
+                "type": "paragraph",
+                "text":
+                "Why is breaking a large program into small functions, the way Dr. West's team broke GPS into pieces, better than writing one giant program?"
+            },
+
+            {
+                "page": 5,
+                "type": "tip",
+                "text":
+                "Answer: it's easier to debug and test individual pieces, the code becomes reusable, multiple developers can work on different functions at once, and it's simpler to maintain and update over time."
+            },
+
+            {
+                "page": 5,
+                "type": "paragraph",
+                "text": "Write a function validate_coordinates(lat, long) that returns True if the latitude is between -90 and 90."
+            },
+
+            {
+                "page": 5,
+                "type": "exercise",
+                "problem": "validate_coordinates"
+            },
+
+            {
+                "page": 5,
+                "type": "paragraph",
+                "text": "Debug this function - calling it raises a TypeError."
+            },
+
+            {
+                "page": 5,
+                "type": "code",
+                "language": "python",
+                "text":
+"""def gps_accuracy(error_margin):
+    print("Accuracy: " + error_margin + " meters")"""
+            },
+
+            {
+                "page": 5,
+                "type": "tip",
+                "text":
+                "Answer: error_margin is probably a number, and you can't concatenate a string with a number using +. Wrap it with str(): print(\"Accuracy: \" + str(error_margin) + \" meters\")"
+            },
+
+            {
+                "page": 5,
+                "type": "heading",
+                "text": "Part 2 - Parameters, Arguments, and Returns"
+            },
+
+            {
+                "page": 5,
+                "type": "paragraph",
+                "text": "Write a function that returns a speaker's name in the format \"Mesa, Lorena\" - last name, then first name."
+            },
+
+            {
+                "page": 5,
+                "type": "exercise",
+                "problem": "format_name"
+            },
+
+            {
+                "page": 5,
+                "type": "paragraph",
+                "text":
+                "If a function like calculate_satellite_position() needs Earth's curvature to do its math, should it (A) calculate that value internally, or (B) accept it as a parameter? Justify your answer."
+            },
+
+            {
+                "page": 5,
+                "type": "tip",
+                "text":
+                "Answer: (B) accept it as a parameter. This keeps the function flexible for different scenarios, follows the single-responsibility principle, and makes it far easier to test with different input values."
+            },
+
+            {
+                "page": 5,
+                "type": "heading",
+                "text": "Part 3 - Designing in Modules"
+            },
+
+            {
+                "page": 5,
+                "type": "paragraph",
+                "text": "Split the code below into three functions: get_user_coordinates(), calculate_distance(), and display_result()."
+            },
+
+            {
+                "page": 5,
+                "type": "code",
+                "language": "python",
+                "text":
+"""lat1, long1 = 40.7, -74.0
+lat2, long2 = 34.0, -118.2
+distance = ((lat2 - lat1)**2 + (long2 - long1)**2)**0.5
+print(f"Distance: {distance}")"""
+            },
+
+            {
+                "page": 5,
+                "type": "exercise",
+                "problem": "refactor_gps_distance"
+            },
+
+            {
+                "page": 5,
+                "type": "heading",
+                "text": "Part 4 - Lab: Tech Conference Scheduler"
+            },
+
+            {
+                "page": 5,
+                "type": "paragraph",
+                "text":
+                "Objective: use functions to manage speaker logistics. Fill in the functions below based on their docstrings, and feel free to write more functions if you think they're useful. This project is exploratory, not strictly technical."
+            },
+
+            {
+                "page": 5,
+                "type": "code",
+                "language": "python",
+                "text":
+'''def assign_room(speaker, topic):
+    """Returns "Main Stage" for keynotes, else "Breakout 1"."""
+    pass
+
+def send_reminder(email):
+    """Mock email sender (print a confirmation)."""
+    pass
+
+speakers = [
+    {"name": "Lorena Mesa", "topic": "Open-Source Leadership"},
+    {"name": "Dr. West", "topic": "GPS History"}
+]'''
+            },
+
+            {
+                "page": 5,
+                "type": "exercise",
+                "problem": "tech_conference_scheduler"
+            },
+
+            {
+                "page": 6,
+                "type": "heading",
+                "text": "Explore More: Hangman, Part 1"
+            },
+
+            {
+                "page": 6,
+                "type": "paragraph",
+                "text":
+                "Here's a complete mini-project that leans entirely on functions: a word-guessing game. Notice how pick_word(), display_word(), and play_hangman() each have one clear job, and how play_hangman() calls the other two to get its work done."
+            },
+
+            {
+                "page": 6,
+                "type": "code",
+                "language": "python",
+                "text":
+'''import random
+
+def pick_word():
+    """Returns a random word from a predefined list."""
+    words = ["apple", "banana", "python", "hangman", "computer"]
+    return random.choice(words)
+
+def display_word(word, guessed_letters):
+    """Shows the word with underscores for unguessed letters."""
+    display = ""
+    for letter in word:
+        if letter in guessed_letters:
+            display += letter + " "
+        else:
+            display += "_ "
+    return display.strip()
+
+def play_hangman():
+    """Main game function."""
+    word = pick_word()
+    guessed_letters = []
+    attempts = 6
+
+    print("Welcome to Hangman!")
+
+    while attempts > 0:
+        print("\\n" + display_word(word, guessed_letters))
+        print(f"Attempts left: {attempts}")
+        guess = input("Guess a letter: ").lower()
+
+        if guess in guessed_letters:
+            print("You already guessed that!")
+            continue
+
+        guessed_letters.append(guess)
+
+        if guess in word:
+            print("Correct!")
+        else:
+            print("Wrong!")
+            attempts -= 1
+
+        if all(letter in guessed_letters for letter in word):
+            print(f"\\nYou won! The word was: {word}")
+            return
+
+    print(f"\\nGame over! The word was: {word}")
+
+play_hangman()'''
+            },
+
+            {
+                "page": 6,
+                "type": "tip",
+                "text":
+                "Try it yourself: add a function that tracks a high score, or one that lets a player choose a difficulty level by picking from a longer or shorter word list."
+            },
+
+            {
+                "page": 6,
+                "type": "exercise",
+                "problem": "hangman_part_2"
+            }
+
+        ]
+    },
     "recursion_capstone": {
 
         "id": "recursion_capstone",
