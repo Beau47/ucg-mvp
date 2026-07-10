@@ -234,32 +234,9 @@ LESSONS = {
 
             {
                 "page": 1,
-                "type": "paragraph",
-                "text":
-                "Every programmer starts with a simple program. Type the following into the editor:"
-            },
-
-            {
-                "page": 1,
-                "type": "code",
-                "language": "python",
-                "text":
-"""print("Hello, Tulsa!")"""
-            },
-
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text": "Or personalize it:"
-            },
-
-            {
-                "page": 1,
-                "type": "code",
-                "language": "python",
-                "text":
-"""print("Hello, Little Haiti!")
-print("Hello, Dine Nation!")"""
+                "type": "ide",
+                "instructions": "Run your first Python program. Try changing the message to greet your own community.",
+                "starter_code": """print("Hello, Tulsa!")"""
             },
 
             {
