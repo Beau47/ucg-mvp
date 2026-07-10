@@ -935,3 +935,31 @@ body {
 button:disabled {
     pointer-events: none;
 }
+
+/* ===================================================== */
+/* LESSON PAGE OVERRIDE                                  */
+/* ===================================================== */
+
+main.main {
+    display: block;
+    overflow-y: auto;
+}
+
+
+/* Lesson mini IDE */
+
+.lesson-ide {
+    width: 100%;
+}
+
+
+.ide-editor {
+    min-height: 150px;
+    height: 150px;
+    display: block;
+}
+
+
+.ide-output {
+    min-height: 50px;
+}

@@ -171,27 +171,35 @@
 
     {% elif block["type"] == "ide" %}
 
-        <div class="lesson-ide">
+    <div class="lesson-ide">
 
-            <div class="ide-header">
-                <button class="ide-run">
-                    Run ▶
-                </button>
-            </div>
+        <div class="ide-header">
 
-            <div class="ide-instructions">
-                {{ block["instructions"] }}
-            </div>
-
-            <textarea class="ide-editor">{{ block["starter_code"] }}</textarea>
-
-            <div class="ide-output-header">
-                Output
-            </div>
-
-            <pre class="ide-output"></pre>
+            <button class="ide-run">
+                Run ▶
+            </button>
 
         </div>
+
+
+        <div class="ide-instructions">
+            {{ block["instructions"] }}
+        </div>
+
+
+        <textarea class="ide-editor">{{ block["starter_code"] }}</textarea>
+
+
+        <div class="ide-output-header">
+            Output
+        </div>
+
+
+        <pre class="ide-output">
+        </pre>
+
+
+    </div>
 
     {% elif block["type"] == "quiz" %}
 
