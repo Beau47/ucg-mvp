@@ -7,7 +7,7 @@ LESSONS = {
 
         "id": "why_python",
 
-        "lesson_number": "Lesson 0",
+        "lesson_number": "0",
 
         "title": "Why Python?",
 
@@ -223,7 +223,7 @@ LESSONS = {
                     "C. Computers automatically fix mistakes",
                     "D. Python deletes bad programs"
                 ],
-                "answer": "B. Computers only produce correct results when given correct instructions."
+                "answer": "B. Computers only produce correct results when given correct instructions"
             },
 
             {
@@ -459,7 +459,7 @@ print(type(x))""",
 
         "id": "recursion_capstone",
 
-        "lesson_number": "Lesson 6",
+        "lesson_number": "6",
 
         "title": "Recursion & the Capstone",
 
@@ -762,104 +762,400 @@ def print_tree(person, depth=0):
 
         ]
     },
-    "if_statements": {
+    "conditionals": {
 
-    "id": "if_statements",
+    "id": "conditionals",
 
-    "lesson_number": "5",
+    "lesson_number": "2",
 
-    "title": "If Statements",
+    "title": "Conditionals",
 
     "blocks": [
 
+        # =====================================================
+        # PAGE 1: INTRODUCTION
+        # =====================================================
+
         {
-            "type": "heading",
             "page": 1,
-            "text": "Making Decisions with if Statements"
+            "type": "heading",
+            "text": "Unit 2: Conditionals — Teaching Python to Make Decisions"
         },
 
         {
+            "page": 1,
             "type": "paragraph",
-            "page": 1,
-            "text": "Programs often need to make decisions. An if statement lets your code execute only when a condition is True."
+            "text": """
+            Programs make decisions the same way people do every day.
+            A concert bouncer checks: Is your ticket valid? Are you on the VIP list?
+            Are you old enough to enter?
+
+            Python uses conditional statements to follow these same yes/no
+            decision paths. With if, elif, and else, programs can choose what
+            happens next.
+            """
         },
 
         {
-            "type": "code",
             "page": 1,
-            "text": "temperature = 75\n\nif temperature > 70:\n    print('It is warm outside!')"
-        },
-
-        {
             "type": "tip",
+            "text": """
+            By the end of this lesson, you will be able to:
+            • Write if/elif/else statements
+            • Combine conditions using and/or/not
+            • Debug common conditional errors
+            • Build programs that make real-world decisions
+            """
+        },
+
+        {
             "page": 1,
-            "text": "The code inside an if statement must be indented. Python uses indentation to determine which code belongs inside the if block."
+            "type": "heading",
+            "text": "Focus: Latinx in AI & Decision-Making"
+        },
+
+        {
+            "page": 1,
+            "type": "paragraph",
+            "text": """
+            Luis von Ahn, a Guatemalan-American computer scientist and
+            co-founder of Duolingo, used technology and decision-making
+            systems to make language learning more accessible.
+
+            Conditional logic powers many systems people use every day,
+            from learning apps to accessibility tools.
+            """
         },
 
 
+        # =====================================================
+        # PAGE 2: BOOLEAN VALUES
+        # =====================================================
 
         {
-            "type": "heading",
             "page": 2,
+            "type": "heading",
+            "text": "Boolean Values: True or False"
+        },
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text": """
+            A Boolean is a value that can only be True or False.
+
+            Think of a Boolean like a traffic light:
+            True means go.
+            False means stop.
+
+            Python creates Boolean values when it compares information.
+            """
+        },
+
+        {
+            "page": 2,
+            "type": "code",
+            "text": """
+print(5 > 3)
+
+# Output:
+True
+"""
+        },
+
+        {
+            "page": 2,
+            "type": "heading",
             "text": "Comparison Operators"
         },
 
         {
-            "type": "paragraph",
             "page": 2,
-            "text": "Conditions are created using comparison operators."
-        },
-
-        {
             "type": "list",
-            "page": 2,
             "items": [
-                "==   Equal to",
-                "!=   Not equal to",
-                ">    Greater than",
-                "<    Less than",
-                ">=   Greater than or equal to",
-                "<=   Less than or equal to"
+                "== checks if two values are equal",
+                "!= checks if two values are different",
+                "> checks if one value is greater",
+                "< checks if one value is smaller",
+                ">= checks if one value is greater than or equal"
             ]
         },
 
         {
-            "type": "code",
             "page": 2,
-            "text": "score = 92\n\nif score >= 90:\n    print('Excellent!')"
-        },
-
-
-
-        {
-            "type": "heading",
-            "page": 3,
-            "text": "Quiz"
-        },
-
-        {
             "type": "quiz",
-            "page": 3,
-            "question": "Which condition checks whether x is equal to 10?",
+            "question": "What type of value can a Boolean store?",
             "options": [
-                "x = 10",
-                "x == 10",
-                "x := 10",
-                "x != 10"
+                "A number",
+                "A True or False value",
+                "A sentence",
+                "A list"
             ],
-            "answer": "x == 10"
+            "answer": "A True or False value"
         },
 
 
+        # =====================================================
+        # PAGE 3: IF STATEMENTS
+        # =====================================================
 
         {
-            "type": "exercise",
+            "page": 3,
+            "type": "heading",
+            "text": "Making Decisions with if"
+        },
+
+        {
+            "page": 3,
+            "type": "paragraph",
+            "text": """
+            An if statement runs code only when a condition is True.
+
+            Python uses indentation to show which lines belong inside
+            the decision block.
+            """
+        },
+
+        {
+            "page": 3,
+            "type": "code",
+            "text": """
+age = 18
+
+if age >= 18:
+    print("You can vote.")
+"""
+        },
+
+        {
+            "page": 3,
+            "type": "ide",
+            "instructions": "Create an if statement that prints VIP when a gold ticket is selected.",
+            "starter_code": """
+ticket_type = "gold"
+
+# Write your condition below
+
+"""
+        },
+
+
+        # =====================================================
+        # PAGE 4: ELSE AND ELIF
+        # =====================================================
+
+        {
             "page": 4,
-            "problem": "if_statements_intro"
+            "type": "heading",
+            "text": "Adding More Paths with elif and else"
+        },
+
+        {
+            "page": 4,
+            "type": "paragraph",
+            "text": """
+            Sometimes programs need more than two choices.
+
+            elif creates another possible path.
+            else provides a default option when no conditions are true.
+            """
+        },
+
+        {
+            "page": 4,
+            "type": "code",
+            "text": """
+grade = 85
+
+if grade >= 90:
+    print("A")
+elif grade >= 70:
+    print("C")
+else:
+    print("Keep practicing.")
+"""
+        },
+
+        {
+            "page": 4,
+            "type": "quiz",
+            "question": "Which keyword checks another condition after an if fails?",
+            "options": [
+                "then",
+                "elif",
+                "elseif",
+                "check"
+            ],
+            "answer": "elif"
+        },
+
+
+        # =====================================================
+        # PAGE 5: LOGICAL OPERATORS
+        # =====================================================
+
+        {
+            "page": 5,
+            "type": "heading",
+            "text": "Combining Conditions with Logic"
+        },
+
+        {
+            "page": 5,
+            "type": "paragraph",
+            "text": """
+            Logical operators allow programs to combine multiple conditions.
+
+            AND means every condition must be True.
+
+            OR means at least one condition must be True.
+
+            NOT reverses a Boolean value.
+            """
+        },
+
+        {
+            "page": 5,
+            "type": "code",
+            "text": """
+late = False
+homework_done = True
+
+if not late and homework_done:
+    print("You're on track!")
+else:
+    print("Check your work.")
+"""
+        },
+
+        {
+            "page": 5,
+            "type": "ide",
+            "instructions": "Modify the conditions to test different outcomes.",
+            "starter_code": """
+hungry = True
+money = False
+coupon = True
+
+if (hungry and money) or coupon:
+    print("Time to eat!")
+else:
+    print("Wait for another option.")
+"""
+        },
+
+
+        # =====================================================
+        # PAGE 6: DEBUGGING
+        # =====================================================
+
+        {
+            "page": 6,
+            "type": "heading",
+            "text": "Debugging Conditional Errors"
+        },
+
+        {
+            "page": 6,
+            "type": "paragraph",
+            "text": """
+            A common mistake is using = instead of ==.
+
+            = assigns a value.
+            == compares two values.
+            """
+        },
+
+        {
+            "page": 6,
+            "type": "code",
+            "text": """
+# Incorrect
+
+snack = "Hot Cheetos"
+
+if snack = "Hot Cheetos":
+    print("Spicy choice!")
+
+
+# Correct
+
+if snack == "Hot Cheetos":
+    print("Spicy choice!")
+"""
+        },
+
+        {
+            "page": 6,
+            "type": "ide",
+            "instructions": "Fix the conditional error.",
+            "starter_code": """
+score = 92
+
+if score > 90
+    print("A+ Student!")
+"""
+        },
+
+        {
+            "page": 6,
+            "type": "quiz",
+            "question": "What error occurs when a colon is missing after an if statement?",
+            "options": [
+                "SyntaxError",
+                "RuntimeError",
+                "LogicError",
+                "No error"
+            ],
+            "answer": "SyntaxError"
+        },
+
+
+        # =====================================================
+        # PAGE 7: REAL WORLD APPLICATION
+        # =====================================================
+
+        {
+            "page": 7,
+            "type": "heading",
+            "text": "Applying Conditionals: SNAP Eligibility Checker"
+        },
+
+        {
+            "page": 7,
+            "type": "paragraph",
+            "text": """
+            Decision-making programs are used in real-world systems.
+
+            This example checks whether someone meets requirements:
+            • Income must be below 2000
+            • The person must be a student or unemployed
+            """
+        },
+
+        {
+            "page": 7,
+            "type": "code",
+            "text": """
+income = 1800
+is_student = True
+is_unemployed = False
+
+if income < 2000 and (is_student or is_unemployed):
+    print("Approved")
+else:
+    print("Needs Review")
+"""
+        },
+
+        {
+            "page": 7,
+            "type": "exercise",
+            "problem": "snap_checker"
         }
 
     ]
-}
+    }
 }
 
 
