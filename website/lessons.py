@@ -680,7 +680,7 @@ customer = "Maria"
             },
 
             {
-                "page": 1,
+                "page": 2,
                 "type": "exercise",
                 "problem": "add_one"
             }

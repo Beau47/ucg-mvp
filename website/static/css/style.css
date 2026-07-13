@@ -285,8 +285,14 @@ body {
 /* ===================================================== */
 
 .editor-container {
-    flex: 1;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
     background: #1e1e1e;
+
+    min-height: 0;
+    overflow: hidden;
 }
 
 /* Header above the editor */
@@ -298,31 +304,12 @@ body {
     font-weight: 600;
 }
 
-/* Prevent editor from overflowing */
-
-.editor-container {
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
-}
 
 /* Monaco editor */
 
 #monaco-editor {
-    width: 100%;
-    height: calc(100% - 55px);
-    border: none;
-    outline: none;
-    resize: none;
-    background: #1e1e1e;
-    color: white;
-    padding: 30px;
-    font-size: 16px;
-    line-height: 1.8;
-    font-family:
-        "JetBrains Mono",
-        "Fira Code",
-        monospace;
+    flex: 1;
+    min-height: 0;
 }
 
 
@@ -332,12 +319,14 @@ body {
 /* ===================================================== */
 
 .output {
-    height: 260px;
-    background: #18181b;
-    color: white;
-    border-top: 1px solid #333;
-    padding: 0;
-    overflow-y: auto;
+    flex: 0 0 250px;
+
+    background:#18181b;
+    color:white;
+
+    border-top:1px solid #333;
+
+    overflow-y:auto;
 }
 
 /* Header for the output panel */
@@ -937,12 +926,19 @@ button:disabled {
 }
 
 /* ===================================================== */
-/* LESSON PAGE OVERRIDE                                  */
+/* PAGE-SPECIFIC LAYOUTS                                 */
 /* ===================================================== */
 
-main.main {
+.lesson-page .main {
     display: block;
     overflow-y: auto;
+}
+
+.workspace-page .main {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
 }
 
 
