@@ -278,6 +278,332 @@ LESSONS = {
         ]
     },
 
+    "functions_preview": {
+
+        "id": "functions_preview",
+
+        "lesson_number": "0.5",
+
+        "title": "Read This Before Exercises",
+
+        "description": "Preview what Python functions look like before starting coding exercises.",
+
+        "blocks": [
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Lesson 0.5 - Read This Before Doing Any Exercises"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Estimated Time: 10-15 minutes"
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Prerequisites"
+            },
+
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Unit 0"
+                ]
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Learning Objectives"
+            },
+
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Recognize what a Python function looks like.",
+                    "Identify the purpose of def and return.",
+                    "Understand that every coding exercise in this course will ask you to complete a function."
+                ]
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Word Bank"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">function</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">def</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">function name</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">parameter</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">colon</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">indentation</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">docstring</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">return</span>'
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Introduction"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Before we begin writing Python programs, there is one important piece of syntax you will see throughout this course: functions."
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Do not worry if everything in this lesson does not make sense yet. The goal is simply to become familiar with what functions look like."
+            },
+
+            {
+                "page": 1,
+                "type": "tip",
+                "text":
+                "In Lesson 5, you will learn how functions work in much greater detail. For now, think of a function as a small program that performs one specific task."
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "What is a Function?"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'A <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">function</span> is a reusable block of code that performs a specific task.'
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Throughout this course, nearly every coding exercise will ask you to complete a function."
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "text":
+"""def add_one(x):
+    return x + 1
+"""
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Although this may look unfamiliar, do not worry. We can break it apart."
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "The Parts of a Function"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'The keyword <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">def</span> tells Python that we are defining a new function.'
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "text":
+"""def add_one(x):
+"""
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'Every function has a <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">function name</span>. In this example, the function name is add_one.'
+            },
+
+            {
+                "page": 1,
+                "type": "tip",
+                "text":
+                "Good function names describe what the function does."
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'Inside the parentheses is a <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">parameter</span>. A parameter is information that the function receives. For now, you can think of it as the function input.'
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'Every function definition ends with a <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">colon</span>. The colon tells Python that an indented block of code follows.'
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'Everything inside the function is indented. Python uses <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">indentation</span> to determine which lines belong to the function.'
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Docstrings"
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "text":
+"""def add_one(x):
+    \"\"\"
+    Return x + 1.
+    \"\"\"
+"""
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'This block of text is called a <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">docstring</span>, short for documentation string. A docstring explains what a function does, what information it expects, and what it returns.'
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Throughout this course, many exercises will include a docstring to describe what your function should accomplish. You do not need to write your own docstrings yet, but you should read them carefully."
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Return"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'The keyword <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">return</span> sends a value back to whoever called the function.'
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "text":
+"""return x + 1
+"""
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "In this example, the function gives back the value of x + 1. You will learn much more about return when we study functions later in the course."
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Why Are We Using Functions?"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Functions help programmers organize code into small, reusable pieces. For this course, every coding exercise will already provide you with the function definition."
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "text":
+"""def square(x):
+    \"\"\"
+    Return the square of x.
+    \"\"\"
+    # Your code here
+    pass
+"""
+            },
+
+            {
+                "page": 1,
+                "type": "warning",
+                "text":
+                "Your job is not to write the function definition. Instead, you will write the code inside the function."
+            },
+
+            {
+                "page": 1,
+                "type": "quiz",
+                "question": "Which keyword tells Python that you are defining a function?",
+                "options": [
+                    "A. print",
+                    "B. return",
+                    "C. def",
+                    "D. input"
+                ],
+                "answer": "C. def"
+            },
+
+            {
+                "page": 1,
+                "type": "quiz",
+                "question": "What does the return keyword do?",
+                "options": [
+                    "A. Prints a message to the screen.",
+                    "B. Nothing.",
+                    "C. Sends a value back from the function.",
+                    "D. Creates a variable."
+                ],
+                "answer": "C. Sends a value back from the function."
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Key Takeaways"
+            },
+
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "A function is a reusable block of code.",
+                    "Functions begin with the keyword def.",
+                    "Parameters are inputs to a function.",
+                    "The keyword return sends a result back.",
+                    "For now, you only need to recognize the structure of a function.",
+                    "In Lesson 5, you will learn how to write and use functions in depth."
+                ]
+            }
+
+        ]
+    },
+
     "variables": {
 
         "id": "variables",
