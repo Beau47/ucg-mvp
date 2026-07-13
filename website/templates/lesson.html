@@ -83,6 +83,19 @@
             {{ block["text"] }}
         </p>
 
+    {% elif block["type"] == "rich_paragraph" %}
+
+        <p style="line-height:1.8; margin-bottom:30px; color:#444;">
+            {{ block["html"] | safe }}
+        </p>
+
+    {% elif block["type"] == "footnote" %}
+
+        <p style="color:#666; font-size:14px; line-height:1.7; margin-top:-10px; margin-bottom:30px; border-top:1px solid #eee; padding-top:14px;">
+            <sup>{{ block["number"] }}</sup>
+            {{ block["text"] }}
+        </p>
+
     {% elif block["type"] == "code" %}
 
         <pre style="background:#1e1e1e;color:white;padding:20px;border-radius:12px;overflow-x:auto;margin-bottom:30px;font-family:'JetBrains Mono', monospace;"><code>{{ block["text"] }}</code></pre>
@@ -102,6 +115,39 @@
         </p>
 
         {% endif %}
+
+    {% elif block["type"] == "image_text" %}
+
+        <div class="image-text-block">
+
+            <div class="image-text-media">
+                <img
+                    src="{{ block["src"] }}"
+                    alt="{{ block["alt"] }}"
+                >
+
+                {% if block["caption"] %}
+
+                <p>
+                    {{ block["caption"] }}
+                </p>
+
+                {% endif %}
+            </div>
+
+            <div class="image-text-copy">
+
+                {% for paragraph in block["paragraphs"] %}
+
+                <p>
+                    {{ paragraph }}
+                </p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
 
     {% elif block["type"] == "tip" %}
 

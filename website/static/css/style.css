@@ -963,3 +963,52 @@ main.main {
 .ide-output {
     min-height: 50px;
 }
+
+/* ===================================================== */
+/* LESSON IMAGE + TEXT BLOCK                             */
+/* Used for document-style spotlight sections            */
+/* ===================================================== */
+
+.image-text-block {
+    display: grid;
+    grid-template-columns: minmax(180px, 240px) 1fr;
+    gap: 28px;
+    align-items: start;
+    margin: 12px 0 34px;
+}
+
+.image-text-media img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 12px;
+    display: block;
+}
+
+.image-text-media p {
+    color: #777;
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.image-text-copy {
+    color: #444;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.image-text-copy p {
+    margin-bottom: 16px;
+}
+
+@media (max-width: 760px) {
+    .image-text-block {
+        grid-template-columns: 1fr;
+    }
+
+    .image-text-media {
+        max-width: 260px;
+    }
+}

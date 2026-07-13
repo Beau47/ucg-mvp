@@ -234,32 +234,9 @@ LESSONS = {
 
             {
                 "page": 1,
-                "type": "paragraph",
-                "text":
-                "Every programmer starts with a simple program. Type the following into the editor:"
-            },
-
-            {
-                "page": 1,
-                "type": "code",
-                "language": "python",
-                "text":
-"""print("Hello, Tulsa!")"""
-            },
-
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text": "Or personalize it:"
-            },
-
-            {
-                "page": 1,
-                "type": "code",
-                "language": "python",
-                "text":
-"""print("Hello, Little Haiti!")
-print("Hello, Dine Nation!")"""
+                "type": "ide",
+                "instructions": "Run your first Python program. Try changing the message to greet your own community.",
+                "starter_code": """print("Hello, Tulsa!")"""
             },
 
             {
@@ -307,66 +284,403 @@ print("Hello, Dine Nation!")"""
 
         "lesson_number": "1",
 
-        "description": "Learn how Python stores information using variables, strings, numbers, and basic data types.",
+        "description": "Learn how Python stores information using variables, data types, print(), comments, and clear names.",
 
-        "title": "Variables",
+        "title": "Variables & Data Types",
 
         "blocks": [
 
             {
                 "page": 1,
                 "type": "heading",
-                "text": "What is a Variable?"
+                "text": "Unit 1 - Variables & Data Types"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Lesson 1.0 - Storing Information with Variables"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Estimated Time: 45-60 minutes"
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Prerequisites"
+            },
+
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Unit 0"
+                ]
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Learning Objectives"
+            },
+
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Explain what a variable is.",
+                    "Declare variables using integers, floats, strings, and booleans.",
+                    "Use the print() function.",
+                    "Write comments.",
+                    "Follow Python variable naming conventions."
+                ]
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Word Bank"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">variables</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">int</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">float</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">str</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">bool</span>'
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Introduction"
             },
 
             {
                 "page": 1,
                 "type": "paragraph",
                 "text":
-                "Variables allow you to store information that can be used later."
+                "Imagine trying to remember every customer's order at a food truck without writing anything down."
             },
 
             {
-                "page": 2,
-                "type": "ide",
-                "language": "python",
-                "starter_code":
-"""x = 5
-print(x)""",
-                "instructions":
-                "Try changing the value of x and run the code to see how the output changes."
-            },
-
-            {
-                "page": 2,
+                "page": 1,
                 "type": "paragraph",
                 "text":
-                "Notice that x now stores the value 5."
+                "Programming has the same problem. A computer needs a place to store information so it can use it later. Those storage locations are called variables."
             },
 
             {
-                "page": 2,
-                "type": "image",
-                "src": "/static/images/variable_box.png",
-                "caption": "A variable stores a value."
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'Think of <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">variables</span> as names given to values that programs use to remember information.'
             },
 
             {
-                "page": 2,
+                "page": 1,
+                "type": "heading",
+                "text": "Section 1 - What is a Variable?"
+            },
+
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html":
+                'A <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">variable</span> is a named location that stores data.'
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "text":
+"""name = "Ariana"
+
+# The variable is name
+# The value stored is "Ariana"
+"""
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Think of a variable like a labeled storage box. Instead of remembering information ourselves, we let the computer remember it."
+            },
+
+            {
+                "page": 1,
+                "type": "quiz",
+                "question": "What is a variable?",
+                "options": [
+                    "A. A programming language",
+                    "B. A named location that stores information",
+                    "C. A computer",
+                    "D. A keyboard"
+                ],
+                "answer": "B. A named location that stores information"
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 2 - Common Data Types"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Python stores different kinds of information. Each kind has a data type."
+            },
+
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "int - whole numbers, like 7",
+                    "float - decimal numbers, like 3.14",
+                    "str - text, like \"Tulsa\"",
+                    "bool - True or False values"
+                ]
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "text":
+"""age = 16
+height = 5.8
+city = "Tulsa"
+student = True
+"""
+            },
+
+            {
+                "page": 1,
+                "type": "ide",
+                "instructions":
+                "Create one string, one integer, one float, and one boolean. Run the code to see your values print.",
+                "starter_code":
+"""name = "Chenise"
+favorite_number = 2
+bank_balance = 0.05
+is_tall = True
+
+print(name)
+print(favorite_number)
+print(bank_balance)
+print(is_tall)
+"""
+            },
+
+            {
+                "page": 1,
                 "type": "tip",
                 "text":
-                "Choose descriptive variable names."
+                "Python variable names cannot contain spaces. Programmers often use underscores to stand in for spaces, like favorite_city."
             },
 
             {
-                "page": 2,
+                "page": 1,
+                "type": "quiz",
+                "question": "Which variable stores a float?",
+                "options": [
+                    "A. age = 17",
+                    "B. price = 12.99",
+                    "C. name = \"Jordan\"",
+                    "D. student = False"
+                ],
+                "answer": "B. price = 12.99"
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 3 - Printing Information"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Programs often need to display information. Python uses print() to show information on the screen."
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "text":
+"""name = "Jordan"
+print(name)
+
+# Output:
+# Jordan
+"""
+            },
+
+            {
+                "page": 1,
+                "type": "quiz",
+                "question": "What does print(age) do?",
+                "options": [
+                    "A. Deletes age",
+                    "B. Displays the value stored inside age",
+                    "C. Creates a new variable",
+                    "D. Changes age"
+                ],
+                "answer": "B. Displays the value stored inside age"
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 4 - Comments"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Comments are notes for programmers. They help humans understand the program without needing to read every line closely."
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Python ignores comments when the program runs."
+            },
+
+            {
+                "page": 1,
+                "type": "code",
+                "text":
+"""# This stores the customer's name
+customer = "Maria"
+"""
+            },
+
+            {
+                "page": 1,
+                "type": "tip",
+                "text":
+                "Good comments explain why something is happening. They should not simply repeat what the code already says."
+            },
+
+            {
+                "page": 1,
+                "type": "quiz",
+                "question": "Which line is a comment?",
+                "options": [
+                    "A. name = \"Alex\"",
+                    "B. # Store customer's name",
+                    "C. print(name)",
+                    "D. True"
+                ],
+                "answer": "B. # Store customer's name"
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 5 - Naming Variables"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Good variable names make programs easier to read."
+            },
+
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Good examples: customer_name, favorite_food, price, total_cost",
+                    "Poor examples: x, asdf, 123name, favorite food",
+                    "Use letters, numbers, and underscores.",
+                    "Do not begin with a number.",
+                    "Do not use spaces.",
+                    "Be descriptive."
+                ]
+            },
+
+            {
+                "page": 1,
                 "type": "warning",
                 "text":
-                "Variable names cannot start with numbers."
+                "Some words already have special meaning in Python. Avoid using names like class, print, or True for your variables."
             },
 
             {
-                "page": 3,
+                "page": 1,
+                "type": "quiz",
+                "question": "Which is a valid variable name?",
+                "options": [
+                    "A. 2dogs",
+                    "B. favorite food",
+                    "C. favorite_food",
+                    "D. class"
+                ],
+                "answer": "C. favorite_food"
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Spotlight - Mary G. Ross"
+            },
+
+            {
+                "page": 1,
+                "type": "image_text",
+                "src": "/static/images/mary_g_ross.png",
+                "alt": "Mary G. Ross",
+                "caption": "Mary G. Ross",
+                "paragraphs": [
+                    "Mary G. Ross was the first known Indigenous American female engineer, and she was from Oklahoma.",
+                    "Working at Lockheed, she contributed to aerospace research and helped advance projects that influenced the Apollo space program.",
+                    "Like engineers today, she solved complex problems by organizing information carefully - a skill that programming also requires."
+                ]
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Key Takeaways"
+            },
+
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Variables store information.",
+                    "Python has different data types.",
+                    "print() displays information.",
+                    "Comments help humans understand code.",
+                    "Good variable names make programs easier to read."
+                ]
+            },
+
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Preview"
+            },
+
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text":
+                "Next you'll learn how programs can receive information from users and perform calculations."
+            },
+
+            {
+                "page": 1,
                 "type": "exercise",
                 "problem": "add_one"
             }
