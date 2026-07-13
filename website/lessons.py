@@ -681,6 +681,435 @@ customer = "Maria"
 
             {
                 "page": 2,
+                "type": "heading",
+                "text": "Lesson 1.1 - Using Variables"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Estimated Time: 60 minutes"
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Learning Objectives"
+            },
+
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "Gather user input using input().",
+                    "Perform arithmetic.",
+                    "Concatenate strings.",
+                    "Use f-strings.",
+                    "Use basic string methods.",
+                    "Build a simple food truck ordering program."
+                ]
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Word Bank"
+            },
+
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html":
+                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">input()</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">arithmetic</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">operator</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">string concatenation</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">f-string</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">string methods</span>'
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Introduction"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "In the previous lesson, you learned how to create variables and store information inside them. Programs become much more useful when the information they store can change."
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "Picture this: you're opening a food ordering app, and every customer has a different name, orders different meals, and buys different quantities. It would not make sense to write a new program for every single customer."
+            },
+
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html":
+                'Instead, the program asks the user for information and stores their responses in variables. This is where <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">input()</span> comes in.'
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 1 - User Input"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "In the previous lesson, every value in our program was written by the programmer. This works, but it means every time someone new uses the program, we would have to edit the code ourselves."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""name = "Jordan"
+
+name = input("What is your name? ")
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "When the program reaches input(), it pauses and waits for the user to type something. Whatever the user types is stored inside the variable."
+            },
+
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "What does input() do?",
+                "options": [
+                    "A. Prints text",
+                    "B. Deletes variables",
+                    "C. Receives information from the user",
+                    "D. Creates a comment"
+                ],
+                "answer": "C. Receives information from the user"
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 2 - Performing Calculations"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "Now that our program can collect information, we often want to do something with it. Python can perform mathematical calculations just like a calculator."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""price = 8
+tax = 2
+total = price + tax
+
+meal_price = 12
+quantity = 3
+total = meal_price * quantity
+print(total)
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html":
+                'Python uses <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">operators</span><sup>1</sup> to perform different types of calculations.'
+            },
+
+            {
+                "page": 2,
+                "type": "table",
+                "headers": [
+                    "Operator",
+                    "Meaning"
+                ],
+                "rows": [
+                    ["+", "Add"],
+                    ["-", "Subtract"],
+                    ["*", "Multiply"],
+                    ["/", "Divide"]
+                ]
+            },
+
+            {
+                "page": 2,
+                "type": "footnote",
+                "number": "1",
+                "text":
+                "Operators are special symbols or keywords used with variables or values to help programs compute information."
+            },
+
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "What is 5 * 4?",
+                "options": [
+                    "A. 9",
+                    "B. 20",
+                    "C. 54",
+                    "D. 1"
+                ],
+                "answer": "B. 20"
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 3 - Combining Strings"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "Many programs also work with text, such as a customer's name, a city, a menu item, or a thank-you message. These are stored as strings."
+            },
+
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html":
+                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">String concatenation</span> means joining pieces of text together.'
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""first = "Urban"
+second = "Coders"
+
+print(first + " " + second)
+print("Welcome, " + "Maria" + "!")
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "What is string concatenation?",
+                "options": [
+                    "A. Deleting a string",
+                    "B. Joining two or more strings together",
+                    "C. Converting text into numbers",
+                    "D. Printing a variable"
+                ],
+                "answer": "B. Joining two or more strings together"
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 4 - F-Strings"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "F-strings are easier to read and type because variables can be placed directly inside curly braces."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""name = "Maria"
+quantity = 3
+item = "Frybread Taco"
+
+print(f"Hello {name}!")
+print(f"You ordered {quantity} {item}s.")
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "tip",
+                "text":
+                "If a variable stores an integer and you place this variable in an f-string using curly braces, you don't need to add quotation marks to the integer to make it a string. Python will do this for you! Everything in the print function must be a string for it to work, because Python can only print strings. If you put a non-string in the print function, Python will convert it to a string. Try this by running print(5)."
+            },
+
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "Which uses an f-string?",
+                "options": [
+                    "A. print(name)",
+                    "B. print(f\"Hello {name}\")",
+                    "C. print(name + age)",
+                    "D. print(True)"
+                ],
+                "answer": "B. print(f\"Hello {name}\")"
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 5 - String Methods"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "Python provides built-in string methods. These special commands modify, format, or examine text."
+            },
+
+            {
+                "page": 2,
+                "type": "table",
+                "headers": [
+                    "Method",
+                    "Description",
+                    "Example Code",
+                    "Output"
+                ],
+                "rows": [
+                    [
+                        "upper()",
+                        "Converts all letters to uppercase.",
+                        "name = \"Maria\"\nprint(name.upper())",
+                        "MARIA"
+                    ],
+                    [
+                        "lower()",
+                        "Converts all letters to lowercase.",
+                        "name = \"Maria\"\nprint(name.lower())",
+                        "maria"
+                    ],
+                    [
+                        "strip()",
+                        "Removes extra spaces from the beginning and end of a string.",
+                        "name = \"  Maria  \"\nprint(name.strip())",
+                        "Maria"
+                    ],
+                    [
+                        "title()",
+                        "Capitalizes the first letter of each word.",
+                        "city = \"little haiti\"\nprint(city.title())",
+                        "Little Haiti"
+                    ],
+                    [
+                        "replace()",
+                        "Replaces one piece of text with another.",
+                        "food = \"taco\"\nprint(food.replace(\"taco\", \"frybread\"))",
+                        "frybread"
+                    ]
+                ]
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""name = " Maria "
+city = "little haiti"
+food = "taco"
+
+print(name.strip())
+print(city.title())
+print(food.replace("taco", "frybread"))
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Mini Project - Tulsa Food Truck"
+            },
+
+            {
+                "page": 2,
+                "type": "image_text",
+                "src": "/static/images/tulsa_food_truck.png",
+                "alt": "Tulsa food truck menu",
+                "caption": "Food truck ordering project",
+                "paragraphs": [
+                    "Imagine you're building software for a local food truck.",
+                    "Your program should ask for the customer's name, ask which menu item they want, ask how many they want, calculate the total price, and display a receipt using f-strings."
+                ]
+            },
+
+            {
+                "page": 2,
+                "type": "ide",
+                "instructions":
+                "Build a simple receipt. Change the customer, item, quantity, or price, then run the code.",
+                "starter_code":
+"""customer = "Maria"
+item = "Frybread Taco"
+quantity = 3
+price = 8
+
+total = quantity * price
+
+print("Tulsa Food Truck")
+print(f"Customer: {customer}")
+print(f"Item: {item}")
+print(f"Quantity: {quantity}")
+print(f"Total: ${total}")
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "Why are f-strings useful?",
+                "options": [
+                    "A. They make code easier to read.",
+                    "B. They automatically fix bugs.",
+                    "C. They replace variables.",
+                    "D. They make programs faster."
+                ],
+                "answer": "A. They make code easier to read."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Key Takeaways"
+            },
+
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "input() gathers information.",
+                    "Arithmetic performs calculations.",
+                    "Strings can be combined.",
+                    "F-strings improve readability.",
+                    "String methods modify text."
+                ]
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Preview"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "Next you'll learn how programs make decisions using conditions such as if, elif, and else."
+            },
+
+            {
+                "page": 2,
                 "type": "exercise",
                 "problem": "add_one"
             }

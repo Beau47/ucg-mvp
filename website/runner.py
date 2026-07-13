@@ -34,7 +34,12 @@ def run_problem(code, problem):
                 test_input = test["input"]
                 expected = test["expected"]
 
-                actual = student_function(test_input)
+                # Support functions with one or more parameters.
+                if isinstance(test_input, tuple):
+                    actual = student_function(*test_input)
+                else:
+                    actual = student_function(test_input)
+                    
                 did_pass = actual == expected
 
                 if did_pass:

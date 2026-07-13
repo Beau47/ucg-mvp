@@ -336,6 +336,227 @@ PROBLEMS = {
             {"input": [7, 1, 4, 8], "expected": 20},
         ],
     },
+    "debug_add_numbers": {
+    "id": "debug_add_numbers",
+    "lesson_number": "LESSON 5 OF 8",
+    "title": "Debug Add Numbers",
+    "description": "Write a function that returns the sum of two numbers.",
+    "function_name": "add_numbers",
+    "starter_code": '''def add_numbers(a, b):
+    """
+    Return the sum of a and b.
+    """
+
+    # Your code here
+    pass
+''',
+    "challenges": [
+        "Function Exists",
+        "Uses Return",
+        "Returns Correct Sum",
+        "No Extra Output",
+    ],
+    "test_cases": [
+        {"input": (3, 5), "expected": 8},
+        {"input": (10, 0), "expected": 10},
+        {"input": (-2, 7), "expected": 5},
+        {"input": (100, 25), "expected": 125},
+    ],
+},
+
+"greet_user": {
+    "id": "greet_user",
+    "lesson_number": "LESSON 5 OF 8",
+    "title": "Greet User",
+    "description": "Return a greeting using the user's name.",
+    "function_name": "greet_user",
+    "starter_code": '''def greet_user(name):
+    """
+    Return "Hello, [name]!"
+    """
+
+    # Your code here
+    pass
+''',
+    "challenges": [
+        "Function Exists",
+        "Uses Parameter",
+        "Returns Greeting",
+        "No Extra Output",
+    ],
+    "test_cases": [
+        {"input": "Alex", "expected": "Hello, Alex!"},
+        {"input": "Jordan", "expected": "Hello, Jordan!"},
+        {"input": "Taylor", "expected": "Hello, Taylor!"},
+    ],
+},
+
+"square_number": {
+    "id": "square_number",
+    "lesson_number": "LESSON 5 OF 8",
+    "title": "Square Number",
+    "description": "Return the square of a number.",
+    "function_name": "square_number",
+    "starter_code": '''def square_number(num):
+    """
+    Return the square of num.
+    """
+
+    # Your code here
+    pass
+''',
+    "challenges": [
+        "Function Exists",
+        "Uses Return",
+        "Returns Correct Square",
+        "No Extra Output",
+    ],
+    "test_cases": [
+        {"input": 4, "expected": 16},
+        {"input": 0, "expected": 0},
+        {"input": -3, "expected": 9},
+        {"input": 10, "expected": 100},
+    ],
+},
+
+"get_area_rectangle": {
+    "id": "get_area_rectangle",
+    "lesson_number": "LESSON 5 OF 8",
+    "title": "Rectangle Area",
+    "description": "Return the area of a rectangle.",
+    "function_name": "get_area",
+    "starter_code": '''def get_area(length, width):
+    """
+    Return the area of a rectangle.
+    """
+
+    # Your code here
+    pass
+''',
+    "challenges": [
+        "Function Exists",
+        "Uses Parameters",
+        "Returns Correct Area",
+        "No Extra Output",
+    ],
+    "test_cases": [
+        {"input": (5, 4), "expected": 20},
+        {"input": (10, 2), "expected": 20},
+        {"input": (7, 3), "expected": 21},
+        {"input": (1, 9), "expected": 9},
+    ],
+},
+
+"validate_coordinates": {
+    "id": "validate_coordinates",
+    "lesson_number": "LESSON 5 OF 8",
+    "title": "Validate Coordinates",
+    "description": "Return True if the latitude is between -90 and 90 inclusive.",
+    "function_name": "validate_coordinates",
+    "starter_code": '''def validate_coordinates(lat, lon):
+    """
+    Return True if latitude is valid.
+    """
+
+    # Your code here
+    pass
+''',
+    "challenges": [
+        "Function Exists",
+        "Uses Comparison",
+        "Returns Boolean",
+        "No Extra Output",
+    ],
+    "test_cases": [
+        {"input": (45, 120), "expected": True},
+        {"input": (-90, 0), "expected": True},
+        {"input": (90, -80), "expected": True},
+        {"input": (95, 20), "expected": False},
+        {"input": (-100, 0), "expected": False},
+    ],
+},
+
+"format_name": {
+    "id": "format_name",
+    "lesson_number": "LESSON 5 OF 8",
+    "title": "Format Name",
+    "description": "Return a name in 'Last, First' format.",
+    "function_name": "format_name",
+    "starter_code": '''def format_name(first_name, last_name):
+    """
+    Return the name as "Last, First".
+    """
+
+    # Your code here
+    pass
+''',
+    "challenges": [
+        "Function Exists",
+        "Uses Parameters",
+        "Returns Formatted String",
+        "No Extra Output",
+    ],
+    "test_cases": [
+        {"input": ("Lorena", "Mesa"), "expected": "Mesa, Lorena"},
+        {"input": ("Ada", "Lovelace"), "expected": "Lovelace, Ada"},
+        {"input": ("Grace", "Hopper"), "expected": "Hopper, Grace"},
+    ],
+},
+
+"refactor_gps_distance": {
+    "id": "refactor_gps_distance",
+    "lesson_number": "LESSON 5 OF 8",
+    "title": "GPS Distance",
+    "description": "Return the distance between two coordinates using the distance formula.",
+    "function_name": "calculate_distance",
+    "starter_code": '''def calculate_distance(lat1, lon1, lat2, lon2):
+    """
+    Return the distance between two points.
+    """
+
+    # Your code here
+    pass
+''',
+    "challenges": [
+        "Function Exists",
+        "Uses Formula",
+        "Returns Float",
+        "No Extra Output",
+    ],
+    "test_cases": [
+        {"input": (0, 0, 3, 4), "expected": 5.0},
+        {"input": (1, 1, 1, 1), "expected": 0.0},
+        {"input": (2, 3, 5, 7), "expected": 5.0},
+    ],
+},
+
+"tech_conference_scheduler": {
+    "id": "tech_conference_scheduler",
+    "lesson_number": "LESSON 5 OF 8",
+    "title": "Assign Conference Room",
+    "description": "Return 'Main Stage' if the topic is 'Keynote'; otherwise return 'Breakout 1'.",
+    "function_name": "assign_room",
+    "starter_code": '''def assign_room(speaker, topic):
+    """
+    Return the correct room assignment.
+    """
+
+    # Your code here
+    pass
+''',
+    "challenges": [
+        "Function Exists",
+        "Uses Conditional",
+        "Returns Correct Room",
+        "No Extra Output",
+    ],
+    "test_cases": [
+        {"input": ("Dr. West", "Keynote"), "expected": "Main Stage"},
+        {"input": ("Lorena Mesa", "Open Source"), "expected": "Breakout 1"},
+        {"input": ("Alex", "Python"), "expected": "Breakout 1"},
+        {"input": ("Jordan", "Keynote"), "expected": "Main Stage"},
+    ],
+},
         # =====================================================
     # LESSON 6
     # =====================================================
