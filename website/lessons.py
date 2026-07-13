@@ -720,7 +720,7 @@ customer = "Maria"
                 "page": 2,
                 "type": "rich_paragraph",
                 "html":
-                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">input()</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">arithmetic</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">operator</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">string concatenation</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">f-string</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">string methods</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">sequence</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">index</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">zero-based indexing</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">slicing</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">immutable</span>'
+                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">input()</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">arithmetic</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">operator</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">string concatenation</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">f-string</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">string methods</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">sequence</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">index</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">zero-based indexing</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">slicing</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">step</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">negative index</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">reverse</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">immutable</span>'
             },
 
             {
@@ -1194,7 +1194,24 @@ print(word[3])
                 "page": 2,
                 "type": "rich_paragraph",
                 "html":
-                'Sometimes we do not want just one character. We want part of a string. This is called <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">slicing</span>. The syntax<sup>3</sup> is string[start:end].'
+                'Sometimes we do not want just one character. We want part of a string. This is called <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">slicing</span>. The syntax<sup>3</sup> is string[start:end:skip].'
+            },
+
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "start - the index of the first character to include in the slice.",
+                    "end - the index where the slice stops. This character is not included.",
+                    "skip, also called the step, specifies how many characters to move forward after each selected character."
+                ]
+            },
+
+            {
+                "page": 2,
+                "type": "tip",
+                "text":
+                "When you slice with string[start:end], Python interprets it as string[start:end:1] because the default step is 1."
             },
 
             {
@@ -1208,6 +1225,9 @@ print(word[0:3])
 
 print(word[2:6])
 # Output: thon
+
+print(word[0:6:2])
+# Output: Pto
 """
             },
 
@@ -1215,7 +1235,52 @@ print(word[2:6])
                 "page": 2,
                 "type": "paragraph",
                 "text":
-                "Python returns all characters beginning at start and ending before end. Notice that the ending index is not included."
+                "Python returns all characters beginning at start and ending before end. Notice that the ending index is not included. When a step is included, Python moves forward by that amount after each selected character."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""word = "Programming"
+print(word[0:11:2])
+
+# Output:
+# Pormig
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "table",
+                "headers": [
+                    "P",
+                    "r",
+                    "o",
+                    "g",
+                    "r",
+                    "a",
+                    "m",
+                    "m",
+                    "i",
+                    "n",
+                    "g"
+                ],
+                "rows": [
+                    [
+                        "Yes",
+                        "No",
+                        "Yes",
+                        "No",
+                        "Yes",
+                        "No",
+                        "No",
+                        "Yes",
+                        "No",
+                        "Yes",
+                        "No"
+                    ]
+                ]
             },
 
             {
@@ -1252,6 +1317,128 @@ print(word[2:6])
                     "D. p"
                 ],
                 "answer": "A. put"
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Working with Strings Backwards"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "So far, we have counted forward from the beginning of a string using positive indices. Python also allows us to count backward from the end of a string using negative indices."
+            },
+
+            {
+                "page": 2,
+                "type": "table",
+                "headers": [
+                    "Character",
+                    "P",
+                    "y",
+                    "t",
+                    "h",
+                    "o",
+                    "n"
+                ],
+                "rows": [
+                    [
+                        "Index",
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    [
+                        "Negative Index",
+                        "-6",
+                        "-5",
+                        "-4",
+                        "-3",
+                        "-2",
+                        "-1"
+                    ]
+                ]
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""word = "Python"
+
+print(word[-1])
+print(word[-2])
+print(word[-3])
+
+# Output:
+# n
+# o
+# h
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "tip",
+                "text":
+                "Negative indexing is especially useful when you want to access characters near the end of a string without needing to know exactly how long the string is."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Reversing a String"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "One of the most common uses of slicing with negative indices is reversing a string. The slice [::-1] starts at the end, moves backward one character at a time, and continues until the beginning is reached."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""word = "Python"
+print(word[::-1])
+
+# Output:
+# nohtyP
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "What does the expression word[-1] return?",
+                "options": [
+                    "A. The first character of the string",
+                    "B. The second character of the string",
+                    "C. The last character of the string",
+                    "D. The length of the string"
+                ],
+                "answer": "C. The last character of the string"
+            },
+
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "What is the output of word = \"Urban\" and print(word[::-1])?",
+                "options": [
+                    "A. Urban",
+                    "B. nabrU",
+                    "C. U",
+                    "D. abrnU"
+                ],
+                "answer": "B. nabrU"
             },
 
             {
@@ -1321,7 +1508,7 @@ print(f"Total: ${total}")
                     "Strings can be combined.",
                     "F-strings improve readability.",
                     "String methods modify text.",
-                    "Strings can be repeated, indexed, and sliced."
+                    "Strings can be repeated, indexed, sliced, and reversed."
                 ]
             },
 
