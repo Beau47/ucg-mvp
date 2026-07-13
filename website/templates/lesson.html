@@ -409,47 +409,6 @@
 
 <script>
 
-document.querySelectorAll(".ide-run").forEach(button => {
-
-    button.addEventListener("click", async () => {
-
-        const ide = button.closest(".lesson-ide");
-
-        const code =
-            ide.querySelector(".ide-editor").value;
-
-        const output =
-            ide.querySelector(".ide-output");
-
-        output.textContent = "Running...";
-
-
-        const response = await fetch("/run_snippet", {
-
-            method:"POST",
-
-            headers:{
-                "Content-Type":"application/json"
-            },
-
-            body:JSON.stringify({
-                code:code
-            })
-
-        });
-
-
-        const data = await response.json();
-
-
-        output.textContent = data.output;
-
-    });
-
-});
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
 
@@ -469,9 +428,44 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("next-link");
 
 
-    let completedQuizzes = 0;
+    const progressKey =
+        "ucg:lesson-progress:{{ lesson.id }}:{{ page }}";
 
-    let completedIDEs = 0;
+
+    const savedProgress =
+        JSON.parse(
+            localStorage.getItem(progressKey) || "{}"
+        );
+
+
+    const quizProgress =
+        savedProgress.quizzes ||
+        Array(quizzes.length).fill(false);
+
+
+    const ideProgress =
+        savedProgress.ides ||
+        Array(ides.length).fill(false);
+
+
+    let completedQuizzes =
+        quizProgress.filter(Boolean).length;
+
+    let completedIDEs =
+        ideProgress.filter(Boolean).length;
+
+
+    function saveProgress() {
+
+        localStorage.setItem(
+            progressKey,
+            JSON.stringify({
+                quizzes: quizProgress,
+                ides: ideProgress
+            })
+        );
+
+    }
 
 
 
@@ -540,12 +534,72 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    quizzes.forEach((quiz, quizIndex) => {
+
+        if (!quizProgress[quizIndex]) {
+            return;
+        }
+
+        quiz.dataset.completed =
+            "true";
+
+        const feedback =
+            quiz.querySelector(".quiz-feedback");
+
+        feedback.textContent =
+            "Correct!";
+
+        quiz.querySelectorAll(".quiz-option")
+            .forEach(button => {
+
+                if (
+                    button.dataset.answer ===
+                    button.dataset.correct
+                ) {
+
+                    button.style.backgroundColor =
+                        "#2ecc71";
+
+                    button.style.color =
+                        "white";
+
+                }
+
+                button.disabled =
+                    true;
+
+            });
+
+    });
+
+
+    ides.forEach((ide, ideIndex) => {
+
+        if (!ideProgress[ideIndex]) {
+            return;
+        }
+
+        ide.dataset.completed =
+            "true";
+
+        const output =
+            ide.querySelector(".ide-output");
+
+        output.textContent =
+            "Completed previously. You can run it again if you want.";
+
+    });
+
+
+    checkRequirements();
+
+
 
     // =====================================================
     // QUIZ LOGIC
     // =====================================================
 
-    quizzes.forEach(quiz => {
+    quizzes.forEach((quiz, quizIndex) => {
 
 
         const feedback =
@@ -605,6 +659,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     quiz.dataset.completed =
                         "true";
+
+
+                    quizProgress[quizIndex] =
+                        true;
+
+
+                    saveProgress();
 
 
                     completedQuizzes++;
@@ -667,7 +728,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     document.querySelectorAll(".ide-run")
-        .forEach(button => {
+        .forEach((button, ideIndex) => {
 
 
         button.addEventListener("click", async () => {
@@ -729,6 +790,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 ide.dataset.completed =
                     "true";
+
+
+                ideProgress[ideIndex] =
+                    true;
+
+
+                saveProgress();
 
 
                 completedIDEs++;
