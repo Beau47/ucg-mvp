@@ -830,12 +830,16 @@ print(total)
 
             {
                 "page": 2,
-                "type": "list",
-                "items": [
-                    "+ adds",
-                    "- subtracts",
-                    "* multiplies",
-                    "/ divides"
+                "type": "table",
+                "headers": [
+                    "Operator",
+                    "Meaning"
+                ],
+                "rows": [
+                    ["+", "Add"],
+                    ["-", "Subtract"],
+                    ["*", "Multiply"],
+                    ["/", "Divide"]
                 ]
             },
 
@@ -935,7 +939,7 @@ print(f"You ordered {quantity} {item}s.")
                 "page": 2,
                 "type": "tip",
                 "text":
-                "If a variable stores a number, you can place it inside an f-string with curly braces. Python will convert it into printable text for you."
+                "If a variable stores an integer and you place this variable in an f-string using curly braces, you don't need to add quotation marks to the integer to make it a string. Python will do this for you! Everything in the print function must be a string for it to work, because Python can only print strings. If you put a non-string in the print function, Python will convert it to a string. Try this by running print(5)."
             },
 
             {
@@ -966,13 +970,44 @@ print(f"You ordered {quantity} {item}s.")
 
             {
                 "page": 2,
-                "type": "list",
-                "items": [
-                    "upper() converts letters to uppercase.",
-                    "lower() converts letters to lowercase.",
-                    "strip() removes extra spaces from the beginning and end.",
-                    "title() capitalizes the first letter of each word.",
-                    "replace() replaces one piece of text with another."
+                "type": "table",
+                "headers": [
+                    "Method",
+                    "Description",
+                    "Example Code",
+                    "Output"
+                ],
+                "rows": [
+                    [
+                        "upper()",
+                        "Converts all letters to uppercase.",
+                        "name = \"Maria\"\nprint(name.upper())",
+                        "MARIA"
+                    ],
+                    [
+                        "lower()",
+                        "Converts all letters to lowercase.",
+                        "name = \"Maria\"\nprint(name.lower())",
+                        "maria"
+                    ],
+                    [
+                        "strip()",
+                        "Removes extra spaces from the beginning and end of a string.",
+                        "name = \"  Maria  \"\nprint(name.strip())",
+                        "Maria"
+                    ],
+                    [
+                        "title()",
+                        "Capitalizes the first letter of each word.",
+                        "city = \"little haiti\"\nprint(city.title())",
+                        "Little Haiti"
+                    ],
+                    [
+                        "replace()",
+                        "Replaces one piece of text with another.",
+                        "food = \"taco\"\nprint(food.replace(\"taco\", \"frybread\"))",
+                        "frybread"
+                    ]
                 ]
             },
 
