@@ -1,63 +1,50 @@
+import streamlit as st
+
+st.set_page_config(page_title="Problem 2", page_icon="📈")
+
+from streamlit_monaco import st_monaco
 import io
-import contextlib
-import multiprocessing as mp
-import traceback
+from contextlib import redirect_stdout
 
-EXEC_TIMEOUT_SEC = 5
+st.title("Urban Coders Guild")
 
-SAFE_BUILTINS = {
-    "print": print,
-    "range": range,
-    "len": len,
-    "str": str,
-    "int": int,
-    "float": float,
-    "bool": bool,
-    "list": list,
-    "dict": dict,
-    "tuple": tuple,
-    "set": set,
-    "abs": abs,
-    "min": min,
-    "max": max,
-    "sum": sum,
-    "sorted": sorted,
-    "round": round,
-    "True": True,
-    "False": False,
-    "None": None,
-}
+st.subheader("Lesson 2: Data Types")
 
+st.write("""
+Create a variable of a number, a word, a decimal, and a bool.
+""")
 
-def _exec_worker(code, conn):
+# Initialize the Monaco Editor component
+content = st_monaco(
+    value="# Type your Python code here\nprint('Hello from Monaco!')",
+    height="400px",
+    language="python",
+    theme="vs-dark"
+)
+
+# Run button
+if st.button("Run"):
+    output = io.StringIO()
+
     try:
-        namespace = {"__builtins__": SAFE_BUILTINS}
-        buf = io.StringIO()
-        with contextlib.redirect_stdout(buf):
-            exec(code, namespace, namespace)
-        conn.send(("ok", buf.getvalue() or "(no output)"))
-    except Exception:
-        conn.send(("err", traceback.format_exc()))
-    finally:
-        conn.close()
+        with redirect_stdout(output):
+            exec(content)
+
+        st.write("Output:")
+        st.code(output.getvalue())
+
+    except Exception as e:
+        st.error(str(e))
+
+    # namespace = {}
+
+    # exec(content, namespace)
+
+    # if namespace.get("x") == 5:
+    #     st.success("You did it!")
+    # else:
+    #     st.error("Try again.")
 
 
-def run_user_code(code):
-    parent_conn, child_conn = mp.Pipe(duplex=False)
-    proc = mp.Process(target=_exec_worker, args=(code, child_conn))
-    proc.start()
-    child_conn.close()
-    proc.join(timeout=EXEC_TIMEOUT_SEC)
-    if proc.is_alive():
-        proc.terminate()
-        proc.join()
-        parent_conn.close()
-        return "", f"Code execution timed out ({EXEC_TIMEOUT_SEC} seconds)"
-    if parent_conn.poll():
-        status, payload = parent_conn.recv()
-        parent_conn.close()
-        if status == "ok":
-            return payload, None
-        return "", payload
-    parent_conn.close()
-    return "", "Code execution failed unexpectedly"
+
+st.sidebar.success("Select an exercise above.")
