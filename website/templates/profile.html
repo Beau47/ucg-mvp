@@ -1,333 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
+
+    <!-- ===================================================== -->
+    <!-- PAGE CONFIGURATION                                   -->
+    <!-- Defines metadata, fonts, and shared styling.         -->
+    <!-- ===================================================== -->
+
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Student Profile</title>
-
-    <style>
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fb;
-            margin: 0;
-            padding: 40px;
-        }
-
-        .profile-container {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .profile-header {
-            text-align: center;
-        }
-
-        .avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-        }
-
-        h1 {
-            margin-bottom: 5px;
-        }
-
-        h2 {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .button {
-            background-color: #2563eb;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 15px;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 15px;
-            background: #f1f5f9;
-            border-radius: 10px;
-        }
-
-        .stat-number {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .progress-item {
-            margin-bottom: 20px;
-        }
-
-        .progress-bar {
-            background: #e5e7eb;
-            height: 12px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: #2563eb;
-        }
-
-        .activity,
-        .achievement {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .activity:last-child,
-        .achievement:last-child {
-            border-bottom: none;
-        }
 
 
-        .account-button {
-            margin-right: 10px;
-            background: #374151;
-        }
+    <title>
+        Urban Coders Guild - Profile
+    </title>
 
 
-        @media(max-width: 700px){
 
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
+    <!-- Website icon -->
+    <link rel="icon"
+          type="image/webp"
+          href="/static/images/ucg_logo.webp">
 
-        }
 
-    </style>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet">
+
+
+
+    <!-- Shared dashboard styling -->
+    <!-- This keeps the same UCG colors/theme -->
+    <link rel="stylesheet"
+          href="/static/css/dashboard.css">
+
 
 </head>
+
+
 
 
 <body>
 
 
-<div class="profile-container">
+
+<!-- ===================================================== -->
+<!-- TOP NAVIGATION BAR                                    -->
+<!-- Same navigation used throughout the platform.         -->
+<!-- ===================================================== -->
 
 
-    <!-- PROFILE HEADER -->
-    <div class="card profile-header">
+<header class="topbar">
 
-        <div class="avatar">
-            👤
-        </div>
 
-        <h1>Alex Joe</h1>
+    <div class="logo">
 
-        <p>Beginner Developer</p>
-
-        <a class="button" href="#">
-            Edit Profile
-        </a>
+        Urban Coders Guild
 
     </div>
 
 
 
-    <!-- PROGRESS OVERVIEW -->
-    <div class="card">
-
-        <h2>Progress Overview</h2>
+    <nav>
 
 
-        <div class="stats">
+        <a href="/">
+            Dashboard
+        </a>
 
-            <div class="stat">
-                <div class="stat-number">
-                    8/12
+
+
+        <a href="/lessons">
+            Lessons
+        </a>
+
+
+
+        <a href="/exercises">
+            Exercises
+        </a>
+
+
+
+        <a href="/profile" class="active">
+            Profile
+        </a>
+
+
+    </nav>
+
+
+</header>
+
+
+
+
+
+
+<!-- ===================================================== -->
+<!-- PROFILE PAGE CONTENT                                  -->
+<!-- Displays student information and progress.             -->
+<!-- ===================================================== -->
+
+
+<div class="container">
+
+
+    <h1>
+        Profile
+    </h1>
+
+
+
+
+    <div class="grid">
+
+
+
+
+
+        <!-- ================================================= -->
+        <!-- PROFILE INFORMATION CARD                         -->
+        <!-- Contains avatar and student information.          -->
+        <!-- ================================================= -->
+
+
+        <div class="card">
+
+
+            <!-- ===================================================== -->
+            <!-- PROFILE AVATAR                                       -->
+            <!-- Displays default avatar until student uploads photo.  -->
+            <!-- ===================================================== -->
+
+            <div class="profile-avatar">
+
+                <div class="default-avatar">
+                    👤
                 </div>
-                Lessons Completed
+
             </div>
 
 
-            <div class="stat">
-                <div class="stat-number">
+
+
+            <h2>
+                Alex Joe
+            </h2>
+
+
+
+            <p>
+                Beginner Developer
+            </p>
+
+
+
+
+            <button>
+                Edit Profile
+            </button>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- ================================================= -->
+        <!-- PROGRESS OVERVIEW                                 -->
+        <!-- Displays overall learning statistics.             -->
+        <!-- ================================================= -->
+
+
+        <div class="card">
+
+
+            <h2>
+                Progress Overview
+            </h2>
+
+
+
+            <p>
+                Lessons Completed:
+                <strong>
+                    8 / 12
+                </strong>
+            </p>
+
+
+
+            <p>
+                Problems Solved:
+                <strong>
                     24
-                </div>
-                Problems Solved
-            </div>
+                </strong>
+            </p>
 
 
-            <div class="stat">
-                <div class="stat-number">
+
+            <p>
+                XP:
+                <strong>
                     1450
+                </strong>
+            </p>
+
+
+
+            <p>
+                Coding Streak:
+                <strong>
+                    🔥 12 days
+                </strong>
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- ================================================= -->
+        <!-- LEARNING PROGRESS                                 -->
+        <!-- Shows progress by learning category.              -->
+        <!-- ================================================= -->
+
+
+        <div class="card">
+
+
+            <h2>
+                Learning Progress
+            </h2>
+
+
+
+            <p>
+                Python Basics
+            </p>
+
+
+
+            <div class="xp-bar">
+
+                <div class="xp-fill"
+                     style="width:75%;">
                 </div>
-                XP
+
             </div>
 
 
-            <div class="stat">
-                <div class="stat-number">
-                    🔥 12
+
+
+
+            <p>
+                Functions
+            </p>
+
+
+
+            <div class="xp-bar">
+
+                <div class="xp-fill"
+                     style="width:50%;">
                 </div>
-                Day Streak
+
             </div>
 
 
-        </div>
-
-    </div>
 
 
 
-
-    <!-- LEARNING PROGRESS -->
-    <div class="card">
-
-        <h2>Learning Progress</h2>
+            <p>
+                Algorithms
+            </p>
 
 
-        <div class="progress-item">
 
-            Python Basics
-            <div class="progress-bar">
-                <div class="progress-fill" style="width:75%">
+            <div class="xp-bar">
+
+                <div class="xp-fill"
+                     style="width:25%;">
                 </div>
+
             </div>
 
-        </div>
 
-
-        <div class="progress-item">
-
-            Functions
-            <div class="progress-bar">
-                <div class="progress-fill" style="width:50%">
-                </div>
-            </div>
 
         </div>
 
 
-        <div class="progress-item">
 
-            Algorithms
-            <div class="progress-bar">
-                <div class="progress-fill" style="width:25%">
-                </div>
-            </div>
+
+
+
+
+
+        <!-- ================================================= -->
+        <!-- RECENT ACTIVITY                                   -->
+        <!-- Shows recent student actions.                     -->
+        <!-- ================================================= -->
+
+
+        <div class="card">
+
+
+            <h2>
+                Recent Activity
+            </h2>
+
+
+
+            <p>
+                ✓ Completed Functions Lesson
+            </p>
+
+
+
+            <p>
+                ✓ Solved Number Guessing Problem
+            </p>
+
+
+
+            <p>
+                ✓ Started Recursion
+            </p>
+
+
 
         </div>
+
+
+
+
+
+
+
+
+        <!-- ================================================= -->
+        <!-- ACHIEVEMENTS                                      -->
+        <!-- Shows earned badges.                              -->
+        <!-- ================================================= -->
+
+
+        <div class="card">
+
+
+            <h2>
+                Achievements
+            </h2>
+
+
+
+            <p>
+                🐍 Python Beginner
+            </p>
+
+
+
+            <p>
+                🔥 7 Day Streak
+            </p>
+
+
+
+            <p>
+                🏆 Problem Solver
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- ================================================= -->
+        <!-- ACCOUNT                                           -->
+        <!-- Account-related options.                          -->
+        <!-- ================================================= -->
+
+
+        <div class="card">
+
+
+            <h2>
+                Account
+            </h2>
+
+
+
+            <p>
+                Email:
+                student@email.com
+            </p>
+
+
+
+            <button>
+                Settings
+            </button>
+
+
+
+            <button>
+                Logout
+            </button>
+
+
+
+        </div>
+
+
 
 
     </div>
-
-
-
-
-
-    <!-- RECENT ACTIVITY -->
-    <div class="card">
-
-        <h2>Recent Activity</h2>
-
-
-        <div class="activity">
-            ✓ Completed: Functions Lesson
-        </div>
-
-
-        <div class="activity">
-            ✓ Solved: Number Guessing Problem
-        </div>
-
-
-        <div class="activity">
-            ✓ Started: Recursion
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <!-- ACHIEVEMENTS -->
-    <div class="card">
-
-        <h2>Achievements</h2>
-
-
-        <div class="achievement">
-            🐍 Python Beginner
-        </div>
-
-
-        <div class="achievement">
-            🔥 7 Day Streak
-        </div>
-
-
-        <div class="achievement">
-            🏆 Problem Solver
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <!-- ACCOUNT -->
-    <div class="card">
-
-        <h2>Account</h2>
-
-
-        <p>
-            Email: student@email.com
-        </p>
-
-
-        <a class="button account-button" href="#">
-            Settings
-        </a>
-
-
-        <a class="button account-button" href="#">
-            Logout
-        </a>
-
-
-    </div>
-
 
 
 </div>
 
 
+
 </body>
+
 
 </html>
