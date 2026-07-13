@@ -632,30 +632,15 @@ customer = "Maria"
 
             {
                 "page": 1,
-                "type": "image",
+                "type": "image_text",
                 "src": "/static/images/mary_g_ross.png",
-                "caption": "Mary G. Ross, the first known Indigenous American female engineer."
-            },
-
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text":
-                "Mary G. Ross was the first known Indigenous American female engineer, and she was from Oklahoma."
-            },
-
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text":
-                "Working at Lockheed, she contributed to aerospace research and helped advance projects that influenced the Apollo space program."
-            },
-
-            {
-                "page": 1,
-                "type": "quote",
-                "text":
-                "Like engineers today, she solved complex problems by organizing information carefully - a skill that programming also requires."
+                "alt": "Mary G. Ross",
+                "caption": "Mary G. Ross",
+                "paragraphs": [
+                    "Mary G. Ross was the first known Indigenous American female engineer, and she was from Oklahoma.",
+                    "Working at Lockheed, she contributed to aerospace research and helped advance projects that influenced the Apollo space program.",
+                    "Like engineers today, she solved complex problems by organizing information carefully - a skill that programming also requires."
+                ]
             },
 
             {

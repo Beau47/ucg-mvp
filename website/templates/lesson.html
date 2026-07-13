@@ -116,6 +116,39 @@
 
         {% endif %}
 
+    {% elif block["type"] == "image_text" %}
+
+        <div class="image-text-block">
+
+            <div class="image-text-media">
+                <img
+                    src="{{ block["src"] }}"
+                    alt="{{ block["alt"] }}"
+                >
+
+                {% if block["caption"] %}
+
+                <p>
+                    {{ block["caption"] }}
+                </p>
+
+                {% endif %}
+            </div>
+
+            <div class="image-text-copy">
+
+                {% for paragraph in block["paragraphs"] %}
+
+                <p>
+                    {{ paragraph }}
+                </p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
     {% elif block["type"] == "tip" %}
 
         <div style="background:#eef9f0;border-left:5px solid #2ecc71;padding:20px;border-radius:10px;margin-bottom:30px;">
