@@ -4,9 +4,12 @@
 # =====================================================
 
 # Flask modules for creating routes and returning responses
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, session
 from problems import get_problem, PROBLEMS
 from runner import run_problem, run_snippet
+
+# Authentication client
+from supabase_client import supabase
 
 # Lesson loader
 from lessons import get_lesson, LESSONS
@@ -18,10 +21,24 @@ from lessons import get_lesson, LESSONS
 
 app = Flask(__name__)
 
+app.secret_key = "ucg-secret-key"
+
+
+# =====================================================
+# DASHBOARD ROUTE
+# =====================================================
 
 @app.route("/")
-def home():
-    return render_template("dashboard.html")
+def dashboard():
+
+    if "user_id" not in session:
+
+        return redirect("/login")
+
+
+    return render_template(
+        "dashboard.html"
+    )
 
 
 # =====================================================
@@ -99,14 +116,41 @@ def workspace(problem_id):
 
 # =====================================================
 # PROFILE PAGE
-# Displays the student's profile page.
+# Loads the student's profile info.
 # =====================================================
 
 @app.route("/profile")
 def profile():
 
+    if "user_id" not in session:
+        return redirect("/login")
+
+
+    user_id = session["user_id"]
+
+
+    # Get profile data from Supabase database
+    profile_data = (
+        supabase
+        .table("profiles")
+        .select("*")
+        .eq("id", user_id)
+        .execute()
+    )
+
+
+    profile = profile_data.data[0]
+
+
+    # Get email from Supabase Auth
+    user = supabase.auth.get_user()
+
+    profile["email"] = user.user.email
+
+
     return render_template(
-        "profile.html"
+        "profile.html",
+        profile=profile
     )
 
 
@@ -193,6 +237,95 @@ def run_snippet_api():
     return jsonify({
         "output": result
     })
+
+# =====================================================
+# USER SIGN-UP ROUTE
+#
+# =====================================================
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+
+    if request.method == "GET":
+
+        return render_template(
+            "signup.html"
+        )
+
+
+    email = request.form["email"]
+    password = request.form["password"]
+
+
+    response = supabase.auth.sign_up(
+        {
+            "email": email,
+            "password": password
+        }
+    )
+
+    user = response.user
+
+
+    supabase.table("profiles").insert({
+
+        "id": user.id,
+        "username": email.split("@")[0],
+        "xp": 0,
+        "streak": 0,
+        "lessons_completed": 0,
+        "problems_solved": 0
+
+    }).execute()
+
+
+    return redirect("/login")
+
+
+# =====================================================
+# USER LOG-IN ROUTE
+#
+# =====================================================
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+
+    if request.method == "GET":
+
+        return render_template(
+            "login.html"
+        )
+
+
+    email = request.form["email"]
+    password = request.form["password"]
+
+
+    response = supabase.auth.sign_in_with_password(
+        {
+            "email": email,
+            "password": password
+        }
+    )
+
+
+    session["user_id"] = response.user.id
+
+
+    return redirect("/")
+
+
+# =====================================================
+# USER LOG-OUT ROUTE
+#
+# =====================================================
+
+@app.route("/logout")
+def logout():
+
+    session.clear()
+
+    return redirect("/login")
 
 
 # =====================================================

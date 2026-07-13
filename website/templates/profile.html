@@ -4,39 +4,15 @@
 
 <head>
 
-    <!-- ===================================================== -->
-    <!-- PAGE CONFIGURATION                                   -->
-    <!-- Defines metadata, fonts, and shared styling.         -->
-    <!-- ===================================================== -->
-
-
     <meta charset="UTF-8">
 
+    <title>Profile | Urban Coders Guild</title>
 
-    <title>
-        Urban Coders Guild - Profile
-    </title>
+    <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-
-    <!-- Website icon -->
-    <link rel="icon"
-          type="image/webp"
-          href="/static/images/ucg_logo.webp">
-
-
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet">
-
-
-
-    <!-- Shared dashboard styling -->
-    <!-- This keeps the same UCG colors/theme -->
-    <link rel="stylesheet"
-          href="/static/css/dashboard.css">
-
+    <link rel="stylesheet" href="/static/css/dashboard.css">
 
 </head>
 
@@ -46,52 +22,40 @@
 <body>
 
 
-
-<!-- ===================================================== -->
-<!-- TOP NAVIGATION BAR                                    -->
-<!-- Same navigation used throughout the platform.         -->
-<!-- ===================================================== -->
-
+<!-- ========================= -->
+<!-- TOP NAVIGATION BAR -->
+<!-- ========================= -->
 
 <header class="topbar">
 
-
     <div class="logo">
-
         Urban Coders Guild
-
     </div>
 
 
-
     <nav>
-
 
         <a href="/">
             Dashboard
         </a>
 
-
-
         <a href="/lessons">
             Lessons
         </a>
-
-
 
         <a href="/exercises">
             Exercises
         </a>
 
-
-
         <a href="/profile" class="active">
             Profile
         </a>
 
+        <a href="/logout">
+            Logout
+        </a>
 
     </nav>
-
 
 </header>
 
@@ -99,342 +63,308 @@
 
 
 
-
-<!-- ===================================================== -->
-<!-- PROFILE PAGE CONTENT                                  -->
-<!-- Displays student information and progress.             -->
-<!-- ===================================================== -->
-
+<!-- ========================= -->
+<!-- PROFILE CONTENT -->
+<!-- ========================= -->
 
 <div class="container">
 
 
-    <h1>
-        Profile
-    </h1>
+    <!-- PROFILE HEADER -->
+
+    <div class="card profile-header">
+
+
+        <div class="avatar">
+            👤
+        </div>
+
+
+        <h1>
+            {{ profile.username }}
+        </h1>
+
+
+        <p>
+            Beginner Developer
+        </p>
+
+
+        <button>
+            Edit Profile
+        </button>
+
+
+    </div>
 
 
 
 
-    <div class="grid">
 
 
+    <!-- PROGRESS OVERVIEW -->
+
+    <div class="card">
+
+        <h2>
+            Progress Overview
+        </h2>
 
 
-
-        <!-- ================================================= -->
-        <!-- PROFILE INFORMATION CARD                         -->
-        <!-- Contains avatar and student information.          -->
-        <!-- ================================================= -->
+        <div class="grid">
 
 
-        <div class="card">
+            <div class="card">
+
+                <h2>
+                    Lessons Completed
+                </h2>
 
 
-            <!-- ===================================================== -->
-            <!-- PROFILE AVATAR                                       -->
-            <!-- Displays default avatar until student uploads photo.  -->
-            <!-- ===================================================== -->
-
-            <div class="profile-avatar">
-
-                <div class="default-avatar">
-                    👤
-                </div>
+                <h1>
+                    {{ profile.lessons_completed }}
+                </h1>
 
             </div>
 
 
 
 
-            <h2>
-                Alex Joe
-            </h2>
+            <div class="card">
+
+                <h2>
+                    Problems Solved
+                </h2>
 
 
-
-            <p>
-                Beginner Developer
-            </p>
-
-
-
-
-            <button>
-                Edit Profile
-            </button>
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-        <!-- ================================================= -->
-        <!-- PROGRESS OVERVIEW                                 -->
-        <!-- Displays overall learning statistics.             -->
-        <!-- ================================================= -->
-
-
-        <div class="card">
-
-
-            <h2>
-                Progress Overview
-            </h2>
-
-
-
-            <p>
-                Lessons Completed:
-                <strong>
-                    8 / 12
-                </strong>
-            </p>
-
-
-
-            <p>
-                Problems Solved:
-                <strong>
-                    24
-                </strong>
-            </p>
-
-
-
-            <p>
-                XP:
-                <strong>
-                    1450
-                </strong>
-            </p>
-
-
-
-            <p>
-                Coding Streak:
-                <strong>
-                    🔥 12 days
-                </strong>
-            </p>
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-        <!-- ================================================= -->
-        <!-- LEARNING PROGRESS                                 -->
-        <!-- Shows progress by learning category.              -->
-        <!-- ================================================= -->
-
-
-        <div class="card">
-
-
-            <h2>
-                Learning Progress
-            </h2>
-
-
-
-            <p>
-                Python Basics
-            </p>
-
-
-
-            <div class="xp-bar">
-
-                <div class="xp-fill"
-                     style="width:75%;">
-                </div>
+                <h1>
+                    {{ profile.problems_solved }}
+                </h1>
 
             </div>
 
 
 
 
+            <div class="card">
 
-            <p>
-                Functions
-            </p>
+                <h2>
+                    XP
+                </h2>
 
 
-
-            <div class="xp-bar">
-
-                <div class="xp-fill"
-                     style="width:50%;">
-                </div>
+                <h1>
+                    {{ profile.xp }}
+                </h1>
 
             </div>
 
 
 
 
+            <div class="card">
 
-            <p>
-                Algorithms
-            </p>
+                <h2>
+                    Day Streak
+                </h2>
 
 
-
-            <div class="xp-bar">
-
-                <div class="xp-fill"
-                     style="width:25%;">
-                </div>
+                <h1>
+                    🔥 {{ profile.streak }}
+                </h1>
 
             </div>
 
 
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- LEARNING PROGRESS -->
+
+    <div class="card">
+
+
+        <h2>
+            Learning Progress
+        </h2>
+
+
+
+        <p>
+            Python Basics
+        </p>
+
+
+        <div class="xp-bar">
+
+            <div
+                class="xp-fill"
+                style="width:75%">
+            </div>
+
+
+
+
+
+        <br>
+
+
+        <p>
+            Functions
+        </p>
+
+
+        <div class="xp-bar">
+
+            <div
+                class="xp-fill"
+                style="width:50%">
+            </div>
 
         </div>
 
 
 
 
+        <br>
 
 
+        <p>
+            Algorithms
+        </p>
 
 
-        <!-- ================================================= -->
-        <!-- RECENT ACTIVITY                                   -->
-        <!-- Shows recent student actions.                     -->
-        <!-- ================================================= -->
+        <div class="xp-bar">
 
-
-        <div class="card">
-
-
-            <h2>
-                Recent Activity
-            </h2>
-
-
-
-            <p>
-                ✓ Completed Functions Lesson
-            </p>
-
-
-
-            <p>
-                ✓ Solved Number Guessing Problem
-            </p>
-
-
-
-            <p>
-                ✓ Started Recursion
-            </p>
-
-
+            <div
+                class="xp-fill"
+                style="width:25%">
+            </div>
 
         </div>
-
-
-
-
-
-
-
-
-        <!-- ================================================= -->
-        <!-- ACHIEVEMENTS                                      -->
-        <!-- Shows earned badges.                              -->
-        <!-- ================================================= -->
-
-
-        <div class="card">
-
-
-            <h2>
-                Achievements
-            </h2>
-
-
-
-            <p>
-                🐍 Python Beginner
-            </p>
-
-
-
-            <p>
-                🔥 7 Day Streak
-            </p>
-
-
-
-            <p>
-                🏆 Problem Solver
-            </p>
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-        <!-- ================================================= -->
-        <!-- ACCOUNT                                           -->
-        <!-- Account-related options.                          -->
-        <!-- ================================================= -->
-
-
-        <div class="card">
-
-
-            <h2>
-                Account
-            </h2>
-
-
-
-            <p>
-                Email:
-                student@email.com
-            </p>
-
-
-
-            <button>
-                Settings
-            </button>
-
-
-
-            <button>
-                Logout
-            </button>
-
-
-
-        </div>
-
 
 
 
     </div>
+
+
+
+
+
+
+
+    <!-- RECENT ACTIVITY -->
+
+
+    <div class="card">
+
+
+        <h2>
+            Recent Activity
+        </h2>
+
+
+
+        <p>
+            ✓ Completed: Functions Lesson
+        </p>
+
+
+        <p>
+            ✓ Solved: Number Guessing Problem
+        </p>
+
+
+        <p>
+            ✓ Started: Recursion
+        </p>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- ACHIEVEMENTS -->
+
+
+    <div class="card">
+
+
+        <h2>
+            Achievements
+        </h2>
+
+
+
+        <p>
+            🐍 Python Beginner
+        </p>
+
+
+        <p>
+            🔥 7 Day Streak
+        </p>
+
+
+        <p>
+            🏆 Problem Solver
+        </p>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- ACCOUNT -->
+
+
+    <div class="card">
+
+
+        <h2>
+            Account
+        </h2>
+
+
+        <p>
+            Email: {{ profile.email }}
+        </p>
+
+
+
+        <button>
+            Settings
+        </button>
+
+
+
+        <a class="button account-button" href="/logout">
+            Logout
+        </a>
+
+
+
+    </div>
+
+
 
 
 </div>
@@ -442,6 +372,5 @@
 
 
 </body>
-
 
 </html>
