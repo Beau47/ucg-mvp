@@ -39,6 +39,34 @@ instance/
 
 
 # =========================
+# Old Streamlit files (no longer used)
+# =========================
+
+.streamlit/
+1_Problem_1.py
+config.toml
+
+
+# =========================
+# Old Next.js files (no longer used)
+# =========================
+
+node_modules/
+.next/
+out/
+website/
+next.config.ts
+next-env.d.ts
+eslint.config.mjs
+postcss.config.mjs
+tailwind.config.*
+tsconfig.json
+package.json
+package-lock.json
+yarn.lock
+
+
+# =========================
 # Testing
 # =========================
 
