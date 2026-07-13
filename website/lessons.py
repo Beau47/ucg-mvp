@@ -291,6 +291,11 @@ print("Hello, Dine Nation!")"""
                     "Good programmers learn to think carefully and logically.",
                     "Every programmer starts with a simple first program."
                 ]
+            },
+            {
+                "page": 2,
+                "type": "exercise",
+                "problem": "print_greeting"
             }
 
         ]
@@ -761,7 +766,7 @@ else:
         {
             "page": 7,
             "type": "exercise",
-            "problem": "snap_checker"
+            "problem": "is_adult"
         }
 
     ]
@@ -909,13 +914,6 @@ print(playlist)
 
 print(len(playlist))"""
         },
-
-        {
-            "page": 3,
-            "type": "exercise",
-            "problem": "list_mutation"
-        },
-
 
         {
             "page": 4,
@@ -1165,6 +1163,11 @@ print(fruits[3])
                 "Loops help process every item in a collection.",
                 "json.loads() converts JSON text into Python dictionaries."
             ]
+        },
+        {
+            "page": 11,
+            "type": "exercise",
+            "problem": "first_item"
         }
 
     ]
@@ -1625,6 +1628,11 @@ for i in range(5):
 
 # Write your loop here
 """
+        },
+        {
+            "page": 11,
+            "type": "exercise",
+            "problem": "count_up"
         }
 
     ]
@@ -2470,7 +2478,7 @@ play_hangman()'''
             {
                 "page": 6,
                 "type": "exercise",
-                "problem": "hangman_part_2"
+                "problem": "square_number"
             }
 
         ]
@@ -2778,6 +2786,11 @@ def print_tree(person, depth=0):
                     "Recursion can replace a loop plus a manual stack - the call stack does that bookkeeping for you.",
                     "Passing down knowledge - from Roy Clay Sr. to Fred Begay to your own capstone - is what keeps a field like computer science moving forward."
                 ]
+            },
+            {
+                "page": 3,
+                "type": "exericse",
+                "problem": "countdown"
             }
 
         ]
