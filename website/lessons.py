@@ -720,7 +720,7 @@ customer = "Maria"
                 "page": 2,
                 "type": "rich_paragraph",
                 "html":
-                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">input()</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">arithmetic</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">operator</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">string concatenation</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">f-string</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">string methods</span>'
+                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">input()</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">arithmetic</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">operator</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">string concatenation</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">f-string</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">string methods</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">sequence</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">index</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">zero-based indexing</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">slicing</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">immutable</span>'
             },
 
             {
@@ -1027,6 +1027,235 @@ print(food.replace("taco", "frybread"))
 
             {
                 "page": 2,
+                "type": "paragraph",
+                "text":
+                "These methods are especially useful when working with information entered by users. If someone types extra spaces or uses lowercase letters, string methods can help format the text consistently before the program uses it."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 6 - String Operations"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "So far, we have already learned one operation that can be performed on strings: concatenation. However, concatenation is not the only operation available for strings."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Repeating Strings"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "The multiplication operator (*) has a different meaning when used with strings. Instead of performing multiplication, it repeats the string a specified number of times."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""print("Python! " * 3)
+
+# Output:
+# Python! Python! Python!
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "Notice how the * operator behaves differently depending on the data type. With numbers, 5 * 3 performs multiplication. With strings, \"Python\" * 3 repeats the string three times."
+            },
+
+            {
+                "page": 2,
+                "type": "tip",
+                "text":
+                "One way to remember this is the mathematical definition of multiplication: repeated addition. Just like 5 * 3 repeatedly adds 5 to itself 3 times, \"Python\" * 3 adds the string Python to itself 3 times."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Strings are Sequential Data Types"
+            },
+
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html":
+                'Python views a string as a <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">sequence</span> of characters<sup>2</sup>. A sequence is an ordered collection of items where every item has a position.'
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""word = "Python"
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "table",
+                "headers": [
+                    "Character",
+                    "P",
+                    "y",
+                    "t",
+                    "h",
+                    "o",
+                    "n"
+                ],
+                "rows": [
+                    [
+                        "Index",
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ]
+                ]
+            },
+
+            {
+                "page": 2,
+                "type": "footnote",
+                "number": "2",
+                "text":
+                "Characters are letters, symbols, spaces, and more - pretty much everything on a keyboard that you can type."
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Indexing"
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "Because strings are sequences, we can access individual characters using their index. To access a specific character, place its index inside square brackets."
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""word = "Python"
+
+print(word[0])
+# Output: P
+
+print(word[3])
+# Output: h
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html":
+                'Python begins counting at 0, not 1. This is called <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">zero-based indexing</span>.'
+            },
+
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "Given word = \"Tulsa\", what does print(word[2]) display?",
+                "options": [
+                    "A. T",
+                    "B. u",
+                    "C. l",
+                    "D. s"
+                ],
+                "answer": "C. l"
+            },
+
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Slicing"
+            },
+
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html":
+                'Sometimes we do not want just one character. We want part of a string. This is called <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">slicing</span>. The syntax<sup>3</sup> is string[start:end].'
+            },
+
+            {
+                "page": 2,
+                "type": "code",
+                "text":
+"""word = "Python"
+
+print(word[0:3])
+# Output: Pyt
+
+print(word[2:6])
+# Output: thon
+"""
+            },
+
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text":
+                "Python returns all characters beginning at start and ending before end. Notice that the ending index is not included."
+            },
+
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html":
+                'Slicing allows us to extract pieces of text without changing the original string. Strings are <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">immutable</span>, meaning they cannot be changed in place<sup>4</sup>.'
+            },
+
+            {
+                "page": 2,
+                "type": "footnote",
+                "number": "3",
+                "text":
+                "Syntax is the convention of a language, or the way of writing things. English has syntax too, like adding periods at the end of sentences."
+            },
+
+            {
+                "page": 2,
+                "type": "footnote",
+                "number": "4",
+                "text":
+                "In place means the original object itself is modified rather than creating a new object to hold the updated value."
+            },
+
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "What is the output of word = \"Computer\" and print(word[3:6])?",
+                "options": [
+                    "A. put",
+                    "B. pute",
+                    "C. ute",
+                    "D. p"
+                ],
+                "answer": "A. put"
+            },
+
+            {
+                "page": 2,
                 "type": "heading",
                 "text": "Mini Project - Tulsa Food Truck"
             },
@@ -1091,7 +1320,8 @@ print(f"Total: ${total}")
                     "Arithmetic performs calculations.",
                     "Strings can be combined.",
                     "F-strings improve readability.",
-                    "String methods modify text."
+                    "String methods modify text.",
+                    "Strings can be repeated, indexed, and sliced."
                 ]
             },
 
