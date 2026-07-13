@@ -47,8 +47,9 @@ require(["vs/editor/editor.main"], function () {
             language: "python",
             theme: "vs-dark",
             automaticLayout: true,
-            fontSize: 16,
-            fontFamily: "JetBrains Mono",
+            fontSize: 15,
+            fontFamily: "Consolas, Menlo, Monaco, 'Courier New', monospace",
+            fontLigatures: false,
             minimap: { enabled: false }
         }
     );

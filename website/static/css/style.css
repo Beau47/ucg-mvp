@@ -25,18 +25,11 @@ body {
 
 .topbar {
     height: 70px;
-    background: linear-gradient(
-        90deg,
-        #ff512f,
-        #ff8a00
-    );
-
+    background: linear-gradient(90deg, #ff512f, #ff8a00);
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 0 30px;
-
     color: white;
 }
 
@@ -48,29 +41,18 @@ body {
 /* Run button matches nav style */
 
 #run-button {
-
-    padding:10px 16px;
-
-    border-radius:999px;
-
-    border:1px solid rgba(255,255,255,0.25);
-
-    background:rgba(255,255,255,0.12);
-
-    color:white;
-
-    cursor:pointer;
-
-    transition:0.2s;
-
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.12);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 #run-button:hover {
-
-    background:rgba(255,255,255,0.22);
-
-    transform:translateY(-1px);
-
+    background: rgba(255,255,255,0.22);
+    transform: translateY(-1px);
 }
 
 
@@ -79,47 +61,30 @@ body {
 /* ===================================================== */
 
 .nav-item {
-
-    display:inline-block;
-
-    padding:10px 16px;
-
-    border-radius:999px;
-
-    background:rgba(255,255,255,0.12);
-
-    border:1px solid rgba(255,255,255,0.18);
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:500;
-
-    transition:0.2s;
-
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
 }
 
 /* HOVER */
 
 .nav-item:hover {
-
-    background:rgba(255,255,255,0.22);
-
-    transform:translateY(-1px);
-
+    background: rgba(255,255,255,0.22);
+    transform: translateY(-1px);
 }
 
 /* ACTIVE TAB */
 
 .nav-item.active {
-
-    background:white;
-
-    color:#ff512f;
-
-    border:1px solid white;
-
+    background: white;
+    color: #ff512f;
+    border: 1px solid white;
 }
 
 
@@ -212,11 +177,7 @@ body {
 .xp-fill {
     width: 64%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        #ff8a00,
-        #ff512f
-    );
+    background: linear-gradient(90deg, #ff8a00, #ff512f);
 }
 
 
@@ -288,9 +249,7 @@ body {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-
     background: #1e1e1e;
-
     min-height: 0;
     overflow: hidden;
 }
@@ -320,13 +279,10 @@ body {
 
 .output {
     flex: 0 0 250px;
-
-    background:#18181b;
-    color:white;
-
-    border-top:1px solid #333;
-
-    overflow-y:auto;
+    background: #18181b;
+    color: white;
+    border-top: 1px solid #333;
+    overflow-y: auto;
 }
 
 /* Header for the output panel */
@@ -355,9 +311,7 @@ body {
     color: #e4e4e7;
     border-bottom: 1px solid #333;
     min-height: 70px;
-    font-family:
-        "JetBrains Mono",
-        monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 14px;
 }
 
@@ -429,13 +383,11 @@ body {
     margin-bottom: 35px;
 }
 
-
 .page-header h1 {
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 10px;
 }
-
 
 .page-header p {
     color: #666;
@@ -448,14 +400,9 @@ body {
 /* ===================================================== */
 
 .card-grid {
-
     display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
-
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
-
 }
 
 
@@ -464,62 +411,38 @@ body {
 /* ===================================================== */
 
 .content-card {
-
     background: white;
-
     padding: 25px;
-
     border-radius: 18px;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,0.08);
-
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     transition: 0.2s;
-
 }
-
 
 .content-card:hover {
-
     transform: translateY(-3px);
-
 }
-
 
 /* Card numbering label */
 
 .card-number {
-
     color: #8a88a0;
-
     font-size: 13px;
-
     font-weight: 600;
-
     margin-bottom: 12px;
-
 }
-
 
 /* Card title */
 
 .content-card h2 {
-
     margin-bottom: 12px;
-
     font-size: 22px;
-
 }
-
 
 /* Card description */
 
 .content-card p {
-
     color: #555;
-
     line-height: 1.6;
-
 }
 
 
@@ -528,402 +451,150 @@ body {
 /* ===================================================== */
 
 .content-card button {
-
     margin-top: 20px;
-
     padding: 12px 18px;
-
     border-radius: 999px;
-
     border: none;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff512f,
-            #ff8a00
-        );
-
+    background: linear-gradient(90deg, #ff512f, #ff8a00);
     color: white;
-
     font-weight: 600;
-
     cursor: pointer;
-
     transition: 0.2s;
-
 }
-
 
 .content-card button:hover {
-
     transform: translateY(-2px);
-
 }
+
 
 /* ===================================================== */
 /* LESSON MINI IDE                                       */
 /* Interactive coding blocks inside lessons              */
 /* ===================================================== */
 
-
 .lesson-ide {
-
-    background:#1e1e1e;
-
-    border-radius:16px;
-
-    overflow:hidden;
-
-    margin:30px 0;
-
-    box-shadow:0 8px 25px rgba(0,0,0,0.15);
-
+    background: #1e1e1e;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 30px 0;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    width: 100%;
 }
-
-
 
 .ide-header {
-
-    height:50px;
-
-    background:#2d2d2d;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 20px;
-
+    height: 50px;
+    background: #2d2d2d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
-
-
 
 .ide-file {
-
-    color:#d4d4d4;
-
-    font-family:"JetBrains Mono", monospace;
-
-    font-size:14px;
-
+    color: #d4d4d4;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
 }
-
-
 
 .ide-run {
-
-    background:linear-gradient(
-        90deg,
-        #ff512f,
-        #ff8a00
-    );
-
-    border:none;
-
-    color:white;
-
-    padding:8px 18px;
-
-    border-radius:999px;
-
-    font-family:"Poppins", sans-serif;
-
-    font-weight:600;
-
-    cursor:pointer;
-
+    background: linear-gradient(90deg, #ff512f, #ff8a00);
+    border: none;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
 }
-
-
 
 .ide-run:hover {
-
-    transform:translateY(-1px);
-
+    transform: translateY(-1px);
 }
-
-
 
 .ide-instructions {
-
-    background:#252526;
-
-    color:#bcbcbc;
-
-    padding:15px 20px;
-
-    font-size:14px;
-
-    font-family:"Poppins", sans-serif;
-
+    background: #252526;
+    color: #bcbcbc;
+    padding: 15px 20px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
 }
-
-
 
 .ide-editor {
-
-    width:100%;
-
-    height:180px;
-
-    resize:none;
-
-    border:none;
-
-    outline:none;
-
-    padding:20px;
-
-    background:#1e1e1e;
-
-    color:#d4d4d4;
-
-    font-family:"JetBrains Mono", monospace;
-
-    font-size:15px;
-
-    line-height:1.6;
-
+    width: 100%;
+    height: 150px;
+    min-height: 150px;
+    display: block;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 20px;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15px;
+    line-height: 1.6;
 }
-
-
 
 .ide-output-header {
+    background: #252526;
+    color: #aaa;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-top: 1px solid #333;
+}
 
-    background:#252526;
-
-    color:#aaa;
-
-    padding:12px 20px;
-
-    font-size:14px;
-
-    border-top:1px solid #333;
-
+.ide-output {
+    min-height: 50px;
+    padding: 20px;
+    margin: 0;
+    color: #d4d4d4;
+    font-family: "JetBrains Mono", monospace;
+    background: #181818;
 }
 
 
-
-.ide-output {
-
-    min-height:60px;
-
-    padding:20px;
-
-    margin:0;
-
-    color:#d4d4d4;
-
-    font-family:"JetBrains Mono", monospace;
-
-    background:#181818;
-
-}/* ===================================================== */
-/* LESSON MINI IDE                                       */
-/* Interactive coding blocks inside lessons              */
 /* ===================================================== */
-
-
-.lesson-ide {
-
-    background:#1e1e1e;
-
-    border-radius:16px;
-
-    overflow:hidden;
-
-    margin:30px 0;
-
-    box-shadow:0 8px 25px rgba(0,0,0,0.15);
-
-}
-
-
-
-.ide-header {
-
-    height:50px;
-
-    background:#2d2d2d;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 20px;
-
-}
-
-
-
-.ide-file {
-
-    color:#d4d4d4;
-
-    font-family:"JetBrains Mono", monospace;
-
-    font-size:14px;
-
-}
-
-
-
-.ide-run {
-
-    background:linear-gradient(
-        90deg,
-        #ff512f,
-        #ff8a00
-    );
-
-    border:none;
-
-    color:white;
-
-    padding:8px 18px;
-
-    border-radius:999px;
-
-    font-family:"Poppins", sans-serif;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-}
-
-
-
-.ide-run:hover {
-
-    transform:translateY(-1px);
-
-}
-
-
-
-.ide-instructions {
-
-    background:#252526;
-
-    color:#bcbcbc;
-
-    padding:15px 20px;
-
-    font-size:14px;
-
-    font-family:"Poppins", sans-serif;
-
-}
-
-
-
-.ide-editor {
-
-    width:100%;
-
-    height:180px;
-
-    resize:none;
-
-    border:none;
-
-    outline:none;
-
-    padding:20px;
-
-    background:#1e1e1e;
-
-    color:#d4d4d4;
-
-    font-family:"JetBrains Mono", monospace;
-
-    font-size:15px;
-
-    line-height:1.6;
-
-}
-
-
-
-.ide-output-header {
-
-    background:#252526;
-
-    color:#aaa;
-
-    padding:12px 20px;
-
-    font-size:14px;
-
-    border-top:1px solid #333;
-
-}
-
-
-
-.ide-output {
-
-    min-height:60px;
-
-    padding:20px;
-
-    margin:0;
-
-    color:#d4d4d4;
-
-    font-family:"JetBrains Mono", monospace;
-
-    background:#181818;
-
-}
+/* QUIZ CARD                                              */
+/* ===================================================== */
 
 .quiz-card {
-    background:#f8f8fc;
-    padding:25px;
-    border-radius:15px;
-    margin-bottom:30px;
+    background: #f8f8fc;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
 }
-
 
 .quiz-options {
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    margin-top:20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
 }
-
 
 .quiz-option {
-    text-align:left;
-    padding:15px;
-    border:none;
-    border-radius:10px;
-    background:white;
-    cursor:pointer;
-    font-family:'Poppins';
-    font-size:15px;
+    text-align: left;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-size: 15px;
 }
-
 
 .quiz-option:hover {
-    background:#eee;
+    background: #eee;
 }
 
-
 .quiz-feedback {
-    margin-top:15px;
-    font-weight:600;
+    margin-top: 15px;
+    font-weight: 600;
 }
 
 button:disabled {
     pointer-events: none;
 }
+
 
 /* ===================================================== */
 /* PAGE-SPECIFIC LAYOUTS                                 */
@@ -941,24 +612,6 @@ button:disabled {
     min-height: 0;
 }
 
-
-/* Lesson mini IDE */
-
-.lesson-ide {
-    width: 100%;
-}
-
-
-.ide-editor {
-    min-height: 150px;
-    height: 150px;
-    display: block;
-}
-
-
-.ide-output {
-    min-height: 50px;
-}
 
 /* ===================================================== */
 /* LESSON IMAGE + TEXT BLOCK                             */
