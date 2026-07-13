@@ -2427,7 +2427,7 @@ print(square(4))"""
                     "C. It stores data in a list",
                     "D. It asks the user for input"
                 ],
-                "answer": "B. It ends the function and gives a value back to the caller."
+                "answer": "B. It ends the function and gives a value back to the caller"
             },
 
             {
