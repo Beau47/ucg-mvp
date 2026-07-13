@@ -2332,6 +2332,410 @@ print(fruits[3])
 
     ]
 },
+"mutation_aliasing": {
+
+    "id": "mutation_aliasing",
+
+    "lesson_number": "3.1",
+
+    "title": "Mutation & Aliasing",
+
+    "description": "Understand how Python stores data, why some values can change, and how aliasing can create unexpected behavior.",
+
+    "blocks": [
+
+
+        # =====================================================
+        # PAGE 1: INTRODUCTION
+        # =====================================================
+
+        {
+            "page": 1,
+            "type": "heading",
+            "text": "Lesson 3.1: Mutation & Aliasing — How Python Stores Data"
+        },
+
+
+        {
+            "page": 1,
+            "type": "paragraph",
+            "text": """
+            Before working with lists and dictionaries, it is important to
+            understand how Python stores information.
+
+            Some data types can be changed after they are created.
+            Other data types cannot.
+
+            This difference explains why changing a list can affect multiple
+            variables at once, while changing a number does not.
+            """
+        },
+
+
+        {
+            "page": 1,
+            "type": "tip",
+            "text": """
+            By the end of this lesson, you will understand:
+
+            • The difference between mutable and immutable data
+            • Why lists and dictionaries can change
+            • How variables can reference the same object
+            • How to avoid unexpected changes using copies
+            """
+        },
+
+
+        # =====================================================
+        # PAGE 2: VARIABLES AND OBJECTS
+        # =====================================================
+
+
+        {
+            "page": 2,
+            "type": "heading",
+            "text": "Variables Store References to Data"
+        },
+
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text": """
+            Many beginners think variables contain the actual value.
+
+            In Python, variables are names that point to objects stored in
+            memory.
+
+            Think of a variable like a label attached to a box.
+            The label tells Python which object you mean.
+            """
+        },
+
+
+        {
+            "page": 2,
+            "type": "code",
+            "text": """
+age = 15
+
+print(age)
+"""
+        },
+
+
+        {
+            "page": 2,
+            "type": "paragraph",
+            "text": """
+            Here, the variable age points to the integer object 15.
+
+            When we change age, Python creates a new object instead of
+            changing the old one.
+            """
+        },
+
+
+        {
+            "page": 2,
+            "type": "code",
+            "text": """
+age = 15
+
+age = 16
+
+print(age)
+
+# Output:
+16
+"""
+        },
+
+
+        # =====================================================
+        # PAGE 3: IMMUTABLE DATA
+        # =====================================================
+
+
+        {
+            "page": 3,
+            "type": "heading",
+            "text": "Immutable Data: Values That Cannot Change"
+        },
+
+
+        {
+            "page": 3,
+            "type": "paragraph",
+            "text": """
+            Immutable means an object cannot be changed after it is created.
+
+            Common immutable data types include:
+
+            • int
+            • float
+            • bool
+            • string
+            • tuple
+
+            When you modify these values, Python creates a new object.
+            """
+        },
+
+
+        {
+            "page": 3,
+            "type": "code",
+            "text": """
+name = "Alex"
+
+name = name + "!"
+
+print(name)
+
+# Output:
+Alex!
+"""
+        },
+
+
+        {
+            "page": 3,
+            "type": "paragraph",
+            "text": """
+            The original string was not changed.
+
+            Python created a new string object and updated the variable to
+            point to it.
+            """
+        },
+
+
+        {
+            "page": 3,
+            "type": "quiz",
+            "question": "Which of these is an immutable data type?",
+            "options": [
+                "list",
+                "dictionary",
+                "string",
+                "set"
+            ],
+            "answer": "string"
+        },
+
+
+        # =====================================================
+        # PAGE 4: MUTABLE DATA
+        # =====================================================
+
+
+        {
+            "page": 4,
+            "type": "heading",
+            "text": "Mutable Data: Values That Can Change"
+        },
+
+
+        {
+            "page": 4,
+            "type": "paragraph",
+            "text": """
+            Mutable objects can be changed after they are created.
+
+            Common mutable data types include:
+
+            • list
+            • dictionary
+            • set
+
+            Instead of creating a new object, Python modifies the existing
+            object.
+            """
+        },
+
+
+        {
+            "page": 4,
+            "type": "code",
+            "text": """
+numbers = [1, 2, 3]
+
+numbers.append(4)
+
+print(numbers)
+
+# Output:
+[1, 2, 3, 4]
+"""
+        },
+
+
+        {
+            "page": 4,
+            "type": "ide",
+            "instructions": "Modify the list by adding 'Python' using mutation.",
+            "starter_code": """
+languages = ["Java", "C++"]
+
+# Add Python to the list
+
+print(languages)
+"""
+        },
+
+
+        # =====================================================
+        # PAGE 5: ALIASING
+        # =====================================================
+
+
+        {
+            "page": 5,
+            "type": "heading",
+            "text": "Aliasing: Two Variables, One Object"
+        },
+
+
+        {
+            "page": 5,
+            "type": "paragraph",
+            "text": """
+            Aliasing happens when two variables point to the same object.
+
+            Changing the object through one variable changes what the other
+            variable sees.
+            """
+        },
+
+
+        {
+            "page": 5,
+            "type": "code",
+            "text": """
+scores = [90, 80]
+
+other_scores = scores
+
+other_scores.append(100)
+
+print(scores)
+
+# Output:
+[90, 80, 100]
+"""
+        },
+
+
+        {
+            "page": 5,
+            "type": "warning",
+            "text": """
+            This can create unexpected bugs.
+
+            Remember:
+            If two variables reference the same list or dictionary,
+            changing one changes the other.
+            """
+        },
+
+
+        # =====================================================
+        # PAGE 6: COPYING OBJECTS
+        # =====================================================
+
+
+        {
+            "page": 6,
+            "type": "heading",
+            "text": "Avoiding Aliasing with Copies"
+        },
+
+
+        {
+            "page": 6,
+            "type": "paragraph",
+            "text": """
+            If you want a separate object, create a copy.
+
+            Lists and dictionaries have a .copy() method that creates a new
+            object with the same contents.
+            """
+        },
+
+
+        {
+            "page": 6,
+            "type": "code",
+            "text": """
+original = [1, 2, 3]
+
+copy = original.copy()
+
+copy.append(4)
+
+print(original)
+print(copy)
+
+# Output:
+[1, 2, 3]
+[1, 2, 3, 4]
+"""
+        },
+
+
+        {
+            "page": 6,
+            "type": "ide",
+            "instructions": "Fix the code so changing student_copy does not change the original student list.",
+            "starter_code": """
+students = ["Ana", "Luis"]
+
+student_copy = students
+
+student_copy.append("Maya")
+
+print(students)
+"""
+        },
+
+
+        # =====================================================
+        # PAGE 7: SUMMARY + EXERCISE
+        # =====================================================
+
+
+        {
+            "page": 7,
+            "type": "heading",
+            "text": "Mutation & Aliasing Summary"
+        },
+
+
+        {
+            "page": 7,
+            "type": "list",
+            "items": [
+                "Immutable objects cannot be changed after creation.",
+                "Mutable objects can be changed.",
+                "Lists and dictionaries are mutable.",
+                "Aliasing happens when two variables reference the same object.",
+                "Use .copy() to create a separate object."
+            ]
+        },
+
+
+        {
+            "page": 7,
+            "type": "exercise",
+            "problem": "update_inventory"
+        }
+
+
+    ]
+
+},
+
     "loops": {
 
     "id": "loops",

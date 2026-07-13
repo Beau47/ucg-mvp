@@ -97,9 +97,17 @@ def workspace(problem_id):
     )
 
 
+# =====================================================
+# PROFILE PAGE
+# Displays the student's profile page.
+# =====================================================
+
 @app.route("/profile")
 def profile():
-    return "Profile page coming soon."
+
+    return render_template(
+        "profile.html"
+    )
 
 
 # =====================================================
