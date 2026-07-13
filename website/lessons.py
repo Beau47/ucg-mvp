@@ -1528,7 +1528,7 @@ print(f"Total: ${total}")
             {
                 "page": 2,
                 "type": "exercise",
-                "problem": "add_one"
+                "problem": "food_truck_total"
             }
 
         ]

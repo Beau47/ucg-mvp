@@ -10,13 +10,13 @@ PROBLEMS = {
 
     "print_greeting": {
         "id": "print_greeting",
-        "lesson_number": "LESSON 1",
+        "lesson_number": "LESSON 1.0",
         "title": "Print Greeting",
-        "description": 'Print exactly: Hello, Urban Coders Guild!',
+        "description": 'Return exactly: Hello, Urban Coders Guild!',
         "function_name": "print_greeting",
         "starter_code": '''def print_greeting():
     """
-    Print exactly:
+    Return exactly:
     Hello, Urban Coders Guild!
     """
     # WRITE CODE HERE
@@ -24,36 +24,339 @@ PROBLEMS = {
 ''',
         "challenges": [
             "Program Runs",
-            "Correct Output",
+            "Returns Correct Text",
             "No Extra Output",
         ],
-        "expected_output": [
-        {"input": None, "expected": "Hello, Urban Coders Guild!"}
-    ],
+        "test_cases": [
+            {"input": (), "expected": "Hello, Urban Coders Guild!"}
+        ],
     },
 
     "favorite_place": {
         "id": "favorite_place",
-        "lesson_number": "LESSON 1",
+        "lesson_number": "LESSON 1.0",
         "title": "Favorite Place",
-        "description": 'Print exactly: I love learning Python!',
+        "description": "Return a sentence that says you love learning Python in a place.",
         "function_name": "favorite_place",
-        "starter_code": '''def favorite_place():
+        "starter_code": '''def favorite_place(place):
     """
-    Print exactly:
-    I love learning Python!
+    Given a place, return:
+    I love learning Python in [place]!
+
+    Example:
+    favorite_place("Tulsa")
+    -> "I love learning Python in Tulsa!"
     """
     # WRITE CODE HERE
     pass
 ''',
         "challenges": [
-            "Program Runs",
-            "Correct Output",
+            "Function Exists",
+            "Uses the Place Parameter",
+            "Returns Correct Text",
             "No Extra Output",
         ],
-        "expected_output": [
-        {"input": None, "expected": "I love learning Python!"}
-    ],
+        "test_cases": [
+            {"input": "Tulsa", "expected": "I love learning Python in Tulsa!"},
+            {"input": "Greenwood", "expected": "I love learning Python in Greenwood!"},
+            {"input": "class", "expected": "I love learning Python in class!"},
+        ],
+    },
+
+    "food_truck_total": {
+        "id": "food_truck_total",
+        "lesson_number": "LESSON 1.1",
+        "title": "Food Truck Total",
+        "description": "Return the total cost for a food truck order.",
+        "function_name": "food_truck_total",
+        "starter_code": '''def food_truck_total(quantity, price):
+    """
+    Given a quantity and price,
+    return the total cost.
+
+    Example:
+    food_truck_total(3, 8) -> 24
+    """
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Arithmetic",
+            "Returns Correct Total",
+            "No Extra Output",
+        ],
+        "test_cases": [
+            {"input": (3, 8), "expected": 24},
+            {"input": (1, 12), "expected": 12},
+            {"input": (5, 4), "expected": 20},
+            {"input": (0, 10), "expected": 0},
+        ],
+    },
+
+    "format_receipt_line": {
+        "id": "format_receipt_line",
+        "lesson_number": "LESSON 1.1",
+        "title": "Format Receipt Line",
+        "description": "Use an f-string to return one clean receipt line.",
+        "function_name": "format_receipt_line",
+        "starter_code": '''def format_receipt_line(customer, item, quantity):
+    """
+    Given a customer, item, and quantity,
+    return:
+    [customer] ordered [quantity] [item]
+
+    Example:
+    format_receipt_line("Maria", "Frybread Taco", 3)
+    -> "Maria ordered 3 Frybread Taco"
+    """
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Variables",
+            "Formats Text Correctly",
+            "No Extra Output",
+        ],
+        "test_cases": [
+            {
+                "input": ("Maria", "Frybread Taco", 3),
+                "expected": "Maria ordered 3 Frybread Taco"
+            },
+            {
+                "input": ("Jordan", "Chicken & Waffles", 2),
+                "expected": "Jordan ordered 2 Chicken & Waffles"
+            },
+            {
+                "input": ("Ari", "Kendall Whittier Taco", 1),
+                "expected": "Ari ordered 1 Kendall Whittier Taco"
+            },
+        ],
+    },
+
+    "clean_menu_item": {
+        "id": "clean_menu_item",
+        "lesson_number": "LESSON 1.1",
+        "title": "Clean Menu Item",
+        "description": "Clean up a menu item using string methods.",
+        "function_name": "clean_menu_item",
+        "starter_code": '''def clean_menu_item(item):
+    """
+    Given a menu item with messy spacing or lowercase words,
+    remove extra spaces and title-case the item.
+
+    Example:
+    clean_menu_item("  frybread taco  ")
+    -> "Frybread Taco"
+    """
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses strip()",
+            "Uses title()",
+            "Returns Clean Text",
+        ],
+        "test_cases": [
+            {"input": "  frybread taco  ", "expected": "Frybread Taco"},
+            {"input": "chicken & waffles", "expected": "Chicken & Waffles"},
+            {"input": "  kendall whittier taco", "expected": "Kendall Whittier Taco"},
+        ],
+    },
+
+    "reverse_word": {
+        "id": "reverse_word",
+        "lesson_number": "LESSON 1.1",
+        "title": "Reverse Word",
+        "description": "Use slicing to return a word backwards.",
+        "function_name": "reverse_word",
+        "starter_code": '''def reverse_word(word):
+    """
+    Given a word,
+    return the word reversed.
+
+    Example:
+    reverse_word("Urban") -> "nabrU"
+    """
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Slicing",
+            "Returns Reversed Text",
+            "No Extra Output",
+        ],
+        "test_cases": [
+            {"input": "Urban", "expected": "nabrU"},
+            {"input": "Python", "expected": "nohtyP"},
+            {"input": "Tulsa", "expected": "asluT"},
+            {"input": "", "expected": ""},
+        ],
+    },
+
+    "first_initial": {
+        "id": "first_initial",
+        "lesson_number": "LESSON 1.1",
+        "title": "First Initial",
+        "description": "Use indexing and string methods to return the first initial.",
+        "function_name": "first_initial",
+        "starter_code": '''def first_initial(name):
+    """
+    Given a name,
+    remove extra spaces and return the first initial
+    as an uppercase letter.
+
+    Example:
+    first_initial("  maria") -> "M"
+    """
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Indexing",
+            "Uses strip()",
+            "Returns Uppercase Initial",
+        ],
+        "test_cases": [
+            {"input": "Maria", "expected": "M"},
+            {"input": "  jordan", "expected": "J"},
+            {"input": "alex", "expected": "A"},
+            {"input": "  Tulsa", "expected": "T"},
+        ],
+    },
+
+    "last_character": {
+        "id": "last_character",
+        "lesson_number": "LESSON 1.1",
+        "title": "Last Character",
+        "description": "Use negative indexing to return the final character.",
+        "function_name": "last_character",
+        "starter_code": '''def last_character(text):
+    """
+    Given text,
+    remove extra spaces and return the last character.
+
+    Example:
+    last_character("Python  ") -> "n"
+    """
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses strip()",
+            "Uses Negative Indexing",
+            "Returns Last Character",
+        ],
+        "test_cases": [
+            {"input": "Python", "expected": "n"},
+            {"input": "Tulsa  ", "expected": "a"},
+            {"input": "  Urban", "expected": "n"},
+            {"input": "Guild", "expected": "d"},
+        ],
+    },
+
+    "every_other_character": {
+        "id": "every_other_character",
+        "lesson_number": "LESSON 1.1",
+        "title": "Every Other Character",
+        "description": "Use slicing with a step to return every other character.",
+        "function_name": "every_other_character",
+        "starter_code": '''def every_other_character(text):
+    """
+    Given text,
+    return every other character starting at index 0.
+
+    Example:
+    every_other_character("Programming") -> "Pormig"
+    """
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Step Slicing",
+            "Starts at Index 0",
+            "Returns Correct Text",
+        ],
+        "test_cases": [
+            {"input": "Programming", "expected": "Pormig"},
+            {"input": "Python", "expected": "Pto"},
+            {"input": "Urban", "expected": "Ubn"},
+            {"input": "abcdef", "expected": "ace"},
+        ],
+    },
+
+    "repeat_chant": {
+        "id": "repeat_chant",
+        "lesson_number": "LESSON 1.1",
+        "title": "Repeat Chant",
+        "description": "Use string repetition to repeat a chant.",
+        "function_name": "repeat_chant",
+        "starter_code": '''def repeat_chant(word, times):
+    """
+    Given a word and a number of times,
+    return the word repeated that many times.
+
+    Example:
+    repeat_chant("Go", 3) -> "GoGoGo"
+    """
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses String Repetition",
+            "Uses the times Parameter",
+            "Returns Correct Text",
+        ],
+        "test_cases": [
+            {"input": ("Go", 3), "expected": "GoGoGo"},
+            {"input": ("Python", 2), "expected": "PythonPython"},
+            {"input": ("UCG", 1), "expected": "UCG"},
+            {"input": ("Hi", 0), "expected": ""},
+        ],
+    },
+
+    "make_order_code": {
+        "id": "make_order_code",
+        "lesson_number": "LESSON 1.1",
+        "title": "Make Order Code",
+        "description": "Create a short order code using string methods, slicing, and indexing.",
+        "function_name": "make_order_code",
+        "starter_code": '''def make_order_code(customer, item):
+    """
+    Given a customer name and menu item,
+    return an order code made from:
+    - the first two letters of the customer's name
+    - a dash
+    - the last letter of the menu item
+
+    The code should be uppercase and ignore extra spaces.
+
+    Example:
+    make_order_code("Maria", "Frybread Taco") -> "MA-O"
+    """
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses strip()",
+            "Uses Slicing",
+            "Uses Negative Indexing",
+            "Returns Uppercase Code",
+        ],
+        "test_cases": [
+            {"input": ("Maria", "Frybread Taco"), "expected": "MA-O"},
+            {"input": ("  jordan", "Chicken & Waffles  "), "expected": "JO-S"},
+            {"input": ("Alex", "taco"), "expected": "AL-O"},
+            {"input": ("Tulsa", "Menu"), "expected": "TU-U"},
+        ],
     },
 
     # =====================================================
