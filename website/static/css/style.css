@@ -661,3 +661,8 @@ button:disabled {
         max-width: 260px;
     }
 }
+
+.monaco-editor,
+.monaco-editor * {
+    font-family: Monaco, Menlo, Consolas, monospace !important;
+}

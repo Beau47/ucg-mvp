@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" href="/static/css/style.css">
 
+    <!-- Browser tab icon -->
+    <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
+
 </head>
 
 <body class="lesson-page">
@@ -426,6 +429,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".quiz-card[data-required='true']");
 
 
+    const ides =
+        document.querySelectorAll(".lesson-ide");
+
+
     const nextButton =
         document.getElementById("next-button");
 
@@ -436,17 +443,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let completedQuizzes = 0;
 
+    let completedIDEs = 0;
 
 
-    // No quizzes on this page
-    if (quizzes.length === 0) {
-        return;
+
+    // =====================================================
+    // CHECK IF ALL REQUIREMENTS ARE COMPLETE
+    // =====================================================
+
+    function checkRequirements() {
+
+
+        const quizzesComplete =
+            completedQuizzes === quizzes.length;
+
+
+        const idesComplete =
+            completedIDEs === ides.length;
+
+
+
+        if (
+            quizzesComplete &&
+            idesComplete
+        ) {
+
+
+            if (nextButton && nextLink) {
+
+                nextButton.disabled = false;
+
+                nextLink.style.pointerEvents = "auto";
+
+                nextLink.style.opacity = "1";
+
+            }
+
+
+        }
+
+
     }
 
 
 
-    // Lock next button initially
-    if (nextButton && nextLink) {
+
+    // =====================================================
+    // LOCK NEXT BUTTON IF PAGE HAS REQUIREMENTS
+    // =====================================================
+
+    if (
+        nextButton &&
+        nextLink &&
+        (
+            quizzes.length > 0 ||
+            ides.length > 0
+        )
+    ) {
+
 
         nextButton.disabled = true;
 
@@ -454,9 +508,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         nextLink.style.opacity = "0.5";
 
+
     }
 
 
+
+    // =====================================================
+    // QUIZ LOGIC
+    // =====================================================
 
     quizzes.forEach(quiz => {
 
@@ -470,36 +529,33 @@ document.addEventListener("DOMContentLoaded", () => {
             .forEach(button => {
 
 
-
             button.addEventListener("click", () => {
 
 
 
-                // Ignore clicks after completion
-                if (quiz.dataset.completed === "true") {
+                // Ignore if already completed
+                if (
+                    quiz.dataset.completed === "true"
+                ) {
                     return;
                 }
 
 
 
-                /*
-                    Remove previous answer colors
-                    so only one option is highlighted
-                */
+                // Remove old colors
 
                 quiz.querySelectorAll(".quiz-option")
                     .forEach(btn => {
 
                         btn.style.backgroundColor = "";
+
                         btn.style.color = "";
 
                     });
 
 
 
-                /*
-                    Correct answer
-                */
+                // Correct answer
 
                 if (
                     button.dataset.answer ===
@@ -509,6 +565,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     button.style.backgroundColor =
                         "#2ecc71";
+
 
                     button.style.color =
                         "white";
@@ -535,41 +592,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-                    /*
-                        Unlock next page
-                        when all quizzes are completed
-                    */
-
-                    if (
-                        completedQuizzes === quizzes.length
-                    ) {
-
-
-                        if (nextButton && nextLink) {
-
-                            nextButton.disabled = false;
-
-
-                            nextLink.style.pointerEvents =
-                                "auto";
-
-
-                            nextLink.style.opacity =
-                                "1";
-
-                        }
-
-                    }
+                    checkRequirements();
 
 
 
                 }
 
 
-
-                /*
-                    Incorrect answer
-                */
+                // Incorrect answer
 
                 else {
 
@@ -593,9 +623,96 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
-
         });
 
+
+    });
+
+
+
+
+
+    // =====================================================
+    // IDE LOGIC
+    // Running code completes the IDE requirement
+    // =====================================================
+
+
+    document.querySelectorAll(".ide-run")
+        .forEach(button => {
+
+
+        button.addEventListener("click", async () => {
+
+
+            const ide =
+                button.closest(".lesson-ide");
+
+
+
+            const code =
+                ide.querySelector(".ide-editor").value;
+
+
+
+            const output =
+                ide.querySelector(".ide-output");
+
+
+
+            output.textContent =
+                "Running...";
+
+
+
+            const response =
+                await fetch("/run_snippet", {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+
+                    body:JSON.stringify({
+                        code:code
+                    })
+
+                });
+
+
+
+            const data =
+                await response.json();
+
+
+
+            output.textContent =
+                data.output;
+
+
+
+            // Only count once
+
+            if (
+                ide.dataset.completed !== "true"
+            ) {
+
+
+                ide.dataset.completed =
+                    "true";
+
+
+                completedIDEs++;
+
+
+                checkRequirements();
+
+
+            }
+
+
+        });
 
 
     });
