@@ -10,7 +10,7 @@ PROBLEMS = {
 
     "print_greeting": {
         "id": "print_greeting",
-        "lesson_number": "LESSON 1 OF 8",
+        "lesson_number": "LESSON 1",
         "title": "Print Greeting",
         "description": 'Print exactly: Hello, Urban Coders Guild!',
         "function_name": "print_greeting",
@@ -34,7 +34,7 @@ PROBLEMS = {
 
     "favorite_place": {
         "id": "favorite_place",
-        "lesson_number": "LESSON 1 OF 8",
+        "lesson_number": "LESSON 1",
         "title": "Favorite Place",
         "description": 'Print exactly: I love learning Python!',
         "function_name": "favorite_place",
@@ -62,7 +62,7 @@ PROBLEMS = {
 
     "add_one": {
         "id": "add_one",
-        "lesson_number": "LESSON 2 OF 8",
+        "lesson_number": "LESSON 2",
         "title": "Add One",
         "description": "Write a function called add_one that returns x + 1.",
         "function_name": "add_one",
@@ -94,7 +94,7 @@ PROBLEMS = {
 
     "double_number": {
         "id": "double_number",
-        "lesson_number": "LESSON 2 OF 8",
+        "lesson_number": "LESSON 2",
         "title": "Double Number",
         "description": "Write a function called double_number that returns twice the value of x.",
         "function_name": "double_number",
@@ -131,7 +131,7 @@ PROBLEMS = {
 
     "is_adult": {
         "id": "is_adult",
-        "lesson_number": "LESSON 3 OF 8",
+        "lesson_number": "LESSON 3",
         "title": "Is Adult",
         "description": "Return True if the person's age is 18 or older. Otherwise, return False.",
         "function_name": "is_adult",
@@ -165,7 +165,7 @@ PROBLEMS = {
 
     "largest_number": {
         "id": "largest_number",
-        "lesson_number": "LESSON 3 OF 8",
+        "lesson_number": "LESSON 3",
         "title": "Largest Number",
         "description": "Return the larger of the two numbers. If they are equal, return either one.",
         "function_name": "largest_number",
@@ -196,13 +196,122 @@ PROBLEMS = {
             {"input": (100, 99), "expected": 100},
         ],
     },
-        # =====================================================
+# =====================================================
+# LESSON 3.1
+# =====================================================
+
+"update_inventory": {
+    "id": "update_inventory",
+    "lesson_number": "LESSON 3.1",
+    "title": "Update Inventory",
+    "description": "Use mutation to update a list without creating a new one.",
+    "function_name": "update_inventory",
+    "starter_code": '''def update_inventory(items, new_item):
+    """
+    Add a new item to the inventory list.
+
+    Lists are mutable, meaning they can be changed
+    after they are created.
+
+    Example:
+
+    update_inventory(["apple", "banana"], "orange")
+    -> ["apple", "banana", "orange"]
+
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+    "challenges": [
+        "Function Exists",
+        "Mutates List Correctly",
+        "Returns Updated List",
+        "No Extra Output",
+    ],
+    "test_cases": [
+        {
+            "input": (["apple", "banana"], "orange"),
+            "expected": ["apple", "banana", "orange"]
+        },
+        {
+            "input": ([], "Python"),
+            "expected": ["Python"]
+        },
+        {
+            "input": (["red"], "blue"),
+            "expected": ["red", "blue"]
+        },
+    ],
+},
+
+
+"copy_profile": {
+    "id": "copy_profile",
+    "lesson_number": "LESSON 3.1",
+    "title": "Copy a Profile",
+    "description": "Prevent unwanted changes by creating a copy of a dictionary.",
+    "function_name": "copy_profile",
+    "starter_code": '''def copy_profile(profile):
+    """
+    Create a copy of the profile dictionary.
+
+    The copied dictionary should have a new key:
+    "verified": True
+
+    The original dictionary should not change.
+
+    Example:
+
+    profile = {"name": "Alex"}
+
+    copy_profile(profile)
+
+    returns:
+    {"name": "Alex", "verified": True}
+
+    original stays:
+    {"name": "Alex"}
+
+    Hint:
+    Use .copy()
+
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+    "challenges": [
+        "Function Exists",
+        "Creates Independent Copy",
+        "Original Dictionary Unchanged",
+        "Returns Correct Dictionary",
+    ],
+    "test_cases": [
+        {
+            "input": {"name": "Alex"},
+            "expected": {
+                "name": "Alex",
+                "verified": True
+            }
+        },
+        {
+            "input": {"name": "Jordan", "age": 16},
+            "expected": {
+                "name": "Jordan",
+                "age": 16,
+                "verified": True
+            }
+        },
+    ],
+},
+    # =====================================================
     # LESSON 4
     # =====================================================
 
     "square_number": {
         "id": "square_number",
-        "lesson_number": "LESSON 4 OF 8",
+        "lesson_number": "LESSON 4",
         "title": "Square Number",
         "description": "Write a function called square_number that returns the square of its integer input.",
         "function_name": "square_number",
@@ -235,7 +344,7 @@ PROBLEMS = {
 
     "rectangle_area": {
         "id": "rectangle_area",
-        "lesson_number": "LESSON 4 OF 8",
+        "lesson_number": "LESSON 4",
         "title": "Rectangle Area",
         "description": "Write a function that returns the area of a rectangle.",
         "function_name": "rectangle_area",
@@ -272,7 +381,7 @@ PROBLEMS = {
 
     "count_to_n": {
         "id": "count_to_n",
-        "lesson_number": "LESSON 5 OF 8",
+        "lesson_number": "LESSON 5",
         "title": "Count to N",
         "description": "Return a list containing every number from 1 through n.",
         "function_name": "count_to_n",
@@ -305,7 +414,7 @@ PROBLEMS = {
 
     "sum_list": {
         "id": "sum_list",
-        "lesson_number": "LESSON 5 OF 8",
+        "lesson_number": "LESSON 5",
         "title": "Sum List",
         "description": "Return the sum of all the numbers in a list.",
         "function_name": "sum_list",
@@ -338,7 +447,7 @@ PROBLEMS = {
     },
     "debug_add_numbers": {
     "id": "debug_add_numbers",
-    "lesson_number": "LESSON 5 OF 8",
+    "lesson_number": "LESSON 5",
     "title": "Debug Add Numbers",
     "description": "Write a function that returns the sum of two numbers.",
     "function_name": "add_numbers",
@@ -366,7 +475,7 @@ PROBLEMS = {
 
 "greet_user": {
     "id": "greet_user",
-    "lesson_number": "LESSON 5 OF 8",
+    "lesson_number": "LESSON 5",
     "title": "Greet User",
     "description": "Return a greeting using the user's name.",
     "function_name": "greet_user",
@@ -393,7 +502,7 @@ PROBLEMS = {
 
 "square_number": {
     "id": "square_number",
-    "lesson_number": "LESSON 5 OF 8",
+    "lesson_number": "LESSON 5",
     "title": "Square Number",
     "description": "Return the square of a number.",
     "function_name": "square_number",
@@ -421,7 +530,7 @@ PROBLEMS = {
 
 "get_area_rectangle": {
     "id": "get_area_rectangle",
-    "lesson_number": "LESSON 5 OF 8",
+    "lesson_number": "LESSON 5",
     "title": "Rectangle Area",
     "description": "Return the area of a rectangle.",
     "function_name": "get_area",
@@ -449,7 +558,7 @@ PROBLEMS = {
 
 "validate_coordinates": {
     "id": "validate_coordinates",
-    "lesson_number": "LESSON 5 OF 8",
+    "lesson_number": "LESSON 5",
     "title": "Validate Coordinates",
     "description": "Return True if the latitude is between -90 and 90 inclusive.",
     "function_name": "validate_coordinates",
@@ -478,7 +587,7 @@ PROBLEMS = {
 
 "format_name": {
     "id": "format_name",
-    "lesson_number": "LESSON 5 OF 8",
+    "lesson_number": "LESSON 5",
     "title": "Format Name",
     "description": "Return a name in 'Last, First' format.",
     "function_name": "format_name",
@@ -505,7 +614,7 @@ PROBLEMS = {
 
 "refactor_gps_distance": {
     "id": "refactor_gps_distance",
-    "lesson_number": "LESSON 5 OF 8",
+    "lesson_number": "LESSON 5",
     "title": "GPS Distance",
     "description": "Return the distance between two coordinates using the distance formula.",
     "function_name": "calculate_distance",
@@ -532,7 +641,7 @@ PROBLEMS = {
 
 "tech_conference_scheduler": {
     "id": "tech_conference_scheduler",
-    "lesson_number": "LESSON 5 OF 8",
+    "lesson_number": "LESSON 5",
     "title": "Assign Conference Room",
     "description": "Return 'Main Stage' if the topic is 'Keynote'; otherwise return 'Breakout 1'.",
     "function_name": "assign_room",
@@ -557,13 +666,13 @@ PROBLEMS = {
         {"input": ("Jordan", "Keynote"), "expected": "Main Stage"},
     ],
 },
-        # =====================================================
+    # =====================================================
     # LESSON 6
     # =====================================================
 
     "first_item": {
         "id": "first_item",
-        "lesson_number": "LESSON 6 OF 8",
+        "lesson_number": "LESSON 6",
         "title": "First Item",
         "description": "Return the first item in a list.",
         "function_name": "first_item",
@@ -595,7 +704,7 @@ PROBLEMS = {
 
     "dictionary_lookup": {
         "id": "dictionary_lookup",
-        "lesson_number": "LESSON 6 OF 8",
+        "lesson_number": "LESSON 6",
         "title": "Dictionary Lookup",
         "description": "Return the value associated with a given key in a dictionary.",
         "function_name": "dictionary_lookup",
@@ -632,7 +741,7 @@ PROBLEMS = {
 
     "countdown": {
         "id": "countdown",
-        "lesson_number": "LESSON 7 OF 8",
+        "lesson_number": "LESSON 7",
         "title": "Countdown",
         "description": "Use recursion to count down from n to 1.",
         "function_name": "countdown",
@@ -666,7 +775,7 @@ PROBLEMS = {
 
     "repeat_word": {
         "id": "repeat_word",
-        "lesson_number": "LESSON 7 OF 8",
+        "lesson_number": "LESSON 7",
         "title": "Repeat Word",
         "description": "Use recursion to repeat a word n times.",
         "function_name": "repeat_word",
