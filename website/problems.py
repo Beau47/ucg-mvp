@@ -13,16 +13,23 @@ PROBLEMS = {
         "lesson_number": "LESSON 1 OF 8",
         "title": "Print Greeting",
         "description": 'Print exactly: Hello, Urban Coders Guild!',
-        "function_name": None,
-        "starter_code": '''# Print the greeting below
-
+        "function_name": "print_greeting",
+        "starter_code": '''def print_greeting():
+    """
+    Print exactly:
+    Hello, Urban Coders Guild!
+    """
+    # WRITE CODE HERE
+    pass
 ''',
         "challenges": [
             "Program Runs",
             "Correct Output",
             "No Extra Output",
         ],
-        "expected_output": "Hello, Urban Coders Guild!",
+        "expected_output": [
+        {"input": None, "expected": "Hello, Urban Coders Guild!"}
+    ],
     },
 
     "favorite_place": {
@@ -30,16 +37,23 @@ PROBLEMS = {
         "lesson_number": "LESSON 1 OF 8",
         "title": "Favorite Place",
         "description": 'Print exactly: I love learning Python!',
-        "function_name": None,
-        "starter_code": '''# Print the sentence below
-
+        "function_name": "favorite_place",
+        "starter_code": '''def favorite_place():
+    """
+    Print exactly:
+    I love learning Python!
+    """
+    # WRITE CODE HERE
+    pass
 ''',
         "challenges": [
             "Program Runs",
             "Correct Output",
             "No Extra Output",
         ],
-        "expected_output": "I love learning Python!",
+        "expected_output": [
+        {"input": None, "expected": "I love learning Python!"}
+    ],
     },
 
     # =====================================================
