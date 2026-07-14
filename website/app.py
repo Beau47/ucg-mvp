@@ -23,6 +23,36 @@ app = Flask(__name__)
 
 app.secret_key = "ucg-secret-key"
 
+# =====================================================
+# SAVE LESSON COMPLETION
+# =====================================================
+
+def complete_lesson(user_id, lesson_id):
+
+    supabase.table("lesson_progress").upsert({
+
+        "user_id": user_id,
+        "lesson_id": lesson_id,
+        "completed": True
+
+    }).execute()
+
+
+
+# =====================================================
+# SAVE PROBLEM COMPLETION
+# =====================================================
+
+def complete_problem(user_id, problem_id):
+
+    supabase.table("problem_progress").upsert({
+
+        "user_id": user_id,
+        "problem_id": problem_id,
+        "passed": True
+
+    }).execute()
+
 
 # =====================================================
 # DASHBOARD ROUTE
@@ -49,9 +79,35 @@ def dashboard():
 @app.route("/lessons")
 def lessons():
 
+    if "user_id" not in session:
+        return redirect("/login")
+
+
+    completed_data = (
+        supabase
+        .table("lesson_progress")
+        .select("lesson_id")
+        .eq(
+            "user_id",
+            session["user_id"]
+        )
+        .execute()
+    )
+
+
+    completed_lessons = [
+
+        item["lesson_id"]
+
+        for item in completed_data.data
+
+    ]
+
+
     return render_template(
         "lessons.html",
-        lessons=LESSONS
+        lessons=LESSONS,
+        completed_lessons=completed_lessons
     )
 
 
@@ -68,10 +124,23 @@ def lesson(lesson_id, page):
     if lesson is None:
         return "Lesson not found.", 404
 
-    # Find the total number of pages in this lesson
+
     total_pages = max(
         block["page"] for block in lesson["blocks"]
     )
+
+
+    # Check if user reached final page
+    if (
+        page == total_pages
+        and "user_id" in session
+    ):
+
+        complete_lesson(
+            session["user_id"],
+            lesson_id
+        )
+
 
     return render_template(
         "lesson.html",
@@ -79,7 +148,6 @@ def lesson(lesson_id, page):
         page=page,
         total_pages=total_pages
     )
-
 
 # =====================================================
 # EXERCISES PAGE
@@ -89,9 +157,35 @@ def lesson(lesson_id, page):
 @app.route("/exercises")
 def exercises():
 
+    if "user_id" not in session:
+        return redirect("/login")
+
+
+    completed_data = (
+        supabase
+        .table("problem_progress")
+        .select("problem_id")
+        .eq(
+            "user_id",
+            session["user_id"]
+        )
+        .execute()
+    )
+
+
+    completed_problems = [
+
+        item["problem_id"]
+
+        for item in completed_data.data
+
+    ]
+
+
     return render_template(
         "exercises.html",
-        problems=PROBLEMS
+        problems=PROBLEMS,
+        completed_problems=completed_problems
     )
 
 
@@ -214,6 +308,17 @@ def run_code():
 
     # Execute the student's code and grade it
     result = run_problem(code, problem)
+
+
+    if (
+        result.get("passed")
+        and "user_id" in session
+    ):
+
+        complete_problem(
+            session["user_id"],
+            problem_id
+        )
 
     # Send the results back to the frontend
     return jsonify(result)

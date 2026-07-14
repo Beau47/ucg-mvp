@@ -1,79 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
+    <meta charset="UTF-8">
+
     <title>Sign Up | Urban Coders Guild</title>
+
+    <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
 
-
 <body>
 
+<header class="topbar">
 
-<div class="container">
+    <div class="logo">
+        Urban Coders Guild
+    </div>
+
+</header>
 
 
-    <div class="card">
+<div class="auth-container">
+
+
+    <!-- Left Side -->
+
+    <div class="auth-info">
 
         <h1>
-            Create Account
+            Start Your Coding Journey
         </h1>
 
-
-        <form action="/signup" method="POST">
-
-
-            <p>
-                Email
-            </p>
-
-            <input
-                type="email"
-                name="email"
-                required
-            >
-
-
-            <p>
-                Password
-            </p>
-
-
-            <input
-                type="password"
-                name="password"
-                required
-            >
-
-
-
-            <br><br>
-
-
-            <button type="submit">
-                Sign Up
-            </button>
-
-
-        </form>
-
-
         <p>
-            Already have an account?
-            <a href="/login">
-                Login
-            </a>
+            Learn Python from the ground up with interactive lessons,
+            coding challenges, and real-world projects.
         </p>
 
+        <div class="feature">
+            🐍 Learn Python Step by Step
+        </div>
+
+        <div class="feature">
+            💻 Solve Interactive Coding Problems
+        </div>
+
+        <div class="feature">
+            🏆 Earn XP and Unlock Achievements
+        </div>
+
+        <div class="feature">
+            🚀 Build Real Programming Skills
+        </div>
 
     </div>
 
 
-</div>
+    <!-- Sign Up Card -->
 
+    <div class="card auth-card">
+
+        <h2>
+            Create Your Account
+        </h2>
+
+        <p style="text-align:center; margin-bottom:30px;">
+            Join Urban Coders Guild today.
+        </p>
+
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form action="/signup" method="POST">
+
+            <label>
+                Email Address
+            </label>
+
+            <input
+                class="input"
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label>
+                Password
+            </label>
+
+            <input
+                class="input"
+                type="password"
+                name="password"
+                placeholder="Create a password"
+                required
+            >
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <p style="text-align:center; margin-top:25px;">
+
+            Already have an account?
+
+            <a href="/login">
+                Login
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
 
 </body>
 

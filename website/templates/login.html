@@ -1,83 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
+    <meta charset="UTF-8">
+
     <title>Login | Urban Coders Guild</title>
+
+    <link rel="icon" href="/static/images/ucg_logo.webp">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
 
-
 <body>
 
+<header class="topbar">
 
-<div class="container">
+    <div class="logo">
+        Urban Coders Guild
+    </div>
 
+</header>
 
-    <div class="card">
+<div class="auth-container">
 
+    <div class="auth-info">
 
-        <h1>
-            Welcome Back
-        </h1>
+        <h1>Welcome Back!</h1>
 
+        <p>
+            Continue learning Python, solve coding challenges,
+            and grow your programming skills.
+        </p>
 
-        <form action="/login" method="POST">
+        <div class="feature">
+            🐍 Interactive Python Lessons
+        </div>
 
+        <div class="feature">
+            💻 Hands-on Coding Challenges
+        </div>
 
-            <p>
-                Email
-            </p>
+        <div class="feature">
+            🚀 Track Your Progress
+        </div>
 
+    </div>
+
+    <div class="card auth-card">
+
+        <h2>Login</h2>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+
+            <label>Email</label>
 
             <input
+                class="input"
                 type="email"
                 name="email"
                 required
             >
 
-
-
-            <p>
-                Password
-            </p>
-
+            <label>Password</label>
 
             <input
+                class="input"
                 type="password"
                 name="password"
                 required
             >
 
-
-
-            <br><br>
-
-
             <button type="submit">
                 Login
             </button>
 
-
         </form>
-
 
         <p>
             Don't have an account?
-            <a href="/signup">
-                Sign Up
-            </a>
-        </p>
 
+            <a href="/signup">
+                Create one
+            </a>
+
+        </p>
 
     </div>
 
-
 </div>
 
-
 </body>
-
 </html>
