@@ -39,31 +39,28 @@ instance/
 
 
 # =========================
-# Old Streamlit files (no longer used)
+# Old Streamlit / pre-Flask files (confirmed unused)
 # =========================
 
 .streamlit/
 1_Problem_1.py
-config.toml
+utilities/
+sandbox.py
 
 
 # =========================
-# Old Next.js files (no longer used)
+# Old Next.js scaffold (confirmed unused since initial commit)
 # =========================
 
 node_modules/
 .next/
 out/
-website/
 next.config.ts
-next-env.d.ts
 eslint.config.mjs
 postcss.config.mjs
-tailwind.config.*
-tsconfig.json
 package.json
 package-lock.json
-yarn.lock
+tsconfig.json
 
 
 # =========================
