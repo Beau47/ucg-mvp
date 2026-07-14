@@ -107,13 +107,14 @@ def complete_lesson(user_id, lesson_id):
 
 
     # Save completion
-    supabase.table("lesson_progress").insert({
-
-        "user_id": user_id,
-        "lesson_id": lesson_id,
-        "completed": True
-
-    }).execute()
+    supabase.table("lesson_progress").upsert(
+        {
+            "user_id": user_id,
+            "lesson_id": lesson_id,
+            "completed": True
+        },
+        on_conflict="user_id,lesson_id"
+    ).execute()
 
 
 
@@ -275,17 +276,26 @@ def lesson(lesson_id, page):
 def complete_lesson_api(lesson_id):
 
     if "user_id" not in session:
-        return jsonify({"error": "Log in to save lesson progress."}), 401
+        return jsonify({
+            "error": "Log in to save lesson progress."
+        }), 401
+
 
     if get_lesson(lesson_id) is None:
-        return jsonify({"error": "Lesson not found."}), 404
+        return jsonify({
+            "error": "Lesson not found."
+        }), 404
+
 
     complete_lesson(
         session["user_id"],
         lesson_id
     )
 
-    return jsonify({"completed": True})
+
+    return jsonify({
+        "success": True
+    })
 
 # =====================================================
 # EXERCISES PAGE
@@ -554,34 +564,6 @@ def run_snippet_api():
         "output": result
     })
 
-# =====================================================
-# COMPLETE LESSON API
-# Called after final page requirements are completed
-# =====================================================
-
-@app.route("/complete_lesson", methods=["POST"])
-def complete_lesson_api():
-
-    if "user_id" not in session:
-        return jsonify({
-            "error": "Not logged in"
-        }), 401
-
-
-    data = request.get_json()
-
-    lesson_id = data["lesson_id"]
-
-
-    complete_lesson(
-        session["user_id"],
-        lesson_id
-    )
-
-
-    return jsonify({
-        "success": True
-    })
 
 # =====================================================
 # USER SIGN-UP ROUTE

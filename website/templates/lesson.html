@@ -419,19 +419,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function markLessonComplete(){
 
-        fetch("/complete_lesson", {
+        fetch("/lesson/{{ lesson.id }}/complete", {
 
             method:"POST",
 
             headers:{
                 "Content-Type":"application/json"
-            },
-
-            body:JSON.stringify({
-
-                lesson_id:"{{ lesson_id }}"
-
-            })
+            }
 
         });
 
