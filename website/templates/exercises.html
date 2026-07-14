@@ -117,6 +117,50 @@ Start Exercise →
 
 </div>
 
+<script>
+
+function hasCompletedLesson05() {
+
+    const progress =
+        JSON.parse(
+            localStorage.getItem(
+                "ucg:lesson-progress:functions_preview:1"
+            ) || "{}"
+        );
+
+    return (
+        Array.isArray(progress.quizzes) &&
+        progress.quizzes.length >= 2 &&
+        progress.quizzes.every(Boolean)
+    );
+
+}
+
+
+if (!hasCompletedLesson05()) {
+
+    document.querySelector(".content-page").innerHTML = `
+        <section class="page-header">
+            <h1>Exercises Locked</h1>
+            <p>Complete Lesson 0.5 to unlock coding exercises.</p>
+        </section>
+
+        <div class="content-card">
+            <h2>Complete Lesson 0.5 to unlock</h2>
+            <p>
+                Lesson 0.5 explains how exercise functions work.
+                Finish it first, then come back to start coding.
+            </p>
+            <a href="/lesson/functions_preview/1">
+                <button>Go to Lesson 0.5 →</button>
+            </a>
+        </div>
+    `;
+
+}
+
+</script>
+
 
 </body>
 

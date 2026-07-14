@@ -182,12 +182,82 @@
     <!-- JavaScript                                             -->
     <!-- ===================================================== -->
 
-    <!-- Monaco Editor loader -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
     <script>
-        window.problem = {{ problem | tojson }};
+
+        function hasCompletedLesson05() {
+
+            const progress =
+                JSON.parse(
+                    localStorage.getItem(
+                        "ucg:lesson-progress:functions_preview:1"
+                    ) || "{}"
+                );
+
+            return (
+                Array.isArray(progress.quizzes) &&
+                progress.quizzes.length >= 2 &&
+                progress.quizzes.every(Boolean)
+            );
+
+        }
+
+
+        if (!hasCompletedLesson05()) {
+
+            const runButton =
+                document.getElementById("run-button");
+
+            if (runButton) {
+                runButton.style.display = "none";
+            }
+
+            document.querySelector(".page").innerHTML = `
+                <main class="main content-page">
+                    <section class="page-header">
+                        <h1>Exercises Locked</h1>
+                        <p>Complete Lesson 0.5 to unlock coding exercises.</p>
+                    </section>
+
+                    <div class="content-card">
+                        <h2>Complete Lesson 0.5 to unlock</h2>
+                        <p>
+                            Lesson 0.5 explains how exercise functions work.
+                            Finish it first, then come back to start coding.
+                        </p>
+                        <a href="/lesson/functions_preview/1">
+                            <button>Go to Lesson 0.5 →</button>
+                        </a>
+                    </div>
+                </main>
+            `;
+
+        } else {
+
+            window.problem = {{ problem | tojson }};
+
+            const monacoScript =
+                document.createElement("script");
+
+            monacoScript.src =
+                "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js";
+
+            monacoScript.onload = () => {
+
+                const appScript =
+                    document.createElement("script");
+
+                appScript.src =
+                    "/static/js/app.js";
+
+                document.body.appendChild(appScript);
+
+            };
+
+            document.body.appendChild(monacoScript);
+
+        }
+
     </script>
-    <script src="/static/js/app.js"></script>
 
 </body>
 </html>
