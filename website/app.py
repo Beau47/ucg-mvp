@@ -38,6 +38,50 @@ app.secret_key = "ucg-secret-key"
 # Log-ins are remembered for 7 days
 app.permanent_session_lifetime = timedelta(days=7)
 
+
+# =====================================================
+# LOAD OR CREATE A USER PROFILE
+# =====================================================
+
+def get_or_create_profile(user_id):
+
+    try:
+        profile_data = (
+            supabase
+            .table("profiles")
+            .select("*")
+            .eq("id", user_id)
+            .execute()
+        )
+
+        if profile_data.data:
+            return profile_data.data[0]
+
+        profile = {
+            "id": user_id,
+            "username": session.get("username", "Student"),
+            "xp": 0,
+            "streak": 0,
+            "lessons_completed": 0,
+            "problems_solved": 0
+        }
+
+        created_profile = (
+            supabase
+            .table("profiles")
+            .insert(profile)
+            .execute()
+        )
+
+        if created_profile.data:
+            return created_profile.data[0]
+
+        return profile
+
+    except Exception:
+        return None
+
+
 # =====================================================
 # SAVE LESSON COMPLETION
 # =====================================================
@@ -125,16 +169,11 @@ def dashboard():
     user_id = session["user_id"]
 
 
-    profile_data = (
-        supabase
-        .table("profiles")
-        .select("*")
-        .eq("id", user_id)
-        .execute()
-    )
+    profile = get_or_create_profile(user_id)
 
-
-    profile = profile_data.data[0]
+    if profile is None:
+        session.clear()
+        return redirect("/login")
 
 
     return render_template(
@@ -299,16 +338,11 @@ def profile():
     # Get profile information
     # -------------------------------
 
-    profile_data = (
-        supabase
-        .table("profiles")
-        .select("*")
-        .eq("id", user_id)
-        .execute()
-    )
+    profile = get_or_create_profile(user_id)
 
-
-    profile = profile_data.data[0]
+    if profile is None:
+        session.clear()
+        return redirect("/login")
 
 
 
@@ -565,6 +599,11 @@ def login():
     session.permanent = True
 
     session["user_id"] = response.user.id
+    session["username"] = response.user.email.split("@")[0]
+
+    if get_or_create_profile(response.user.id) is None:
+        session.clear()
+        return redirect("/login")
 
 
     return redirect("/")
