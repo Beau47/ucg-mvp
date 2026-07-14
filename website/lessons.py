@@ -1861,402 +1861,770 @@ print(f"Total: ${total}")
     },
 
 
-    "conditionals": {
-
-    "id": "conditionals",
-
-    "lesson_number": "2",
-
-    "description": "Use if, elif, and else statements to help programs make decisions with logical thinking.",
-
-    "title": "Conditionals",
-
-    "blocks": [
-
-        # =====================================================
-        # PAGE 1: INTRODUCTION
-        # =====================================================
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Unit 2: Conditionals — Teaching Python to Make Decisions"
-        },
-
-        {
-            "page": 1,
-            "type": "paragraph",
-            "text": """
-            Programs make decisions the same way people do every day.
-            A concert bouncer checks: Is your ticket valid? Are you on the VIP list?
-            Are you old enough to enter?
-
-            Python uses conditional statements to follow these same yes/no
-            decision paths. With if, elif, and else, programs can choose what
-            happens next.
-            """
-        },
-
-        {
-            "page": 1,
-            "type": "tip",
-            "text": """
-            By the end of this lesson, you will be able to:
-            • Write if/elif/else statements
-            • Combine conditions using and/or/not
-            • Debug common conditional errors
-            • Build programs that make real-world decisions
-            """
-        },
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Focus: Latinx in AI & Decision-Making"
-        },
-
-        {
-            "page": 1,
-            "type": "paragraph",
-            "text": """
-            Luis von Ahn, a Guatemalan-American computer scientist and
-            co-founder of Duolingo, used technology and decision-making
-            systems to make language learning more accessible.
-
-            Conditional logic powers many systems people use every day,
-            from learning apps to accessibility tools.
-            """
-        },
-
-
-        # =====================================================
-        # PAGE 2: BOOLEAN VALUES
-        # =====================================================
-
-        {
-            "page": 2,
-            "type": "heading",
-            "text": "Boolean Values: True or False"
-        },
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text": """
-            A Boolean is a value that can only be True or False.
-
-            Think of a Boolean like a traffic light:
-            True means go.
-            False means stop.
-
-            Python creates Boolean values when it compares information.
-            """
-        },
-
-        {
-            "page": 2,
-            "type": "code",
-            "text": """
-print(5 > 3)
-
-# Output:
-True
-"""
-        },
-
-        {
-            "page": 2,
-            "type": "heading",
-            "text": "Comparison Operators"
-        },
-
-        {
-            "page": 2,
-            "type": "list",
-            "items": [
-                "== checks if two values are equal",
-                "!= checks if two values are different",
-                "> checks if one value is greater",
-                "< checks if one value is smaller",
-                ">= checks if one value is greater than or equal"
-            ]
-        },
-
-        {
-            "page": 2,
-            "type": "quiz",
-            "question": "What type of value can a Boolean store?",
-            "options": [
-                "A number",
-                "A True or False value",
-                "A sentence",
-                "A list"
-            ],
-            "answer": "A True or False value"
-        },
-
-
-        # =====================================================
-        # PAGE 3: IF STATEMENTS
-        # =====================================================
-
-        {
-            "page": 3,
-            "type": "heading",
-            "text": "Making Decisions with if"
-        },
-
-        {
-            "page": 3,
-            "type": "paragraph",
-            "text": """
-            An if statement runs code only when a condition is True.
-
-            Python uses indentation to show which lines belong inside
-            the decision block.
-            """
-        },
-
-        {
-            "page": 3,
-            "type": "code",
-            "text": """
-age = 18
-
-if age >= 18:
-    print("You can vote.")
-"""
-        },
-
-        {
-            "page": 3,
-            "type": "ide",
-            "instructions": "Create an if statement that prints VIP when a gold ticket is selected.",
-            "starter_code": """
-ticket_type = "gold"
-
-# Write your condition below
-
-"""
-        },
-
-
-        # =====================================================
-        # PAGE 4: ELSE AND ELIF
-        # =====================================================
-
-        {
-            "page": 4,
-            "type": "heading",
-            "text": "Adding More Paths with elif and else"
-        },
-
-        {
-            "page": 4,
-            "type": "paragraph",
-            "text": """
-            Sometimes programs need more than two choices.
-
-            elif creates another possible path.
-            else provides a default option when no conditions are true.
-            """
-        },
-
-        {
-            "page": 4,
-            "type": "code",
-            "text": """
-grade = 85
-
-if grade >= 90:
-    print("A")
-elif grade >= 70:
-    print("C")
-else:
-    print("Keep practicing.")
-"""
-        },
-
-        {
-            "page": 4,
-            "type": "quiz",
-            "question": "Which keyword checks another condition after an if fails?",
-            "options": [
-                "then",
-                "elif",
-                "elseif",
-                "check"
-            ],
-            "answer": "elif"
-        },
-
-
-        # =====================================================
-        # PAGE 5: LOGICAL OPERATORS
-        # =====================================================
-
-        {
-            "page": 5,
-            "type": "heading",
-            "text": "Combining Conditions with Logic"
-        },
-
-        {
-            "page": 5,
-            "type": "paragraph",
-            "text": """
-            Logical operators allow programs to combine multiple conditions.
-
-            AND means every condition must be True.
-
-            OR means at least one condition must be True.
-
-            NOT reverses a Boolean value.
-            """
-        },
-
-        {
-            "page": 5,
-            "type": "code",
-            "text": """
-late = False
-homework_done = True
-
-if not late and homework_done:
-    print("You're on track!")
-else:
-    print("Check your work.")
-"""
-        },
-
-        {
-            "page": 5,
-            "type": "ide",
-            "instructions": "Modify the conditions to test different outcomes.",
-            "starter_code": """
-hungry = True
-money = False
-coupon = True
-
-if (hungry and money) or coupon:
-    print("Time to eat!")
-else:
-    print("Wait for another option.")
-"""
-        },
-
-
-        # =====================================================
-        # PAGE 6: DEBUGGING
-        # =====================================================
-
-        {
-            "page": 6,
-            "type": "heading",
-            "text": "Debugging Conditional Errors"
-        },
-
-        {
-            "page": 6,
-            "type": "paragraph",
-            "text": """
-            A common mistake is using = instead of ==.
-
-            = assigns a value.
-            == compares two values.
-            """
-        },
-
-        {
-            "page": 6,
-            "type": "code",
-            "text": """
-# Incorrect
-
-snack = "Hot Cheetos"
-
-if snack = "Hot Cheetos":
-    print("Spicy choice!")
-
-
-# Correct
-
-if snack == "Hot Cheetos":
-    print("Spicy choice!")
-"""
-        },
-
-        {
-            "page": 6,
-            "type": "ide",
-            "instructions": "Fix the conditional error.",
-            "starter_code": """
-score = 92
-
-if score > 90
-    print("A+ Student!")
-"""
-        },
-
-        {
-            "page": 6,
-            "type": "quiz",
-            "question": "What error occurs when a colon is missing after an if statement?",
-            "options": [
-                "SyntaxError",
-                "RuntimeError",
-                "LogicError",
-                "No error"
-            ],
-            "answer": "SyntaxError"
-        },
-
-
-        # =====================================================
-        # PAGE 7: REAL WORLD APPLICATION
-        # =====================================================
-
-        {
-            "page": 7,
-            "type": "heading",
-            "text": "Applying Conditionals: SNAP Eligibility Checker"
-        },
-
-        {
-            "page": 7,
-            "type": "paragraph",
-            "text": """
-            Decision-making programs are used in real-world systems.
-
-            This example checks whether someone meets requirements:
-            • Income must be below 2000
-            • The person must be a student or unemployed
-            """
-        },
-
-        {
-            "page": 7,
-            "type": "code",
-            "text": """
-income = 1800
-is_student = True
-is_unemployed = False
-
-if income < 2000 and (is_student or is_unemployed):
-    print("Approved")
-else:
-    print("Needs Review")
-"""
-        },
-
-        {
-            "page": 7,
-            "type": "exercise",
-            "problem": "is_adult"
-        }
-
-    ]
-    },
+    "conditionals": {'id': 'conditionals',
+     'lesson_number': '2',
+     'description': 'Teach programs to make decisions using Boolean values, comparison operators, '
+                    'conditional statements, and logical operators.',
+     'title': 'Teaching Programs to Make Decisions',
+     'blocks': [{'page': 1,
+                 'type': 'heading',
+                 'text': 'Lesson 2 – Teaching Programs to Make Decisions'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 60–75 minutes'},
+                {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['Lesson 1.0 – Variables & Data Types', 'Lesson 1.1 – Using Variables']},
+                {'page': 1, 'type': 'heading', 'text': 'Learning Objectives & Vocabulary'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'By the end of this lesson, students should be able to:'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['Explain what Boolean values represent.',
+                           'Compare values using comparison operators.',
+                           'Write programs using if, elif, and else.',
+                           'Combine conditions using logical operators.',
+                           'Predict the output of conditional statements.']},
+                {'page': 1, 'type': 'heading', 'text': 'Word Bank'},
+                {'page': 1,
+                 'type': 'rich_paragraph',
+                 'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                         'border-radius:6px; font-weight:600;">Boolean</span> &nbsp; <span '
+                         'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                         'border-radius:6px; font-weight:600;">Conditional</span> &nbsp; <span '
+                         'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                         'border-radius:6px; font-weight:600;">Expression</span> &nbsp; <span '
+                         'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                         'border-radius:6px; font-weight:600;">Comparison Operator</span> &nbsp; <span '
+                         'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                         'border-radius:6px; font-weight:600;">if</span> &nbsp; <span '
+                         'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                         'border-radius:6px; font-weight:600;">elif</span> &nbsp; <span '
+                         'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                         'border-radius:6px; font-weight:600;">else</span> &nbsp; <span '
+                         'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                         'border-radius:6px; font-weight:600;">Logical Operator</span> &nbsp; <span '
+                         'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                         'border-radius:6px; font-weight:600;">Indentation</span>'},
+                {'page': 1, 'type': 'heading', 'text': 'Introduction'},
+                {'page': 1,
+                 'type': 'image',
+                 'src': '/static/images/lesson2_community_center.png',
+                 'caption': ''},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "Imagine you're creating a website for a community center in Tulsa."},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Before someone signs up for an event, the computer has to answer questions '
+                         'like:'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['Is the student old enough?',
+                           'Did they register before the deadline?',
+                           'Have they already attended this workshop?',
+                           'Are there still seats available?']},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Humans answer these questions naturally without much thought.'},
+                {'page': 1, 'type': 'paragraph', 'text': "Computers can't."},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'A computer only follows instructions. If we want a computer to make a '
+                         'decision, we must tell it exactly how to do so (remember Garbage in, Garbage '
+                         'out).'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Fortunately, Python provides a simple way to teach programs how to make '
+                         'decisions.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "In this lesson, you'll learn how programs compare information, ask "
+                         'questions, and choose different actions depending on the answers.'},
+                {'page': 1, 'type': 'heading', 'text': 'Section 1 – Boolean Values'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'In Lesson 1, you’ve learned various data types. In this section, we talk '
+                         'about Booleans (A.K.A bool)—something you’ve seen before. Booleans are the '
+                         'foundation of computer decision-making, as computers must first answer a '
+                         'question before they make a decision.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'While humans can answer questions with more complex answers like “How was '
+                         'your day?”, computers can only answer questions with two possible answers.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['Is the light on?',
+                           'Did the student pass?',
+                           'Is today Friday?',
+                           'Is the account logged in?']},
+                {'page': 1, 'type': 'paragraph', 'text': 'The answer is either yes or no.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Programming represents these two possibilities using a special data type '
+                         'called a Boolean.'},
+                {'page': 1,
+                 'type': 'rich_paragraph',
+                 'html': 'A Boolean is a data type that can only store one of two values: '
+                         '<code>True</code> or <code>False</code>.'},
+                {'page': 1,
+                 'type': 'tip',
+                 'text': 'Notice that both begin with a capital letter. If you don’t capitalize these '
+                         'keywords, Python will not know how to interpret your code.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Unlike strings, Booleans are not surrounded by quotation marks.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+                {'page': 1, 'type': 'code', 'text': 'student = True'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'means the variable student stores the Boolean value True.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'However,'},
+                {'page': 1, 'type': 'code', 'text': 'student = "True"'},
+                {'page': 1, 'type': 'paragraph', 'text': 'stores the word "True" as a string.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Although they may look similar, these are completely different data types.'},
+                {'page': 1,
+                 'type': 'table',
+                 'headers': ['Value', 'Data Type'],
+                 'rows': [['True', 'bool'], ['"True"', 'str']]},
+                {'page': 1, 'type': 'heading', 'text': 'Why Are Booleans Useful?'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Programs constantly ask questions.'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['Is the password correct?',
+                           'Is the player alive?',
+                           'Does the customer have enough money?',
+                           'Is the homework complete?']},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Every one of these questions eventually becomes either True or False'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Without Booleans, computers would have no way of making decisions.'},
+                {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+                {'page': 1,
+                 'type': 'quiz',
+                 'question': 'Which of the following is a Boolean?',
+                 'options': ['A. "False"', 'B. 0', 'C. False', 'D. "No"'],
+                 'answer': 'C. False'},
+                {'page': 1, 'type': 'heading', 'text': 'Section 2 – Comparison Operators'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Many of you have already seen comparison operators in your math classes. For '
+                         'instance, the inequality 1 > 0 is a True statement as 1 is indeed greater '
+                         'than 0; the comparison operator would be the > symbol, as it compares 1 and '
+                         '0. Now that we know programs can store True and False, the next question '
+                         'is:'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Where do these Boolean values come from?'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'One of the most common ways is by comparing two values, which we do with '
+                         'comparison operators.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Suppose you ask,'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Is 7 greater than 5?'},
+                {'page': 1, 'type': 'paragraph', 'text': 'The answer is'},
+                {'page': 1, 'type': 'code', 'text': 'True'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Python can answer that question for us.'},
+                {'page': 1, 'type': 'code', 'text': '7 > 5\n\nOutput\nTrue'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Likewise,'},
+                {'page': 1, 'type': 'code', 'text': '4 > 10\n\nOutput\nFalse'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'These comparisons are performed using comparison operators.'},
+                {'page': 1, 'type': 'heading', 'text': 'Common Comparison Operators'},
+                {'page': 1,
+                 'type': 'table',
+                 'headers': ['Operator', 'Meaning'],
+                 'rows': [['==', 'Equal to'],
+                          ['!=', 'Not equal to'],
+                          ['>', 'Greater than'],
+                          ['<', 'Less than'],
+                          ['>=', 'Greater than or equal to'],
+                          ['<=', 'Less than or equal to']]},
+                {'page': 1, 'type': 'heading', 'text': 'Examples'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': '5 == 5\n'
+                         'Output\n'
+                         'True\n'
+                         '\n'
+                         '5 != 5\n'
+                         'Output\n'
+                         'False\n'
+                         '\n'
+                         '12 >= 8\n'
+                         'Output\n'
+                         'True\n'
+                         '\n'
+                         '3 < 1\n'
+                         'Output\n'
+                         'False'},
+                {'page': 1, 'type': 'heading', 'text': 'Comparing Strings'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "Comparison operators don't just work on numbers."},
+                {'page': 1, 'type': 'paragraph', 'text': 'They can also compare strings.'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'name = "Jordan"\nname == "Jordan"\n\nOutput\nTrue'},
+                {'page': 1, 'type': 'paragraph', 'text': 'However,'},
+                {'page': 1, 'type': 'code', 'text': 'name == "jordan"'},
+                {'page': 1, 'type': 'paragraph', 'text': 'returns'},
+                {'page': 1, 'type': 'code', 'text': 'False'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Python considers uppercase and lowercase letters to be different.'},
+                {'page': 1, 'type': 'heading', 'text': 'A Common Beginner Mistake'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Many new programmers accidentally write'},
+                {'page': 1, 'type': 'code', 'text': '='},
+                {'page': 1, 'type': 'paragraph', 'text': 'instead of'},
+                {'page': 1, 'type': 'code', 'text': '=='},
+                {'page': 1, 'type': 'paragraph', 'text': 'Remember:'},
+                {'page': 1, 'type': 'code', 'text': '='},
+                {'page': 1, 'type': 'paragraph', 'text': 'means'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Store a value.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'While'},
+                {'page': 1, 'type': 'code', 'text': '=='},
+                {'page': 1, 'type': 'paragraph', 'text': 'means'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Compare two values.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'These are two completely different operations.'},
+                {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+                {'page': 1,
+                 'type': 'quiz',
+                 'question': 'What is the output?\n12 <= 8',
+                 'options': ['A. True', 'B. False', 'C. 12', 'D. An error'],
+                 'answer': 'B. False'},
+                {'page': 1, 'type': 'heading', 'text': 'Section 3 – The if Statement'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Now we have everything needed to make a decision.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'We can compare values and obtain either True or False.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'The next step is deciding what should happen depending on the answer.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Python uses an if statement to do this.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Think of an if statement as saying:'},
+                {'page': 1,
+                 'type': 'quote',
+                 'text': 'If something is true, then perform these instructions.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'age = 18\n'
+                         'if age >= 18:\n'
+                         '    print("You may vote.")\n'
+                         '\n'
+                         'Output\n'
+                         'You may vote.'},
+                {'page': 1, 'type': 'paragraph', 'text': "Let's examine the structure."},
+                {'page': 1, 'type': 'code', 'text': 'if age >= 18:'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "The word if tells Python we're about to make a decision."},
+                {'page': 1, 'type': 'paragraph', 'text': 'The expression'},
+                {'page': 1, 'type': 'code', 'text': 'age >= 18'},
+                {'page': 1, 'type': 'paragraph', 'text': 'evaluates to either True or False.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'If the expression is True, Python executes the indented code underneath it.'},
+                {'page': 1, 'type': 'code', 'text': 'print("You may vote.")'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'If the expression is False, Python simply skips that code and continues with '
+                         'the rest of the program.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Notice that, just like functions from Lesson 0.5, indentation matters. '
+                         'Everything indented beneath the if statement belongs to that conditional '
+                         'block.'},
+                {'page': 1, 'type': 'heading', 'text': 'Example'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'temperature = 95\n'
+                         'if temperature > 90:\n'
+                         '    print("Drink plenty of water.")\n'
+                         '\n'
+                         'Output\n'
+                         'Drink plenty of water.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Now suppose the temperature were 70 instead.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'The condition'},
+                {'page': 1, 'type': 'code', 'text': '70 > 90'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'would evaluate to False, so Python would skip the print() statement '
+                         'entirely, and nothing would be displayed.'},
+                {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+                {'page': 1,
+                 'type': 'quiz',
+                 'question': 'What will this program print?\n'
+                             'age = 15\n'
+                             'if age >= 16:\n'
+                             'print("Can drive")',
+                 'options': ['A. Can drive', 'B. Nothing', 'C. 15', 'D. An error'],
+                 'answer': 'B. Nothing'},
+                {'page': 1,
+                 'type': 'ide',
+                 'instructions': 'Create an if statement that prints "Drink plenty of water." when '
+                                 'temperature is greater than 90.',
+                 'starter_code': 'temperature = 95\n\n# Write your if statement below.\n'},
+                {'page': 1,
+                 'type': 'heading',
+                 'text': 'Section 4 – Making More Than One Choice with elif and else'},
+                {'page': 1, 'type': 'paragraph', 'text': "So far, we've learned how to tell Python:"},
+                {'page': 1, 'type': 'quote', 'text': 'If this condition is true, do something.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'But what if we want the program to make multiple possible decisions?'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'This is an important question to consider because situations often have '
+                         "multiple conditions to consider. Imagine you're still creating this website "
+                         'for a community center in Tulsa. The person hiring you to make this website '
+                         'tells you:'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['Children under 13 join group A.',
+                           'Teenagers join group B.',
+                           'Adults join group C.']},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "An if statement by itself isn't enough—we need more choices."},
+                {'page': 1, 'type': 'paragraph', 'text': 'Python gives us two additional keywords:'},
+                {'page': 1, 'type': 'list', 'items': ['elif (short for else if)', 'else']},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'These allow our program to choose from multiple possibilities.'},
+                {'page': 1, 'type': 'heading', 'text': 'The else Statement'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'An else statement tells Python what to do if every previous condition is '
+                         'false.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Example:'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'temperature = 45\n'
+                         'if temperature > 80:\n'
+                         '    print("Wear shorts.")\n'
+                         'else:\n'
+                         '    print("Bring a jacket.")\n'
+                         '\n'
+                         'Output\n'
+                         'Bring a jacket.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Python first checks'},
+                {'page': 1, 'type': 'code', 'text': 'temperature > 80'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Since the answer is False, it skips the first block and executes the code '
+                         'under else.'},
+                {'page': 1,
+                 'type': 'tip',
+                 'text': 'Think of else as saying "If nothing else matched, do this."'},
+                {'page': 1, 'type': 'heading', 'text': 'The elif Statement'},
+                {'page': 1, 'type': 'paragraph', 'text': "Sometimes two choices aren't enough."},
+                {'page': 1, 'type': 'paragraph', 'text': "Suppose we're assigning letter grades."},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'score = 88\n'
+                         'if score >= 90:\n'
+                         '    print("A")\n'
+                         'elif score >= 80:\n'
+                         '    print("B")\n'
+                         'else:\n'
+                         '    print("C")\n'
+                         '\n'
+                         'Output\n'
+                         'B'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Python checks each condition from top to bottom.'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['Is the score at least 90?',
+                           'If not, is it at least 80?',
+                           'If neither is true, print "C".']},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'As soon as one condition is true, Python executes that block and stops '
+                         'checking the remaining conditions.'},
+                {'page': 1, 'type': 'heading', 'text': 'Why Order Matters'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Consider this program.'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'age = 20\n'
+                         'if age >= 18:\n'
+                         '    print("Adult")\n'
+                         'elif age >= 65:\n'
+                         '    print("Senior")\n'
+                         '\n'
+                         'Output\n'
+                         'Adult'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Even though a 70-year-old is also greater than 65, Python would never reach '
+                         'the second condition because the first one is already true.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "For this reason, it's usually best to place the most specific conditions "
+                         'first.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'A better version would be'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'if age >= 65:\n'
+                         '    print("Senior")\n'
+                         'elif age >= 18:\n'
+                         '    print("Adult")\n'
+                         'else:\n'
+                         '    print("Minor")'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Notice that in this program, seniors will not be wrongfully labeled as '
+                         'adults because the condition age >= 65 is being checked first.'},
+                {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+                {'page': 1,
+                 'type': 'quiz',
+                 'question': 'What will this print?\n'
+                             'age = 10\n'
+                             'if age >= 18:\n'
+                             'print("Adult")\n'
+                             'elif age >= 13:\n'
+                             'print("Teen")\n'
+                             'else:\n'
+                             'print("Child")',
+                 'options': ['A. Adult', 'B. Teen', 'C. Child', 'D. Nothing'],
+                 'answer': 'C. Child'},
+                {'page': 1,
+                 'type': 'heading',
+                 'text': 'Section 5 – Combining Conditions with Logical Operators'},
+                {'page': 1, 'type': 'paragraph', 'text': "Sometimes one condition isn't enough."},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Imagine driving for the first time. In Oklahoma,'},
+                {'page': 1, 'type': 'paragraph', 'text': 'You must'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['be at least 15 years old', "Have a learner's permit"]},
+                {'page': 1, 'type': 'paragraph', 'text': 'Both conditions must be true.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Logical operators are Python keywords that let us combine multiple '
+                         'conditions.'},
+                {'page': 1, 'type': 'paragraph', 'text': 'The three most common are'},
+                {'page': 1,
+                 'type': 'table',
+                 'headers': ['Operator', 'Meaning'],
+                 'rows': [['and', 'Both conditions must be true'],
+                          ['or', 'At least one condition must be true'],
+                          ['not', 'Reverses True and False']]},
+                {'page': 1, 'type': 'heading', 'text': 'Using and'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'age = 15\n'
+                         'has_permit = True\n'
+                         'if age >= 15 and has_permit:\n'
+                         '    print("You can drive!")\n'
+                         'else:\n'
+                         '    print("Sorry, you can’t drive.")\n'
+                         '\n'
+                         'Output\n'
+                         'You can drive!'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'The program only prints "You can drive!" because both conditions are true.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'If either one were false, the program would skip to the else statement.'},
+                {'page': 1,
+                 'type': 'tip',
+                 'text': 'Notice that good variable names make your program super readable. You can '
+                         'almost read the if statement like plain English because the variable names '
+                         'are so descriptive!'},
+                {'page': 1, 'type': 'heading', 'text': 'Using or'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Sometimes only one condition needs to be true. Imagine you’re building an '
+                         'identification system for your school. Students and teachers get ID cards '
+                         'that identify them as students and teachers of your school, respectively. '
+                         'You’d like to permit only students and teachers of your school to enter.'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'is_student = False\n'
+                         'is_teacher = True\n'
+                         'if is_student or is_teacher:\n'
+                         '    print("Access granted.")\n'
+                         '\n'
+                         'Output\n'
+                         'Access granted.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Since at least one condition is true, Python executes the code.'},
+                {'page': 1, 'type': 'heading', 'text': 'Using not'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'The not operator negates1 a Boolean, meaning that it makes the value of the '
+                         'Boolean the opposite of what it says.'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'logged_in = False\n'
+                         'if not logged_in:\n'
+                         '    print("Please log in.")\n'
+                         '\n'
+                         'Output\n'
+                         'Please log in.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Since logged_in is False, the condition (not logged_in) becomes True. '
+                         'Therefore, Python sees a true condition and executes the indented code.'},
+                {'page': 1,
+                 'type': 'footnote',
+                 'number': '1',
+                 'text': 'To flip the value of something or, in other words, make it the opposite of '
+                         'what it originally was. For example, the opposite of 1 is -1. So, in math, '
+                         'negating 1 would be to make it -1.'},
+                {'page': 1,
+                 'type': 'tip',
+                 'text': 'When trying to figure out the value of a negated Boolean, find the original '
+                         'Boolean’s value then just flip it.'},
+                {'page': 1, 'type': 'heading', 'text': 'Truth Tables'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "Sometimes it's helpful to see every possible outcome."},
+                {'page': 1,
+                 'type': 'tip',
+                 'text': 'The way to read a truth table is to imagine a conditional statement. For '
+                         'example, If A is True and B is True, the entire condition (A and B) is true. '
+                         'Think of (A and B) as one whole condition that basically asks, are A and B '
+                         'both true at the same time. If not, then (A and B) is False as a whole.'},
+                {'page': 1, 'type': 'heading', 'text': 'and'},
+                {'page': 1,
+                 'type': 'table',
+                 'headers': ['A', 'B', 'A and B'],
+                 'rows': [['True', 'True', 'True'],
+                          ['True', 'False', 'False'],
+                          ['False', 'True', 'False'],
+                          ['False', 'False', 'False']]},
+                {'page': 1, 'type': 'heading', 'text': 'or'},
+                {'page': 1,
+                 'type': 'table',
+                 'headers': ['A', 'B', 'A or B'],
+                 'rows': [['True', 'True', 'True'],
+                          ['True', 'False', 'True'],
+                          ['False', 'True', 'True'],
+                          ['False', 'False', 'False']]},
+                {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Suppose'},
+                {'page': 1, 'type': 'code', 'text': 'age = 17\nhas_ticket = True'},
+                {'page': 1, 'type': 'paragraph', 'text': 'What will this print?'},
+                {'page': 1,
+                 'type': 'quiz',
+                 'question': 'if age >= 18 and has_ticket:\n'
+                             'print("Enter")\n'
+                             'else:\n'
+                             'print("Cannot enter")',
+                 'options': ['A. Enter', 'B. Cannot enter', 'C. Nothing', 'D. Error'],
+                 'answer': 'B. Cannot enter'},
+                {'page': 1, 'type': 'heading', 'text': 'Section 6 – Common Conditional Mistakes'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Everyone makes mistakes while learning to write conditionals.'},
+                {'page': 1, 'type': 'paragraph', 'text': "Let's look at a few common ones."},
+                {'page': 1, 'type': 'heading', 'text': 'Mistake 1 — Using = instead of =='},
+                {'page': 1, 'type': 'paragraph', 'text': 'Incorrect'},
+                {'page': 1, 'type': 'code', 'text': 'if age = 18:'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Correct'},
+                {'page': 1, 'type': 'code', 'text': 'if age == 18:'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Remember:'},
+                {'page': 1, 'type': 'paragraph', 'text': '= stores a value.'},
+                {'page': 1, 'type': 'paragraph', 'text': '== compares two values.'},
+                {'page': 1, 'type': 'heading', 'text': 'Mistake 2 — Forgetting the Colon'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Incorrect'},
+                {'page': 1, 'type': 'code', 'text': 'if age >= 18'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Correct'},
+                {'page': 1, 'type': 'code', 'text': 'if age >= 18:'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Every if, elif, and else statement ends with a colon.'},
+                {'page': 1, 'type': 'heading', 'text': 'Mistake 3 — Incorrect Indentation'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Incorrect'},
+                {'page': 1, 'type': 'code', 'text': 'if age >= 18:\nprint("Adult")'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Correct'},
+                {'page': 1, 'type': 'code', 'text': 'if age >= 18:\n    print("Adult")'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Python uses indentation to determine which code belongs inside the '
+                         'conditional.'},
+                {'page': 1, 'type': 'heading', 'text': 'Mistake 4 — Checking Impossible Conditions'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'age = 25\n'
+                         'if age < 18:\n'
+                         '    print("Minor")\n'
+                         'elif age < 13:\n'
+                         '    print("Child")'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Can the second condition ever happen?'},
+                {'page': 1, 'type': 'paragraph', 'text': 'No.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Anyone younger than 13 is already younger than 18.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'This is another example of why the order of conditions matters.'},
+                {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+                {'page': 1,
+                 'type': 'quiz',
+                 'question': 'Which line contains an error?\nage = 18\nif age = 18:\nprint("Adult")',
+                 'options': ['A. Line 1', 'B. Line 2', 'C. Line 3', 'D. No errors'],
+                 'answer': 'B. Line 2'},
+                {'page': 1, 'type': 'heading', 'text': 'Spotlight – Predicting Oklahoma Weather'},
+                {'page': 1,
+                 'type': 'image',
+                 'src': '/static/images/lesson2_oklahoma_weather.png',
+                 'caption': ''},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Oklahoma experiences some of the most severe weather in the United States.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'To help keep communities safe, scientists at the National Severe Storms '
+                         'Laboratory (NSSL) in Norman, Oklahoma, develop software that analyzes '
+                         'enormous amounts of weather data.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "Although the models they use are much more advanced than the programs we've "
+                         'written, they still rely on the same fundamental idea: making decisions '
+                         'based on conditions.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'For example, a weather program might ask questions like:'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['Is the wind speed above a certain threshold?',
+                           'Is the air rotating?',
+                           'Is the temperature changing rapidly?',
+                           'Is there enough evidence to issue a tornado warning?']},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Each of these questions can be answered with either True or False.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Using conditional statements, the software decides what to do next—whether '
+                         'to continue monitoring the storm, alert meteorologists, or issue a public '
+                         'warning.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "As you continue learning Python, you'll discover that the simple if "
+                         "statements you're writing today are the foundation of much larger systems "
+                         'used in science, medicine, engineering, and countless other fields.'},
+                {'page': 1,
+                 'type': 'heading',
+                 'text': 'Section 7 – Mini Project: Community Event Eligibility'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "Congratulations! You've learned how computers make decisions using Boolean "
+                         'values, comparison operators, logical operators, and conditional '
+                         'statements.'},
+                {'page': 1, 'type': 'paragraph', 'text': "Now it's time to put everything together."},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "Imagine you're helping organize a community coding workshop. Students must "
+                         'meet certain requirements before registering.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Write a function that determines whether a student is eligible to '
+                         'participate.'},
+                {'page': 1, 'type': 'heading', 'text': 'Requirements'},
+                {'page': 1, 'type': 'paragraph', 'text': 'A student may participate if:'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['They are at least 13 years old, and',
+                           'They have completed the introductory workshop.']},
+                {'page': 1, 'type': 'paragraph', 'text': 'If both conditions are true, return:'},
+                {'page': 1, 'type': 'code', 'text': 'Eligible'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Otherwise, return:'},
+                {'page': 1, 'type': 'code', 'text': 'Not Eligible'},
+                {'page': 1, 'type': 'heading', 'text': 'Example'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'def check_eligibility(age, completed_intro):\n    ...'},
+                {'page': 1, 'type': 'heading', 'text': 'Example Outputs'},
+                {'page': 1,
+                 'type': 'code',
+                 'text': 'check_eligibility(15, True)\n'
+                         '\n'
+                         'returns\n'
+                         '\n'
+                         'Eligible\n'
+                         '\n'
+                         'check_eligibility(12, True)\n'
+                         '\n'
+                         'returns\n'
+                         '\n'
+                         'Not Eligible'},
+                {'page': 1, 'type': 'heading', 'text': 'Challenge'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Modify your function so that students who are 18 years or older are '
+                         'automatically eligible, even if they have not completed the introductory '
+                         'workshop.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "Think carefully about which logical operator(s) you'll need."},
+                {'page': 1,
+                 'type': 'ide',
+                 'instructions': 'Write a function that determines whether a student is eligible to '
+                                 'participate. Then try the challenge from the lesson.',
+                 'starter_code': 'def check_eligibility(age, completed_intro):\n'
+                                 '    # Write your code here\n'
+                                 '    pass\n'
+                                 '\n'
+                                 'print(check_eligibility(15, True))\n'
+                                 'print(check_eligibility(12, True))\n'
+                                 'print(check_eligibility(18, False))\n'},
+                {'page': 1, 'type': 'heading', 'text': 'Key Takeaways'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'By the end of this lesson, you should be able to:'},
+                {'page': 1,
+                 'type': 'list',
+                 'items': ['Compare values using comparison operators.',
+                           'Understand how Boolean values (True and False) control program flow.',
+                           'Write programs using if, elif, and else.',
+                           'Combine conditions using and, or, and not.',
+                           'Recognize common mistakes involving comparisons, indentation, and '
+                           'condition order.']},
+                {'page': 1, 'type': 'heading', 'text': 'Looking Ahead'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'So far, our programs have made decisions based on a single piece of '
+                         'information or a few variables.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'But what if we wanted to store hundreds or even thousands of pieces of '
+                         'information?'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "How could we keep track of every student's name in a classroom?"},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'How might we store every score from a basketball season?'},
+                {'page': 1, 'type': 'paragraph', 'text': 'Or every city in Oklahoma?'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': 'Using one variable for each item would quickly become impossible.'},
+                {'page': 1,
+                 'type': 'paragraph',
+                 'text': "In the next lesson, you'll learn about lists—Python's first built-in "
+                         'collection type—which allow you to store and work with many values at once. '
+                         'Lists are one of the most important data structures in programming and form '
+                         'the foundation for countless real-world applications.'}]},
     "lists_dictionaries": {
 
     "id": "lists_dictionaries",
