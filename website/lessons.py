@@ -3233,12 +3233,7 @@ print(f"Total: ${total}")
             {
                 "page": 2,
                 "type": "rich_paragraph",
-                "html": "<span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">List</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Mutation</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Alias</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Reference</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Copy</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Method</span>"
-            },
-            {
-                "page": 2,
-                "type": "paragraph",
-                "text": "Add more like the highlighted words*"
+                "html": "<span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">List</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Mutable</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Mutability</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Mutation</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Aliasing</span>"
             },
             {
                 "page": 2,
