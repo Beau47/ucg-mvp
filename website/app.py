@@ -241,24 +241,30 @@ def lesson(lesson_id, page):
     )
 
 
-    # Check if user reached final page
-    if (
-        page == total_pages
-        and "user_id" in session
-    ):
-
-        complete_lesson(
-            session["user_id"],
-            lesson_id
-        )
-
-
     return render_template(
         "lesson.html",
         lesson=lesson,
         page=page,
-        total_pages=total_pages
+        total_pages=total_pages,
+        progress_owner=session.get("user_id", "guest")
     )
+
+
+@app.route("/lesson/<lesson_id>/complete", methods=["POST"])
+def complete_lesson_api(lesson_id):
+
+    if "user_id" not in session:
+        return jsonify({"error": "Log in to save lesson progress."}), 401
+
+    if get_lesson(lesson_id) is None:
+        return jsonify({"error": "Lesson not found."}), 404
+
+    complete_lesson(
+        session["user_id"],
+        lesson_id
+    )
+
+    return jsonify({"completed": True})
 
 # =====================================================
 # EXERCISES PAGE
@@ -296,7 +302,8 @@ def exercises():
     return render_template(
         "exercises.html",
         problems=PROBLEMS,
-        completed_problems=completed_problems
+        completed_problems=completed_problems,
+        progress_owner=session["user_id"]
     )
 
 
@@ -315,7 +322,8 @@ def workspace(problem_id):
 
     return render_template(
         "index.html",
-        problem=problem
+        problem=problem,
+        progress_owner=session.get("user_id", "guest")
     )
 
 

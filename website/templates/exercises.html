@@ -141,12 +141,15 @@ Start Exercise →
 
 <script>
 
+const progressOwner = {{ progress_owner | tojson }};
+
+
 function hasCompletedLesson05() {
 
     const progress =
         JSON.parse(
             localStorage.getItem(
-                "ucg:lesson-progress:functions_preview:1"
+                `ucg:lesson-progress:${progressOwner}:functions_preview:1`
             ) || "{}"
         );
 

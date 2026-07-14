@@ -428,8 +428,19 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("next-link");
 
 
+    const progressOwner =
+        {{ progress_owner | tojson }};
+
+
     const progressKey =
-        "ucg:lesson-progress:{{ lesson.id }}:{{ page }}";
+        `ucg:lesson-progress:${progressOwner}:{{ lesson.id }}:{{ page }}`;
+
+
+    const isFinalPage =
+        {{ (page == total_pages) | tojson }};
+
+
+    let completionRequestSent = false;
 
 
     const savedProgress =
@@ -468,6 +479,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    async function saveLessonCompletion() {
+
+        if (
+            !isFinalPage ||
+            progressOwner === "guest" ||
+            completionRequestSent
+        ) {
+            return;
+        }
+
+        completionRequestSent = true;
+
+        try {
+            const response = await fetch(
+                "/lesson/{{ lesson.id }}/complete",
+                { method: "POST" }
+            );
+
+            if (!response.ok) {
+                completionRequestSent = false;
+            }
+        }
+        catch (error) {
+            completionRequestSent = false;
+        }
+
+    }
+
+
 
     // =====================================================
     // CHECK IF ALL REQUIREMENTS ARE COMPLETE
@@ -489,6 +529,9 @@ document.addEventListener("DOMContentLoaded", () => {
             quizzesComplete &&
             idesComplete
         ) {
+
+
+            saveLessonCompletion();
 
 
             if (nextButton && nextLink) {
