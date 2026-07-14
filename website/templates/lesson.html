@@ -264,7 +264,10 @@
         </div>
 
 
-        <textarea class="ide-editor">{{ block["starter_code"] }}</textarea>
+        <div
+        class="lesson-editor"
+        data-code="{{ block['starter_code'] | e }}">
+        </div>
 
 
         <div class="ide-output-header">
@@ -402,6 +405,9 @@
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+
+<script src="/static/js/lesson.js"></script>
 
 </body>
 
@@ -411,6 +417,25 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    function markLessonComplete(){
+
+        fetch("/complete_lesson", {
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+
+                lesson_id:"{{ lesson_id }}"
+
+            })
+
+        });
+
+    }
 
     const quizzes =
         document.querySelectorAll(".quiz-card[data-required='true']");
@@ -543,6 +568,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextLink.style.opacity = "1";
 
             }
+
+
+            // Final page completed
+            {% if page == total_pages %}
+
+                markLessonComplete();
+
+            {% endif %}
 
 
         }
@@ -782,8 +815,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+            const index =
+                Array.from(document.querySelectorAll(".lesson-ide"))
+                    .indexOf(ide);
+
             const code =
-                ide.querySelector(".ide-editor").value;
+                lessonEditors[index].getValue();
 
 
 

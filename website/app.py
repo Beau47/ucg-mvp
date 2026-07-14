@@ -88,12 +88,33 @@ def get_or_create_profile(user_id):
 
 def complete_lesson(user_id, lesson_id):
 
-    # Add lesson completion
-    supabase.table("lesson_progress").upsert({
+    # Check if already completed
+    existing = (
+        supabase
+        .table("lesson_progress")
+        .select("id")
+        .eq("user_id", user_id)
+        .eq("lesson_id", lesson_id)
+        .eq("completed", True)
+        .execute()
+    )
+
+
+    # Prevent duplicate completions
+    if existing.data:
+        return
+
+
+
+    # Save completion
+    supabase.table("lesson_progress").insert({
+
         "user_id": user_id,
         "lesson_id": lesson_id,
         "completed": True
+
     }).execute()
+
 
 
     # Update profile counter
@@ -115,7 +136,6 @@ def complete_lesson(user_id, lesson_id):
         "id",
         user_id
     ).execute()
-
 
 
 # =====================================================
@@ -244,6 +264,7 @@ def lesson(lesson_id, page):
     return render_template(
         "lesson.html",
         lesson=lesson,
+        lesson_id=lesson_id,
         page=page,
         total_pages=total_pages,
         progress_owner=session.get("user_id", "guest")
@@ -531,6 +552,35 @@ def run_snippet_api():
 
     return jsonify({
         "output": result
+    })
+
+# =====================================================
+# COMPLETE LESSON API
+# Called after final page requirements are completed
+# =====================================================
+
+@app.route("/complete_lesson", methods=["POST"])
+def complete_lesson_api():
+
+    if "user_id" not in session:
+        return jsonify({
+            "error": "Not logged in"
+        }), 401
+
+
+    data = request.get_json()
+
+    lesson_id = data["lesson_id"]
+
+
+    complete_lesson(
+        session["user_id"],
+        lesson_id
+    )
+
+
+    return jsonify({
+        "success": True
     })
 
 # =====================================================
