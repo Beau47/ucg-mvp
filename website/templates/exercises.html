@@ -75,7 +75,11 @@
 {% for problem in problems.values() %}
 
 
-<div class="content-card">
+<div class="content-card
+{% if problem.id in completed_problems %}
+completed-card
+{% endif %}
+">
 
 
 <div class="card-number">
@@ -84,7 +88,15 @@
 
 
 <h2>
-    {{ problem.title }}
+
+{{ problem.title }}
+
+{% if problem.id in completed_problems %}
+
+✅
+
+{% endif %}
+
 </h2>
 
 
@@ -97,7 +109,17 @@
 <a href="/workspace/{{ problem.id }}">
 
 <button>
+
+{% if problem.id in completed_problems %}
+
+Redo Exercise →
+
+{% else %}
+
 Start Exercise →
+
+{% endif %}
+
 </button>
 
 </a>

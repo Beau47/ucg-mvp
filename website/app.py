@@ -5,8 +5,13 @@
 
 # Flask modules for creating routes and returning responses
 from flask import Flask, render_template, request, jsonify, redirect, session
+
+# Import website functions
 from problems import get_problem, PROBLEMS
 from runner import run_problem, run_snippet
+
+# Time import
+from datetime import timedelta
 
 # Authentication client
 from supabase_client import supabase
@@ -23,6 +28,88 @@ app = Flask(__name__)
 
 app.secret_key = "ucg-secret-key"
 
+#TODO add this later. remove app.secret_key and replace with below and move secret key to .env
+##import os
+
+##app.secret_key = os.environ.get(
+##    "SECRET_KEY"
+##)
+
+# Log-ins are remembered for 7 days
+app.permanent_session_lifetime = timedelta(days=7)
+
+# =====================================================
+# SAVE LESSON COMPLETION
+# =====================================================
+
+def complete_lesson(user_id, lesson_id):
+
+    # Add lesson completion
+    supabase.table("lesson_progress").upsert({
+        "user_id": user_id,
+        "lesson_id": lesson_id,
+        "completed": True
+    }).execute()
+
+
+    # Update profile counter
+    lessons = (
+        supabase
+        .table("lesson_progress")
+        .select("id")
+        .eq("user_id", user_id)
+        .eq("completed", True)
+        .execute()
+    )
+
+
+    supabase.table("profiles").update({
+
+        "lessons_completed": len(lessons.data)
+
+    }).eq(
+        "id",
+        user_id
+    ).execute()
+
+
+
+# =====================================================
+# SAVE PROBLEM COMPLETION
+# =====================================================
+
+def complete_problem(user_id, problem_id):
+
+    supabase.table("problem_progress").upsert({
+
+        "user_id": user_id,
+        "problem_id": problem_id,
+        "passed": True
+
+    }).execute()
+
+
+
+    problems = (
+        supabase
+        .table("problem_progress")
+        .select("id")
+        .eq("user_id", user_id)
+        .eq("passed", True)
+        .execute()
+    )
+
+
+
+    supabase.table("profiles").update({
+
+        "problems_solved": len(problems.data)
+
+    }).eq(
+        "id",
+        user_id
+    ).execute()
+
 
 # =====================================================
 # DASHBOARD ROUTE
@@ -32,12 +119,27 @@ app.secret_key = "ucg-secret-key"
 def dashboard():
 
     if "user_id" not in session:
-
         return redirect("/login")
 
 
+    user_id = session["user_id"]
+
+
+    profile_data = (
+        supabase
+        .table("profiles")
+        .select("*")
+        .eq("id", user_id)
+        .execute()
+    )
+
+
+    profile = profile_data.data[0]
+
+
     return render_template(
-        "dashboard.html"
+        "dashboard.html",
+        profile=profile
     )
 
 
@@ -49,9 +151,35 @@ def dashboard():
 @app.route("/lessons")
 def lessons():
 
+    if "user_id" not in session:
+        return redirect("/login")
+
+
+    completed_data = (
+        supabase
+        .table("lesson_progress")
+        .select("lesson_id")
+        .eq(
+            "user_id",
+            session["user_id"]
+        )
+        .execute()
+    )
+
+
+    completed_lessons = [
+
+        item["lesson_id"]
+
+        for item in completed_data.data
+
+    ]
+
+
     return render_template(
         "lessons.html",
-        lessons=LESSONS
+        lessons=LESSONS,
+        completed_lessons=completed_lessons
     )
 
 
@@ -68,10 +196,23 @@ def lesson(lesson_id, page):
     if lesson is None:
         return "Lesson not found.", 404
 
-    # Find the total number of pages in this lesson
+
     total_pages = max(
         block["page"] for block in lesson["blocks"]
     )
+
+
+    # Check if user reached final page
+    if (
+        page == total_pages
+        and "user_id" in session
+    ):
+
+        complete_lesson(
+            session["user_id"],
+            lesson_id
+        )
+
 
     return render_template(
         "lesson.html",
@@ -79,7 +220,6 @@ def lesson(lesson_id, page):
         page=page,
         total_pages=total_pages
     )
-
 
 # =====================================================
 # EXERCISES PAGE
@@ -89,9 +229,35 @@ def lesson(lesson_id, page):
 @app.route("/exercises")
 def exercises():
 
+    if "user_id" not in session:
+        return redirect("/login")
+
+
+    completed_data = (
+        supabase
+        .table("problem_progress")
+        .select("problem_id")
+        .eq(
+            "user_id",
+            session["user_id"]
+        )
+        .execute()
+    )
+
+
+    completed_problems = [
+
+        item["problem_id"]
+
+        for item in completed_data.data
+
+    ]
+
+
     return render_template(
         "exercises.html",
-        problems=PROBLEMS
+        problems=PROBLEMS,
+        completed_problems=completed_problems
     )
 
 
@@ -129,7 +295,10 @@ def profile():
     user_id = session["user_id"]
 
 
-    # Get profile data from Supabase database
+    # -------------------------------
+    # Get profile information
+    # -------------------------------
+
     profile_data = (
         supabase
         .table("profiles")
@@ -142,10 +311,83 @@ def profile():
     profile = profile_data.data[0]
 
 
-    # Get email from Supabase Auth
+
+    # -------------------------------
+    # Count completed lessons
+    # -------------------------------
+
+    lessons = (
+        supabase
+        .table("lesson_progress")
+        .select("id")
+        .eq(
+            "user_id",
+            user_id
+        )
+        .eq(
+            "completed",
+            True
+        )
+        .execute()
+    )
+
+
+    lessons_completed = len(
+        lessons.data
+    )
+
+
+
+    # -------------------------------
+    # Count solved problems
+    # -------------------------------
+
+    problems = (
+        supabase
+        .table("problem_progress")
+        .select("id")
+        .eq(
+            "user_id",
+            user_id
+        )
+        .eq(
+            "passed",
+            True
+        )
+        .execute()
+    )
+
+
+    problems_solved = len(
+        problems.data
+    )
+
+
+
+    # -------------------------------
+    # Calculate XP
+    # -------------------------------
+
+    profile["lessons_completed"] = lessons_completed
+
+    profile["problems_solved"] = problems_solved
+
+    profile["xp"] = (
+        lessons_completed * 100
+        +
+        problems_solved * 25
+    )
+
+
+
+    # -------------------------------
+    # Email
+    # -------------------------------
+
     user = supabase.auth.get_user()
 
     profile["email"] = user.user.email
+
 
 
     return render_template(
@@ -214,6 +456,17 @@ def run_code():
 
     # Execute the student's code and grade it
     result = run_problem(code, problem)
+
+
+    if (
+        result.get("passed")
+        and "user_id" in session
+    ):
+
+        complete_problem(
+            session["user_id"],
+            problem_id
+        )
 
     # Send the results back to the frontend
     return jsonify(result)
@@ -308,6 +561,8 @@ def login():
         }
     )
 
+
+    session.permanent = True
 
     session["user_id"] = response.user.id
 

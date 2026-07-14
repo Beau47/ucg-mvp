@@ -77,7 +77,11 @@
 {% for lesson in lessons.values() %}
 
 
-<div class="content-card">
+<div class="content-card
+{% if lesson.id in completed_lessons %}
+completed-card
+{% endif %}
+">
 
 
 <div class="card-number">
@@ -86,7 +90,15 @@
 
 
 <h2>
-    {{ lesson.title }}
+
+{{ lesson.title }}
+
+{% if lesson.id in completed_lessons %}
+
+✅
+
+{% endif %}
+
 </h2>
 
 
@@ -99,7 +111,17 @@
 <a href="/lesson/{{ lesson.id }}/1">
 
 <button>
+
+{% if lesson.id in completed_lessons %}
+
+Review Lesson →
+
+{% else %}
+
 Start Lesson →
+
+{% endif %}
+
 </button>
 
 </a>
