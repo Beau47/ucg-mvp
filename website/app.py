@@ -107,13 +107,14 @@ def complete_lesson(user_id, lesson_id):
 
 
     # Save completion
-    supabase.table("lesson_progress").insert({
-
-        "user_id": user_id,
-        "lesson_id": lesson_id,
-        "completed": True
-
-    }).execute()
+    supabase.table("lesson_progress").upsert(
+        {
+            "user_id": user_id,
+            "lesson_id": lesson_id,
+            "completed": True
+        },
+        on_conflict="user_id,lesson_id"
+    ).execute()
 
 
 
@@ -275,17 +276,26 @@ def lesson(lesson_id, page):
 def complete_lesson_api(lesson_id):
 
     if "user_id" not in session:
-        return jsonify({"error": "Log in to save lesson progress."}), 401
+        return jsonify({
+            "error": "Log in to save lesson progress."
+        }), 401
+
 
     if get_lesson(lesson_id) is None:
-        return jsonify({"error": "Lesson not found."}), 404
+        return jsonify({
+            "error": "Lesson not found."
+        }), 404
+
 
     complete_lesson(
         session["user_id"],
         lesson_id
     )
 
-    return jsonify({"completed": True})
+
+    return jsonify({
+        "success": True
+    })
 
 # =====================================================
 # EXERCISES PAGE
