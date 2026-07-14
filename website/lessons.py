@@ -2626,406 +2626,560 @@ print(f"Total: ${total}")
                          'Lists are one of the most important data structures in programming and form '
                          'the foundation for countless real-world applications.'}]},
     "lists_dictionaries": {
-
-    "id": "lists_dictionaries",
-
-    "lesson_number": "3",
-
-    "description": "Organize, access, and modify collections of data using Python lists and dictionaries.",
-
-    "title": "Lists & Dictionaries",
-
-    "blocks": [
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Unit 3: Lists & Dictionaries"
-        },
-
-        {
-            "page": 1,
-            "type": "paragraph",
-            "text":
-            "In this lesson, you will learn how Python stores and organizes information using lists and dictionaries. "
-            "You will practice accessing data, changing values, looping through collections, and loading JSON data."
-        },
-
-        {
-            "page": 1,
-            "type": "tip",
-            "text":
-            "Focus: African & Afro-Caribbean Data Science\n\n"
-            "Spotlight: Anne-Marie Imafidon — STEM advocate who uses technology and education to expand access to computer science.\n\n"
-            "Spotlight: Alan Emtage — Barbadian computer scientist who created Archie, one of the first internet search tools."
-        },
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Vocabulary"
-        },
-
-        {
-            "page": 1,
-            "type": "list",
-            "items": [
-                "List — An ordered collection of items: ['apple', 'banana']",
-                "Index — The position of an item in a list. Indexing starts at 0.",
-                "Append — Adds a new item to the end of a list.",
-                "Slice — Selects part of a list using a range of indexes.",
-                "Dictionary — A collection of key-value pairs.",
-                "Key / Value — A lookup name and the information connected to it.",
-                "JSON — A text format for storing and sharing structured data."
-            ]
-        },
-
-
-        {
-            "page": 2,
-            "type": "heading",
-            "text": "1. Creating and Accessing Lists"
-        },
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text":
-            "Lists store multiple values in one variable. Each item has a position called an index. "
-            "Python starts counting indexes at 0."
-        },
-
-        {
-            "page": 2,
-            "type": "code",
-            "text":
-"""playlist = [
-    "Kendrick Lamar",
-    "SZA",
-    "Bad Bunny",
-    "Tems"
-]
-
-print(playlist[0])
-print(playlist[-1])"""
-        },
-
-        {
-            "page": 2,
-            "type": "tip",
-            "text":
-            "Remember: playlist[0] gives the first item, while playlist[-1] gives the last item."
-        },
-
-        {
-            "page": 2,
-            "type": "ide",
-            "instructions":
-            "Create your own playlist list with four artists or creators. Print the second and last items.",
-
-            "starter_code":
-"""my_playlist = [
-    "Artist 1",
-    "Artist 2",
-    "Artist 3",
-    "Artist 4"
-]
-
-# Print the second and last artists here
-"""
-        },
-
-
-        {
-            "page": 3,
-            "type": "heading",
-            "text": "2. Changing Lists"
-        },
-
-        {
-            "page": 3,
-            "type": "paragraph",
-            "text":
-            "Lists can be changed after they are created. This is called mutation. "
-            "You can replace values or add new items."
-        },
-
-        {
-            "page": 3,
-            "type": "code",
-            "text":
-"""playlist = [
-    "Kendrick Lamar",
-    "SZA",
-    "Bad Bunny"
-]
-
-playlist[1] = "Beyoncé"
-
-playlist.append("Burna Boy")
-
-print(playlist)
-
-print(len(playlist))"""
-        },
-
-        {
-            "page": 4,
-            "type": "heading",
-            "text": "3. Working With Dictionaries"
-        },
-
-        {
-            "page": 4,
-            "type": "paragraph",
-            "text":
-            "Dictionaries store information using key-value pairs. "
-            "Instead of accessing data by position, you access it using a key."
-        },
-
-        {
-            "page": 4,
-            "type": "code",
-            "text":
-"""profile = {
-    "name": "Zion",
-    "city": "Tulsa",
-    "favorite_artist": "J. Cole"
-}
-
-print(profile["city"])"""
-        },
-
-        {
-            "page": 4,
-            "type": "ide",
-            "instructions":
-            "Create a dictionary about yourself. Include name, grade, and favorite food. Print your favorite food.",
-
-            "starter_code":
-"""profile = {
-    "name": "",
-    "grade": "",
-    "favorite_food": ""
-}
-
-# Print your favorite food
-"""
-        },
-
-
-        {
-            "page": 5,
-            "type": "heading",
-            "text": "4. Updating Dictionaries"
-        },
-
-        {
-            "page": 5,
-            "type": "code",
-            "text":
-"""profile = {
-    "name": "Zion",
-    "city": "Tulsa"
-}
-
-profile["hobby"] = "Coding"
-
-profile["favorite_food"] = "Fried Rice"
-
-print(profile)"""
-        },
-
-        {
-            "page": 5,
-            "type": "paragraph",
-            "text":
-            "You can add new keys or change existing values by assigning a new value."
-        },
-
-
-        {
-            "page": 6,
-            "type": "heading",
-            "text": "5. Looping Through Collections"
-        },
-
-        {
-            "page": 6,
-            "type": "paragraph",
-            "text":
-            "Loops allow programs to analyze every item in a collection without writing repeated code."
-        },
-
-        {
-            "page": 6,
-            "type": "code",
-            "text":
-"""leaders = [
-    "Angela Davis",
-    "Malcolm X",
-    "Cesar Chavez"
-]
-
-for leader in leaders:
-    print(f"{leader} inspired change.")"""
-        },
-
-        {
-            "page": 6,
-            "type": "code",
-            "text":
-"""sneaker = {
-    "brand": "Nike",
-    "style": "Air Max",
-    "year": 2023
-}
-
-for key, value in sneaker.items():
-    print(key, value)"""
-        },
-
-
-        {
-            "page": 7,
-            "type": "heading",
-            "text": "6. Working With JSON Data"
-        },
-
-        {
-            "page": 7,
-            "type": "paragraph",
-            "text":
-            "JSON is a common format used to transfer data between programs. "
-            "Python can convert JSON text into dictionaries using json.loads()."
-        },
-
-        {
-            "page": 7,
-            "type": "code",
-            "text":
-"""import json
-
-json_data = '{"name":"Maria","interests":["coding","music","basketball"]}'
-
-person = json.loads(json_data)
-
-print(person["name"])
-print(person["interests"][1])"""
-        },
-
-        {
-            "page": 7,
-            "type": "tip",
-            "text":
-            "JSON looks similar to a Python dictionary because both store information using keys and values."
-        },
-
-
-        {
-            "page": 8,
-            "type": "heading",
-            "text": "7. Data Structures in Real Applications"
-        },
-
-        {
-            "page": 8,
-            "type": "paragraph",
-            "text":
-            "Programs often combine lists and dictionaries to organize complex information. "
-            "For example, language preservation tools can store words, translations, and audio files."
-        },
-
-        {
-            "page": 8,
-            "type": "code",
-            "text":
-"""word = {
-    "original": "ᎣᏏᏲ",
-    "english": "hello",
-    "audio_clip": "osiyo.mp3"
-}
-
-print(word["english"])"""
-        },
-
-
-        {
-            "page": 9,
-            "type": "heading",
-            "text": "Mini Debug Mission"
-        },
-
-        {
-            "page": 9,
-            "type": "paragraph",
-            "text":
-            "Find the mistake in this code:"
-        },
-
-        {
-            "page": 9,
-            "type": "code",
-            "text":
-"""fruits = [
-    "apple",
-    "orange",
-    "banana"
-]
-
-print(fruits[3])"""
-        },
-
-        {
-            "page": 9,
-            "type": "tip",
-            "text":
-            "Lists start at index 0. A list with three items has indexes 0, 1, and 2."
-        },
-
-        {
-            "page": 9,
-            "type": "ide",
-            "instructions":
-            "Fix the indexing error so the program prints the last item in the list.",
-
-            "starter_code":
-"""fruits = [
-    "apple",
-    "orange",
-    "banana"
-]
-
-print(fruits[3])
-"""
-        },
-
-
-        {
-            "page": 10,
-            "type": "heading",
-            "text": "Key Takeaways"
-        },
-
-        {
-            "page": 10,
-            "type": "list",
-            "items": [
-                "Lists store ordered collections and use indexes starting at 0.",
-                "append() adds new items to lists.",
-                "Dictionaries store information using key-value pairs.",
-                "Loops help process every item in a collection.",
-                "json.loads() converts JSON text into Python dictionaries."
-            ]
-        },
-        {
-            "page": 11,
-            "type": "exercise",
-            "problem": "first_item"
-        }
-
-    ]
-},
+        "id": "lists_dictionaries",
+        "lesson_number": "3",
+        "description": "Create tuples, access tuple elements using indexing, slice tuples, and explain why tuples are immutable.",
+        "title": "Tuples",
+        "blocks": [
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Lesson 3.0 – Tuples"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Estimated Time: 30–45 minutes"
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Prerequisites"
+            },
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Lesson 1.0 – Variables & Data Types",
+                    "Lesson 1.1 – Using Variables",
+                    "Lesson 2 – Teaching Programs to Make Decisions"
+                ]
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Learning Objectives & Vocabulary"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "By the end of this lesson, students should be able to:"
+            },
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Explain what a collection is.",
+                    "Create tuples.",
+                    "Access tuple elements using indexing.",
+                    "Slice tuples.",
+                    "Explain why tuples are immutable.",
+                    "Identify situations where tuples are preferable to lists."
+                ]
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Word Bank"
+            },
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html": "<span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Collection</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Tuple</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Element</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Index</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Slice</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Immutable</span>"
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Introduction"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "So far, every variable we've created has stored one piece of information."
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "name = \"Jordan\"\nage = 16\nheight = 5.8"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "But many times, pieces of information naturally belong together. Imagine you're recording information about an earthquake in Oklahoma."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "You might need to store:"
+            },
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Magnitude",
+                    "Latitude",
+                    "Longitude",
+                    "Time"
+                ]
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Although these are four separate values, they all describe the same earthquake."
+            },
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html": "Instead of creating four separate variables, Python lets us group related information into one object called a <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">collection</span>."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "The first collection we'll learn is called a tuple."
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 1 – What is a Tuple?"
+            },
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html": "A <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">tuple</span> is an ordered collection of values."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Unlike variables that store one value,"
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "age = 16"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "a tuple stores several."
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "earthquake = (\n    4.2,\n    35.47,\n    -97.52,\n    \"2:31 PM\"\n)"
+            },
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html": "Each individual value inside the tuple is called an <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">element</span>."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Notice that tuples use parentheses and separate elements with commas."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Just like variables, tuples can store different data types."
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "student = (\n    \"Jordan\",\n    16,\n    True,\n    3.8\n)"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Python allows integers, floats, strings, Booleans—even other collections—to exist inside the same tuple."
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 1,
+                "type": "quiz",
+                "question": "Which of the following is a tuple?",
+                "options": [
+                    "A. name = \"Jordan\"",
+                    "B. (1, 2, 3, (1, 2, 3))",
+                    "C. 42",
+                    "D. True"
+                ],
+                "answer": "B. (1, 2, 3, (1, 2, 3))"
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 2 – Indexing Tuples"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Just like strings, tuples are sequential data types."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "That means every element has an index."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Remember:"
+            },
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html": "Python starts counting at <strong>0</strong>."
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "cities = (\n    \"Tulsa\",\n    \"Norman\",\n    \"Stillwater\",\n    \"Lawton\"\n)"
+            },
+            {
+                "page": 1,
+                "type": "table",
+                "headers": ["Element", "“Tulsa”", "“Norman”", "“Stillwater”", "“Lawton”"],
+                "rows": [["Index", "0", "1", "2", "3"]]
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Access an element exactly like a string."
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "print(cities[0])\n\nOutput\nTulsa"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Negative indices also work."
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "print(cities[-1])\n\nOutput\nLawton"
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 1,
+                "type": "quiz",
+                "question": "What is printed?\n\nanimals = (\n    \"Dog\",\n    \"Cat\",\n    \"Bird\"\n)\nprint(animals[1])",
+                "options": ["A. Dog", "B. Bird", "C. Cat", "D. Error"],
+                "answer": "C. Cat"
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 3 – Slicing Tuples"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Because tuples are sequential, slicing works exactly like it did with strings."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "General form:"
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "tuple[start:end:skip]"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Python begins at start, stops before end, and selects every “skipth” element."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Example:"
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "numbers = (\n    10,\n    20,\n    30,\n    40,\n    50\n)\n\nprint(numbers[1:4])\n\nOutput\n(20, 30, 40)"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "You can also skip values."
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "print(numbers[::2])\n\nOutput\n(10, 30, 50)"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Notice that slicing returns another tuple."
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 1,
+                "type": "quiz",
+                "question": "What does this print?\n\nvalues = (\n    5,\n    10,\n    15,\n    20\n)\nprint(values[:2])",
+                "options": ["A. (5,10)", "B. (15,20)", "C. 5", "D. Error"],
+                "answer": "A. (5,10)"
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 4 – Tuples are Immutable"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "One feature separates tuples from many other collections."
+            },
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html": "Once a tuple has been created, its <strong>elements cannot be changed.</strong>"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Consider the following tuple."
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "coordinates = (\n    35.47,\n    -97.52\n)"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Suppose we try changing one value."
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "coordinates[0] = 36"
+            },
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html": "Python raises a <strong>TypeError</strong><sup>1</sup>."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "This happens because tuples are immutable."
+            },
+            {
+                "page": 1,
+                "type": "rich_paragraph",
+                "html": "<span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Immutable</span> means an object cannot be modified after it has been created."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Why would this be useful?"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Some information should never change."
+            },
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "birthdays",
+                    "GPS coordinates",
+                    "months of the year",
+                    "mathematical constants"
+                ]
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Using tuples helps prevent accidental changes to important information."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Don't worry too much about how Python keeps tuples immutable."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "In the next lesson, we'll learn what actually happens inside a computer's memory when objects are modified."
+            },
+            {
+                "page": 1,
+                "type": "footnote",
+                "number": "1",
+                "text": "A TypeError is an error that occurs when you try to perform an operation on a value of the wrong data type."
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 1,
+                "type": "quiz",
+                "question": "Which statement is true?",
+                "options": [
+                    "A. Tuples can grow forever.",
+                    "B. Tuples can be modified after creation.",
+                    "C. Tuples are immutable.",
+                    "D. Tuples only store integers."
+                ],
+                "answer": "C. Tuples are immutable."
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Oklahoma STEM Spotlight – Tracking Earthquakes"
+            },
+            {
+                "page": 1,
+                "type": "image_text",
+                "src": "/static/images/lesson3_oklahoma_earthquake.png",
+                "alt": "A road cracked by an earthquake in Oklahoma",
+                "caption": "",
+                "paragraphs": [
+                    "Oklahoma experiences thousands of small earthquakes each year.",
+                    "Scientists at the Oklahoma Geological Survey (OGS) record information about every event.",
+                    "A single earthquake might be represented by values like"
+                ]
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "earthquake = (\n    4.3,\n    35.46,\n    -97.52,\n    \"July 8, 2026\"\n)"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Notice that all four values belong together and generally should not change after the event has been recorded."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Tuples are a natural way to store this kind of information because they protect important data from accidental modification."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Although professional software uses much larger and more sophisticated data structures, the same idea of grouping related information together is fundamental to scientific programming."
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Section 5 – Mini Project: Oklahoma Landmark"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Create a tuple called landmark."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "It should contain:"
+            },
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "the landmark's name",
+                    "the city it is located in",
+                    "the year it was completed"
+                ]
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "For example,"
+            },
+            {
+                "page": 1,
+                "type": "code",
+                "text": "landmark = (\n    \"Golden Driller\",\n    \"Tulsa\",\n    1966\n)"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Then write code that"
+            },
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "1. Prints the first element.",
+                    "2. Prints the last element.",
+                    "3. Prints the first two elements using slicing."
+                ]
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Key Takeaways"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "By the end of this lesson, you should be able to:"
+            },
+            {
+                "page": 1,
+                "type": "list",
+                "items": [
+                    "Explain what a collection is.",
+                    "Create tuples.",
+                    "Access tuple elements using indexes.",
+                    "Slice tuples.",
+                    "Explain why tuples are immutable."
+                ]
+            },
+            {
+                "page": 1,
+                "type": "heading",
+                "text": "Looking Ahead"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Tuples introduced us to the idea of storing multiple pieces of information together."
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "But one important question remains:"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "Why are tuples immutable while some other objects can be changed?"
+            },
+            {
+                "page": 1,
+                "type": "paragraph",
+                "text": "To answer that question, we'll look beneath the surface of Python itself. In the next lesson, you'll learn how Python stores objects in memory and discover two concepts that explain many beginner bugs: mutation and aliasing. You’ll also be learning about the mutable version of a Tuple—Python’s List."
+            }
+        ]
+    },
 "mutation_aliasing": {
 
     "id": "mutation_aliasing",
