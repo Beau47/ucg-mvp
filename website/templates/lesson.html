@@ -417,26 +417,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    function markLessonComplete(){
-
-        fetch("/complete_lesson", {
-
-            method:"POST",
-
-            headers:{
-                "Content-Type":"application/json"
-            },
-
-            body:JSON.stringify({
-
-                lesson_id:"{{ lesson_id }}"
-
-            })
-
-        });
-
-    }
-
     const quizzes =
         document.querySelectorAll(".quiz-card[data-required='true']");
 
@@ -568,16 +548,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextLink.style.opacity = "1";
 
             }
-
-
-            // Final page completed
-            {% if page == total_pages %}
-
-                markLessonComplete();
-
-            {% endif %}
-
-
         }
 
 

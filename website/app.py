@@ -555,35 +555,6 @@ def run_snippet_api():
     })
 
 # =====================================================
-# COMPLETE LESSON API
-# Called after final page requirements are completed
-# =====================================================
-
-@app.route("/complete_lesson", methods=["POST"])
-def complete_lesson_api():
-
-    if "user_id" not in session:
-        return jsonify({
-            "error": "Not logged in"
-        }), 401
-
-
-    data = request.get_json()
-
-    lesson_id = data["lesson_id"]
-
-
-    complete_lesson(
-        session["user_id"],
-        lesson_id
-    )
-
-
-    return jsonify({
-        "success": True
-    })
-
-# =====================================================
 # USER SIGN-UP ROUTE
 #
 # =====================================================
