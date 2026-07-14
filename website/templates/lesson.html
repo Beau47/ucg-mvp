@@ -263,8 +263,8 @@
             {{ block["instructions"] }}
         </div>
 
-        
-        <div 
+
+        <div
         class="lesson-editor"
         data-code="{{ block['starter_code'] | e }}">
         </div>
@@ -417,6 +417,25 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    function markLessonComplete(){
+
+        fetch("/complete_lesson", {
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+
+                lesson_id:"{{ lesson_id }}"
+
+            })
+
+        });
+
+    }
 
     const quizzes =
         document.querySelectorAll(".quiz-card[data-required='true']");
@@ -506,6 +525,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextLink.style.opacity = "1";
 
             }
+
+
+            // Final page completed
+            {% if page == total_pages %}
+
+                markLessonComplete();
+
+            {% endif %}
 
 
         }
@@ -745,11 +772,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            const index = 
+            const index =
                 Array.from(document.querySelectorAll(".lesson-ide"))
                     .indexOf(ide);
 
-            const code = 
+            const code =
                 lessonEditors[index].getValue();
 
 
