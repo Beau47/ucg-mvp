@@ -3177,413 +3177,1226 @@ print(f"Total: ${total}")
                 "page": 1,
                 "type": "paragraph",
                 "text": "To answer that question, we'll look beneath the surface of Python itself. In the next lesson, you'll learn how Python stores objects in memory and discover two concepts that explain many beginner bugs: mutation and aliasing. You’ll also be learning about the mutable version of a Tuple—Python’s List."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Lesson 3.1 – Lists, Mutation & Aliasing"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Estimated Time: 75–90 minutes"
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Prerequisites"
+            },
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "Lesson 1.0 – Variables & Data Types",
+                    "Lesson 1.1 – Using Variables",
+                    "Lesson 2 – Teaching Programs to Make Decisions",
+                    "Lesson 3.0 – Tuples"
+                ]
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Learning Objectives & Vocabulary"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "By the end of this lesson, you should be able to:"
+            },
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "Create and modify lists.",
+                    "Explain the difference between mutable and immutable objects.",
+                    "Describe what mutation means.",
+                    "Explain aliasing and why it happens.",
+                    "Create copies of lists.",
+                    "Use common list methods."
+                ]
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Word Bank"
+            },
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html": "<span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">List</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Mutation</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Alias</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Reference</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Copy</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Method</span>"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Add more like the highlighted words*"
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Introduction"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "In the previous lesson, we introduced tuples, our first collection data type."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Tuples allowed us to group multiple related pieces of information."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "For instance,"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "earthquake = (\n    4.3,\n    35.46,\n    -97.52,\n    \"July 8, 2026\"\n)"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "This worked well because the information about an earthquake should never change after it has been recorded. But not all information stays the same. Imagine you're writing software for a local food bank. At the beginning of the day, the inventory might look like this."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "inventory = (\n    \"Rice\",\n    \"Beans\",\n    \"Pasta\"\n)"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Then someone donates canned vegetables."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Can we simply add them to the tuple?"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "No. Tuples are immutable, meaning they cannot be modified after they have been created."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Sometimes this is exactly what we want. Information like birthdays, GPS coordinates, and historical records generally shouldn't change. However, many real-world programs work with information that changes constantly. For example, a classroom gains new students, a grocery store sells products, a hospital admits new patients, and a nonprofit receives new donations."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Hence, programs need a way to store collections that can grow, shrink, and change over time."
+            },
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html": "For that reason, Python provides another collection called a <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">list</span>."
+            },
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html": "Similar to tuples, lists are ordered collections of values. However, lists are <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">mutable</span>, meaning they can be modified after they are created."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "In this lesson, we'll learn not only how to use lists, but also what it actually means for an object to be mutable. Along the way, we'll explore one of the most important concepts in Python: aliasing, where multiple variables refer to the same object in memory."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Spotlight"
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Tracking Food Donations Across Oklahoma"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Organizations such as the Regional Food Bank of Oklahoma receive thousands of food donations every week. Their inventory changes constantly as new donations arrive and food is distributed to families."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Imagine representing today's inventory."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "inventory = (\n    \"Rice\",\n    \"Beans\",\n    \"Pasta\"\n)"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Later in the day, a truck delivers canned vegetables and bottled water."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Instead of creating an entirely new collection every time something changes, the program simply updates the existing list."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Collections that frequently change are one of the primary reasons programmers use lists instead of tuples."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Perfect. Since students already understand tuples, this section shouldn't re-teach indexing from scratch. It should emphasize the similarities first, then introduce the one huge difference: lists can change."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 1 – What is a List?"
+            },
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html": "A <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">list</span> is an ordered, mutable collection of values."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Like tuples, lists allow us to store multiple related pieces of information in a single variable."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "For example, suppose we're keeping track of books checked out from a local library."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "checked_out = [\n    \"The Hunger Games\",\n    \"Percy Jackson\",\n    \"Charlotte's Web\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Notice that lists look very similar to tuples."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Tuple:"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "books = (\n    \"The Hunger Games\",\n    \"Percy Jackson\",\n    \"Charlotte's Web\"\n)"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "List:"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "books = [\n    \"The Hunger Games\",\n    \"Percy Jackson\",\n    \"Charlotte's Web\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The biggest visual difference is the type of brackets used."
+            },
+            {
+                "page": 2,
+                "type": "table",
+                "headers": ["Collection", "Brackets"],
+                "rows": [["Tuple", "()"], ["List", "[]"]]
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Like tuples, lists"
+            },
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "store multiple values,",
+                    "preserve the order of those values,",
+                    "allow duplicate values,",
+                    "support indexing and slicing, and",
+                    "can contain almost any data type."
+                ]
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "For example,"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "student = [\n    \"Jordan\",\n    16,\n    True,\n    3.85\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "contains a string, an integer, a Boolean, and a float."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Although Python allows lists to contain mixed data types, most lists store similar kinds of information."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "For example,"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "temperatures = [\n    72,\n    74,\n    69,\n    71\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "or"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "cities = [\n    \"Tulsa\",\n    \"Norman\",\n    \"Stillwater\",\n    \"Lawton\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "This makes programs easier to understand and maintain."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "Which of the following is a list?",
+                "options": [
+                    "A. (\"Tulsa\", \"Norman\", \"Lawton\")",
+                    "B. [\"Tulsa\", \"Norman\", \"Lawton\"]",
+                    "C. \"Tulsa\"",
+                    "D. 42"
+                ],
+                "answer": "B. [\"Tulsa\", \"Norman\", \"Lawton\"]"
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 2 – Lists are Sequential Data Types"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "In Lesson 1, we learned that strings are sequential data types because their characters have an order."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "In Lesson 3.0, we discovered that tuples are also sequential."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Lists are no different."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Every element inside a list has an index."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Remember that Python begins counting at 0."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "cities = [\n    \"Tulsa\",\n    \"Norman\",\n    \"Stillwater\",\n    \"Lawton\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "table",
+                "headers": ["Index", "0", "1", "2", "3"],
+                "rows": [["Element", "“Tulsa”", "“Norman”", "“Stillwater”", "“Lawton”"]]
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "To access an element, use square brackets after the list's name."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "print(cities[0])\n\nOutput\nTulsa"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Negative indexes also work."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "print(cities[-1])\n\nOutput\nLawton"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Lists also support slicing."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "General form:"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "list[start:end:skip]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Python begins at start, stops before end, and selects every skipth element."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "print(cities[1:3])\n\nOutput\n['Norman', 'Stillwater']"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Notice that slicing a list returns another list, just as slicing a tuple returns another tuple."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "If this syntax feels familiar, that's because Python uses the same indexing and slicing rules for most sequential data types."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "What is printed?\n\nnumbers = [\n    10,\n    20,\n    30,\n    40\n]\nprint(numbers[-2])",
+                "options": ["A. 20", "B. 30", "C. 40", "D. Error"],
+                "answer": "B. 30"
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 3 – Mutability: The Biggest Difference Between Tuples and Lists"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "So far, lists probably seem very similar to tuples."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Both collections:"
+            },
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "store multiple values,",
+                    "preserve the order of those values,",
+                    "support indexing,",
+                    "support slicing, and",
+                    "can store almost any data type."
+                ]
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "This raises an important question."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Why does Python have both tuples and lists?"
+            },
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html": "The answer is <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">mutability</span>, which refers to whether an object is mutable."
+            },
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html": "A mutable object is an object whose contents can be changed <strong>in place</strong><sup>1</sup> after it has been created."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Tuples, on the other hand, are immutable, meaning their contents cannot be changed after creation."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Let's compare the two."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Suppose we create a tuple."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "grades = (\n    92,\n    85,\n    78\n)"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Now suppose your teacher realizes that the second grade was entered incorrectly and should actually be a 90."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "You might try to write"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "grades[1] = 90"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Python returns an error because tuples are immutable."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Now let's perform the same task using a list."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "grades = [\n    92,\n    85,\n    78\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Changing the second element is now perfectly valid."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "grades[1] = 90"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The list becomes"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "[\n    92,\n    90,\n    78\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Unlike tuples, lists allow individual elements to be replaced."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "This ability to modify an object after it has been created is called mutation."
+            },
+            {
+                "page": 2,
+                "type": "footnote",
+                "number": "1",
+                "text": "See Lesson 1.1 for a good definition of in place."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Mutating a List"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Changing a list is called mutating the list."
+            },
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html": "<span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Mutation</span> simply means changing the contents of a mutable object."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "One way to mutate a list is by replacing one of its elements."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "For example,"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "cities = [\n    \"Tulsa\",\n    \"Norman\",\n    \"Stillwater\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Suppose we want to replace \"Norman\" with \"Edmond\"."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "cities[1] = \"Edmond\""
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The list now becomes"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "[\n    \"Tulsa\",\n    \"Edmond\",\n    \"Stillwater\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Notice something important. We didn't create a new list. We changed the existing list. Replacing elements, however, is only one way to mutate a list. Python also provides several built-in methods that modify a list by adding, removing, or rearranging its elements."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Adding Elements"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The append() method adds a new element to the end of a list."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "cities.append(\"Lawton\")"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The list becomes"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "[\n    \"Tulsa\",\n    \"Edmond\",\n    \"Stillwater\",\n    \"Lawton\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Sometimes we want to add an element somewhere other than the end. The insert() method inserts an element at a specific index."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "cities.insert(1, \"Norman\")"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The list becomes"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "[\n    \"Tulsa\",\n    \"Norman\",\n    \"Edmond\",\n    \"Stillwater\",\n    \"Lawton\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Notice that the existing elements shift to make room for the new one."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Removing Elements"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The remove() method removes the first occurrence of a value."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "cities.remove(\"Lawton\")"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The list becomes"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "[\n    \"Tulsa\",\n    \"Norman\",\n    \"Edmond\",\n    \"Stillwater\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "If you instead know the position of the element you want to remove, you can use the pop() method."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "cities.pop(2)"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The list becomes"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "[\n    \"Tulsa\",\n    \"Norman\",\n    \"Stillwater\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "If no index is provided, cities.pop() removes the last element of the list."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Rearranging Elements"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Some list methods reorganize the elements without adding or removing them."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The sort() method arranges the elements in ascending order."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "numbers = [\n    4,\n    2,\n    7,\n    1\n]\n\nnumbers.sort()"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The list becomes"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "[\n    1,\n    2,\n    4,\n    7\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The reverse() method reverses the order of the elements."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "numbers.reverse()"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "The list becomes"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "[\n    7,\n    4,\n    2,\n    1\n]"
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "A Common Theme"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Although these operations perform different tasks, they all have one thing in common. They mutate the list. Whether you replace an element, add a new one, remove an existing one, or rearrange the elements, the original list is modified. Python does not create a brand new list for each of these operations. This idea—that an object itself changes rather than being replaced—is extremely important. In fact, it leads directly to one of Python's most commonly misunderstood concepts: aliasing, which we'll study in the next section."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "Suppose we have the following list.\n\nnumbers = [\n    10,\n    20,\n    30\n]\n\nAfter executing\n\nnumbers[1] = 50\n\nwhat does the list become?",
+                "options": [
+                    "A. [10, 20, 30]",
+                    "B. [10, 50, 30]",
+                    "C. [50, 20, 30]",
+                    "D. An error occurs."
+                ],
+                "answer": "B. [10, 50, 30]"
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "Which of the following operations mutates a list?",
+                "options": [
+                    "A. numbers.append(40)",
+                    "B. numbers.remove(20)",
+                    "C. numbers.sort()",
+                    "D. All of the above."
+                ],
+                "answer": "D. All of the above."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "Which statement best describes a mutable object?",
+                "options": [
+                    "A. An object that cannot be changed after it is created.",
+                    "B. An object whose contents can be changed after it is created.",
+                    "C. An object that only stores numbers.",
+                    "D. An object that automatically creates copies of itself."
+                ],
+                "answer": "B. An object whose contents can be changed after it is created."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 4 – Aliasing: When Two Variables Share the Same List"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Now that we know lists are mutable, let's explore something surprising that often confuses new programmers. Suppose we create a list."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "scores = [\n    90,\n    85,\n    100\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Now we create another variable."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "grades = scores"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "At first glance, it might seem like we've created two separate lists. Many beginners imagine Python stores the data like this."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "scores ───► [90, 85, 100]\ngrades ───► [90, 85, 100]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "However, this is not what Python does. Instead, Python stores one list. Both variables simply refer to that same list."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "scores ───────┐\n              │\n              ▼\n       [90, 85, 100]\n              ▲\n              │\ngrades ───────┘"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Because both variables refer to the same list, changing the list through one variable also changes what the other variable sees."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "An Example"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Consider the following code."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "scores = [\n    90,\n    85,\n    100\n]\n\ngrades = scores\n\ngrades[1] = 95\n\nprint(scores)"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "What do you think will be printed?"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Many beginners expect"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "[90, 85, 100]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "However, the actual output is"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "[90, 95, 100]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Why?"
+            },
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html": "Because scores and grades are not two different lists. They are simply two different names for the same list. Changing the list through one variable changes the very same list that the other variable refers to. This relationship is called <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">aliasing</span>. Aliasing occurs when two or more variables refer to the same object in memory."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Why Does This Happen?"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Remember that variables do not actually contain objects. Instead, variables refer to objects."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "When Python executes"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "grades = scores"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "it does not create a new list."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Instead, Python simply makes grades refer to the exact same list that scores already refers to. No copying takes place. This is why changing the list through either variable changes the same underlying object."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "This may be confusing, so here’s another way to think about it. Imagine you and a friend are editing the same Google Doc. You both have different links to the document. Your friend changes a sentence. When you refresh your page, you immediately see the change. Why? Because you're not editing two different documents. You're editing the same document. Aliasing works in much the same way. Different variable names correspond to the same underlying object."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "Consider the following program.\n\nnumbers = [\n    1,\n    2,\n    3\n]\n\nother = numbers\nother.append(4)\nprint(numbers)\n\nWhat is printed?",
+                "options": ["A. [1, 2, 3]", "B. [1, 2, 3, 4]", "C. [4]", "D. An error"],
+                "answer": "B. [1, 2, 3, 4]"
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Explanation"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "numbers and other refer to the same list. Appending through other modifies the list itself, so numbers also sees the change."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {
+                "page": 2,
+                "type": "quiz",
+                "question": "Which statement best describes aliasing?",
+                "options": [
+                    "A. Creating a copy of a list.",
+                    "B. Two or more variables referring to the same object.",
+                    "C. Creating two identical lists.",
+                    "D. Mutating two lists at once."
+                ],
+                "answer": "B. Two or more variables referring to the same object."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 6 – Creating Copies of Lists"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "In the previous section, we learned that assigning one list to another variable does not create a new list. Instead,"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "a = [1, 2, 3]\nb = a"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "creates an alias, meaning both a and b refer to the same list. But what if we actually want two separate lists? Python provides a simple solution: the copy() method."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "scores = [\n    90,\n    85,\n    100\n]\n\ngrades = scores.copy()"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Now there are two different lists."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "scores ─────► [90, 85, 100]\ngrades ─────► [90, 85, 100]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Although the lists contain the same values, they are different objects."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Suppose we modify one of them."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "grades.append(95)\n\nprint(scores)\nprint(grades)\n\nOutput\n[90, 85, 100]\n[90, 85, 100, 95]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Notice that changing grades did not affect scores."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Unlike aliasing, copying creates an independent list."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Whenever you want to preserve the original list while making changes to another, use the copy() method."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 7 – Going Further (Optional): Shallow vs. Deep Copies"
+            },
+            {
+                "page": 2,
+                "type": "rich_paragraph",
+                "html": "<strong>THIS SECTION IS ENTIRELY OPTIONAL.</strong> It introduces an idea that becomes important later in Python. You do not need to master it right now. The copy() method creates what is known as a shallow copy. For most of the lists we've worked with so far, this behaves exactly as we expect. However, if a list contains other lists, a shallow copy only copies the outer list. The inner lists are still shared between the two copies."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "numbers = [\n    [1, 2],\n    [3, 4]\n]\n\ncopy = numbers.copy()"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "We'll revisit this idea later when we work with nested data structures."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "For now, simply remember that copy() is the correct way to create an independent copy of a one-dimensional list."
+            },
+            {
+                "page": 2,
+                "type": "tip",
+                "text": "You can also copy a list with slicing. If you type copy = numbers[:], numbers[:] returns the entire list from start to finish (hence the empty slicing brackets), which is why this works the same way as copy = numbers.copy()."
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Section 8 – Mini Project: Classroom Attendance"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Your school is creating a program to manage attendance for a classroom."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Begin by creating the following list."
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "students = [\n    \"Jordan\",\n    \"Maria\",\n    \"Alex\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Complete each of the following tasks."
+            },
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "1. Print the first student's name.",
+                    "2. Print the last student's name.",
+                    "3. Add a new student using append().",
+                    "4. Replace one student's name using indexing.",
+                    "5. Remove a student using either remove() or pop().",
+                    "6. Create a second variable that is an alias of the original list.",
+                    "7. Modify the alias and observe what happens to the original list.",
+                    "8. Create a true copy of the original list using copy().",
+                    "9. Modify the copied list and verify that the original list remains unchanged."
+                ]
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "As you complete each step, ask yourself:"
+            },
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "Did I create a new list?",
+                    "Or did I modify an existing one?"
+                ]
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Understanding the answer to these questions is one of the most important goals of this lesson."
+            },
+            {
+                "page": 2,
+                "type": "ide",
+                "instructions": "Complete each of the following tasks.",
+                "starter_code": "students = [\n    \"Jordan\",\n    \"Maria\",\n    \"Alex\"\n]"
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Key Takeaways"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "By the end of this lesson, you should be able to:"
+            },
+            {
+                "page": 2,
+                "type": "list",
+                "items": [
+                    "Create and modify lists.",
+                    "Explain the difference between mutable and immutable objects.",
+                    "Describe what mutation means.",
+                    "Explain why aliasing occurs.",
+                    "Distinguish between creating an alias and creating a copy.",
+                    "Use common list methods such as append(), insert(), remove(), pop(), sort(), and reverse()."
+                ]
+            },
+            {
+                "page": 2,
+                "type": "heading",
+                "text": "Looking Ahead"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "Lists are excellent for storing collections of information when each element can be identified by its position."
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "However, positions are not always the best way to organize data. Imagine storing information about a student. Instead of writing"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "student[0]\nstudent[1]\nstudent[2]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "wouldn't it be easier to write"
+            },
+            {
+                "page": 2,
+                "type": "code",
+                "text": "student[\"name\"]\nstudent[\"grade\"]\nstudent[\"favorite_food\"]"
+            },
+            {
+                "page": 2,
+                "type": "paragraph",
+                "text": "In the next lesson, you'll learn about dictionaries, another built-in Python collection that stores information as key–value pairs. Dictionaries make programs easier to read and allow us to organize complex information in a more meaningful way."
             }
         ]
     },
-"mutation_aliasing": {
-
-    "id": "mutation_aliasing",
-
-    "lesson_number": "3.1",
-
-    "title": "Mutation & Aliasing",
-
-    "description": "Understand how Python stores data, why some values can change, and how aliasing can create unexpected behavior.",
-
-    "blocks": [
-
-
-        # =====================================================
-        # PAGE 1: INTRODUCTION
-        # =====================================================
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Lesson 3.1: Mutation & Aliasing — How Python Stores Data"
-        },
-
-
-        {
-            "page": 1,
-            "type": "paragraph",
-            "text": """
-            Before working with lists and dictionaries, it is important to
-            understand how Python stores information.
-
-            Some data types can be changed after they are created.
-            Other data types cannot.
-
-            This difference explains why changing a list can affect multiple
-            variables at once, while changing a number does not.
-            """
-        },
-
-
-        {
-            "page": 1,
-            "type": "tip",
-            "text": """
-            By the end of this lesson, you will understand:
-
-            • The difference between mutable and immutable data
-            • Why lists and dictionaries can change
-            • How variables can reference the same object
-            • How to avoid unexpected changes using copies
-            """
-        },
-
-
-        # =====================================================
-        # PAGE 2: VARIABLES AND OBJECTS
-        # =====================================================
-
-
-        {
-            "page": 2,
-            "type": "heading",
-            "text": "Variables Store References to Data"
-        },
-
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text": """
-            Many beginners think variables contain the actual value.
-
-            In Python, variables are names that point to objects stored in
-            memory.
-
-            Think of a variable like a label attached to a box.
-            The label tells Python which object you mean.
-            """
-        },
-
-
-        {
-            "page": 2,
-            "type": "code",
-            "text": """
-age = 15
-
-print(age)
-"""
-        },
-
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text": """
-            Here, the variable age points to the integer object 15.
-
-            When we change age, Python creates a new object instead of
-            changing the old one.
-            """
-        },
-
-
-        {
-            "page": 2,
-            "type": "code",
-            "text": """
-age = 15
-
-age = 16
-
-print(age)
-
-# Output:
-16
-"""
-        },
-
-
-        # =====================================================
-        # PAGE 3: IMMUTABLE DATA
-        # =====================================================
-
-
-        {
-            "page": 3,
-            "type": "heading",
-            "text": "Immutable Data: Values That Cannot Change"
-        },
-
-
-        {
-            "page": 3,
-            "type": "paragraph",
-            "text": """
-            Immutable means an object cannot be changed after it is created.
-
-            Common immutable data types include:
-
-            • int
-            • float
-            • bool
-            • string
-            • tuple
-
-            When you modify these values, Python creates a new object.
-            """
-        },
-
-
-        {
-            "page": 3,
-            "type": "code",
-            "text": """
-name = "Alex"
-
-name = name + "!"
-
-print(name)
-
-# Output:
-Alex!
-"""
-        },
-
-
-        {
-            "page": 3,
-            "type": "paragraph",
-            "text": """
-            The original string was not changed.
-
-            Python created a new string object and updated the variable to
-            point to it.
-            """
-        },
-
-
-        {
-            "page": 3,
-            "type": "quiz",
-            "question": "Which of these is an immutable data type?",
-            "options": [
-                "list",
-                "dictionary",
-                "string",
-                "set"
-            ],
-            "answer": "string"
-        },
-
-
-        # =====================================================
-        # PAGE 4: MUTABLE DATA
-        # =====================================================
-
-
-        {
-            "page": 4,
-            "type": "heading",
-            "text": "Mutable Data: Values That Can Change"
-        },
-
-
-        {
-            "page": 4,
-            "type": "paragraph",
-            "text": """
-            Mutable objects can be changed after they are created.
-
-            Common mutable data types include:
-
-            • list
-            • dictionary
-            • set
-
-            Instead of creating a new object, Python modifies the existing
-            object.
-            """
-        },
-
-
-        {
-            "page": 4,
-            "type": "code",
-            "text": """
-numbers = [1, 2, 3]
-
-numbers.append(4)
-
-print(numbers)
-
-# Output:
-[1, 2, 3, 4]
-"""
-        },
-
-
-        {
-            "page": 4,
-            "type": "ide",
-            "instructions": "Modify the list by adding 'Python' using mutation.",
-            "starter_code": """
-languages = ["Java", "C++"]
-
-# Add Python to the list
-
-print(languages)
-"""
-        },
-
-
-        # =====================================================
-        # PAGE 5: ALIASING
-        # =====================================================
-
-
-        {
-            "page": 5,
-            "type": "heading",
-            "text": "Aliasing: Two Variables, One Object"
-        },
-
-
-        {
-            "page": 5,
-            "type": "paragraph",
-            "text": """
-            Aliasing happens when two variables point to the same object.
-
-            Changing the object through one variable changes what the other
-            variable sees.
-            """
-        },
-
-
-        {
-            "page": 5,
-            "type": "code",
-            "text": """
-scores = [90, 80]
-
-other_scores = scores
-
-other_scores.append(100)
-
-print(scores)
-
-# Output:
-[90, 80, 100]
-"""
-        },
-
-
-        {
-            "page": 5,
-            "type": "warning",
-            "text": """
-            This can create unexpected bugs.
-
-            Remember:
-            If two variables reference the same list or dictionary,
-            changing one changes the other.
-            """
-        },
-
-
-        # =====================================================
-        # PAGE 6: COPYING OBJECTS
-        # =====================================================
-
-
-        {
-            "page": 6,
-            "type": "heading",
-            "text": "Avoiding Aliasing with Copies"
-        },
-
-
-        {
-            "page": 6,
-            "type": "paragraph",
-            "text": """
-            If you want a separate object, create a copy.
-
-            Lists and dictionaries have a .copy() method that creates a new
-            object with the same contents.
-            """
-        },
-
-
-        {
-            "page": 6,
-            "type": "code",
-            "text": """
-original = [1, 2, 3]
-
-copy = original.copy()
-
-copy.append(4)
-
-print(original)
-print(copy)
-
-# Output:
-[1, 2, 3]
-[1, 2, 3, 4]
-"""
-        },
-
-
-        {
-            "page": 6,
-            "type": "ide",
-            "instructions": "Fix the code so changing student_copy does not change the original student list.",
-            "starter_code": """
-students = ["Ana", "Luis"]
-
-student_copy = students
-
-student_copy.append("Maya")
-
-print(students)
-"""
-        },
-
-
-        # =====================================================
-        # PAGE 7: SUMMARY + EXERCISE
-        # =====================================================
-
-
-        {
-            "page": 7,
-            "type": "heading",
-            "text": "Mutation & Aliasing Summary"
-        },
-
-
-        {
-            "page": 7,
-            "type": "list",
-            "items": [
-                "Immutable objects cannot be changed after creation.",
-                "Mutable objects can be changed.",
-                "Lists and dictionaries are mutable.",
-                "Aliasing happens when two variables reference the same object.",
-                "Use .copy() to create a separate object."
-            ]
-        },
-
-
-        {
-            "page": 7,
-            "type": "exercise",
-            "problem": "update_inventory"
-        }
-
-
-    ]
-
-},
-
     "loops": {
 
     "id": "loops",
