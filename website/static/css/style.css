@@ -519,7 +519,7 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
-.ide-editor {
+/* .ide-editor {
     width: 100%;
     height: 150px;
     min-height: 150px;
@@ -533,6 +533,20 @@ body {
     font-family: "JetBrains Mono", monospace;
     font-size: 15px;
     line-height: 1.6;
+} */
+
+.lesson-editor {
+
+    height: 180px;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-top: 15px;
+
+    margin-bottom: 15px;
+
 }
 
 .ide-output-header {

@@ -263,8 +263,11 @@
             {{ block["instructions"] }}
         </div>
 
-
-        <textarea class="ide-editor">{{ block["starter_code"] }}</textarea>
+        
+        <div 
+        class="lesson-editor"
+        data-code="{{ block['starter_code'] | e }}">
+        </div>
 
 
         <div class="ide-output-header">
@@ -402,6 +405,9 @@
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+
+<script src="/static/js/lesson.js"></script>
 
 </body>
 
@@ -739,8 +745,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            const code =
-                ide.querySelector(".ide-editor").value;
+            const index = 
+                Array.from(document.querySelectorAll(".lesson-ide"))
+                    .indexOf(ide);
+
+            const code = 
+                lessonEditors[index].getValue();
 
 
 
