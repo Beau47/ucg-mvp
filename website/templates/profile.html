@@ -17,8 +17,6 @@
 </head>
 
 
-
-
 <body>
 
 
@@ -70,6 +68,7 @@
 <div class="container">
 
 
+
     <!-- PROFILE HEADER -->
 
     <div class="card profile-header">
@@ -102,6 +101,7 @@
 
 
 
+
     <!-- PROGRESS OVERVIEW -->
 
     <div class="card">
@@ -112,6 +112,7 @@
 
 
         <div class="grid">
+
 
 
             <div class="card">
@@ -176,6 +177,7 @@
             </div>
 
 
+
         </div>
 
 
@@ -209,6 +211,8 @@
                 class="xp-fill"
                 style="width:75%">
             </div>
+
+        </div>
 
 
 
@@ -272,20 +276,24 @@
         </h2>
 
 
+        {% if activities %}
 
-        <p>
-            ✓ Completed: Functions Lesson
-        </p>
+            {% for activity in activities %}
+
+            <p>
+                ✓ {{ activity }}
+            </p>
+
+            {% endfor %}
 
 
-        <p>
-            ✓ Solved: Number Guessing Problem
-        </p>
+        {% else %}
 
+            <p>
+                No recent activity yet.
+            </p>
 
-        <p>
-            ✓ Started: Recursion
-        </p>
+        {% endif %}
 
 
 
@@ -309,19 +317,28 @@
 
 
 
-        <p>
-            🐍 Python Beginner
-        </p>
+        {% if achievements %}
 
 
-        <p>
-            🔥 7 Day Streak
-        </p>
+            {% for achievement in achievements %}
+
+            <p>
+                {{ achievement }}
+            </p>
+
+            {% endfor %}
 
 
-        <p>
-            🏆 Problem Solver
-        </p>
+
+        {% else %}
+
+
+            <p>
+                Complete lessons and exercises to unlock achievements.
+            </p>
+
+
+        {% endif %}
 
 
 
