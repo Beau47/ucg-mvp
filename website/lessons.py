@@ -11,7 +11,7 @@ LESSONS = {
 
         "title": "Why Python?",
 
-        "description": "Learn what Python is, why it matters, and how programming can help solve real community problems.",
+        "description": "Lesson 0.0 - Why Python? Learn what Python is, why it matters, and how programming can help solve real community problems.",
 
         "blocks": [
 
@@ -123,18 +123,14 @@ LESSONS = {
                 ]
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "Which statement best describes Python?",
-                "options": [
-                    "A. A type of computer",
-                    "B. A programming language used to give computers instructions",
-                    "C. A web browser",
-                    "D. An operating system"
-                ],
-                "answer": "B. A programming language used to give computers instructions"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which statement best describes Python?',
+             'options': ['A. A programming language used to give computers instructions',
+                         'B. A type of computer',
+                         'C. A web browser',
+                         'D. An operating system'],
+             'answer': 'A. A programming language used to give computers instructions'},
 
             {
                 "page": 1,
@@ -173,18 +169,14 @@ LESSONS = {
                 "As you learn Python, think about problems in your own community that technology could help solve."
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "Which of these is an example of using programming to help a community?",
-                "options": [
-                    "A. Automatically organizing volunteer schedules",
-                    "B. Building a digital language dictionary",
-                    "C. Analyzing public community data",
-                    "D. All of the above"
-                ],
-                "answer": "D. All of the above"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which of these is an example of using programming to help a community?',
+             'options': ['A. Automatically organizing volunteer schedules',
+                         'B. All of the above',
+                         'C. Building a digital language dictionary',
+                         'D. Analyzing public community data'],
+             'answer': 'B. All of the above'},
 
             {
                 "page": 1,
@@ -213,18 +205,14 @@ LESSONS = {
                 "If the instructions are incorrect, the computer will produce incorrect results even if it follows those instructions perfectly."
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "What does Garbage In, Garbage Out mean?",
-                "options": [
-                    "A. Computers sometimes become broken",
-                    "B. Computers only produce correct results when given correct instructions",
-                    "C. Computers automatically fix mistakes",
-                    "D. Python deletes bad programs"
-                ],
-                "answer": "B. Computers only produce correct results when given correct instructions"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What does Garbage In, Garbage Out mean?',
+             'options': ['A. Computers sometimes become broken',
+                         'B. Computers automatically fix mistakes',
+                         'C. Computers only produce correct results when given correct instructions',
+                         'D. Python deletes bad programs'],
+             'answer': 'C. Computers only produce correct results when given correct instructions'},
 
             {
                 "page": 1,
@@ -239,18 +227,14 @@ LESSONS = {
                 "starter_code": """print("Hello, Tulsa!")"""
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "What does the print() function do?",
-                "options": [
-                    "A. Deletes text",
-                    "B. Displays information on the screen",
-                    "C. Saves a file",
-                    "D. Creates a website"
-                ],
-                "answer": "B. Displays information on the screen"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What does the print() function do?',
+             'options': ['A. Deletes text',
+                         'B. Saves a file',
+                         'C. Creates a website',
+                         'D. Displays information on the screen'],
+             'answer': 'D. Displays information on the screen'},
 
             {
                 "page": 1,
@@ -556,31 +540,20 @@ LESSONS = {
                 "Your job is not to write the function definition. Instead, you will write the code inside the function."
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "Which keyword tells Python that you are defining a function?",
-                "options": [
-                    "A. print",
-                    "B. return",
-                    "C. def",
-                    "D. input"
-                ],
-                "answer": "C. def"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which keyword tells Python that you are defining a function?',
+             'options': ['A. def', 'B. print', 'C. return', 'D. input'],
+             'answer': 'A. def'},
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "What does the return keyword do?",
-                "options": [
-                    "A. Prints a message to the screen.",
-                    "B. Nothing.",
-                    "C. Sends a value back from the function.",
-                    "D. Creates a variable."
-                ],
-                "answer": "C. Sends a value back from the function."
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What does the return keyword do?',
+             'options': ['A. Prints a message to the screen.',
+                         'B. Sends a value back from the function.',
+                         'C. Nothing.',
+                         'D. Creates a variable.'],
+             'answer': 'B. Sends a value back from the function.'},
 
             {
                 "page": 1,
@@ -610,7 +583,7 @@ LESSONS = {
 
         "lesson_number": "1",
 
-        "description": "Learn how Python stores information using variables, data types, print(), comments, and clear names.",
+        "description": "Lesson 1.0 - Variables & Data Types. Lesson 1.1 - Using Variables.",
 
         "title": "Variables & Data Types",
 
@@ -737,18 +710,14 @@ LESSONS = {
                 "Think of a variable like a labeled storage box. Instead of remembering information ourselves, we let the computer remember it."
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "What is a variable?",
-                "options": [
-                    "A. A programming language",
-                    "B. A named location that stores information",
-                    "C. A computer",
-                    "D. A keyboard"
-                ],
-                "answer": "B. A named location that stores information"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What is a variable?',
+             'options': ['A. A programming language',
+                         'B. A computer',
+                         'C. A named location that stores information',
+                         'D. A keyboard'],
+             'answer': 'C. A named location that stores information'},
 
             {
                 "page": 1,
@@ -810,18 +779,11 @@ print(is_tall)
                 "Python variable names cannot contain spaces. Programmers often use underscores to stand in for spaces, like favorite_city."
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "Which variable stores a float?",
-                "options": [
-                    "A. age = 17",
-                    "B. price = 12.99",
-                    "C. name = \"Jordan\"",
-                    "D. student = False"
-                ],
-                "answer": "B. price = 12.99"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which variable stores a float?',
+             'options': ['A. age = 17', 'B. name = "Jordan"', 'C. student = False', 'D. price = 12.99'],
+             'answer': 'D. price = 12.99'},
 
             {
                 "page": 1,
@@ -848,18 +810,14 @@ print(name)
 """
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "What does print(age) do?",
-                "options": [
-                    "A. Deletes age",
-                    "B. Displays the value stored inside age",
-                    "C. Creates a new variable",
-                    "D. Changes age"
-                ],
-                "answer": "B. Displays the value stored inside age"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What does print(age) do?',
+             'options': ['A. Displays the value stored inside age',
+                         'B. Deletes age',
+                         'C. Creates a new variable',
+                         'D. Changes age'],
+             'answer': 'A. Displays the value stored inside age'},
 
             {
                 "page": 1,
@@ -896,18 +854,11 @@ customer = "Maria"
                 "Good comments explain why something is happening. They should not simply repeat what the code already says."
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "Which line is a comment?",
-                "options": [
-                    "A. name = \"Alex\"",
-                    "B. # Store customer's name",
-                    "C. print(name)",
-                    "D. True"
-                ],
-                "answer": "B. # Store customer's name"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which line is a comment?',
+             'options': ['A. name = "Alex"', "B. # Store customer's name", 'C. print(name)', 'D. True'],
+             'answer': "B. # Store customer's name"},
 
             {
                 "page": 1,
@@ -942,18 +893,11 @@ customer = "Maria"
                 "Some words already have special meaning in Python. Avoid using names like class, print, or True for your variables."
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "Which is a valid variable name?",
-                "options": [
-                    "A. 2dogs",
-                    "B. favorite food",
-                    "C. favorite_food",
-                    "D. class"
-                ],
-                "answer": "C. favorite_food"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which is a valid variable name?',
+             'options': ['A. 2dogs', 'B. favorite food', 'C. favorite_food', 'D. class'],
+             'answer': 'C. favorite_food'},
 
             {
                 "page": 1,
@@ -1106,18 +1050,14 @@ name = input("What is your name? ")
                 "When the program reaches input(), it pauses and waits for the user to type something. Whatever the user types is stored inside the variable."
             },
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "What does input() do?",
-                "options": [
-                    "A. Prints text",
-                    "B. Deletes variables",
-                    "C. Receives information from the user",
-                    "D. Creates a comment"
-                ],
-                "answer": "C. Receives information from the user"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What does input() do?',
+             'options': ['A. Prints text',
+                         'B. Deletes variables',
+                         'C. Creates a comment',
+                         'D. Receives information from the user'],
+             'answer': 'D. Receives information from the user'},
 
             {
                 "page": 2,
@@ -1177,18 +1117,11 @@ print(total)
                 "Operators are special symbols or keywords used with variables or values to help programs compute information."
             },
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "What is 5 * 4?",
-                "options": [
-                    "A. 9",
-                    "B. 20",
-                    "C. 54",
-                    "D. 1"
-                ],
-                "answer": "B. 20"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What is 5 * 4?',
+             'options': ['A. 20', 'B. 9', 'C. 54', 'D. 1'],
+             'answer': 'A. 20'},
 
             {
                 "page": 2,
@@ -1222,18 +1155,14 @@ print("Welcome, " + "Maria" + "!")
 """
             },
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "What is string concatenation?",
-                "options": [
-                    "A. Deleting a string",
-                    "B. Joining two or more strings together",
-                    "C. Converting text into numbers",
-                    "D. Printing a variable"
-                ],
-                "answer": "B. Joining two or more strings together"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What is string concatenation?',
+             'options': ['A. Deleting a string',
+                         'B. Joining two or more strings together',
+                         'C. Converting text into numbers',
+                         'D. Printing a variable'],
+             'answer': 'B. Joining two or more strings together'},
 
             {
                 "page": 2,
@@ -1268,18 +1197,14 @@ print(f"You ordered {quantity} {item}s.")
                 "If a variable stores an integer and you place this variable in an f-string using curly braces, you don't need to add quotation marks to the integer to make it a string. Python will do this for you! Everything in the print function must be a string for it to work, because Python can only print strings. If you put a non-string in the print function, Python will convert it to a string. Try this by running print(5)."
             },
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "Which uses an f-string?",
-                "options": [
-                    "A. print(name)",
-                    "B. print(f\"Hello {name}\")",
-                    "C. print(name + age)",
-                    "D. print(True)"
-                ],
-                "answer": "B. print(f\"Hello {name}\")"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Which uses an f-string?',
+             'options': ['A. print(name)',
+                         'B. print(name + age)',
+                         'C. print(f"Hello {name}")',
+                         'D. print(True)'],
+             'answer': 'C. print(f"Hello {name}")'},
 
             {
                 "page": 2,
@@ -1497,18 +1422,11 @@ print(word[3])
                 'Python begins counting at 0, not 1. This is called <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">zero-based indexing</span>.'
             },
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "Given word = \"Tulsa\", what does print(word[2]) display?",
-                "options": [
-                    "A. T",
-                    "B. u",
-                    "C. l",
-                    "D. s"
-                ],
-                "answer": "C. l"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Given word = "Tulsa", what does print(word[2]) display?',
+             'options': ['A. T', 'B. u', 'C. s', 'D. l'],
+             'answer': 'D. l'},
 
             {
                 "page": 2,
@@ -1632,18 +1550,11 @@ print(word[0:11:2])
                 "In place means the original object itself is modified rather than creating a new object to hold the updated value."
             },
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "What is the output of word = \"Computer\" and print(word[3:6])?",
-                "options": [
-                    "A. put",
-                    "B. pute",
-                    "C. ute",
-                    "D. p"
-                ],
-                "answer": "A. put"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What is the output of word = "Computer" and print(word[3:6])?',
+             'options': ['A. put', 'B. pute', 'C. ute', 'D. p'],
+             'answer': 'A. put'},
 
             {
                 "page": 2,
@@ -1741,31 +1652,20 @@ print(word[::-1])
 """
             },
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "What does the expression word[-1] return?",
-                "options": [
-                    "A. The first character of the string",
-                    "B. The second character of the string",
-                    "C. The last character of the string",
-                    "D. The length of the string"
-                ],
-                "answer": "C. The last character of the string"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What does the expression word[-1] return?',
+             'options': ['A. The first character of the string',
+                         'B. The last character of the string',
+                         'C. The second character of the string',
+                         'D. The length of the string'],
+             'answer': 'B. The last character of the string'},
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "What is the output of word = \"Urban\" and print(word[::-1])?",
-                "options": [
-                    "A. Urban",
-                    "B. nabrU",
-                    "C. U",
-                    "D. abrnU"
-                ],
-                "answer": "B. nabrU"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What is the output of word = "Urban" and print(word[::-1])?',
+             'options': ['A. Urban', 'B. U', 'C. nabrU', 'D. abrnU'],
+             'answer': 'C. nabrU'},
 
             {
                 "page": 2,
@@ -1806,18 +1706,14 @@ print(f"Total: ${total}")
 """
             },
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "Why are f-strings useful?",
-                "options": [
-                    "A. They make code easier to read.",
-                    "B. They automatically fix bugs.",
-                    "C. They replace variables.",
-                    "D. They make programs faster."
-                ],
-                "answer": "A. They make code easier to read."
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Why are f-strings useful?',
+             'options': ['A. They automatically fix bugs.',
+                         'B. They replace variables.',
+                         'C. They make programs faster.',
+                         'D. They make code easier to read.'],
+             'answer': 'D. They make code easier to read.'},
 
             {
                 "page": 2,
@@ -1863,9 +1759,8 @@ print(f"Total: ${total}")
 
     "conditionals": {'id': 'conditionals',
      'lesson_number': '2',
-     'description': 'Teach programs to make decisions using Boolean values, comparison operators, '
-                    'conditional statements, and logical operators.',
-     'title': 'Teaching Programs to Make Decisions',
+     'description': 'Lesson 2.0 - Teaching Programs to Make Decisions.',
+     'title': 'Conditionals',
      'blocks': [{'page': 1,
                  'type': 'heading',
                  'text': 'Lesson 2 – Teaching Programs to Make Decisions'},
@@ -2008,8 +1903,8 @@ print(f"Total: ${total}")
                 {'page': 1,
                  'type': 'quiz',
                  'question': 'Which of the following is a Boolean?',
-                 'options': ['A. "False"', 'B. 0', 'C. False', 'D. "No"'],
-                 'answer': 'C. False'},
+                 'options': ['A. False', 'B. "False"', 'C. 0', 'D. "No"'],
+                 'answer': 'A. False'},
                 {'page': 1, 'type': 'heading', 'text': 'Section 2 – Comparison Operators'},
                 {'page': 1,
                  'type': 'paragraph',
@@ -2165,12 +2060,9 @@ print(f"Total: ${total}")
                 {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
                 {'page': 1,
                  'type': 'quiz',
-                 'question': 'What will this program print?\n'
-                             'age = 15\n'
-                             'if age >= 16:\n'
-                             'print("Can drive")',
-                 'options': ['A. Can drive', 'B. Nothing', 'C. 15', 'D. An error'],
-                 'answer': 'B. Nothing'},
+                 'question': 'What will this program print?\nage = 15\nif age >= 16:\nprint("Can drive")',
+                 'options': ['A. Can drive', 'B. 15', 'C. Nothing', 'D. An error'],
+                 'answer': 'C. Nothing'},
                 {'page': 1,
                  'type': 'ide',
                  'instructions': 'Create an if statement that prints "Drink plenty of water." when '
@@ -2299,8 +2191,8 @@ print(f"Total: ${total}")
                              'print("Teen")\n'
                              'else:\n'
                              'print("Child")',
-                 'options': ['A. Adult', 'B. Teen', 'C. Child', 'D. Nothing'],
-                 'answer': 'C. Child'},
+                 'options': ['A. Adult', 'B. Teen', 'C. Nothing', 'D. Child'],
+                 'answer': 'D. Child'},
                 {'page': 1,
                  'type': 'heading',
                  'text': 'Section 5 – Combining Conditions with Logical Operators'},
@@ -2425,12 +2317,9 @@ print(f"Total: ${total}")
                 {'page': 1, 'type': 'paragraph', 'text': 'What will this print?'},
                 {'page': 1,
                  'type': 'quiz',
-                 'question': 'if age >= 18 and has_ticket:\n'
-                             'print("Enter")\n'
-                             'else:\n'
-                             'print("Cannot enter")',
-                 'options': ['A. Enter', 'B. Cannot enter', 'C. Nothing', 'D. Error'],
-                 'answer': 'B. Cannot enter'},
+                 'question': 'if age >= 18 and has_ticket:\nprint("Enter")\nelse:\nprint("Cannot enter")',
+                 'options': ['A. Cannot enter', 'B. Enter', 'C. Nothing', 'D. Error'],
+                 'answer': 'A. Cannot enter'},
                 {'page': 1, 'type': 'heading', 'text': 'Section 6 – Common Conditional Mistakes'},
                 {'page': 1,
                  'type': 'paragraph',
@@ -2628,8 +2517,8 @@ print(f"Total: ${total}")
     "lists_dictionaries": {
         "id": "lists_dictionaries",
         "lesson_number": "3",
-        "description": "Create tuples, access tuple elements using indexing, slice tuples, and explain why tuples are immutable.",
-        "title": "Tuples",
+        "description": "Lesson 3.0 - Tuples. Lesson 3.1 - Lists, Mutation & Aliasing. Lesson 3.2 - Dictionaries: Organizing Information with Keys.",
+        "title": "Collections",
         "blocks": [
             {
                 "page": 1,
@@ -2797,18 +2686,11 @@ print(f"Total: ${total}")
                 "type": "heading",
                 "text": "Check Your Understanding"
             },
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "Which of the following is a tuple?",
-                "options": [
-                    "A. name = \"Jordan\"",
-                    "B. (1, 2, 3, (1, 2, 3))",
-                    "C. 42",
-                    "D. True"
-                ],
-                "answer": "B. (1, 2, 3, (1, 2, 3))"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which of the following is a tuple?',
+             'options': ['A. name = "Jordan"', 'B. 42', 'C. (1, 2, 3, (1, 2, 3))', 'D. True'],
+             'answer': 'C. (1, 2, 3, (1, 2, 3))'},
             {
                 "page": 1,
                 "type": "heading",
@@ -2870,13 +2752,18 @@ print(f"Total: ${total}")
                 "type": "heading",
                 "text": "Check Your Understanding"
             },
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "What is printed?\n\nanimals = (\n    \"Dog\",\n    \"Cat\",\n    \"Bird\"\n)\nprint(animals[1])",
-                "options": ["A. Dog", "B. Bird", "C. Cat", "D. Error"],
-                "answer": "C. Cat"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What is printed?\n'
+                         '\n'
+                         'animals = (\n'
+                         '    "Dog",\n'
+                         '    "Cat",\n'
+                         '    "Bird"\n'
+                         ')\n'
+                         'print(animals[1])',
+             'options': ['A. Dog', 'B. Bird', 'C. Error', 'D. Cat'],
+             'answer': 'D. Cat'},
             {
                 "page": 1,
                 "type": "heading",
@@ -2932,13 +2819,19 @@ print(f"Total: ${total}")
                 "type": "heading",
                 "text": "Check Your Understanding"
             },
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "What does this print?\n\nvalues = (\n    5,\n    10,\n    15,\n    20\n)\nprint(values[:2])",
-                "options": ["A. (5,10)", "B. (15,20)", "C. 5", "D. Error"],
-                "answer": "A. (5,10)"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What does this print?\n'
+                         '\n'
+                         'values = (\n'
+                         '    5,\n'
+                         '    10,\n'
+                         '    15,\n'
+                         '    20\n'
+                         ')\n'
+                         'print(values[:2])',
+             'options': ['A. (5,10)', 'B. (15,20)', 'C. 5', 'D. Error'],
+             'answer': 'A. (5,10)'},
             {
                 "page": 1,
                 "type": "heading",
@@ -3035,18 +2928,14 @@ print(f"Total: ${total}")
                 "type": "heading",
                 "text": "Check Your Understanding"
             },
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "Which statement is true?",
-                "options": [
-                    "A. Tuples can grow forever.",
-                    "B. Tuples can be modified after creation.",
-                    "C. Tuples are immutable.",
-                    "D. Tuples only store integers."
-                ],
-                "answer": "C. Tuples are immutable."
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which statement is true?',
+             'options': ['A. Tuples can grow forever.',
+                         'B. Tuples are immutable.',
+                         'C. Tuples can be modified after creation.',
+                         'D. Tuples only store integers.'],
+             'answer': 'B. Tuples are immutable.'},
             {
                 "page": 1,
                 "type": "heading",
@@ -3482,18 +3371,14 @@ print(f"Total: ${total}")
                 "type": "heading",
                 "text": "Check Your Understanding"
             },
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "Which of the following is a list?",
-                "options": [
-                    "A. (\"Tulsa\", \"Norman\", \"Lawton\")",
-                    "B. [\"Tulsa\", \"Norman\", \"Lawton\"]",
-                    "C. \"Tulsa\"",
-                    "D. 42"
-                ],
-                "answer": "B. [\"Tulsa\", \"Norman\", \"Lawton\"]"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Which of the following is a list?',
+             'options': ['A. ("Tulsa", "Norman", "Lawton")',
+                         'B. "Tulsa"',
+                         'C. ["Tulsa", "Norman", "Lawton"]',
+                         'D. 42'],
+             'answer': 'C. ["Tulsa", "Norman", "Lawton"]'},
             {
                 "page": 2,
                 "type": "heading",
@@ -3595,13 +3480,19 @@ print(f"Total: ${total}")
                 "type": "heading",
                 "text": "Check Your Understanding"
             },
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "What is printed?\n\nnumbers = [\n    10,\n    20,\n    30,\n    40\n]\nprint(numbers[-2])",
-                "options": ["A. 20", "B. 30", "C. 40", "D. Error"],
-                "answer": "B. 30"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What is printed?\n'
+                         '\n'
+                         'numbers = [\n'
+                         '    10,\n'
+                         '    20,\n'
+                         '    30,\n'
+                         '    40\n'
+                         ']\n'
+                         'print(numbers[-2])',
+             'options': ['A. 20', 'B. 40', 'C. Error', 'D. 30'],
+             'answer': 'D. 30'},
             {
                 "page": 2,
                 "type": "heading",
@@ -3954,52 +3845,49 @@ print(f"Total: ${total}")
                 "type": "heading",
                 "text": "Check Your Understanding"
             },
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "Suppose we have the following list.\n\nnumbers = [\n    10,\n    20,\n    30\n]\n\nAfter executing\n\nnumbers[1] = 50\n\nwhat does the list become?",
-                "options": [
-                    "A. [10, 20, 30]",
-                    "B. [10, 50, 30]",
-                    "C. [50, 20, 30]",
-                    "D. An error occurs."
-                ],
-                "answer": "B. [10, 50, 30]"
-            },
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Check Your Understanding"
-            },
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "Which of the following operations mutates a list?",
-                "options": [
-                    "A. numbers.append(40)",
-                    "B. numbers.remove(20)",
-                    "C. numbers.sort()",
-                    "D. All of the above."
-                ],
-                "answer": "D. All of the above."
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Suppose we have the following list.\n'
+                         '\n'
+                         'numbers = [\n'
+                         '    10,\n'
+                         '    20,\n'
+                         '    30\n'
+                         ']\n'
+                         '\n'
+                         'After executing\n'
+                         '\n'
+                         'numbers[1] = 50\n'
+                         '\n'
+                         'what does the list become?',
+             'options': ['A. [10, 50, 30]', 'B. [10, 20, 30]', 'C. [50, 20, 30]', 'D. An error occurs.'],
+             'answer': 'A. [10, 50, 30]'},
             {
                 "page": 2,
                 "type": "heading",
                 "text": "Check Your Understanding"
             },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Which of the following operations mutates a list?',
+             'options': ['A. numbers.append(40)',
+                         'B. All of the above.',
+                         'C. numbers.remove(20)',
+                         'D. numbers.sort()'],
+             'answer': 'B. All of the above.'},
             {
                 "page": 2,
-                "type": "quiz",
-                "question": "Which statement best describes a mutable object?",
-                "options": [
-                    "A. An object that cannot be changed after it is created.",
-                    "B. An object whose contents can be changed after it is created.",
-                    "C. An object that only stores numbers.",
-                    "D. An object that automatically creates copies of itself."
-                ],
-                "answer": "B. An object whose contents can be changed after it is created."
+                "type": "heading",
+                "text": "Check Your Understanding"
             },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Which statement best describes a mutable object?',
+             'options': ['A. An object that cannot be changed after it is created.',
+                         'B. An object that only stores numbers.',
+                         'C. An object whose contents can be changed after it is created.',
+                         'D. An object that automatically creates copies of itself.'],
+             'answer': 'C. An object whose contents can be changed after it is created.'},
             {
                 "page": 2,
                 "type": "heading",
@@ -4140,13 +4028,23 @@ print(f"Total: ${total}")
                 "type": "heading",
                 "text": "Check Your Understanding"
             },
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "Consider the following program.\n\nnumbers = [\n    1,\n    2,\n    3\n]\n\nother = numbers\nother.append(4)\nprint(numbers)\n\nWhat is printed?",
-                "options": ["A. [1, 2, 3]", "B. [1, 2, 3, 4]", "C. [4]", "D. An error"],
-                "answer": "B. [1, 2, 3, 4]"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Consider the following program.\n'
+                         '\n'
+                         'numbers = [\n'
+                         '    1,\n'
+                         '    2,\n'
+                         '    3\n'
+                         ']\n'
+                         '\n'
+                         'other = numbers\n'
+                         'other.append(4)\n'
+                         'print(numbers)\n'
+                         '\n'
+                         'What is printed?',
+             'options': ['A. [1, 2, 3]', 'B. [4]', 'C. An error', 'D. [1, 2, 3, 4]'],
+             'answer': 'D. [1, 2, 3, 4]'},
             {
                 "page": 2,
                 "type": "heading",
@@ -4162,18 +4060,14 @@ print(f"Total: ${total}")
                 "type": "heading",
                 "text": "Check Your Understanding"
             },
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "Which statement best describes aliasing?",
-                "options": [
-                    "A. Creating a copy of a list.",
-                    "B. Two or more variables referring to the same object.",
-                    "C. Creating two identical lists.",
-                    "D. Mutating two lists at once."
-                ],
-                "answer": "B. Two or more variables referring to the same object."
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Which statement best describes aliasing?',
+             'options': ['A. Two or more variables referring to the same object.',
+                         'B. Creating a copy of a list.',
+                         'C. Creating two identical lists.',
+                         'D. Mutating two lists at once.'],
+             'answer': 'A. Two or more variables referring to the same object.'},
             {
                 "page": 2,
                 "type": "heading",
@@ -4389,6 +4283,604 @@ print(f"Total: ${total}")
                 "page": 2,
                 "type": "paragraph",
                 "text": "In the next lesson, you'll learn about dictionaries, another built-in Python collection that stores information as key–value pairs. Dictionaries make programs easier to read and allow us to organize complex information in a more meaningful way."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Lesson 3.2 - Dictionaries: Organizing Information with Keys"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Estimated Time: 30 minutes"
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Prerequisites"
+            },
+            {
+                "page": 3,
+                "type": "list",
+                "items": [
+                    "Lesson 1.0 - Variables & Data Types",
+                    "Lesson 1.1 - Using Variables",
+                    "Lesson 2 - Teaching Programs to Make Decisions",
+                    "Lesson 3.0 - Tuples",
+                    "Lesson 3.1 - Lists, Mutation & Aliasing"
+                ]
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Learning Objectives & Vocabulary"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "By the end of this lesson, you should be able to:"
+            },
+            {
+                "page": 3,
+                "type": "list",
+                "items": [
+                    "Explain why dictionaries are useful.",
+                    "Create dictionaries.",
+                    "Access values using keys.",
+                    "Add and modify key-value pairs.",
+                    "Remove key-value pairs.",
+                    "Use common dictionary methods.",
+                    "Explain the difference between lists and dictionaries."
+                ]
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Word Bank"
+            },
+            {
+                "page": 3,
+                "type": "rich_paragraph",
+                "html": "<span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Dictionary</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Key</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Value</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Key-Value Pair</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Lookup</span> &nbsp; <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">Mapping</span>"
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Introduction"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "So far, we've learned about two collection types. A tuple stores a fixed collection of values, while a list stores a collection that can change over time. Both collections organize information by position, which programmers refer to as indices. Although organizing information by position is often useful, there are many situations where it isn't the most natural approach."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "For example, imagine organizing folders for your classes: a math folder, a history folder, and an English folder. You could organize these folders using a sequential data type. If math is your first-period class, history is your second-period class, and English is your third-period class, you could access them by remembering their positions. However, this requires you to remember that math is folder 0, history is folder 1, English is folder 2, and so on. If your schedule changes or you simply forget the order, finding the right folder becomes more difficult."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Wouldn't it be much easier if your folders were simply labeled \"Math,\" \"History,\" and \"English\"? Instead of remembering a folder's position, you could look it up by its name. Python provides a collection that works exactly this way. Instead of organizing information by position, it organizes information using keys, which are meaningful labels chosen by the programmer."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Section 1 - What is a Dictionary?"
+            },
+            {
+                "page": 3,
+                "type": "rich_paragraph",
+                "html": "A <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">dictionary</span> stores information using keys, which map to<sup>1</sup> values. These keys are similar to indices in sequential data, and the values are almost like the elements. We can access values by key, just as we can access elements by indexing."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Each piece of information consists of two parts:"
+            },
+            {
+                "page": 3,
+                "type": "list",
+                "items": [
+                    "a key, which is a unique label used to identify and access a value in a dictionary.",
+                    "a value, or the piece of information associated with a key."
+                ]
+            },
+            {
+                "page": 3,
+                "type": "rich_paragraph",
+                "html": "Together, these form a <span style=\"background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;\">key-value pair</span>, which is a dictionary item."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Here's an example."
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "student = {\n    \"name\": \"Jordan\",\n    \"grade\": 11,\n    \"gpa\": 3.8,\n    \"favorite_subject\": \"Physics\"\n}"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "The string \"name\" is a key. Its value is \"Jordan.\" The key-value pair is the item {\"name\": \"Jordan\"}."
+            },
+            {
+                "page": 3,
+                "type": "footnote",
+                "number": "1",
+                "text": "\"Map to\" means \"matches with.\" For example, the key \"name\" maps to the value \"Jordan\"."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Notice the syntax."
+            },
+            {
+                "page": 3,
+                "type": "list",
+                "items": [
+                    "Dictionaries use curly braces {}.",
+                    "Keys appear before the colon.",
+                    "Values appear after the colon.",
+                    "Each key-value pair is separated by a comma."
+                ]
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Unlike lists, dictionaries organize information by meaningful labels instead of numerical positions."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {'page': 3,
+             'type': 'quiz',
+             'question': 'Which of the following is a dictionary?',
+             'options': ['A. ["Jordan", 11]',
+                         'B. {"name": "Jordan", "grade": 11}',
+                         'C. ("Jordan", 11)',
+                         'D. "Jordan"'],
+             'answer': 'B. {"name": "Jordan", "grade": 11}'},
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Section 2 - Accessing Values"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "To retrieve a value from a dictionary, use its key. This is very similar to indexing."
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "student = {\n    \"name\": \"Jordan\",\n    \"grade\": 11,\n    \"gpa\": 3.8\n}\n\nprint(student[\"name\"])\n\nOutput\nJordan"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Likewise,"
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "print(student[\"gpa\"])\n\nOutput\n3.8"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Notice that dictionaries do not use indexes."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Instead of asking \"What's at position 2?\" we ask \"What's stored under the key 'gpa'?\""
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {'page': 3,
+             'type': 'quiz',
+             'question': 'Given car = {"make": "Toyota", "year": 2022}, what does print(car["year"]) display?',
+             'options': ['A. Toyota', 'B. year', 'C. 2022', 'D. Error'],
+             'answer': 'C. 2022'},
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Section 3 - Adding and Updating Information"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "One of the strengths of dictionaries is that they can grow over time."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Suppose we decide to store a student's favorite food."
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "student[\"favorite_food\"] = \"Pizza\""
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "The dictionary becomes"
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "{\n    \"name\": \"Jordan\",\n    \"grade\": 11,\n    \"gpa\": 3.8,\n    \"favorite_food\": \"Pizza\"\n}"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "If the key already exists, Python updates its value."
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "student[\"grade\"] = 12\n\nstudent[\"grade\"]\n\nreturns\n12"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "The same syntax is used for both adding and updating. Python determines which operation to perform based on whether the key already exists. Notice that adding or updating doesn't cause us to make a new dictionary, meaning that dictionaries are mutable."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {'page': 3,
+             'type': 'quiz',
+             'question': 'Suppose student = {"name": "Jordan"} and then student["grade"] = 11. What happened?',
+             'options': ['A. The dictionary became empty.',
+                         'B. The key "name" was removed.',
+                         'C. An error occurred.',
+                         'D. A new key-value pair was added.'],
+             'answer': 'D. A new key-value pair was added.'},
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Section 4 - Removing Information"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Sometimes information is no longer needed."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Python allows us to remove key-value pairs using a method you've seen before - pop(). Usually, pop expects you to specify an index, but dictionaries don't have indices; they use keys."
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "student = {\n    \"name\": \"Jordan\",\n    \"grade\": 11,\n    \"gpa\": 3.8\n}\n\nstudent.pop(\"gpa\")"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "The dictionary now becomes"
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "{\n    \"name\": \"Jordan\",\n    \"grade\": 11\n}"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Notice that pop() removes the key and its associated value. Notice that removals don't cause us to make a new dictionary, meaning that dictionaries are mutable."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {'page': 3,
+             'type': 'quiz',
+             'question': 'Which method removes a key-value pair?',
+             'options': ['A. pop()', 'B. append()', 'C. sort()', 'D. insert()'],
+             'answer': 'A. pop()'},
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Section 5 - Useful Dictionary Methods"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Dictionaries provide several useful methods."
+            },
+            {
+                "page": 3,
+                "type": "table",
+                "headers": ["Method", "Purpose"],
+                "rows": [
+                    ["keys()", "Returns all keys."],
+                    ["values()", "Returns all values."],
+                    ["items()", "Returns every key-value pair."],
+                    ["get(key)", "Retrieves a value safely."],
+                    ["pop(key)", "Removes a key-value pair."],
+                    ["clear()", "Removes all key-value pairs."]
+                ]
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "student.keys()\n\nreturns\n\ndict_keys(['name', 'grade'])"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Similarly, student.values() returns the values stored in the dictionary."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "A few corrections first:"
+            },
+            {
+                "page": 3,
+                "type": "list",
+                "items": [
+                    "Keys cannot repeat.",
+                    "Values can be any object.",
+                    "Values can even be dictionaries.",
+                    "Keys cannot be dictionaries. This is not true because dictionaries are mutable, and dictionary keys must be hashable (immutable). This is probably too advanced for your audience, so I'd simply say that keys are usually strings, numbers, or tuples. Avoid mentioning hashability."
+                ]
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Here's how I'd write the section in the style of your lessons."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Section 6 - Useful Dictionary Methods"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Like every Python data type, dictionaries have a few important rules."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Rule 1 - Every Key Must Be Unique"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Within a dictionary, each key must be unique. In other words, the same key cannot appear more than once."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "For example,"
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "student = {\n    \"name\": \"Jordan\",\n    \"grade\": 11,\n    \"gpa\": 3.8\n}"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "is perfectly valid because each key appears only once."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "However,"
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "student = {\n    \"name\": \"Jordan\",\n    \"name\": \"Maria\"\n}"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "contains the key \"name\" twice. If duplicate keys are provided, Python keeps only the last value associated with that key."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Rule 2 - Values Can Be Any Object"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Dictionary values can store almost any type of object you've learned so far."
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "student = {\n    \"name\": \"Jordan\",\n    \"grade\": 11,\n    \"gpa\": 3.8,\n    \"honor_roll\": True\n}"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "This stores a string, an integer, a float, and a Boolean."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Values can even be collections, such as lists, tuples, or other dictionaries."
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "student = {\n    \"name\": \"Jordan\",\n    \"grades\": [92, 88, 95],\n    \"address\": {\n        \"city\": \"Tulsa\",\n        \"state\": \"Oklahoma\"\n    }\n}"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "This allows dictionaries to represent more complex information while keeping it organized."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Rule 3 - Keys Should Be Immutable"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "While values can be almost any object, keys should be immutable. Most commonly, programmers use strings as keys because they are descriptive and easy to read."
+            },
+            {
+                "page": 3,
+                "type": "code",
+                "text": "car = {\n    \"make\": \"Toyota\",\n    \"model\": \"Camry\",\n    \"year\": 2022\n}"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Numbers and tuples can also be used as keys, but strings are by far the most common choice. Although it may not seem so, this rule is very necessary. Think of the keys to a dictionary as the keys to your house. Imagine I mutate your keys by bending them; now you can't enter your house, just like how programmers can't use the same keys to access the same values."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Section 7 - Lists vs Dictionaries"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Both lists and dictionaries store collections of information. However, they organize that information differently."
+            },
+            {
+                "page": 3,
+                "type": "table",
+                "headers": ["List", "Dictionary"],
+                "rows": [
+                    ["Uses indexes", "Uses keys"],
+                    ["Ordered by position", "Organized by labels"],
+                    ["Best when order matters", "Best when information has names"],
+                    ["Example: class roster", "Example: student profile"]
+                ]
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Ask yourself: Does each piece of information have a meaningful name? If so, a dictionary is often the better choice."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Check Your Understanding"
+            },
+            {'page': 3,
+             'type': 'quiz',
+             'question': "Which collection would you choose to store a student's name, age, GPA, and favorite "
+                         'subject?',
+             'options': ['A. Tuple', 'B. Dictionary', 'C. List', 'D. String'],
+             'answer': 'B. Dictionary'},
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Mini Project - Student Profile"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Create a dictionary called student."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "It should store"
+            },
+            {
+                "page": 3,
+                "type": "list",
+                "items": ["name", "grade", "GPA", "favorite subject"]
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "Then write code to"
+            },
+            {
+                "page": 3,
+                "type": "list",
+                "items": [
+                    "1. Print the student's name.",
+                    "2. Add a favorite food.",
+                    "3. Update the GPA.",
+                    "4. Remove the favorite food.",
+                    "5. Print all of the keys.",
+                    "6. Print all of the values."
+                ]
+            },
+            {
+                "page": 3,
+                "type": "ide",
+                "instructions": "Create the student dictionary, then complete all six tasks.",
+                "starter_code": "student = {\n    \"name\": \"Jordan\",\n    \"grade\": 11,\n    \"gpa\": 3.8,\n    \"favorite_subject\": \"Physics\"\n}\n\n# Complete the six tasks below."
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Key Takeaways"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "By the end of this lesson, you should be able to:"
+            },
+            {
+                "page": 3,
+                "type": "list",
+                "items": [
+                    "Explain why dictionaries exist.",
+                    "Create dictionaries.",
+                    "Retrieve values using keys.",
+                    "Add, update, and remove key-value pairs.",
+                    "Use common dictionary methods.",
+                    "Explain the difference between lists and dictionaries."
+                ]
+            },
+            {
+                "page": 3,
+                "type": "heading",
+                "text": "Looking Ahead"
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "You've now learned Python's three most common collection types:"
+            },
+            {
+                "page": 3,
+                "type": "list",
+                "items": [
+                    "Tuples, for collections that should remain unchanged.",
+                    "Lists, for collections that change over time.",
+                    "Dictionaries, for organizing information using meaningful keys."
+                ]
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "So far, we've only worked with a few pieces of data at a time. But what if a list contains 1,000 students? Or a dictionary contains 10,000 customer records? Processing each item one at a time by hand would be impossible."
+            },
+            {
+                "page": 3,
+                "type": "paragraph",
+                "text": "In the next unit, you'll learn about loops, one of the most powerful tools in programming. Loops allow programs to repeat tasks automatically, making it practical to work with large collections of data efficiently."
             }
         ]
     },
@@ -4398,7 +4890,7 @@ print(f"Total: ${total}")
 
     "lesson_number": "4",
 
-    "description": "Repeat tasks efficiently using for and while loops, ranges, and data processing techniques.",
+    "description": "Lesson 4.0 - Loops. Repeat tasks efficiently using for and while loops, ranges, and data processing techniques.",
 
     "title": "Loops",
 
@@ -4865,7 +5357,7 @@ for i in range(5):
 
         "title": "Functions & Modularity",
 
-        "description": "Write reusable functions with parameters and returns, document them with docstrings, import helper modules, and refactor repeated code.",
+        "description": "Lesson 5.0 - Functions & Modularity. Write reusable functions with parameters and returns, imports, and helper modules.",
 
         "blocks": [
 
@@ -5323,18 +5815,14 @@ print(square(4))"""
                 "text": "Answer: break down"
             },
 
-            {
-                "page": 4,
-                "type": "quiz",
-                "question": "2. Multiple Choice (2 points): What does the return keyword do in a Python function?",
-                "options": [
-                    "A. It prints the result to the console",
-                    "B. It ends the function and gives a value back to the caller",
-                    "C. It stores data in a list",
-                    "D. It asks the user for input"
-                ],
-                "answer": "B. It ends the function and gives a value back to the caller"
-            },
+            {'page': 4,
+             'type': 'quiz',
+             'question': '2. Multiple Choice (2 points): What does the return keyword do in a Python function?',
+             'options': ['A. It prints the result to the console',
+                         'B. It stores data in a list',
+                         'C. It ends the function and gives a value back to the caller',
+                         'D. It asks the user for input'],
+             'answer': 'C. It ends the function and gives a value back to the caller'},
 
             {
                 "page": 4,
@@ -5428,18 +5916,15 @@ print(add_numbers(3 5))"""
                 "problem": "get_area_rectangle"
             },
 
-            {
-                "page": 4,
-                "type": "quiz",
-                "question": "8. Multiple Choice (2 points): Which of the following is the correct way to call a function named calculate_tax with one argument, 100?",
-                "options": [
-                    "A. def calculate_tax(100)",
-                    "B. calculate_tax = 100",
-                    "C. calculate_tax(100)",
-                    "D. return calculate_tax(100)"
-                ],
-                "answer": "C. calculate_tax(100)"
-            },
+            {'page': 4,
+             'type': 'quiz',
+             'question': '8. Multiple Choice (2 points): Which of the following is the correct way to call a '
+                         'function named calculate_tax with one argument, 100?',
+             'options': ['A. def calculate_tax(100)',
+                         'B. calculate_tax = 100',
+                         'C. return calculate_tax(100)',
+                         'D. calculate_tax(100)'],
+             'answer': 'D. calculate_tax(100)'},
 
             {
                 "page": 4,
@@ -5711,7 +6196,7 @@ play_hangman()'''
 
         "title": "Recursion & the Capstone",
 
-        "description": "Trace and implement recursive functions, understand the call stack, and bring every skill from this course together into a community capstone project.",
+        "description": "Lesson 6.0 - Recursion & the Capstone. Trace recursive functions and bring the course together in a community capstone project.",
 
         "blocks": [
 
@@ -5856,18 +6341,11 @@ returns 4 * 6 = 24"""
                 "If a recursive function never reaches its base case, the call stack keeps growing until Python runs out of room and raises a RecursionError. Always double-check that every recursive call moves toward the base case."
             },
 
-            {
-                "page": 1,
-                "type": "quiz",
-                "question": "In the trace above, which call is the base case?",
-                "options": [
-                    "A. factorial(4)",
-                    "B. factorial(2)",
-                    "C. factorial(0)",
-                    "D. factorial(1)"
-                ],
-                "answer": "C. factorial(0)"
-            },
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'In the trace above, which call is the base case?',
+             'options': ['A. factorial(0)', 'B. factorial(4)', 'C. factorial(2)', 'D. factorial(1)'],
+             'answer': 'A. factorial(0)'},
 
             {
                 "page": 2,
@@ -5954,18 +6432,17 @@ def print_tree(person, depth=0):
                 "text": "Recap Questions"
             },
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "Fred Begay combined Navajo tradition with physics. Which comparison best matches recursion and iteration to two things he grew up with?",
-                "options": [
-                    "A. Recursion is like oral storytelling, where each call adds a layer; iteration is like a lab experiment, repeated step-by-step.",
-                    "B. Recursion is like a lab experiment; iteration is like oral storytelling.",
-                    "C. Both recursion and iteration work like oral storytelling.",
-                    "D. Neither recursion nor iteration resembles either tradition."
-                ],
-                "answer": "A. Recursion is like oral storytelling, where each call adds a layer; iteration is like a lab experiment, repeated step-by-step."
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Fred Begay combined Navajo tradition with physics. Which comparison best matches '
+                         'recursion and iteration to two things he grew up with?',
+             'options': ['A. Recursion is like a lab experiment; iteration is like oral storytelling.',
+                         'B. Recursion is like oral storytelling, where each call adds a layer; iteration is '
+                         'like a lab experiment, repeated step-by-step.',
+                         'C. Both recursion and iteration work like oral storytelling.',
+                         'D. Neither recursion nor iteration resembles either tradition.'],
+             'answer': 'B. Recursion is like oral storytelling, where each call adds a layer; iteration is '
+                       'like a lab experiment, repeated step-by-step.'},
 
             {
                 "page": 2,
@@ -5978,18 +6455,14 @@ def print_tree(person, depth=0):
         echo(word, times - 1)"""
             },
 
-            {
-                "page": 2,
-                "type": "quiz",
-                "question": "What does echo(\"hi\", 3) print?",
-                "options": [
-                    "A. hi (once)",
-                    "B. hi hi hi (three times, one per line)",
-                    "C. hi hi hi hi (four times)",
-                    "D. Nothing - it raises a RecursionError"
-                ],
-                "answer": "B. hi hi hi (three times, one per line)"
-            },
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What does echo("hi", 3) print?',
+             'options': ['A. hi (once)',
+                         'B. hi hi hi hi (four times)',
+                         'C. hi hi hi (three times, one per line)',
+                         'D. Nothing - it raises a RecursionError'],
+             'answer': 'C. hi hi hi (three times, one per line)'},
 
             {
                 "page": 2,

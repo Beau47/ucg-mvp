@@ -87,7 +87,11 @@ completed-card
 
 
 <div class="card-number">
-    Lesson {{ lesson.lesson_number }}
+    {% if lesson.lesson_number == "0.5" %}
+    Lesson 0.5
+    {% else %}
+    Unit {{ lesson.lesson_number }}
+    {% endif %}
 </div>
 
 
@@ -116,11 +120,11 @@ completed-card
 
 {% if lesson.id in completed_lessons %}
 
-Review Lesson →
+{% if lesson.lesson_number == "0.5" %}Review Lesson →{% else %}Review Unit →{% endif %}
 
 {% else %}
 
-Start Lesson →
+{% if lesson.lesson_number == "0.5" %}Start Lesson →{% else %}Start Unit →{% endif %}
 
 {% endif %}
 
