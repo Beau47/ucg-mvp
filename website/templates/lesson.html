@@ -53,7 +53,11 @@
     <div class="lesson-card">
 
         <p class="lesson-number">
-            Lesson {{ lesson.lesson_number }}
+            {% if lesson.lesson_number == "0.5" %}
+            Lesson 0.5
+            {% else %}
+            Unit {{ lesson.lesson_number }}
+            {% endif %}
         </p>
 
         <h2>
