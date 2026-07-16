@@ -126,6 +126,8 @@ require(["vs/editor/editor.main"], function () {
             "mousedown",
             () => {
 
+                console.log("mousedown works");
+
                 dragging = true;
 
                 document.body.style.cursor =
@@ -176,9 +178,9 @@ require(["vs/editor/editor.main"], function () {
                 Minimum editor size
                 */
 
-                if (newHeight < 250) {
+                if (newHeight < 60) {
 
-                    newHeight = 250;
+                    newHeight = 60;
 
                 }
 
