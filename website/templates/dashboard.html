@@ -49,7 +49,11 @@
 
             <a href="/exercises">Exercises</a>
 
-            <a href="/profile">Profile</a>
+            {% if logged_in %}
+            <a href="/profile" class="nav-item">Profile</a>
+            {% else %}
+            <a href="/login" class="nav-item">Profile</a>
+            {% endif %}
 
         </nav>
 

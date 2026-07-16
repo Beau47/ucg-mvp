@@ -38,6 +38,12 @@ app.secret_key = "ucg-secret-key"
 # Log-ins are remembered for 7 days
 app.permanent_session_lifetime = timedelta(days=7)
 
+@app.context_processor
+def inject_user():
+    return dict(
+        logged_in="user_id" in session
+    )
+
 
 # =====================================================
 # LOAD OR CREATE A USER PROFILE
@@ -421,7 +427,9 @@ def workspace(problem_id):
 @app.route("/profile")
 def profile():
 
-    if "user_id" not in session:
+    user_id = session.get("user_id")
+
+    if user_id is None:
         return redirect("/login")
 
 
@@ -512,9 +520,13 @@ def profile():
     # Email
     # -------------------------------
 
-    user = supabase.auth.get_user()
+    try:
+        user = supabase.auth.get_user()
+        profile["email"] = user.user.email
 
-    profile["email"] = user.user.email
+    except Exception:
+        session.clear()
+        return redirect("/login")
 
 
 
