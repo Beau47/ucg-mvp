@@ -28,6 +28,31 @@ app = Flask(__name__)
 
 app.secret_key = "ucg-secret-key"
 
+### CHECKING GLOBAL SESSION
+
+@app.before_request
+def check_session():
+
+    # Pages that do not require login
+    public_routes = [
+        "login",
+        "signup",
+        "static",
+        "forgot_password",
+        "reset_password"
+    ]
+
+
+    # Allow public pages
+    if request.endpoint in public_routes:
+        return
+
+
+    # If user session disappeared
+    if "user_id" not in session:
+
+        return redirect("/login?expired=true")
+
 #TODO add this later. remove app.secret_key and replace with below and move secret key to .env
 ##import os
 
@@ -632,7 +657,7 @@ def run_snippet_api():
     })
 
 # =====================================================
-# USER SIGN-UP ROUTE
+# SIGN-UP ROUTE
 #
 # =====================================================
 
@@ -646,37 +671,75 @@ def signup():
         )
 
 
+    username = request.form["username"]
     email = request.form["email"]
     password = request.form["password"]
+    confirm_password = request.form["confirm_password"]
 
 
-    response = supabase.auth.sign_up(
-        {
-            "email": email,
-            "password": password
-        }
+    if password != confirm_password:
+
+        return render_template(
+            "signup.html",
+            error="Passwords do not match."
+        )
+
+
+    try:
+
+        response = supabase.auth.sign_up(
+            {
+                "email": email,
+                "password": password,
+
+                "options": {
+                    "data": {
+                        "username": username
+                    }
+                }
+            }
+        )
+
+
+    except Exception as e:
+
+        error_message = str(e)
+
+
+        if "already registered" in error_message.lower():
+
+            return render_template(
+                "signup.html",
+                error="An account with this email already exists. Please log in instead."
+            )
+
+
+        return render_template(
+            "signup.html",
+            error="Signup failed. Please try again."
+        )
+
+
+    # Check if Supabase actually created the account
+    if (
+        response.user is not None
+        and len(response.user.identities) == 0
+    ):
+
+        return render_template(
+            "signup.html",
+            error="An account with this email already exists. Please log in instead."
+        )
+
+
+    return render_template(
+        "signup.html",
+        verification_sent=True
     )
-
-    user = response.user
-
-
-    supabase.table("profiles").insert({
-
-        "id": user.id,
-        "username": email.split("@")[0],
-        "xp": 0,
-        "streak": 0,
-        "lessons_completed": 0,
-        "problems_solved": 0
-
-    }).execute()
-
-
-    return redirect("/login")
 
 
 # =====================================================
-# USER LOG-IN ROUTE
+# LOG-IN ROUTE
 #
 # =====================================================
 
@@ -686,7 +749,8 @@ def login():
     if request.method == "GET":
 
         return render_template(
-            "login.html"
+            "login.html",
+            expired=request.args.get("expired")
         )
 
 
@@ -700,6 +764,13 @@ def login():
             "password": password
         }
     )
+
+    if response.user.email_confirmed_at is None:
+
+        return render_template(
+            "login.html",
+            error="Please verify your email before logging in."
+        )
 
 
     session.permanent = True
@@ -716,7 +787,7 @@ def login():
 
 
 # =====================================================
-# USER LOG-OUT ROUTE
+# LOG-OUT ROUTE
 #
 # =====================================================
 
@@ -727,6 +798,59 @@ def logout():
 
     return redirect("/login")
 
+# =====================================================
+# USER FORGOT PASSWORD ROUTE
+#
+# =====================================================
+
+@app.route("/forgot-password", methods=["GET", "POST"])
+def forgot_password():
+
+    if request.method == "GET":
+
+        return render_template(
+            "forgot_password.html"
+        )
+
+
+    email = request.form["email"]
+
+
+    try:
+
+        supabase.auth.reset_password_email(
+            email,
+            {
+                "redirect_to":
+                "http://127.0.0.1:5000/reset-password"
+            }
+        )
+
+
+        return render_template(
+            "forgot_password.html",
+            message="Password reset email sent. Check your inbox."
+        )
+
+
+    except Exception:
+
+        return render_template(
+            "forgot_password.html",
+            message="Could not send reset email."
+        )
+
+# =====================================================
+# RESET PASSWORD ROUTE
+#
+# =====================================================
+
+@app.route("/reset-password")
+def reset_password():
+
+    return render_template(
+        "reset_password.html"
+    )
 
 # =====================================================
 # START THE DEVELOPMENT SERVER
