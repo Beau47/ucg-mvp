@@ -140,6 +140,37 @@ def complete_lesson(user_id, lesson_id):
 
 
 # =====================================================
+# SAVE LESSON TASK COMPLETION
+# =====================================================
+
+def complete_task(user_id, lesson_id, task_id):
+
+    existing = (
+        supabase
+        .table("lesson_tasks")
+        .select("id")
+        .eq("user_id", user_id)
+        .eq("lesson_id", lesson_id)
+        .eq("task_id", task_id)
+        .execute()
+    )
+
+
+    if existing.data:
+        return
+
+
+    supabase.table("lesson_tasks").insert({
+
+        "user_id": user_id,
+        "lesson_id": lesson_id,
+        "task_id": task_id,
+        "completed": True
+
+    }).execute()
+
+
+# =====================================================
 # SAVE PROBLEM COMPLETION
 # =====================================================
 
@@ -270,6 +301,30 @@ def lesson(lesson_id, page):
         total_pages=total_pages,
         progress_owner=session.get("user_id", "guest")
     )
+
+
+@app.route("/complete_task", methods=["POST"])
+def complete_task_api():
+
+    if "user_id" not in session:
+        return jsonify({
+            "error":"Not logged in"
+        }),401
+
+
+    data=request.get_json()
+
+
+    complete_task(
+        session["user_id"],
+        data["lesson_id"],
+        data["task_id"]
+    )
+
+
+    return jsonify({
+        "success":True
+    })
 
 
 @app.route("/lesson/<lesson_id>/complete", methods=["POST"])

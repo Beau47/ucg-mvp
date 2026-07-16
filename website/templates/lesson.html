@@ -248,7 +248,9 @@
 
     {% elif block["type"] == "ide" %}
 
-    <div class="lesson-ide">
+    <div
+    class="lesson-ide"
+    data-task-id="{{ lesson.id }}-ide-{{ loop.index }}">
 
         <div class="ide-header">
 
@@ -283,7 +285,10 @@
 
     {% elif block["type"] == "quiz" %}
 
-    <div class="quiz-card" data-required="true">
+    <div
+    class="quiz-card"
+    data-required="true"
+    data-task-id="{{ lesson.id }}-quiz-{{ loop.index0 }}">
 
         <h2>{{ block["question"] }}</h2>
 
@@ -417,19 +422,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    function markLessonComplete(){
-
-        fetch("/lesson/{{ lesson.id }}/complete", {
-
-            method:"POST",
-
-            headers:{
-                "Content-Type":"application/json"
-            }
-
-        });
-
-    }
 
     const quizzes =
         document.querySelectorAll(".quiz-card[data-required='true']");
@@ -681,7 +673,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .forEach(button => {
 
 
-            button.addEventListener("click", () => {
+            button.addEventListener("click", async () => {
 
 
 
@@ -729,6 +721,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     quiz.dataset.completed =
                         "true";
+
+                    try {
+
+                        await fetch("/complete_task", {
+
+                            method:"POST",
+
+                            headers:{
+                                "Content-Type":"application/json"
+                            },
+
+                            body:JSON.stringify({
+
+                                lesson_id:"{{ lesson.id }}",
+
+                                task_id:quiz.dataset.taskId
+
+                            })
+
+                        });
+
+                    }
+                    catch(e){
+                        console.error(e);
+                    }
 
 
                     quizProgress[quizIndex] =
@@ -864,6 +881,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 ide.dataset.completed =
                     "true";
+
+                await fetch("/complete_task", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        lesson_id: "{{ lesson.id }}",
+
+                        task_id: ide.dataset.taskId
+
+                    })
+
+                });
 
 
                 ideProgress[ideIndex] =
