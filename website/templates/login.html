@@ -17,6 +17,28 @@
 
 <body>
 
+{% if expired %}
+
+<div class="session-popup">
+
+    <div class="session-box">
+
+        <h2>Session Expired</h2>
+
+        <p>
+            Your session has expired. Please log in again.
+        </p>
+
+        <button onclick="closePopup()">
+            Continue to Login
+        </button>
+
+    </div>
+
+</div>
+
+{% endif %}
+
 <header class="topbar">
 
     <div class="logo">
@@ -77,6 +99,13 @@
                 name="password"
                 required
             >
+            <p style="text-align:center; margin-top:15px;">
+
+                <a href="/forgot-password">
+                    Forgot Password?
+                </a>
+
+            </p>
 
             <button type="submit">
                 Login
@@ -99,3 +128,13 @@
 
 </body>
 </html>
+
+<script>
+
+function closePopup(){
+
+    window.location.href="/login";
+
+}
+
+</script>
