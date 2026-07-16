@@ -422,7 +422,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-
     const quizzes =
         document.querySelectorAll(".quiz-card[data-required='true']");
 
@@ -554,16 +553,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextLink.style.opacity = "1";
 
             }
-
-
-            // Final page completed
-            {% if page == total_pages %}
-
-                markLessonComplete();
-
-            {% endif %}
-
-
         }
 
 

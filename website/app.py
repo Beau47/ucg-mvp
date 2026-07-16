@@ -619,7 +619,6 @@ def run_snippet_api():
         "output": result
     })
 
-
 # =====================================================
 # USER SIGN-UP ROUTE
 #
