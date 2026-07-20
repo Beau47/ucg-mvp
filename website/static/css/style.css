@@ -1039,3 +1039,63 @@ button:disabled {
     color:#555;
 
 }
+
+/* =====================================================
+   AUTH PAGE LINKS
+   Makes login/signup/forgot password links look like buttons
+===================================================== */
+
+/* =====================================================
+   AUTH LINK BUTTONS
+===================================================== */
+
+.auth-card a {
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 10px 24px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        #ff512f,
+        #ff8a00
+    );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+
+.auth-card a:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 15px rgba(255, 138, 0, 0.25);
+
+}
+
+.forgot-link {
+
+    display:block;
+
+    margin-top:15px;
+
+    text-align:center;
+
+}

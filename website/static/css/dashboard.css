@@ -339,3 +339,51 @@ nav a.active{
     border-radius: 50%;
 
 }
+
+.card {
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:white;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+    transition:0.2s;
+
+}
+
+
+.card:hover {
+
+    transform:translateY(-5px);
+
+}
+
+
+.card button {
+
+    margin-top:15px;
+
+    padding:12px 25px;
+
+    border-radius:999px;
+
+    border:none;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff512f,
+        #ff8a00
+    );
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}

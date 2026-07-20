@@ -2,150 +2,330 @@
 <html lang="en">
 
 
-
 <head>
-    <!-- Font present -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Character encoding -->
     <meta charset="UTF-8">
 
-    <!-- Browser tab title -->
-    <title>Urban Coders Guild</title>
+    <title>
+        Urban Coders Guild
+    </title>
 
-    <!-- Browser tab icon -->
+
     <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
 
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
 
-    <!-- Dashboard stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
     <link rel="stylesheet" href="/static/css/dashboard.css">
+
 
 </head>
 
+
+
 <body>
 
-    <!-- ===================================================== -->
-    <!-- TOP NAVIGATION BAR                                    -->
-    <!-- Contains the logo and links to each major section.    -->
-    <!-- ===================================================== -->
 
-    <header class="topbar">
+<header class="topbar">
 
-        <!-- Website logo -->
-        <div class="logo">
-            Urban Coders Guild
-        </div>
 
-        <!-- Navigation links -->
-        <nav>
+    <div class="logo">
+        Urban Coders Guild
+    </div>
 
-            <a href="/" class="active">Dashboard</a>
 
-            <a href="/lessons">Lessons</a>
+    <nav>
 
-            <a href="/exercises">Exercises</a>
 
-            {% if logged_in %}
-            <a href="/profile" class="nav-item">Profile</a>
-            {% else %}
-            <a href="/login" class="nav-item">Profile</a>
-            {% endif %}
+        <a href="/" class="active">
+            Dashboard
+        </a>
 
-        </nav>
 
-    </header>
+        <a href="/lessons">
+            Lessons
+        </a>
 
-    <!-- ===================================================== -->
-    <!-- MAIN DASHBOARD CONTENT                                -->
-    <!-- ===================================================== -->
 
-    <div class="container">
+        <a href="/exercises">
+            Exercises
+        </a>
 
-        <!-- Welcome message -->
-        <h1>Welcome Back, {{ profile.username }}!</h1>
 
-        <!-- Dashboard cards -->
-        <div class="grid">
+        {% if logged_in %}
 
-            <!-- ============================================= -->
-            <!-- Continue Learning Card                        -->
-            <!-- ============================================= -->
+        <a href="/profile">
+            Profile
+        </a>
 
-            <div class="card">
+        {% else %}
 
-                <h2>Continue Learning</h2>
+        <a href="/login">
+            Profile
+        </a>
 
-                <p>
-                    Variables
-                </p>
+        {% endif %}
 
-                <button onclick="location.href='/workspace'">
-                    Continue
-                </button>
 
-            </div>
+    </nav>
 
-            <!-- ============================================= -->
-            <!-- XP Progress Card                              -->
-            <!-- ============================================= -->
 
-            <div class="card">
+</header>
 
-                <h2>XP Progress</h2>
 
-                <p>320 / 500 XP</p>
 
-                <!-- Progress bar -->
-                <div class="xp-bar">
 
-                    <div class="xp-fill"></div>
 
-                </div>
+<div class="container">
 
-            </div>
 
-            <!-- ============================================= -->
-            <!-- Quick Exercises                               -->
-            <!-- ============================================= -->
 
-            <div class="card">
+    <!-- Welcome -->
 
-                <h2>Quick Exercises</h2>
+    <div class="dashboard-header">
 
-                <button onclick="location.href='/workspace/add_one'">
-                    Add One
-                </button>
 
-                <button onclick="location.href='/workspace/square_number'">
-                    Square Number
-                </button>
+        <h1>
+            Welcome Back, {{ profile.username }}!
+        </h1>
 
-            </div>
 
-            <!-- ============================================= -->
-            <!-- Lessons                                       -->
-            <!-- ============================================= -->
+        <p>
+            Continue your coding journey and keep building your Python skills.
+        </p>
 
-            <div class="card">
-
-                <h2>Lessons</h2>
-
-                <button>Variables</button>
-
-                <button>Functions</button>
-
-                <button>Loops</button>
-
-            </div>
-
-        </div>
 
     </div>
 
+
+
+
+
+    <div class="grid">
+
+
+
+
+
+        <!-- Continue Lesson -->
+
+
+        <div class="card">
+
+
+            <h2>
+                📚 Continue Learning
+            </h2>
+
+
+
+            {% if next_lesson %}
+
+
+            <p>
+                {{ next_lesson.title }}
+            </p>
+
+
+
+            <button
+                onclick="location.href='/lesson/{{ next_lesson.id }}/1'"
+            >
+
+                Continue Lesson →
+
+            </button>
+
+
+
+            {% else %}
+
+
+            <p>
+                🎉 You completed all lessons!
+            </p>
+
+
+            {% endif %}
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- Continue Exercise -->
+
+
+        <div class="card">
+
+
+            <h2>
+                💻 Next Exercise
+            </h2>
+
+
+
+            {% if next_problem %}
+
+
+            <p>
+                {{ next_problem.title }}
+            </p>
+
+
+
+            <button
+                onclick="location.href='/workspace/{{ next_problem.id }}'"
+            >
+
+                Start Exercise →
+
+            </button>
+
+
+
+            {% else %}
+
+
+            <p>
+                🏆 All exercises completed!
+            </p>
+
+
+            {% endif %}
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- XP Card -->
+
+
+        <div class="card">
+
+
+            <h2>
+                ⭐ XP Progress
+            </h2>
+
+
+
+            <h1>
+                {{ profile.xp }} XP
+            </h1>
+
+
+
+            <div class="xp-bar">
+
+
+                <div
+                    class="xp-fill"
+                    style="
+                    width: {{ [profile.xp / 500 * 100, 100]|min }}%;
+                    "
+                >
+
+                </div>
+
+
+            </div>
+
+
+
+            <p>
+                Keep learning to earn more XP!
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- Statistics -->
+
+
+        <div class="card">
+
+
+            <h2>
+                📊 Your Progress
+            </h2>
+
+
+
+            <div class="stat">
+
+
+                <span>
+                    Lessons Completed
+                </span>
+
+
+                <strong>
+                    {{ profile.lessons_completed }}
+                </strong>
+
+
+            </div>
+
+
+
+
+            <div class="stat">
+
+
+                <span>
+                    Problems Solved
+                </span>
+
+
+                <strong>
+                    {{ profile.problems_solved }}
+                </strong>
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+
 </body>
+
 
 </html>

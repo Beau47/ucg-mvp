@@ -259,9 +259,106 @@ def dashboard():
         return redirect("/login")
 
 
+    # -------------------------------
+    # Completed lessons
+    # -------------------------------
+
+    completed_lessons_data = (
+        supabase
+        .table("lesson_progress")
+        .select("lesson_id")
+        .eq("user_id", user_id)
+        .eq("completed", True)
+        .execute()
+    )
+
+
+    completed_lessons = [
+
+        item["lesson_id"]
+
+        for item in completed_lessons_data.data
+
+    ]
+
+
+    # Find next lesson
+
+    next_lesson = None
+
+    for lesson in LESSONS.values():
+
+        if lesson["id"] not in completed_lessons:
+
+            next_lesson = lesson
+            break
+
+
+
+    # -------------------------------
+    # Completed exercises
+    # -------------------------------
+
+    completed_problems_data = (
+        supabase
+        .table("problem_progress")
+        .select("problem_id")
+        .eq("user_id", user_id)
+        .eq("passed", True)
+        .execute()
+    )
+
+
+    completed_problems = [
+
+        item["problem_id"]
+
+        for item in completed_problems_data.data
+
+    ]
+
+
+    next_problem = None
+
+    for problem in PROBLEMS.values():
+
+        if problem["id"] not in completed_problems:
+
+            next_problem = problem
+            break
+
+
+
+    # -------------------------------
+    # XP
+    # -------------------------------
+
+    lessons_completed = len(completed_lessons)
+
+    problems_completed = len(completed_problems)
+
+
+    xp = (
+        lessons_completed * 100
+        +
+        problems_completed * 25
+    )
+
+
+    profile["xp"] = xp
+
+    profile["lessons_completed"] = lessons_completed
+
+    profile["problems_solved"] = problems_completed
+
+
+
     return render_template(
         "dashboard.html",
-        profile=profile
+        profile=profile,
+        next_lesson=next_lesson,
+        next_problem=next_problem,
+        logged_in=True
     )
 
 
