@@ -4869,7 +4869,7 @@ print(f"Total: ${total}")
     },
     "loops": {'id': 'loops',
  'lesson_number': '4',
- 'description': 'Lesson 4.0 - While Loops. Lesson 4.1 - For Loops. Lesson 4.2 - Nested Loops. Repeat tasks with conditions, collections, ranges, and nested structures.',
+ 'description': 'Lesson 4.0 - While Loops. Lesson 4.1 - For Loops. Lesson 4.2 - Nested Loops. Lesson 4.3 - Advanced Loop Techniques. Build and control loops to process collections.',
  'title': 'Loops',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 4.0 – While Loops'},
             {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 60–75 minutes'},
@@ -5981,7 +5981,399 @@ print(f"Total: ${total}")
              'text': "Sometimes, a loop shouldn't continue until it naturally finishes. You may want to stop a "
                      'loop early, skip certain iterations, or leave a placeholder while writing code. In the '
                      "next lesson, you'll learn how to control loop execution using the break, continue, and "
-                     'pass statements.'}]},
+                     'pass statements.'},
+            {'page': 4, 'type': 'heading', 'text': 'Lesson 4.3 – Advanced Loop Techniques'},
+            {'page': 4, 'type': 'paragraph', 'text': 'Estimated Time: 60 minutes'},
+            {'page': 4, 'type': 'heading', 'text': 'Prerequisites'},
+            {'page': 4, 'type': 'paragraph', 'text': 'Before beginning this lesson, you should understand:'},
+            {'page': 4,
+             'type': 'list',
+             'items': ['Variables', 'Conditionals', 'Lists', 'while Loops', 'for Loops', 'Nested Loops']},
+            {'page': 4, 'type': 'heading', 'text': 'Learning Objectives & Vocabulary'},
+            {'page': 4, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
+            {'page': 4,
+             'type': 'list',
+             'items': ['Stop a loop early using break.',
+                       'Skip an iteration using continue.',
+                       'Explain the purpose of pass.',
+                       'Solve common problems using loops.',
+                       'Count, sum, search, and find maximum or minimum values in collections.']},
+            {'page': 4, 'type': 'heading', 'text': 'Vocabulary'},
+            {'page': 4,
+             'type': 'rich_paragraph',
+             'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">break</span> &nbsp; <span style="background:#fff1df; color:#c74716; '
+                     'padding:2px 7px; border-radius:6px; font-weight:600;">continue</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">pass</span> &nbsp; <span style="background:#fff1df; color:#c74716; '
+                     'padding:2px 7px; border-radius:6px; font-weight:600;">Accumulator</span>'},
+            {'page': 4, 'type': 'heading', 'text': 'Introduction'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': "Now that you know how to write loops, it's time to learn how to make them more powerful. "
+                     "Sometimes you don't want a loop to continue until it naturally ends. Maybe you've "
+                     "already found what you're looking for, or maybe you want to skip certain values. You'll "
+                     'also learn several common problem-solving techniques that programmers use every day. '
+                     'These patterns appear in everything from video games to scientific research and data '
+                     'analysis.'},
+            {'page': 4, 'type': 'heading', 'text': 'Spotlight'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'The National Weather Center in Norman, Oklahoma, collects enormous amounts of weather '
+                     "data every day. Meteorologists don't examine every measurement by hand. Instead, "
+                     'computer programs use loops to process thousands of readings automatically. A program '
+                     'might search for the highest recorded temperature, calculate the average rainfall, count '
+                     'how many counties received severe weather warnings, or stop searching as soon as it '
+                     "detects dangerous conditions. These tasks rely on the same loop techniques you'll learn "
+                     'in this lesson.'},
+            {'page': 4, 'type': 'heading', 'text': 'Section 1 – Stopping a Loop with break'},
+            {'page': 4,
+             'type': 'rich_paragraph',
+             'html': 'Sometimes a program finishes its job before the loop naturally ends. The <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">break statement</span> immediately exits the current loop.'},
+            {'page': 4, 'type': 'heading', 'text': 'Example'},
+            {'page': 4,
+             'type': 'code',
+             'text': 'for number in range(1, 11):\n'
+                     '    if number == 6:\n'
+                     '        break\n'
+                     '\n'
+                     '    print(number)\n'
+                     '\n'
+                     'Output\n'
+                     '1\n'
+                     '2\n'
+                     '3\n'
+                     '4\n'
+                     '5'},
+            {'page': 4, 'type': 'paragraph', 'text': 'As soon as Python reaches break, the loop ends.'},
+            {'page': 4, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 4,
+             'type': 'quiz',
+             'question': 'What is printed?\n'
+                         '\n'
+                         'for letter in "python":\n'
+                         '    if letter == "h":\n'
+                         '        break\n'
+                         '\n'
+                         '    print(letter)',
+             'options': ['A. py', 'B. python', 'C. pyt', 'D. thon'],
+             'answer': 'A. py'},
+            {'page': 4, 'type': 'heading', 'text': 'Section 2 – Skipping an Iteration with continue'},
+            {'page': 4,
+             'type': 'rich_paragraph',
+             'html': 'Unlike break, <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">continue</span> does not stop the loop. Instead, it '
+                     'skips the rest of the current iteration and moves to the next one.'},
+            {'page': 4,
+             'type': 'code',
+             'text': 'for number in range(1, 8):\n'
+                     '    if number % 2 == 0:\n'
+                     '        continue\n'
+                     '\n'
+                     '    print(number)\n'
+                     '\n'
+                     'Output\n'
+                     '1\n'
+                     '3\n'
+                     '5\n'
+                     '7'},
+            {'page': 4, 'type': 'paragraph', 'text': 'Even numbers are skipped.'},
+            {'page': 4, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 4,
+             'type': 'quiz',
+             'question': 'What prints?\n\nfor i in range(5):\n    if i == 2:\n        continue\n\n    print(i)',
+             'options': ['A. 0\n1\n2\n3\n4', 'B. 0\n1\n3\n4', 'C. 2\n3\n4', 'D. 0\n1'],
+             'answer': 'B. 0\n1\n3\n4'},
+            {'page': 4, 'type': 'heading', 'text': 'Section 3 – Placeholder Code with pass'},
+            {'page': 4,
+             'type': 'rich_paragraph',
+             'html': "Sometimes you're still writing a program and haven't finished part of it yet. Python "
+                     'requires every block of code to contain at least one statement. The <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">pass statement</span> tells Python: "Do nothing for now."'},
+            {'page': 4, 'type': 'heading', 'text': 'Example'},
+            {'page': 4, 'type': 'code', 'text': 'if score > 90:\n    pass'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': "This allows the program to run even though the code isn't finished. Unlike break and "
+                     "continue, pass doesn't affect how the loop runs."},
+            {'page': 4, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 4,
+             'type': 'quiz',
+             'question': 'What does pass do?',
+             'options': ['A. Ends the loop',
+                         'B. Skips an iteration',
+                         'C. Does nothing',
+                         'D. Restarts the loop'],
+             'answer': 'C. Does nothing'},
+            {'page': 4, 'type': 'heading', 'text': 'Section 4 – Counting'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'One of the most common tasks in programming is counting. Rather than simply printing '
+                     'every value in a collection, we often want to answer questions such as:'},
+            {'page': 4,
+             'type': 'list',
+             'items': ['How many students passed the exam?',
+                       'How many temperatures were above 90°F?',
+                       'How many vowels appear in a word?',
+                       'How many basketball players scored at least 20 points?']},
+            {'page': 4,
+             'type': 'rich_paragraph',
+             'html': 'Whenever you\'re trying to answer a question that begins with "How many...?", you\'ll '
+                     'almost always use a <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">counter</span>. A counter is simply a variable that '
+                     'keeps track of how many times something has happened. Counters usually start at 0 '
+                     'because, before the loop begins, nothing has been counted yet. As the loop examines each '
+                     'item, it checks whether the item meets a certain condition. If it does, the counter '
+                     'increases by one.'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'For example, suppose we want to count how many even numbers appear in a list.'},
+            {'page': 4,
+             'type': 'code',
+             'text': 'numbers = [3, 8, 5, 2, 10]\n'
+                     'count = 0\n'
+                     '\n'
+                     'for number in numbers:\n'
+                     '    if number % 2 == 0:\n'
+                     '        count += 1\n'
+                     '\n'
+                     'print(count)\n'
+                     '\n'
+                     'Output\n'
+                     '3'},
+            {'page': 4, 'type': 'paragraph', 'text': "Let's trace the program."},
+            {'page': 4,
+             'type': 'table',
+             'headers': ['Current Number', 'Even?', 'Count'],
+             'rows': [['3', 'No', '0'],
+                      ['8', 'Yes', '1'],
+                      ['5', 'No', '1'],
+                      ['2', 'Yes', '2'],
+                      ['10', 'Yes', '3']]},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'Notice that the variable count only changes when the condition is true. Numbers that are '
+                     'not even simply leave the counter unchanged. This counting pattern appears throughout '
+                     "computer science. Whether you're counting wins in a game, customers who made a purchase, "
+                     'or words in a document, the overall structure of the algorithm stays almost exactly the '
+                     'same.'},
+            {'page': 4, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 4,
+             'type': 'quiz',
+             'question': 'What will count equal after this program finishes?\n'
+                         '\n'
+                         'letters = "banana"\n'
+                         'count = 0\n'
+                         '\n'
+                         'for letter in letters:\n'
+                         '    if letter == "a":\n'
+                         '        count += 1',
+             'options': ['A. 2', 'B. 4', 'C. 6', 'D. 3'],
+             'answer': 'D. 3'},
+            {'page': 4, 'type': 'heading', 'text': 'Section 5 – Summing Values'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': "Sometimes we don't want to count items—we want to find their total. Imagine a teacher "
+                     "adding together students' test scores, a cashier totaling the prices of groceries, or a "
+                     'fitness app calculating the number of calories burned during the week. In each case, we '
+                     'repeatedly add values together to produce one final total.'},
+            {'page': 4,
+             'type': 'rich_paragraph',
+             'html': 'This process is called <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">accumulation</span>. An <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">accumulator</span> is a variable that stores a running total as a loop '
+                     'executes. Like counters, accumulators usually begin at 0. However, instead of increasing '
+                     'by 1, an accumulator increases by whatever value is currently being processed.'},
+            {'page': 4, 'type': 'paragraph', 'text': 'Consider the following example.'},
+            {'page': 4,
+             'type': 'code',
+             'text': 'numbers = [4, 8, 3]\n'
+                     'total = 0\n'
+                     '\n'
+                     'for number in numbers:\n'
+                     '    total += number\n'
+                     '\n'
+                     'print(total)\n'
+                     '\n'
+                     'Output\n'
+                     '15'},
+            {'page': 4, 'type': 'paragraph', 'text': "Let's trace the program."},
+            {'page': 4,
+             'type': 'table',
+             'headers': ['Current Number', 'Running Total'],
+             'rows': [['Start', '0'], ['4', '4'], ['8', '12'], ['3', '15']]},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'Notice that the accumulator grows larger every iteration because each new value is added '
+                     'to the previous total. This pattern is one of the most useful techniques in programming. '
+                     'It can be used to calculate totals, averages, distances traveled, money earned, game '
+                     'scores, and countless other quantities.'},
+            {'page': 4, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 4,
+             'type': 'quiz',
+             'question': 'What prints after this program finishes?\n'
+                         '\n'
+                         'total = 0\n'
+                         '\n'
+                         'for n in [2, 5, 7]:\n'
+                         '    total += n\n'
+                         '\n'
+                         'print(total)',
+             'options': ['A. 7', 'B. 9', 'C. 12', 'D. 14'],
+             'answer': 'D. 14'},
+            {'page': 4, 'type': 'heading', 'text': 'Section 6 – Finding the Largest Value'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'Another common problem in programming is finding the largest (or maximum) value in a '
+                     'collection. Imagine a teacher wants to find the highest exam score in a class, a weather '
+                     'station wants to determine the hottest temperature of the week, or a basketball coach '
+                     'wants to know which player scored the most points in a game. Rather than comparing every '
+                     'value by hand, we can write a loop that keeps track of the largest value seen so far.'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'To do this, we create a variable that stores the current largest value. A common mistake '
+                     'is to initialize this variable to 0, since some collections may contain only negative '
+                     'numbers. Instead, we usually begin by assuming that the first element is the largest. '
+                     'Then, as the loop examines each remaining value, it compares that value to the current '
+                     'largest. If the new value is larger, we update our variable. By the time the loop '
+                     'finishes, the variable will contain the largest value in the collection.'},
+            {'page': 4, 'type': 'paragraph', 'text': 'Consider the following example.'},
+            {'page': 4,
+             'type': 'code',
+             'text': 'scores = [87, 92, 75, 98, 81]\n'
+                     'largest = scores[0]\n'
+                     '\n'
+                     'for score in scores:\n'
+                     '    if score > largest:\n'
+                     '        largest = score\n'
+                     '\n'
+                     'print(largest)\n'
+                     '\n'
+                     'Output\n'
+                     '98'},
+            {'page': 4, 'type': 'paragraph', 'text': "Let's trace the program."},
+            {'page': 4,
+             'type': 'table',
+             'headers': ['Current Score', 'Largest So Far'],
+             'rows': [['Start (87)', '87'],
+                      ['87', '87'],
+                      ['92', '92'],
+                      ['75', '92'],
+                      ['98', '98'],
+                      ['81', '98']]},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'Notice that largest only changes when a larger value is found. Smaller values are '
+                     'ignored because they cannot become the maximum. Finding the smallest value follows '
+                     'exactly the same pattern. The only difference is that we use the < operator instead of '
+                     '>. This algorithm is used constantly in real-world software. Search engines rank the '
+                     'highest-scoring results, fitness apps record your fastest run, and weather programs '
+                     'report the hottest or coldest temperatures using this same idea.'},
+            {'page': 4, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 4,
+             'type': 'quiz',
+             'question': 'What is printed after this program finishes?\n'
+                         '\n'
+                         'values = [4, 9, 2]\n'
+                         'largest = values[0]\n'
+                         '\n'
+                         'for value in values:\n'
+                         '    if value > largest:\n'
+                         '        largest = value\n'
+                         '\n'
+                         'print(largest)',
+             'options': ['A. 2', 'B. 4', 'C. 9', 'D. 15'],
+             'answer': 'C. 9'},
+            {'page': 4, 'type': 'heading', 'text': 'Section 7 – Searching'},
+            {'page': 4,
+             'type': 'rich_paragraph',
+             'html': "Sometimes we aren't interested in counting values or finding the largest one. Instead, "
+                     'we simply want to know whether a particular value exists. This process is called <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">searching</span>. Searching is one of the most common tasks in '
+                     "computer science. Every time you search your contacts for a friend's name, look for a "
+                     'song in a playlist, or search for a product in an online store, a computer is searching '
+                     'through data.'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'A simple way to search is to examine each item one at a time until the desired value is '
+                     'found. Suppose we want to determine whether the name "Maria" appears in a list.'},
+            {'page': 4,
+             'type': 'code',
+             'text': 'names = ["Alex", "Maria", "Jordan"]\n'
+                     'found = False\n'
+                     '\n'
+                     'for name in names:\n'
+                     '    if name == "Maria":\n'
+                     '        found = True\n'
+                     '        break\n'
+                     '\n'
+                     'print(found)\n'
+                     '\n'
+                     'Output\n'
+                     'True'},
+            {'page': 4, 'type': 'paragraph', 'text': "Let's trace the program."},
+            {'page': 4,
+             'type': 'table',
+             'headers': ['Current Name', 'Found?'],
+             'rows': [['Start', 'False'], ['Alex', 'False'], ['Maria', 'True'], ['Loop Ends', 'True']]},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'Notice that as soon as "Maria" is found, the program executes the break statement. Since '
+                     "we've already answered our question, there is no reason to continue checking the "
+                     'remaining names. Using break makes programs more efficient because it prevents '
+                     'unnecessary work. If a list contains thousands of items, stopping early can save a '
+                     'significant amount of time. Not every search uses break. Sometimes we need to examine '
+                     "every item in a collection, even after finding a match. However, when we're only "
+                     'interested in whether an item exists, stopping early is often the best choice.'},
+            {'page': 4, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 4,
+             'type': 'quiz',
+             'question': 'Why is break useful in the previous example?',
+             'options': ['A. It restarts the search.',
+                         'B. It skips every other item.',
+                         'C. It counts the items.',
+                         'D. It prevents unnecessary iterations after the item is found.'],
+             'answer': 'D. It prevents unnecessary iterations after the item is found.'},
+            {'page': 4, 'type': 'heading', 'text': 'Section 8 – Mini Project: Weather Data Analyzer'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'A weather station recorded the following daily high temperatures.'},
+            {'page': 4, 'type': 'code', 'text': 'temperatures = [91, 85, 88, 94, 99, 86, 90]'},
+            {'page': 4, 'type': 'paragraph', 'text': 'Write a program that:'},
+            {'page': 4,
+             'type': 'list',
+             'items': ['1. Calculates the average temperature.',
+                       '2. Finds the hottest temperature.',
+                       '3. Counts how many days were at least 90°F.',
+                       '4. Stops searching if a temperature of 100°F is found.']},
+            {'page': 4, 'type': 'heading', 'text': 'Challenge'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': 'Modify the program so the user enters temperatures until they type -1. Then display all '
+                     'of the same statistics.'},
+            {'page': 4, 'type': 'heading', 'text': 'Key Takeaways'},
+            {'page': 4, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
+            {'page': 4,
+             'type': 'list',
+             'items': ['Use break to exit a loop early.',
+                       'Use continue to skip an iteration.',
+                       'Explain the purpose of pass.',
+                       'Count values that satisfy a condition.',
+                       'Calculate running totals with accumulators.',
+                       'Find the largest or smallest value in a collection.',
+                       'Search a collection efficiently using loops.']},
+            {'page': 4, 'type': 'heading', 'text': 'Looking Ahead'},
+            {'page': 4,
+             'type': 'paragraph',
+             'text': "So far, you've learned how to store data in variables and collections and process that "
+                     "data using loops. In the next unit, you'll learn how to organize larger programs by "
+                     'writing your own reusable functions, allowing you to break complex problems into '
+                     'smaller, manageable pieces.'}]},
     "functions_modularity": {
 
         "id": "functions_modularity",
