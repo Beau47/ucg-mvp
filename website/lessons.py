@@ -4869,7 +4869,7 @@ print(f"Total: ${total}")
     },
     "loops": {'id': 'loops',
  'lesson_number': '4',
- 'description': 'Lesson 4.0 - While Loops. Lesson 4.1 - For Loops. Repeat tasks with conditions, counters, collections, and ranges.',
+ 'description': 'Lesson 4.0 - While Loops. Lesson 4.1 - For Loops. Lesson 4.2 - Nested Loops. Repeat tasks with conditions, collections, ranges, and nested structures.',
  'title': 'Loops',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 4.0 – While Loops'},
             {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 60–75 minutes'},
@@ -5705,7 +5705,283 @@ print(f"Total: ${total}")
              'text': "So far, we've used loops to process one collection at a time. But what if we have a "
                      'collection inside another collection? For example, imagine a classroom seating chart, a '
                      "game board, or a multiplication table. In the next lesson, you'll learn about nested "
-                     'loops, where one loop runs inside another to solve more complex problems.'}]},
+                     'loops, where one loop runs inside another to solve more complex problems.'},
+            {'page': 3, 'type': 'heading', 'text': 'Lesson 4.2 – Nested Loops'},
+            {'page': 3, 'type': 'paragraph', 'text': 'Estimated Time: 20 minutes'},
+            {'page': 3, 'type': 'heading', 'text': 'Prerequisites'},
+            {'page': 3,
+             'type': 'list',
+             'items': ['Lesson 1.0 – Variables & Data Types',
+                       'Lesson 1.1 – Using Variables',
+                       'Lesson 2 – Teaching Programs to Make Decisions',
+                       'Lesson 3.0 – Tuples',
+                       'Lesson 3.1 – Lists, Mutation & Aliasing',
+                       'Lesson 3.2 – Dictionaries: Organizing Information with Keys',
+                       'Lesson 4.0 – While Loops',
+                       'Lesson 4.1 – For Loops']},
+            {'page': 3, 'type': 'heading', 'text': 'Learning Objectives & Vocabulary'},
+            {'page': 3, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
+            {'page': 3,
+             'type': 'list',
+             'items': ['Explain what a nested loop is.',
+                       'Predict how many times nested loops execute.',
+                       'Trace nested loops step by step.',
+                       'Create simple text-based patterns.',
+                       'Use nested loops to solve two-dimensional problems.']},
+            {'page': 3, 'type': 'heading', 'text': 'Vocabulary'},
+            {'page': 3,
+             'type': 'rich_paragraph',
+             'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">Nested Loop</span> &nbsp; <span style="background:#fff1df; '
+                     'color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">Outer Loop</span> '
+                     '&nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">Inner Loop</span>'},
+            {'page': 3, 'type': 'heading', 'text': 'Introduction'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': "So far, we've used one loop at a time. Sometimes, however, a problem requires repeating "
+                     'another repetition. Imagine a teacher who wants to print attendance for every student in '
+                     'every classroom, or a game developer who needs to examine every square on a game board. '
+                     "In these situations, one loop isn't enough. Instead, we place one loop inside another. "
+                     'This is called a nested loop.'},
+            {'page': 3, 'type': 'heading', 'text': 'Spotlight'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'GoldFire Studios is an independent video game studio founded in Oklahoma City in 2008. '
+                     'The studio creates games for players around the world, including titles like Arctic '
+                     'Awakening, Exocraft, and CasinoRPG. Their mission is to create interactive stories that '
+                     'connect people through gaming.'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'Many games are built using nested loops. Imagine a game map made of rows and columns. To '
+                     'draw the map or check every tile for obstacles, a program uses an outer loop to move '
+                     'through each row and an inner loop to visit every column within that row. Both outer and '
+                     'inner loops may sound confusing now, but they will be discussed in the next section. '
+                     'With just two loops, the game can process an entire world—whether it contains 100 tiles '
+                     "or 100,000. As you learn nested loops, you're practicing one of the same programming "
+                     'techniques that game developers use to build interactive worlds.'},
+            {'page': 3, 'type': 'heading', 'text': 'Section 1 – What Is a Nested Loop?'},
+            {'page': 3,
+             'type': 'rich_paragraph',
+             'html': 'Recall from the introduction that a <span style="background:#fff1df; color:#c74716; '
+                     'padding:2px 7px; border-radius:6px; font-weight:600;">nested loop</span> is a loop '
+                     'placed inside another loop. The outside loop is called the <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">outer loop</span>. The inside loop is called the <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">inner loop</span>.'},
+            {'page': 3, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 3,
+             'type': 'code',
+             'text': 'for row in range(3):\n    for column in range(4):\n        print("*")'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'Be careful, however, because the output of this code is NOT:'},
+            {'page': 3, 'type': 'code', 'text': '****\n****\n****'},
+            {'page': 3, 'type': 'paragraph', 'text': 'The output is actually,'},
+            {'page': 3, 'type': 'code', 'text': '*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*\n*'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'Notice that there are 12 stars because the outer loop runs 3 times. During each outer '
+                     'loop iteration, the inner loop runs 4 times. So the total number of stars is correct, '
+                     'but the format is not what we really wanted our code to output based on what we named '
+                     'our loop variables.'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'The key idea to remember is this: the outer loop controls the rows, while the inner loop '
+                     'controls the columns. Notice that every time the outer loop repeats, the inner loop '
+                     'starts over from the beginning.'},
+            {'page': 3,
+             'type': 'tip',
+             'text': "This example is actually useful because it shows that nested loops don't automatically "
+                     'create rows and columns. Since print() moves to a new line after every call, each * '
+                     'appears on its own line.'},
+            {'page': 3, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 3,
+             'type': 'quiz',
+             'question': 'How many loops are in the following program?\n'
+                         '\n'
+                         'for x in range(2):\n'
+                         '    for y in range(5):\n'
+                         '        print(x, y)',
+             'options': ['A. Two', 'B. One', 'C. Three', 'D. Five'],
+             'answer': 'A. Two'},
+            {'page': 3, 'type': 'heading', 'text': 'Section 2 – Tracing a Nested Loop'},
+            {'page': 3, 'type': 'paragraph', 'text': "Let's examine what actually happens."},
+            {'page': 3,
+             'type': 'code',
+             'text': 'for row in range(2):\n'
+                     '    print("Row", row)\n'
+                     '\n'
+                     '    for column in range(3):\n'
+                     '        print(column)'},
+            {'page': 3, 'type': 'heading', 'text': 'Outer Loop (Iteration 1)'},
+            {'page': 3, 'type': 'code', 'text': 'row = 0\n\nOutput\nRow 0'},
+            {'page': 3, 'type': 'paragraph', 'text': 'Now the inner loop begins.'},
+            {'page': 3, 'type': 'code', 'text': 'column = 0\ncolumn = 1\ncolumn = 2\n\nOutput\n0\n1\n2'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'The inner loop finishes. Python returns to the outer loop.'},
+            {'page': 3, 'type': 'heading', 'text': 'Outer Loop (Iteration 2)'},
+            {'page': 3, 'type': 'code', 'text': 'row = 1\n\nOutput\nRow 1'},
+            {'page': 3, 'type': 'paragraph', 'text': 'The inner loop starts again.'},
+            {'page': 3, 'type': 'code', 'text': 'column = 0\ncolumn = 1\ncolumn = 2\n\nOutput\n0\n1\n2'},
+            {'page': 3, 'type': 'paragraph', 'text': 'Complete output'},
+            {'page': 3, 'type': 'code', 'text': 'Row 0\n0\n1\n2\nRow 1\n0\n1\n2'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'Notice that the inner loop completely finishes every time the outer loop runs once.'},
+            {'page': 3, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 3,
+             'type': 'quiz',
+             'question': 'How many total times is the inner loop executed?\n'
+                         '\n'
+                         'for i in range(4):\n'
+                         '    for j in range(2):\n'
+                         '        print(j)',
+             'options': ['A. 2', 'B. 8', 'C. 4', 'D. 6'],
+             'answer': 'B. 8'},
+            {'page': 3, 'type': 'heading', 'text': 'Section 3 – Creating Patterns'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'Nested loops are commonly used to create patterns. Suppose we want to print four stars '
+                     'on three different lines.'},
+            {'page': 3,
+             'type': 'code',
+             'text': 'for row in range(3):\n'
+                     '    for column in range(4):\n'
+                     '        print("*", end="")\n'
+                     '    print()\n'
+                     '\n'
+                     'Output\n'
+                     '****\n'
+                     '****\n'
+                     '****'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'The inner loop prints one row. The outer loop decides how many rows to create. Changing '
+                     'either loop changes the size of the pattern.'},
+            {'page': 3, 'type': 'heading', 'text': 'Example'},
+            {'page': 3,
+             'type': 'code',
+             'text': 'for row in range(5):\n'
+                     '    for column in range(2):\n'
+                     '        print("#", end="")\n'
+                     '    print()\n'
+                     '\n'
+                     'Output\n'
+                     '##\n'
+                     '##\n'
+                     '##\n'
+                     '##\n'
+                     '##'},
+            {'page': 3, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 3,
+             'type': 'quiz',
+             'question': 'What does this program print?\n'
+                         '\n'
+                         'for row in range(2):\n'
+                         '    for column in range(3):\n'
+                         '        print("@", end="")\n'
+                         '    print()',
+             'options': ['A. @@@@@@', 'B. @\n@@\n@@@', 'C. @@@\n@@@', 'D. @@\n@@\n@@'],
+             'answer': 'C. @@@\n@@@'},
+            {'page': 3, 'type': 'heading', 'text': 'Section 4 – Nested Loops with Collections'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'Nested loops are useful when working with collections inside other collections. For '
+                     'example, imagine storing classroom seating assignments in a classroom set up in rows.'},
+            {'page': 3,
+             'type': 'code',
+             'text': 'classroom = [\n    ["Alex", "Maria", "Jordan"],\n    ["Sophia", "Liam", "Emma"]\n]'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': "Each inner list represents one row of students. We can print every student's name using "
+                     'nested loops.'},
+            {'page': 3,
+             'type': 'code',
+             'text': 'for row in classroom:\n'
+                     '    for student in row:\n'
+                     '        print(student)\n'
+                     '\n'
+                     'Output\n'
+                     'Alex\n'
+                     'Maria\n'
+                     'Jordan\n'
+                     'Sophia\n'
+                     'Liam\n'
+                     'Emma'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'Nested loops allow us to process every item, even when collections contain other '
+                     'collections.'},
+            {'page': 3, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 3,
+             'type': 'quiz',
+             'question': 'Which type of data is often processed using nested loops?',
+             'options': ['A. A single integer',
+                         'B. A Boolean value',
+                         'C. A single string',
+                         'D. A list containing other lists'],
+             'answer': 'D. A list containing other lists'},
+            {'page': 3, 'type': 'heading', 'text': 'Section 5 – How Many Times Does a Nested Loop Run?'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'A useful way to think about nested loops is multiplication.'},
+            {'page': 3, 'type': 'paragraph', 'text': 'Suppose we have'},
+            {'page': 3,
+             'type': 'code',
+             'text': 'for row in range(5):\n    for column in range(4):\n        print("*")'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'The outer loop runs 5 times. Each time, the inner loop runs 4 times.'},
+            {'page': 3, 'type': 'paragraph', 'text': 'Total executions:'},
+            {'page': 3, 'type': 'code', 'text': '5 × 4 = 20'},
+            {'page': 3, 'type': 'paragraph', 'text': 'In general,'},
+            {'page': 3,
+             'type': 'code',
+             'text': 'Total inner loop iterations = (Outer Loop Iterations) × (Inner Loop Iterations)'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'This idea becomes very important when analyzing the efficiency of programs.'},
+            {'page': 3, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 3,
+             'type': 'quiz',
+             'question': 'How many stars are printed?\n'
+                         '\n'
+                         'for i in range(6):\n'
+                         '    for j in range(3):\n'
+                         '        print("*")',
+             'options': ['A. 18', 'B. 9', 'C. 12', 'D. 36'],
+             'answer': 'A. 18'},
+            {'page': 3, 'type': 'heading', 'text': 'Section 6 – Mini Project: Draw a Rectangle'},
+            {'page': 3, 'type': 'paragraph', 'text': 'Write a program that asks the user for'},
+            {'page': 3, 'type': 'list', 'items': ['the number of rows', 'the number of columns']},
+            {'page': 3, 'type': 'paragraph', 'text': 'Then use nested loops to draw a rectangle of stars.'},
+            {'page': 3, 'type': 'heading', 'text': 'Example'},
+            {'page': 3, 'type': 'code', 'text': 'Rows: 3\nColumns: 5\n\n*****\n*****\n*****'},
+            {'page': 3, 'type': 'heading', 'text': 'Challenge'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': 'Modify your program so that it prints the row number before each row.'},
+            {'page': 3, 'type': 'heading', 'text': 'Example'},
+            {'page': 3, 'type': 'code', 'text': 'Row 1: *****\nRow 2: *****\nRow 3: *****'},
+            {'page': 3, 'type': 'heading', 'text': 'Key Takeaways'},
+            {'page': 3, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
+            {'page': 3,
+             'type': 'list',
+             'items': ['Explain what a nested loop is.',
+                       'Distinguish between the outer and inner loops.',
+                       'Trace nested loops step by step.',
+                       'Create simple text patterns.',
+                       'Use nested loops to process two-dimensional collections.']},
+            {'page': 3, 'type': 'heading', 'text': 'Looking Ahead'},
+            {'page': 3,
+             'type': 'paragraph',
+             'text': "Sometimes, a loop shouldn't continue until it naturally finishes. You may want to stop a "
+                     'loop early, skip certain iterations, or leave a placeholder while writing code. In the '
+                     "next lesson, you'll learn how to control loop execution using the break, continue, and "
+                     'pass statements.'}]},
     "functions_modularity": {
 
         "id": "functions_modularity",
