@@ -4869,8 +4869,7 @@ print(f"Total: ${total}")
     },
     "loops": {'id': 'loops',
  'lesson_number': '4',
- 'description': 'Lesson 4.0 - While Loops. Repeat tasks with conditions, counters, and sentinel '
-                'values while avoiding infinite loops.',
+ 'description': 'Lesson 4.0 - While Loops. Lesson 4.1 - For Loops. Repeat tasks with conditions, counters, collections, and ranges.',
  'title': 'Loops',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 4.0 – While Loops'},
             {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 60–75 minutes'},
@@ -5385,7 +5384,328 @@ print(f"Total: ${total}")
                      'the for loop, which automatically repeats once for each item in a collection '
                      "or over a sequence of numbers. In the next lesson, you'll learn how for "
                      'loops simplify many repetitive tasks and become one of the most commonly '
-                     'used tools in programming.'}]},
+                     'used tools in programming.'},
+            {'page': 2, 'type': 'heading', 'text': 'Lesson 4.1 – For Loops'},
+            {'page': 2, 'type': 'paragraph', 'text': 'Estimated Time: 30 minutes'},
+            {'page': 2, 'type': 'heading', 'text': 'Prerequisites'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Lesson 1.0 – Variables & Data Types',
+                       'Lesson 1.1 – Using Variables',
+                       'Lesson 2 – Teaching Programs to Make Decisions',
+                       'Lesson 3.0 – Tuples',
+                       'Lesson 3.1 – Lists, Mutation & Aliasing',
+                       'Lesson 3.2 – Dictionaries: Organizing Information with Keys',
+                       'Lesson 4.0 – While Loops']},
+            {'page': 2, 'type': 'heading', 'text': 'Learning Objectives & Vocabulary'},
+            {'page': 2, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Explain why for loops are useful.',
+                       'Iterate through strings, tuples, lists, and dictionaries.',
+                       'Use the range() function.',
+                       'Use the loop variable.',
+                       'Explain the difference between for and while loops.']},
+            {'page': 2, 'type': 'heading', 'text': 'Word Bank'},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">For Loop</span> &nbsp; <span style="background:#fff1df; color:#c74716; '
+                     'padding:2px 7px; border-radius:6px; font-weight:600;">Loop Variable</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">Iterable</span> &nbsp; <span style="background:#fff1df; color:#c74716; '
+                     'padding:2px 7px; border-radius:6px; font-weight:600;">range()</span>'},
+            {'page': 2, 'type': 'heading', 'text': 'Introduction'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'In the previous lesson, we learned how while loops repeat a block of code while a '
+                     'condition remains True. For instance,'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'count = 1\n\nwhile count <= 5:\n    print(count)\n    count += 1'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'This works well whenever we want to repeat code until something happens. However, many '
+                     "programming tasks don't involve repeating until a condition changes. Instead, we want to "
+                     'repeat once for every item in a collection.'},
+            {'page': 2, 'type': 'paragraph', 'text': "Imagine printing every student's name in a class roster."},
+            {'page': 2,
+             'type': 'code',
+             'text': 'students = [\n    "Jordan",\n    "Maria",\n    "Alex",\n    "Taylor"\n]'},
+            {'page': 2, 'type': 'paragraph', 'text': 'Without loops, we would need to write'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'print(students[0])\nprint(students[1])\nprint(students[2])\nprint(students[3])'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'This quickly becomes impractical if the class has 30 students or if new students are '
+                     "added throughout the year. Instead, we'd like Python to automatically visit each student "
+                     'one at a time.'},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': 'This is exactly what a <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">for loop</span> does. A for loop repeats a block of '
+                     'code once for every element in a collection.'},
+            {'page': 2, 'type': 'heading', 'text': 'Spotlight'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "Basketball isn't just played on the court—it's also analyzed with code. Teams like the "
+                     'Oklahoma City Thunder collect thousands of pieces of data during every game, including '
+                     'points, rebounds, assists, shot locations, passes, player speed, and defensive '
+                     'positioning. Programmers and data analysts write software to process this information '
+                     'and help coaches make better decisions.'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'One common programming tool for analyzing sports data is the for loop. For example, a '
+                     "program might use a for loop to examine every player's statistics, calculate the team's "
+                     'average shooting percentage, or count how many three-pointers were made in a game. '
+                     'Rather than writing separate code for every player, a single for loop can automatically '
+                     "process the entire roster. As you learn Python, you'll begin using the same type of "
+                     'programming techniques that data analysts use to understand sports, improve team '
+                     'performance, and turn raw numbers into meaningful insights.'},
+            {'page': 2, 'type': 'heading', 'text': 'Section 1 – Writing Your First For Loop'},
+            {'page': 2, 'type': 'paragraph', 'text': 'The general syntax of a for loop is'},
+            {'page': 2, 'type': 'code', 'text': 'for variable in collection:\n    # code to repeat'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Unlike a while loop, a for loop does not require a Boolean condition or a counter. '
+                     'Instead, Python automatically visits each element in the collection. For example,'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'students = [\n'
+                     '    "Jordan",\n'
+                     '    "Maria",\n'
+                     '    "Alex"\n'
+                     ']\n'
+                     '\n'
+                     'for student in students:\n'
+                     '    print(student)\n'
+                     '\n'
+                     'Output\n'
+                     'Jordan\n'
+                     'Maria\n'
+                     'Alex'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Notice that the variable student changes automatically during each iteration.'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'During the first iteration, student stores Jordan. During the second iteration, student '
+                     'stores Maria. Finally, student stores Alex. Once every element has been processed, the '
+                     'loop ends automatically.'},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What is printed?\n'
+                         '\n'
+                         'colors = [\n'
+                         '    "Red",\n'
+                         '    "Blue",\n'
+                         '    "Green"\n'
+                         ']\n'
+                         '\n'
+                         'for color in colors:\n'
+                         '    print(color)',
+             'options': ['A. 0\n1\n2', 'B. Green\nBlue\nRed', 'C. An error', 'D. Red\nBlue\nGreen'],
+             'answer': 'D. Red\nBlue\nGreen'},
+            {'page': 2, 'type': 'heading', 'text': 'Section 2 – The Loop Variable'},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': 'The variable after the word for is called the <span style="background:#fff1df; '
+                     'color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">loop '
+                     'variable</span>. A loop variable stores one element from the collection during each '
+                     'iteration.'},
+            {'page': 2, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'numbers = [\n    10,\n    20,\n    30\n]\n\nfor number in numbers:\n    print(number)'},
+            {'page': 2, 'type': 'paragraph', 'text': 'The loop variable changes automatically.'},
+            {'page': 2,
+             'type': 'table',
+             'headers': ['Iteration', 'number'],
+             'rows': [['1', '10'], ['2', '20'], ['3', '30']]},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Notice that we never manually update number. Python does that for us. This is one of the '
+                     'biggest differences between a for loop and a while loop.'},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'In the following code,\n'
+                         '\n'
+                         'animals = [\n'
+                         '    "Dog",\n'
+                         '    "Cat",\n'
+                         '    "Bird"\n'
+                         ']\n'
+                         '\n'
+                         'for animal in animals:\n'
+                         '    print(animal)\n'
+                         '\n'
+                         'what is the loop variable?',
+             'options': ['A. animals', 'B. animal', 'C. print', 'D. Dog'],
+             'answer': 'B. animal'},
+            {'page': 2, 'type': 'heading', 'text': 'Section 3 – Iterating Through Different Collections'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'One of the greatest strengths of for loops is that they work with many different '
+                     'collection types.'},
+            {'page': 2, 'type': 'heading', 'text': 'Strings'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Since strings are sequential data types, a for loop visits one character at a time.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'for letter in "Python":\n    print(letter)\n\nOutput\nP\ny\nt\nh\no\nn'},
+            {'page': 2, 'type': 'heading', 'text': 'Tuples'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'coordinates = (\n    35.4,\n    -97.5\n)\n\nfor value in coordinates:\n    print(value)'},
+            {'page': 2, 'type': 'heading', 'text': 'Lists'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'foods = [\n'
+                     '    "Pizza",\n'
+                     '    "Tacos",\n'
+                     '    "Pho"\n'
+                     ']\n'
+                     '\n'
+                     'for food in foods:\n'
+                     '    print(food)'},
+            {'page': 2, 'type': 'heading', 'text': 'Dictionaries'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'By default, a for loop iterates over the keys of a dictionary.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'student = {\n'
+                     '    "name": "Jordan",\n'
+                     '    "grade": 11,\n'
+                     '    "gpa": 3.8\n'
+                     '}\n'
+                     '\n'
+                     'for key in student:\n'
+                     '    print(key)\n'
+                     '\n'
+                     'Output\n'
+                     'name\n'
+                     'grade\n'
+                     'gpa'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "We'll learn more about looping through dictionary values in a later lesson."},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Which collections can be used in a for loop?',
+             'options': ['A. Strings only',
+                         'B. Lists only',
+                         'C. Strings, tuples, lists, and dictionaries',
+                         'D. Tuples and lists only'],
+             'answer': 'C. Strings, tuples, lists, and dictionaries'},
+            {'page': 2, 'type': 'heading', 'text': 'Section 4 – The range() Function'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "Sometimes we don't want to loop through a collection. Instead, we simply want to repeat "
+                     'something a certain number of times. Python provides the range() function for this '
+                     'purpose.'},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': 'The <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">range() function</span> creates an <span style="background:#fff1df; '
+                     'color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">iterable</span>, '
+                     'which is an object that can be visited one element at a time by a for loop. In fact, '
+                     "every collection we've used so far—strings, tuples, lists, and dictionaries—is also an "
+                     "iterable. That's why each of them can be used in a for loop."},
+            {'page': 2,
+             'type': 'code',
+             'text': 'for number in range(5):\n    print(number)\n\nOutput\n0\n1\n2\n3\n4'},
+            {'page': 2, 'type': 'paragraph', 'text': 'Notice that counting begins at 0.'},
+            {'page': 2, 'type': 'paragraph', 'text': 'You can also specify a starting value.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'for number in range(1,6):\n    print(number)\n\nOutput\n1\n2\n3\n4\n5'},
+            {'page': 2, 'type': 'paragraph', 'text': 'The general form is'},
+            {'page': 2, 'type': 'code', 'text': 'range(start, stop)'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Python begins at start and stops before stop. You may also include a third argument to '
+                     'specify the step size.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'for number in range(0,11,2):\n    print(number)\n\nOutput\n0\n2\n4\n6\n8\n10'},
+            {'page': 2,
+             'type': 'tip',
+             'text': "If you remember how slicing works, you'll remember range(): start is included, stop is "
+                     'excluded, and step allows you to skip numbers.'},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What does this print?\n\nfor i in range(2,8,2):\n    print(i)',
+             'options': ['A. 2\n4\n6\n8', 'B. 0\n2\n4\n6', 'C. 2\n6\n8', 'D. 2\n4\n6'],
+             'answer': 'D. 2\n4\n6'},
+            {'page': 2, 'type': 'heading', 'text': 'Section 5 – Choosing Between while and for'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Both loops repeat code, but they are designed for different situations. Use a while loop '
+                     "when you don't know how many times the loop should execute."},
+            {'page': 2, 'type': 'paragraph', 'text': 'Examples include:'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Password validation', 'User menus', 'Waiting for valid input']},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Use a for loop when you want to process every element in a collection or repeat a known '
+                     'number of times.'},
+            {'page': 2, 'type': 'paragraph', 'text': 'Examples include:'},
+            {'page': 2,
+             'type': 'list',
+             'items': ["Printing every student's name",
+                       'Calculating the sum of a list',
+                       'Counting from 1 to 100']},
+            {'page': 2, 'type': 'paragraph', 'text': 'As a general rule:'},
+            {'page': 2,
+             'type': 'quote',
+             'text': "If you already know what you're looping over, a for loop is usually the better choice."},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Which loop would be the better choice for repeatedly asking a user to enter the '
+                         'correct password?',
+             'options': ['A. for', 'B. while'],
+             'answer': 'B. while'},
+            {'page': 2, 'type': 'heading', 'text': 'Section 6 – Mini Project: Classroom Grades'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "A teacher has stored her students' quiz scores in a list."},
+            {'page': 2, 'type': 'code', 'text': 'grades = [\n    92,\n    85,\n    100,\n    78,\n    95\n]'},
+            {'page': 2, 'type': 'paragraph', 'text': 'Using a for loop, complete the following tasks.'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['1. Print every grade.',
+                       '2. Count how many grades are greater than or equal to 90.',
+                       '3. Find the highest grade.',
+                       '4. Calculate the sum of all grades.',
+                       '5. Calculate the class average.']},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Challenge: Print only the grades that are passing (70 or higher).'},
+            {'page': 2, 'type': 'heading', 'text': 'Key Takeaways'},
+            {'page': 2, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Write for loops.',
+                       'Explain what a loop variable is.',
+                       'Iterate through strings, tuples, lists, and dictionaries.',
+                       'Use range() to repeat code a specific number of times.',
+                       'Choose between for and while loops.']},
+            {'page': 2, 'type': 'heading', 'text': 'Looking Ahead'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "So far, we've used loops to process one collection at a time. But what if we have a "
+                     'collection inside another collection? For example, imagine a classroom seating chart, a '
+                     "game board, or a multiplication table. In the next lesson, you'll learn about nested "
+                     'loops, where one loop runs inside another to solve more complex problems.'}]},
     "functions_modularity": {
 
         "id": "functions_modularity",
