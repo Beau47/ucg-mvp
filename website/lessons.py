@@ -905,18 +905,18 @@ customer = "Maria"
                 "text": "Spotlight - Mary G. Ross"
             },
 
-            {
-                "page": 1,
-                "type": "image_text",
-                "src": "/static/images/mary_g_ross.png",
-                "alt": "Mary G. Ross",
-                "caption": "Mary G. Ross",
-                "paragraphs": [
-                    "Mary G. Ross was the first known Indigenous American female engineer, and she was from Oklahoma.",
-                    "Working at Lockheed, she contributed to aerospace research and helped advance projects that influenced the Apollo space program.",
-                    "Like engineers today, she solved complex problems by organizing information carefully - a skill that programming also requires."
-                ]
-            },
+            {'page': 1,
+ 'type': 'paragraph',
+ 'text': 'Mary G. Ross was the first known Indigenous American female engineer, and she was from '
+         'Oklahoma.'},
+            {'page': 1,
+ 'type': 'paragraph',
+ 'text': 'Working at Lockheed, she contributed to aerospace research and helped advance projects '
+         'that influenced the Apollo space program.'},
+            {'page': 1,
+ 'type': 'paragraph',
+ 'text': 'Like engineers today, she solved complex problems by organizing information carefully - '
+         'a skill that programming also requires.'},
 
             {
                 "page": 1,
@@ -1673,17 +1673,11 @@ print(word[::-1])
                 "text": "Mini Project - Tulsa Food Truck"
             },
 
-            {
-                "page": 2,
-                "type": "image_text",
-                "src": "/static/images/tulsa_food_truck.png",
-                "alt": "Tulsa food truck menu",
-                "caption": "Food truck ordering project",
-                "paragraphs": [
-                    "Imagine you're building software for a local food truck.",
-                    "Your program should ask for the customer's name, ask which menu item they want, ask how many they want, calculate the total price, and display a receipt using f-strings."
-                ]
-            },
+            {'page': 2, 'type': 'paragraph', 'text': "Imagine you're building software for a local food truck."},
+            {'page': 2,
+ 'type': 'paragraph',
+ 'text': "Your program should ask for the customer's name, ask which menu item they want, ask how "
+         'many they want, calculate the total price, and display a receipt using f-strings.'},
 
             {
                 "page": 2,
@@ -1802,10 +1796,7 @@ print(f"Total: ${total}")
                          'style="background:#fff1df; color:#c74716; padding:2px 7px; '
                          'border-radius:6px; font-weight:600;">Indentation</span>'},
                 {'page': 1, 'type': 'heading', 'text': 'Introduction'},
-                {'page': 1,
-                 'type': 'image',
-                 'src': '/static/images/lesson2_community_center.png',
-                 'caption': ''},
+
                 {'page': 1,
                  'type': 'paragraph',
                  'text': "Imagine you're creating a website for a community center in Tulsa."},
@@ -2373,10 +2364,7 @@ print(f"Total: ${total}")
                  'options': ['A. Line 1', 'B. Line 2', 'C. Line 3', 'D. No errors'],
                  'answer': 'B. Line 2'},
                 {'page': 1, 'type': 'heading', 'text': 'Spotlight – Predicting Oklahoma Weather'},
-                {'page': 1,
-                 'type': 'image',
-                 'src': '/static/images/lesson2_oklahoma_weather.png',
-                 'caption': ''},
+
                 {'page': 1,
                  'type': 'paragraph',
                  'text': 'Oklahoma experiences some of the most severe weather in the United States.'},
@@ -2941,18 +2929,13 @@ print(f"Total: ${total}")
                 "type": "heading",
                 "text": "Oklahoma STEM Spotlight – Tracking Earthquakes"
             },
-            {
-                "page": 1,
-                "type": "image_text",
-                "src": "/static/images/lesson3_oklahoma_earthquake.png",
-                "alt": "A road cracked by an earthquake in Oklahoma",
-                "caption": "",
-                "paragraphs": [
-                    "Oklahoma experiences thousands of small earthquakes each year.",
-                    "Scientists at the Oklahoma Geological Survey (OGS) record information about every event.",
-                    "A single earthquake might be represented by values like"
-                ]
-            },
+            {'page': 1,
+ 'type': 'paragraph',
+ 'text': 'Oklahoma experiences thousands of small earthquakes each year.'},
+            {'page': 1,
+ 'type': 'paragraph',
+ 'text': 'Scientists at the Oklahoma Geological Survey (OGS) record information about every event.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'A single earthquake might be represented by values like'},
             {
                 "page": 1,
                 "type": "code",
@@ -4884,471 +4867,525 @@ print(f"Total: ${total}")
             }
         ]
     },
-    "loops": {
-
-    "id": "loops",
-
-    "lesson_number": "4",
-
-    "description": "Lesson 4.0 - Loops. Repeat tasks efficiently using for and while loops, ranges, and data processing techniques.",
-
-    "title": "Loops",
-
-    "blocks": [
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Unit 4: Loops"
-        },
-
-        {
-            "page": 1,
-            "type": "paragraph",
-            "text":
-            "By the end of this lesson, students will be able to use for and while loops, "
-            "control loops with break and continue, understand range(), and process data "
-            "from CSV files. Students will learn how computers repeat tasks efficiently "
-            "and how loops are used in real-world data systems."
-        },
-
-
-        {
-            "page": 1,
-            "type": "heading",
-            "text": "Vocabulary"
-        },
-
-        {
-            "page": 1,
-            "type": "list",
-            "items": [
-                "Loop - Code that repeats until a condition is met",
-                "range() - A Python function that generates a sequence of numbers",
-                "CSV - A spreadsheet-like file where values are separated by commas",
-                "Iteration - One repetition of a loop",
-                "break - A keyword that immediately exits a loop",
-                "continue - A keyword that skips the current iteration"
-            ]
-        },
-
-
-        {
-            "page": 1,
-            "type": "tip",
-            "text":
-            "Women of Color Spotlight: Lorena Mesa is a Latina Python Software Foundation "
-            "chair who has helped improve Python communities. Dr. Gladys West is a Black "
-            "mathematician whose work helped create modern GPS technology."
-        },
-
-
-        {
-            "page": 2,
-            "type": "heading",
-            "text": "Why Do We Use Loops?"
-        },
-
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text":
-            "Imagine you had to send the same message to 1,000 people. Instead of writing "
-            "the same code 1,000 times, a loop lets the computer repeat instructions "
-            "automatically."
-        },
-
-
-        {
-            "page": 2,
-            "type": "heading",
-            "text": "For Loops"
-        },
-
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text":
-            "A for loop is used when you know what you want to loop through. "
-            "This can be a list, string, or range of numbers."
-        },
-
-
-        {
-            "page": 2,
-            "type": "code",
-            "text":
-"""artists = [
-    "Rhapsody",
-    "Peso Pluma",
-    "Usher",
-    "Jhené Aiko"
-]
-
-for artist in artists:
-    print(f"{artist} stays on repeat!")
-"""
-        },
-
-
-        {
-            "page": 2,
-            "type": "paragraph",
-            "text":
-            "Your Turn: Create a list of your favorite artists or songs. "
-            "Use a for loop to print a message for each item."
-        },
-
-
-        {
-            "page": 3,
-            "type": "heading",
-            "text": "Using range()"
-        },
-
-
-        {
-            "page": 3,
-            "type": "paragraph",
-            "text":
-            "The range() function creates a sequence of numbers. "
-            "It is commonly used with for loops."
-        },
-
-
-        {
-            "page": 3,
-            "type": "code",
-            "text":
-"""for i in range(1, 6):
-    print(f"Verse {i}")
-"""
-        },
-
-
-        {
-            "page": 3,
-            "type": "paragraph",
-            "text":
-            "range(start, stop, step) allows you to control where counting begins, "
-            "where it ends, and how much it changes each time."
-        },
-
-
-        {
-            "page": 3,
-            "type": "code",
-            "text":
-"""for number in range(10, 0, -1):
-    print(number)
-
-print("Let's go!")
-"""
-        },
-
-
-        {
-            "page": 4,
-            "type": "heading",
-            "text": "Break and Continue"
-        },
-
-
-        {
-            "page": 4,
-            "type": "paragraph",
-            "text":
-            "break stops a loop completely. continue skips the current iteration "
-            "and moves to the next one."
-        },
-
-
-        {
-            "page": 4,
-            "type": "code",
-            "text":
-"""foods = [
-    "Wings",
-    "Tofu",
-    "Pork",
-    "Mac & Cheese"
-]
-
-for food in foods:
-
-    if food == "Pork":
-        continue
-
-    print(food)
-"""
-        },
-
-
-        {
-            "page": 4,
-            "type": "paragraph",
-            "text":
-            "Your Turn: Create a list and use continue to skip something. "
-            "Then use break to stop when a certain item appears."
-        },
-
-
-        {
-            "page": 5,
-            "type": "heading",
-            "text": "While Loops"
-        },
-
-
-        {
-            "page": 5,
-            "type": "paragraph",
-            "text":
-            "A while loop repeats while a condition remains True. "
-            "Use while loops when you do not know exactly how many repetitions you need."
-        },
-
-
-        {
-            "page": 5,
-            "type": "code",
-            "text":
-"""energy = 5
-
-while energy > 0:
-    print("Still working!")
-    energy -= 1
-
-print("Break time!")
-"""
-        },
-
-
-        {
-            "page": 5,
-            "type": "warning",
-            "text":
-            "Be careful! If the condition never becomes False, the loop will run forever."
-        },
-
-
-        {
-            "page": 6,
-            "type": "heading",
-            "text": "Working With CSV Files"
-        },
-
-
-        {
-            "page": 6,
-            "type": "paragraph",
-            "text":
-            "CSV files store information in rows and columns. Python can read these files "
-            "using the csv module."
-        },
-
-
-        {
-            "page": 6,
-            "type": "code",
-            "text":
-"""import csv
-
-with open("students.csv") as file:
-
-    reader = csv.DictReader(file)
-
-    for row in reader:
-
-        print(
-            f"{row['name']} lives in {row['city']}"
-        )
-"""
-        },
-
-
-        {
-            "page": 6,
-            "type": "tip",
-            "text":
-            "Loops are powerful because they allow programmers to analyze thousands "
-            "of rows of information quickly."
-        },
-
-
-        {
-            "page": 7,
-            "type": "heading",
-            "text": "Nested Loops"
-        },
-
-
-        {
-            "page": 7,
-            "type": "paragraph",
-            "text":
-            "A nested loop is a loop inside another loop. They are useful for searching "
-            "through groups of data, such as folders inside folders."
-        },
-
-
-        {
-            "page": 7,
-            "type": "code",
-            "text":
-"""domains = [
-    ".edu",
-    ".gov",
-    ".africa"
-]
-
-pages = [
-    "/home",
-    "/research",
-    "/team"
-]
-
-
-for domain in domains:
-
-    for page in pages:
-
-        print(
-            f"https://www{domain}{page}"
-        )
-"""
-        },
-
-
-        {
-            "page": 8,
-            "type": "heading",
-            "text": "Searching With Loops"
-        },
-
-
-        {
-            "page": 8,
-            "type": "paragraph",
-            "text":
-            "Linear search checks each item one by one. Binary search is faster because "
-            "it repeatedly cuts a sorted list in half."
-        },
-
-
-        {
-            "page": 8,
-            "type": "code",
-            "text":
-"""left = 0
-right = len(arr) - 1
-
-while left <= right:
-
-    mid = (left + right) // 2
-
-    if arr[mid] == target:
-        return mid
-
-    elif arr[mid] < target:
-        left = mid + 1
-
-    else:
-        right = mid - 1
-
-return -1
-"""
-        },
-
-
-        {
-            "page": 9,
-            "type": "heading",
-            "text": "Debug Challenge"
-        },
-
-
-        {
-            "page": 9,
-            "type": "paragraph",
-            "text":
-            "Find the error in this code:"
-        },
-
-
-        {
-            "page": 9,
-            "type": "code",
-            "text":
-"""for i in range(5)
-
-    print(i)
-"""
-        },
-
-
-        {
-            "page": 9,
-            "type": "paragraph",
-            "text":
-            "Hint: Python requires punctuation after certain statements."
-        },
-
-
-        {
-            "page": 9,
-            "type": "code",
-            "text":
-"""# Fixed version
-
-for i in range(5):
-
-    print(i)
-"""
-        },
-
-
-        {
-            "page": 10,
-            "type": "heading",
-            "text": "Practice Challenge"
-        },
-
-
-        {
-            "page": 10,
-            "type": "paragraph",
-            "text":
-            "Create a program that searches through a list of names and prints only "
-            "names that start with the letter A."
-        },
-
-
-        {
-            "page": 10,
-            "type": "code",
-            "text":
-"""names = [
-    "Ali",
-    "Beth",
-    "Andrew",
-    "Zane",
-    "Angela"
-]
-
-# Write your loop here
-"""
-        },
-        {
-            "page": 11,
-            "type": "exercise",
-            "problem": "count_up"
-        }
-
-    ]
-},
+    "loops": {'id': 'loops',
+ 'lesson_number': '4',
+ 'description': 'Lesson 4.0 - While Loops. Repeat tasks with conditions, counters, and sentinel '
+                'values while avoiding infinite loops.',
+ 'title': 'Loops',
+ 'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 4.0 – While Loops'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 60–75 minutes'},
+            {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Before beginning this lesson, you should understand:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Lesson 1.0 – Variables & Data Types',
+                       'Lesson 1.1 – Using Variables',
+                       'Lesson 2 – Teaching Programs to Make Decisions',
+                       'Lesson 3.0 – Tuples',
+                       'Lesson 3.1 – Lists, Mutation & Aliasing',
+                       'Lesson 3.2 – Dictionaries: Organizing Information with Keys']},
+            {'page': 1, 'type': 'heading', 'text': 'Learning Objectives & Vocabulary'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'By the end of this lesson, you should be able to:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Explain why loops are useful.',
+                       'Write while loops.',
+                       'Explain how loop conditions work.',
+                       'Use counters to control repetition.',
+                       'Identify and avoid infinite loops.',
+                       'Use while loops for simple input validation.']},
+            {'page': 1, 'type': 'heading', 'text': 'Word Bank'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">Loop</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">Iteration</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">While Loop</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">Condition</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">Counter</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">Infinite Loop</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">Sentinel Value</span>'},
+            {'page': 1, 'type': 'heading', 'text': 'Introduction'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Up to this point, every Python program we've written has followed the same "
+                     'general pattern. Python starts at the first line of code, executes it once, '
+                     'moves to the next line, executes it once, and continues until the program '
+                     'reaches the end.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1,
+             'type': 'code',
+             'text': 'print("Welcome!")\n'
+                     'print("Today we\'ll learn about loops.")\n'
+                     'print("Let\'s begin!")'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Each print() statement executes exactly one time before the program ends. '
+                     'Most real-world programs, however, need to perform the same task repeatedly. '
+                     'Imagine creating a fitness app that counts your push-ups, a weather station '
+                     'that records the temperature every minute, or a video game that constantly '
+                     "checks whether the player has won or lost. These programs don't execute "
+                     'their instructions only once—they repeat them over and over again. Without '
+                     'loops, programmers would have to write the same code many times.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Suppose we wanted to print the word "Hello!" ten times.'},
+            {'page': 1,
+             'type': 'code',
+             'text': 'print("Hello!")\n'
+                     'print("Hello!")\n'
+                     'print("Hello!")\n'
+                     'print("Hello!")\n'
+                     'print("Hello!")\n'
+                     'print("Hello!")\n'
+                     'print("Hello!")\n'
+                     'print("Hello!")\n'
+                     'print("Hello!")\n'
+                     'print("Hello!")'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "This certainly works, but it's repetitive and annoying to type even with "
+                     'copy-and-paste. Now imagine printing "Hello!" one thousand times. Clearly, '
+                     'there must be a better way because you’re definitely not going to want to '
+                     'copy-and-paste that many times. Fortunately, Python provides one.'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': 'A <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">loop</span> allows a computer to repeat '
+                     'a block of code automatically. Instead of writing the same instructions over '
+                     'and over, we simply tell Python what to repeat and when to stop. In this '
+                     "lesson, you'll learn about the first of Python's two main looping "
+                     'structures: the <span style="background:#fff1df; color:#c74716; padding:2px '
+                     '7px; border-radius:6px; font-weight:600;">while loop</span>.'},
+            {'page': 1, 'type': 'heading', 'text': 'Spotlight'},
+            {'page': 1, 'type': 'heading', 'text': "Monitoring Oklahoma's Weather"},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Weather stations across Oklahoma continuously collect data on temperature, '
+                     "humidity, rainfall, and wind speed. These measurements aren't taken just "
+                     "once—they're collected over and over again throughout the day. Rather than "
+                     'writing the same instructions thousands of times, programmers use loops to '
+                     "repeatedly collect and process new data. The programs you'll write in this "
+                     'lesson are much simpler, but they rely on the exact same idea: repeating a '
+                     "task until it's time to stop."},
+            {'page': 1, 'type': 'heading', 'text': 'Section 1 – Why Do We Need Loops?'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Imagine you wanted to count from 1 to 5. Without loops, you might write'},
+            {'page': 1, 'type': 'code', 'text': 'print(1)\nprint(2)\nprint(3)\nprint(4)\nprint(5)'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Although this works, it quickly becomes impractical. What if you wanted to '
+                     'count to 100? Or 10,000? Writing the same statement over and over again '
+                     'wastes both time and space. It also makes programs harder to read and '
+                     "modify. Instead, we'd like Python to repeat the same instruction "
+                     "automatically. That's exactly what loops allow us to do. A loop repeatedly "
+                     'executes a block of code until some condition tells it to stop.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Rather than thinking,'},
+            {'page': 1, 'type': 'quote', 'text': '"Write this line 100 times,"'},
+            {'page': 1, 'type': 'paragraph', 'text': 'programmers think,'},
+            {'page': 1,
+             'type': 'quote',
+             'text': '"Write this line once, then tell Python to repeat it."'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'This simple idea is one of the most powerful concepts in computer science. '
+                     'Everything from websites and mobile apps to robots and artificial '
+                     'intelligence relies on loops to perform repetitive tasks efficiently.'},
+            {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which of the following problems are loops designed to solve?',
+             'options': ['A. Repeating a block of code multiple times.',
+                         'B. Storing multiple pieces of information.',
+                         'C. Making decisions between different outcomes.',
+                         'D. Creating dictionaries.'],
+             'answer': 'A. Repeating a block of code multiple times.'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 2 – Writing Your First While Loop'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': 'A <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">while loop</span> repeats a block of '
+                     'code while<sup>1</sup> a condition remains True.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Its general syntax is'},
+            {'page': 1, 'type': 'code', 'text': 'while condition:\n    # code to repeat'},
+            {'page': 1, 'type': 'paragraph', 'text': "Let's look at an example."},
+            {'page': 1,
+             'type': 'code',
+             'text': 'count = 1\n'
+                     '\n'
+                     'while count <= 5:\n'
+                     '    print(count)\n'
+                     '    count += 1\n'
+                     '\n'
+                     'Output\n'
+                     '1\n'
+                     '2\n'
+                     '3\n'
+                     '4\n'
+                     '5'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Let's break this program down one line at a time."},
+            {'page': 1, 'type': 'paragraph', 'text': 'First,'},
+            {'page': 1, 'type': 'code', 'text': 'count = 1'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'creates a variable named count and gives it an initial value of 1.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Next,'},
+            {'page': 1, 'type': 'code', 'text': 'while count <= 5:'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'asks Python an important question: "Is count less than or equal to 5?"'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'If the answer is True, Python executes every indented line underneath the '
+                     'while statement. In this example, Python first prints the value of count.'},
+            {'page': 1, 'type': 'code', 'text': 'print(count)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Then,'},
+            {'page': 1, 'type': 'code', 'text': 'count += 1'},
+            {'page': 1, 'type': 'paragraph', 'text': 'adds one to count.'},
+            {'page': 1,
+             'type': 'tip',
+             'text': 'count += 1 is the same as count = count + 1; you’re simply adding 1 to count '
+                     'itself. There are other ways to do this using other operators like -=, *=, '
+                     'or /=.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'After reaching the end of the loop, Python returns to the top and checks the '
+                     'condition again. If the condition is still True, the loop repeats. If the '
+                     'condition becomes False, Python exits the loop and continues executing the '
+                     'rest of the program.'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': 'This process of repeatedly executing the loop body is called an <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">iteration</span>. Each time the loop '
+                     'repeats counts as one iteration.'},
+            {'page': 1,
+             'type': 'footnote',
+             'number': '1',
+             'text': 'A Python keyword that repeatedly executes a block of code as long as a '
+                     'condition remains True.'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 3 – Understanding the Loop Condition'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': 'The most important part of every while loop is its <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">condition</span>. A condition is a '
+                     'Boolean expression<sup>2</sup> that evaluates to either True or False. '
+                     'Python checks this condition before every iteration of the loop. If the '
+                     'condition is True, the loop continues. If the condition is False, the loop '
+                     'immediately stops.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Consider the following example.'},
+            {'page': 1,
+             'type': 'code',
+             'text': 'count = 1\n\nwhile count <= 3:\n    print(count)\n    count += 1'},
+            {'page': 1, 'type': 'paragraph', 'text': "Let's walk through what happens."},
+            {'page': 1,
+             'type': 'table',
+             'headers': ['Value of count', 'Condition (count <= 3)', 'Loop Executes?'],
+             'rows': [['1', 'True', 'Yes'],
+                      ['2', 'True', 'Yes'],
+                      ['3', 'True', 'Yes'],
+                      ['4', 'False', 'No']]},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Notice that Python checks the condition every time before running the loop '
+                     'body. Once the condition becomes False, the loop ends.'},
+            {'page': 1,
+             'type': 'footnote',
+             'number': '2',
+             'text': 'An expression that evaluates to either True or False (i.e. x > 5, age == '
+                     '18).'},
+            {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Suppose the following code is executed.\n'
+                         '\n'
+                         'number = 4\n'
+                         'while number < 7:\n'
+                         '    print(number)\n'
+                         '    number += 1\n'
+                         '\n'
+                         'How many times does the loop execute?',
+             'options': ['A. 2', 'B. 3', 'C. 4', 'D. Forever'],
+             'answer': 'B. 3'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 4 – Counters'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'In the previous examples, we repeatedly increased the variable count.'},
+            {'page': 1, 'type': 'code', 'text': 'count += 1'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': 'Variables like count are called <span style="background:#fff1df; '
+                     'color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">counters</span>. A counter is a variable whose value '
+                     'changes each time a loop executes. Counters are commonly used to keep track '
+                     'of how many times a loop has repeated.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1,
+             'type': 'code',
+             'text': 'count = 1\n'
+                     '\n'
+                     'while count <= 5:\n'
+                     '    print("Iteration", count)\n'
+                     '    count += 1\n'
+                     '\n'
+                     'Output\n'
+                     'Iteration 1\n'
+                     'Iteration 2\n'
+                     'Iteration 3\n'
+                     'Iteration 4\n'
+                     'Iteration 5'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Although counters usually increase by one, they don't have to."},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1,
+             'type': 'code',
+             'text': 'count = 0\n'
+                     '\n'
+                     'while count <= 20:\n'
+                     '    print(count)\n'
+                     '    count += 5\n'
+                     '\n'
+                     'Output\n'
+                     '0\n'
+                     '5\n'
+                     '10\n'
+                     '15\n'
+                     '20'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Counters can increase, decrease, or change by any amount depending on the '
+                     'program.'},
+            {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What does this program print?\n'
+                         '\n'
+                         'count = 10\n'
+                         'while count >= 4:\n'
+                         '    print(count)\n'
+                         '    count -= 2',
+             'options': ['A. 10\n8\n6',
+                         'B. 10\n9\n8\n7',
+                         'C. 10\n8\n6\n4',
+                         'D. The program never stops.'],
+             'answer': 'C. 10\n8\n6\n4'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 5 – Infinite Loops'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': 'Every while loop must eventually make its condition become False. If it '
+                     'never does, the program repeats forever. This is called an <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">infinite loop</span>.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Consider the following program.'},
+            {'page': 1, 'type': 'code', 'text': 'count = 1\n\nwhile count <= 5:\n    print(count)'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Can you spot the problem? The variable count is never updated. It always '
+                     'remains equal to 1. Since count <= 5 is always True, Python has no reason to '
+                     'stop the loop.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'The program prints'},
+            {'page': 1, 'type': 'code', 'text': '1\n1\n1\n1\n1\n...\nforever.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Infinite loops are one of the most common mistakes made by beginning '
+                     "programmers. Fortunately, they're also one of the easiest to fix. Simply "
+                     'make sure that something inside the loop changes the condition.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1,
+             'type': 'code',
+             'text': 'count = 1\n\nwhile count <= 5:\n    print(count)\n    count += 1'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Now the value of count changes during each iteration. Eventually, count '
+                     'becomes 6, the condition becomes False, and the loop ends.'},
+            {'page': 1,
+             'type': 'tip',
+             'text': 'Sometimes infinite loops are intentionally done with the keyword True. '
+                     'Simply writing while True, Python always executes what’s within the '
+                     'indentation underneath this while loop because the condition the while '
+                     'keyword sees is always True.'},
+            {'page': 1, 'type': 'heading', 'text': 'Common Beginner Mistakes'},
+            {'page': 1, 'type': 'heading', 'text': 'Forgetting to Update the Counter'},
+            {'page': 1,
+             'type': 'code',
+             'text': 'count = 1\n\nwhile count <= 5:\n    print(count)\n\n# Infinite loop'},
+            {'page': 1, 'type': 'heading', 'text': 'Updating the Wrong Variable'},
+            {'page': 1,
+             'type': 'code',
+             'text': 'count = 1\n\nwhile count <= 5:\n    print(count)\n    number += 1'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'count never changes, so the loop never ends.'},
+            {'page': 1, 'type': 'heading', 'text': 'Using the Wrong Condition'},
+            {'page': 1, 'type': 'code', 'text': 'count = 10\n\nwhile count < 5:\n    print(count)'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'The condition is already False. The loop never executes.'},
+            {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which of the following causes an infinite loop?',
+             'options': ['A. count = 1\nwhile count <= 5:\n    count += 1',
+                         'B. count = 6\nwhile count <= 5:\n    print(count)',
+                         'C. count = 1\nwhile count <= 5:\n    print(count)\n    count += 1',
+                         'D. count = 1\nwhile count <= 5:\n    print(count)'],
+             'answer': 'D. count = 1\nwhile count <= 5:\n    print(count)'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 6 – Sentinel Values'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Not every loop repeats a fixed number of times. Sometimes we don't know "
+                     'ahead of time when the loop should end. Instead, we allow the user to '
+                     'decide.'},
+            {'page': 1, 'type': 'paragraph', 'text': "Suppose we're creating a simple menu."},
+            {'page': 1,
+             'type': 'code',
+             'text': 'choice = ""\n'
+                     '\n'
+                     'while choice != "quit":\n'
+                     '    choice = input("Type \'quit\' to exit: ")'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Here, the loop continues until the user types "quit".'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': 'A special value like "quit" that signals a program to stop is called a <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">sentinel value</span>.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Sentinel values are commonly used in menus, games, and interactive programs '
+                     "where the number of repetitions isn't known in advance."},
+            {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'In the following program,\n'
+                         '\n'
+                         'command = ""\n'
+                         'while command != "exit":\n'
+                         '    command = input("Command: ")\n'
+                         '\n'
+                         'what is the sentinel value?',
+             'options': ['A. "exit"', 'B. command', 'C. input', 'D. while'],
+             'answer': 'A. "exit"'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 7 – Mini Project: Password Validator'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Let's put everything we've learned together. Many websites, applications, "
+                     'and computers require users to enter the correct password before they can '
+                     'continue. If the password is incorrect, the program asks the user to try '
+                     'again. This is a perfect example of a situation where a while loop is useful '
+                     "because we don't know how many attempts the user will need. Your goal is to "
+                     'write a program that repeatedly asks the user for a password until they '
+                     'enter the correct one.'},
+            {'page': 1, 'type': 'heading', 'text': 'Problem'},
+            {'page': 1, 'type': 'paragraph', 'text': 'The correct password is'},
+            {'page': 1, 'type': 'code', 'text': 'python123'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Your program should repeatedly ask the user to enter a password.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'If the password is incorrect, display'},
+            {'page': 1, 'type': 'code', 'text': 'Incorrect password. Try again.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'When the correct password is entered, display'},
+            {'page': 1, 'type': 'code', 'text': 'Access granted!'},
+            {'page': 1, 'type': 'paragraph', 'text': 'A sample interaction is shown below.'},
+            {'page': 1,
+             'type': 'code',
+             'text': 'Enter password: hello\n'
+                     'Incorrect password. Try again.\n'
+                     'Enter password: password\n'
+                     'Incorrect password. Try again.\n'
+                     'Enter password: python123\n'
+                     'Access granted!'},
+            {'page': 1, 'type': 'heading', 'text': 'Before You Begin'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Before writing any code, think about the following questions.'},
+            {'page': 1,
+             'type': 'list',
+             'items': ["1. What variable will store the user's password?",
+                       '2. What Boolean expression should the while loop check?',
+                       '3. What is the sentinel value?',
+                       '4. Which line of code updates the password during each iteration?']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Planning your solution before programming is a habit practiced by '
+                     'experienced software developers.'},
+            {'page': 1, 'type': 'heading', 'text': 'Challenge'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Modify your program so that it counts how many incorrect password attempts '
+                     'the user makes. After the user successfully logs in, print the total number '
+                     'of incorrect attempts.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Example:'},
+            {'page': 1,
+             'type': 'code',
+             'text': 'Enter password: hello\n'
+                     'Incorrect password. Try again.\n'
+                     'Enter password: abc123\n'
+                     'Incorrect password. Try again.\n'
+                     'Enter password: python123\n'
+                     'Access granted!\n'
+                     'Incorrect attempts: 2'},
+            {'page': 1,
+             'type': 'tip',
+             'text': 'Consider using a counter that increases each time the user enters an '
+                     'incorrect password.'},
+            {'page': 1, 'type': 'heading', 'text': 'Vocabulary Bank'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">loop</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">iteration</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">while</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">counter</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">infinite loop</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">sentinel value</span>'},
+            {'page': 1, 'type': 'heading', 'text': 'Key Takeaways'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'By the end of this lesson, you should be able to:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Explain why loops are useful.',
+                       'Write while loops.',
+                       'Explain how loop conditions control repetition.',
+                       'Use counters to control a loop.',
+                       'Recognize and avoid infinite loops.',
+                       'Use sentinel values to repeat until a user chooses to stop.']},
+            {'page': 1, 'type': 'heading', 'text': 'Looking Ahead'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'In this lesson, the computer repeated instructions while a condition '
+                     'remained True. Sometimes, however, we already know exactly how many times we '
+                     'want to repeat something. For example, what if we wanted to print every '
+                     "student's name in a class roster or every number from 1 to 100? Rather than "
+                     'managing a counter ourselves, Python provides another type of loop called '
+                     'the for loop, which automatically repeats once for each item in a collection '
+                     "or over a sequence of numbers. In the next lesson, you'll learn how for "
+                     'loops simplify many repetitive tasks and become one of the most commonly '
+                     'used tools in programming.'}]},
     "functions_modularity": {
 
         "id": "functions_modularity",
