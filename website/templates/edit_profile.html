@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Edit Profile | Urban Coders Guild</title>
+
+<link rel="stylesheet" href="/static/css/dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+<div class="logo">
+Urban Coders Guild
+</div>
+
+<nav>
+
+<a href="/">
+Dashboard
+</a>
+
+<a href="/profile">
+Profile
+</a>
+
+</nav>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<h1>
+Edit Profile
+</h1>
+
+
+
+<form method="POST" enctype="multipart/form-data">
+
+
+<label>
+Username
+</label>
+
+<input
+type="text"
+name="username"
+value="{{ profile.username }}"
+required
+>
+
+
+
+<br><br>
+
+
+
+<label>
+Profile Picture
+</label>
+
+
+<input
+type="file"
+name="avatar"
+accept="image/*"
+>
+
+
+
+<br><br>
+
+
+
+<button type="submit">
+Save Changes
+</button>
+
+
+</form>
+
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

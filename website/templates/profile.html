@@ -76,9 +76,25 @@
 
         <div class="profile-avatar">
 
-            <div class="default-avatar" id="avatar-preview">
+            <div class="default-avatar">
 
-                <span class="avatar-icon">👤</span>
+
+            {% if profile.avatar_url %}
+
+            <img
+            src="{{ profile.avatar_url }}"
+            class="profile-image"
+            >
+
+
+            {% else %}
+
+            <span class="avatar-icon">
+            👤
+            </span>
+
+            {% endif %}
+
 
             </div>
 
@@ -102,9 +118,9 @@
         </p>
 
 
-        <button>
+        <a class="button" href="/edit-profile">
             Edit Profile
-        </button>
+        </a>
 
 
     </div>

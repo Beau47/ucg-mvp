@@ -19,6 +19,10 @@ from supabase_client import supabase
 # Lesson loader
 from lessons import get_lesson, LESSONS
 
+# Imports for avatar images
+from werkzeug.utils import secure_filename
+import os
+
 
 # =====================================================
 # CREATE THE FLASK APPLICATION
@@ -657,6 +661,95 @@ def profile():
         profile=profile
     )
 
+# =====================================================
+# EDIT PROFILE PAGE
+# Allows student to change user and profile pic
+# =====================================================
+
+@app.route("/edit-profile", methods=["GET", "POST"])
+def edit_profile():
+
+    if "user_id" not in session:
+        return redirect("/login")
+
+
+    user_id = session["user_id"]
+
+
+    profile = (
+        supabase
+        .table("profiles")
+        .select("*")
+        .eq("id", user_id)
+        .single()
+        .execute()
+        .data
+    )
+
+
+    if request.method == "POST":
+
+        username = request.form["username"]
+
+
+        update_data = {
+            "username": username
+        }
+
+
+
+        # Handle avatar upload
+
+        if "avatar" in request.files:
+
+            file = request.files["avatar"]
+
+
+            if file.filename != "":
+
+
+                filename = secure_filename(
+                    f"{user_id}_{file.filename}"
+                )
+
+
+                path = f"avatars/{filename}"
+
+
+                supabase.storage \
+                    .from_("avatars") \
+                    .upload(
+                        path,
+                        file.read()
+                    )
+
+
+                avatar_url = (
+                    supabase.storage
+                    .from_("avatars")
+                    .get_public_url(path)
+                )
+
+
+                update_data["avatar_url"] = avatar_url
+
+
+
+        supabase \
+            .table("profiles") \
+            .update(update_data) \
+            .eq("id", user_id) \
+            .execute()
+
+
+        return redirect("/profile")
+
+
+
+    return render_template(
+        "edit_profile.html",
+        profile=profile
+    )
 
 # =====================================================
 # LIST PROBLEMS
@@ -954,5 +1047,5 @@ def reset_password():
 # Runs the Flask application locally.
 # =====================================================
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
