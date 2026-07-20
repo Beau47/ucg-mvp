@@ -954,5 +954,5 @@ def reset_password():
 # Runs the Flask application locally.
 # =====================================================
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
