@@ -266,9 +266,19 @@ body {
 
 /* Monaco editor */
 
-#monaco-editor {
-    flex: 1;
-    min-height: 0;
+#monaco-editor,
+.lesson-editor {
+
+    flex:0 0 auto;
+
+    height:400px;
+
+    min-height:60px;
+
+    width:100%;
+
+    overflow:hidden;
+
 }
 
 
@@ -303,6 +313,24 @@ body {
     font-weight: 600;
 }
 
+.test-results-title {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: 600;
+}
+/* Output panel resize bar */
+.output-test-resize-bar {
+    height: 3px;
+    flex-shrink: 0;
+    background: #3a3a3a;
+    cursor: ns-resize;
+}
+
+.output-test-resize-bar:hover {
+    background: #226ec5;
+}
 /* Console output */
 
 #console-output {
@@ -310,15 +338,26 @@ body {
     white-space: pre-wrap;
     color: #e4e4e7;
     border-bottom: 1px solid #333;
-    min-height: 70px;
     font-family: "JetBrains Mono", monospace;
     font-size: 14px;
+    flex-shrink: 0;
+    flex: 0 0 auto;
+    min-height: 10px;
+    overflow: auto;
 }
 
 /* Individual test results */
 
 #test-results {
     padding: 0 24px;
+}
+.test-results-panel {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+}
+.test-results-title {
+    margin-left: 24px;
 }
 
 #test-results div {
@@ -491,6 +530,8 @@ body {
 
     flex-direction:column;
 
+    min-height:0;
+
 }
 
 
@@ -581,7 +622,7 @@ body {
 
 .ide-resize-bar {
 
-    height:10px;
+    height:3px;
 
     flex-shrink:0;
 
@@ -594,7 +635,7 @@ body {
 
 .ide-resize-bar:hover {
 
-    background:#ff8a00;
+    background:#226ec5;
 
 }
 
@@ -611,14 +652,16 @@ body {
 
     border-top:1px solid #333;
 
+    flex-shrink:0;
+
 }
 
 
 .ide-output {
 
-    min-height:120px;
+    min-height:10px;
 
-    max-height:300px;
+    max-height:none;
 
     overflow:auto;
 
@@ -629,6 +672,8 @@ body {
     font-family:"JetBrains Mono",monospace;
 
     background:#181818;
+
+    flex-shrink:0;
 
 }
 

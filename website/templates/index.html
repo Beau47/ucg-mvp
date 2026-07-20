@@ -1,44 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Font present -->
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Page title shown in the browser tab -->
     <title>Urban Coders Guild</title>
 
-    <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet"
     />
 
-    <!-- Browser tab icon -->
     <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
 
-    <!-- Main stylesheet -->
     <link rel="stylesheet" href="/static/css/style.css">
+
 </head>
 
-<body class="workspace-page"></body>
 
-    <!-- ===================================================== -->
-    <!-- TOP NAVIGATION BAR                                    -->
-    <!-- Contains the logo/title and Run Code button           -->
-    <!-- ===================================================== -->
-    <!-- ===================================================== -->
-<!-- TOP NAVIGATION BAR                                    -->
-<!-- Provides navigation throughout the platform.          -->
-<!-- ===================================================== -->
+<body class="workspace-page">
+
 
 <header class="topbar">
 
-    <!-- Website logo -->
     <div class="logo">
         Urban Coders Guild
     </div>
 
-    <!-- Navigation links -->
+
     <nav class="nav-links">
 
         <a href="/" class="nav-item">Dashboard</a>
@@ -46,6 +35,7 @@
         <a href="/lessons" class="nav-item">Lessons</a>
 
         <a href="/exercises" class="nav-item active">Exercises</a>
+
 
         {% if logged_in %}
         <a href="/profile" class="nav-item">Profile</a>
@@ -58,216 +48,315 @@
 
     </nav>
 
-    <!-- Run code button -->
-    <button id="run-button">
+
+    <!-- <button id="navbar-run-button">
         Run My Code
-    </button>
+    </button> -->
 
 </header>
 
-    <!-- ===================================================== -->
-    <!-- MAIN PAGE LAYOUT                                      -->
-    <!-- Sidebar on the left, editor/output on the right       -->
-    <!-- ===================================================== -->
-    <div class="page">
 
-        <!-- ================================================= -->
-        <!-- LEFT SIDEBAR                                      -->
-        <!-- Contains user info, problems, and challenge list  -->
-        <!-- ================================================= -->
-        <aside class="sidebar">
 
-            <!-- User profile card -->
-            <div class="profile-card">
+<div class="page">
 
-                <!-- User avatar -->
-                <div class="avatar">A</div>
 
-                <!-- User information -->
-                <div>
-                    <h3>Alex</h3>
-                    <p>Level 4 Coder</p>
-                </div>
+    <aside class="sidebar">
 
+
+        <div class="profile-card">
+
+            <div class="avatar">
+                A
             </div>
 
-            <!-- XP progress section -->
-            <div class="xp-section">
-
-                <!-- XP labels -->
-                <span>XP</span>
-                <span>320 / 500</span>
-
-                <!-- Progress bar -->
-                <div class="xp-bar">
-                    <div class="xp-fill"></div>
-                </div>
-
+            <div>
+                <h3>Alex</h3>
+                <p>Level 4 Coder</p>
             </div>
 
-            <!-- ================================================= -->
-            <!-- PROBLEM SELECTOR                                  -->
-            <!-- Loads coding problems into the editor             -->
-            <!-- ================================================= -->
-            <div class="lesson-card">
-                <p class="lesson-number">{{ problem.lesson_number }}</p>
+        </div>
 
-                <h2>{{ problem.title }}</h2>
 
-                <p>
-                    {{ problem.description }}
-                </p>
+
+        <div class="xp-section">
+
+            <span>XP</span>
+            <span>320 / 500</span>
+
+            <div class="xp-bar">
+                <div class="xp-fill"></div>
             </div>
 
-            <!-- ================================================= -->
-            <!-- CHALLENGE CHECKLIST                               -->
-            <!-- Can later be updated dynamically by JavaScript    -->
-            <!-- ================================================= -->
-            <div class="challenge-section">
+        </div>
 
-                <h3>CHALLENGES</h3>
 
-                {% for challenge in problem.challenges %}
-                <button>{{ challenge }}</button>
-                {% endfor %}
 
-            </div>
 
-        </aside>
+        <div class="lesson-card">
 
-        <!-- ===================================================== -->
-        <!-- MAIN CONTENT AREA                                     -->
-        <!-- Monaco editor and program output                      -->
-        <!-- ===================================================== -->
-        <main class="main">
+            <p class="lesson-number">
+                {{ problem.lesson_number }}
+            </p>
 
-            <!-- ================================ -->
-            <!-- Code editor panel                -->
-            <!-- ================================ -->
-            <div class="editor-container">
 
-                <!-- File name shown above editor -->
-                <div class="editor-header">
+            <h2>
+                {{ problem.title }}
+            </h2>
+
+
+            <p>
+                {{ problem.description }}
+            </p>
+
+        </div>
+
+
+
+
+        <div class="challenge-section">
+
+            <h3>
+                CHALLENGES
+            </h3>
+
+
+            {% for challenge in problem.challenges %}
+
+            <button>
+                {{ challenge }}
+            </button>
+
+            {% endfor %}
+
+
+        </div>
+
+
+    </aside>
+
+
+
+
+
+    <main class="main">
+
+
+        <div class="lesson-ide workspace-ide">
+
+
+            <div class="ide-header">
+
+                <div class="ide-file">
                     main.py
                 </div>
 
-                <!-- Monaco Editor is injected here -->
-                <div id="monaco-editor"></div>
+
+                <button
+                    type="button"
+                    class="ide-run"
+                    id="run-button"
+                >
+                    Run ▶
+                </button>
 
             </div>
 
-            <!-- ================================ -->
-            <!-- Output panel                     -->
-            <!-- Displays console output and test results -->
-            <!-- ================================ -->
-            <div class="output">
 
-                <!-- Output section title -->
-                <div class="output-header">
-                    Output
-                </div>
 
-                <!-- Program stdout -->
-                <pre id="console-output"></pre>
+            <div
+                class="lesson-editor"
+                data-code="{{ problem.starter_code | e }}"
+                data-language="python"
+            ></div>
 
-                <!-- Unit test results -->
-                <h3>Test Results</h3>
-                <div id="test-results"></div>
 
-                <!-- Overall score -->
-                <p id="score">
-                    Passed: 0/0 | Percentage: N/A
-                </p>
 
+
+
+
+            <div class="ide-output-header">
+                Output
             </div>
 
-        </main>
-
-    </div>
-
-    <!-- ===================================================== -->
-    <!-- JavaScript                                             -->
-    <!-- ===================================================== -->
-
-    <script>
-
-        const progressOwner = {{ progress_owner | tojson }};
 
 
-        function hasCompletedLesson05() {
+            <pre
+                class="ide-output"
+                id="console-output"
+            ></pre>
 
-            const progress =
-                JSON.parse(
-                    localStorage.getItem(
-                        `ucg:lesson-progress:${progressOwner}:functions_preview:1`
-                    ) || "{}"
-                );
 
-            return (
-                Array.isArray(progress.quizzes) &&
-                progress.quizzes.length >= 2 &&
-                progress.quizzes.every(Boolean)
+            <div class="output-test-resize-bar"></div>
+
+
+            <h3 class="test-results-title">
+                Test Results
+            </h3>
+
+
+
+            <div id="test-results"></div>
+
+
+
+            <p id="score">
+                Passed: 0/0 | Percentage: N/A
+            </p>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+    const progressOwner = {{ progress_owner | tojson }};
+
+
+    function hasCompletedLesson05() {
+
+
+        const progress =
+            JSON.parse(
+                localStorage.getItem(
+                    `ucg:lesson-progress:${progressOwner}:functions_preview:1`
+                ) || "{}"
             );
 
-        }
+
+        return (
+            Array.isArray(progress.quizzes) &&
+            progress.quizzes.length >= 2 &&
+            progress.quizzes.every(Boolean)
+        );
+
+    }
 
 
-        if (!hasCompletedLesson05()) {
 
-            const runButton =
-                document.getElementById("run-button");
+    if (!hasCompletedLesson05()) {
 
-            if (runButton) {
-                runButton.style.display = "none";
-            }
 
-            document.querySelector(".page").innerHTML = `
-                <main class="main content-page">
-                    <section class="page-header">
-                        <h1>Exercises Locked</h1>
-                        <p>Complete Lesson 0.5 to unlock coding exercises.</p>
-                    </section>
+        document.querySelector(".page").innerHTML = `
 
-                    <div class="content-card">
-                        <h2>Complete Lesson 0.5 to unlock</h2>
-                        <p>
-                            Lesson 0.5 explains how exercise functions work.
-                            Finish it first, then come back to start coding.
-                        </p>
-                        <a href="/lesson/functions_preview/1">
-                            <button>Go to Lesson 0.5 →</button>
-                        </a>
-                    </div>
-                </main>
-            `;
+            <main class="main content-page">
 
-        } else {
 
-            window.problem = {{ problem | tojson }};
+                <section class="page-header">
 
-            const monacoScript =
-                document.createElement("script");
+                    <h1>
+                        Exercises Locked
+                    </h1>
 
-            monacoScript.src =
-                "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js";
 
-            monacoScript.onload = () => {
+                    <p>
+                        Complete Lesson 0.5 to unlock coding exercises.
+                    </p>
 
-                const appScript =
-                    document.createElement("script");
 
-                appScript.src =
-                    "/static/js/app.js";
+                </section>
 
-                document.body.appendChild(appScript);
 
-            };
+                <div class="content-card">
 
-            document.body.appendChild(monacoScript);
 
-        }
+                    <h2>
+                        Complete Lesson 0.5 to unlock
+                    </h2>
 
-    </script>
+
+                    <p>
+                        Lesson 0.5 explains how exercise functions work.
+                        Finish it first, then come back to start coding.
+                    </p>
+
+
+                    <a href="/lesson/functions_preview/1">
+
+                        <button>
+                            Go to Lesson 0.5 →
+                        </button>
+
+                    </a>
+
+
+                </div>
+
+
+            </main>
+
+        `;
+
+
+    }
+
+
+    else {
+
+        window.problem = {{ problem | tojson }};
+
+    }
+
+
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+
+<script>
+
+require.config({
+    paths: {
+        vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs"
+    }
+});
+
+
+require(["vs/editor/editor.main"], function () {
+
+
+    const lessonScript =
+        document.createElement("script");
+
+
+    lessonScript.src =
+        "/static/js/lesson.js";
+
+
+    lessonScript.onload = function () {
+
+
+        const appScript =
+            document.createElement("script");
+
+
+        appScript.src =
+            "/static/js/app.js";
+
+
+        document.body.appendChild(appScript);
+
+
+    };
+
+
+    document.body.appendChild(lessonScript);
+
+
+});
+
+</script>
+
+
 
 </body>
 </html>
