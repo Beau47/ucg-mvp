@@ -228,8 +228,14 @@
 
 
             <h1>
-                {{ profile.xp }} XP
+                Level {{ profile.level }}
             </h1>
+
+
+
+            <p>
+                {{ profile.current_level_xp }} / {{ profile.next_level_xp }} XP
+            </p>
 
 
 
@@ -239,7 +245,7 @@
                 <div
                     class="xp-fill"
                     style="
-                    width: {{ [profile.xp / 500 * 100, 100]|min }}%;
+                    width: {{ profile.xp_progress }}%;
                     "
                 >
 
@@ -251,7 +257,7 @@
 
 
             <p>
-                Keep learning to earn more XP!
+                {{ profile.xp_remaining }} XP until next level
             </p>
 
 
@@ -279,13 +285,40 @@
 
 
                 <span>
-                    Lessons Completed
+                    Lessons
                 </span>
 
 
                 <strong>
                     {{ profile.lessons_completed }}
+                    /
+                    {{ profile.total_lessons }}
                 </strong>
+
+
+            </div>
+
+
+
+            <div class="progress-label">
+
+                {{ "%.0f"|format(profile.lesson_progress) }}% Complete
+
+            </div>
+
+
+
+            <div class="small-progress-bar">
+
+
+                <div
+                    class="small-progress-fill"
+                    style="
+                    width: {{ profile.lesson_progress }}%;
+                    "
+                >
+
+                </div>
 
 
             </div>
@@ -303,7 +336,34 @@
 
                 <strong>
                     {{ profile.problems_solved }}
+                    /
+                    {{ profile.total_problems }}
                 </strong>
+
+
+            </div>
+
+
+
+            <div class="progress-label">
+
+                {{ "%.0f"|format(profile.problem_progress) }}% Complete
+
+            </div>
+
+
+
+            <div class="small-progress-bar">
+
+
+                <div
+                    class="small-progress-fill"
+                    style="
+                    width: {{ profile.problem_progress }}%;
+                    "
+                >
+
+                </div>
 
 
             </div>
