@@ -11,7 +11,7 @@ LESSONS = {
 
         "title": "Why Python?",
 
-        "description": "Lesson 0.0 - Why Python? Learn what Python is, why it matters, and how programming can help solve real community problems.",
+        "description": "Lesson 0.0: Why Python?",
 
         "blocks": [
 
@@ -265,7 +265,7 @@ LESSONS = {
 
         "title": "Read This Before Exercises",
 
-        "description": "Preview what Python functions look like before starting coding exercises.",
+        "description": "Lesson 0.5: Read This Before Doing Any Exercises",
 
         "blocks": [
 
@@ -573,7 +573,7 @@ LESSONS = {
 
         "lesson_number": "1",
 
-        "description": "Lesson 1.0 - Variables & Data Types. Lesson 1.1 - Using Variables.",
+        "description": "Lesson 1.0: Variables & Data Types\nLesson 1.1: Using Variables",
 
         "title": "Variables & Data Types",
 
@@ -802,7 +802,9 @@ print(name)
                          'B. Deletes age',
                          'C. Creates a new variable',
                          'D. Changes age'],
-             'answer': 'A. Displays the value stored inside age'},
+             'answer': 'A. Displays the value stored inside age',
+             'question_parts': [{'type': 'text', 'text': 'What does the following code do?'},
+                                {'type': 'code', 'text': 'print(age)'}]},
 
             {
                 "page": 1,
@@ -1406,7 +1408,9 @@ print(word[3])
              'type': 'quiz',
              'question': 'Given word = "Tulsa", what does print(word[2]) display?',
              'options': ['A. T', 'B. u', 'C. s', 'D. l'],
-             'answer': 'D. l'},
+             'answer': 'D. l',
+             'question_parts': [{'type': 'text', 'text': 'What does the following code display?'},
+                                {'type': 'code', 'text': 'word = "Tulsa"\nprint(word[2])'}]},
 
             {
                 "page": 2,
@@ -1534,7 +1538,9 @@ print(word[0:11:2])
              'type': 'quiz',
              'question': 'What is the output of word = "Computer" and print(word[3:6])?',
              'options': ['A. put', 'B. pute', 'C. ute', 'D. p'],
-             'answer': 'A. put'},
+             'answer': 'A. put',
+             'question_parts': [{'type': 'text', 'text': 'What is the output of the following code?'},
+                                {'type': 'code', 'text': 'word = "Computer"\nprint(word[3:6])'}]},
 
             {
                 "page": 2,
@@ -1639,13 +1645,17 @@ print(word[::-1])
                          'B. The last character of the string',
                          'C. The second character of the string',
                          'D. The length of the string'],
-             'answer': 'B. The last character of the string'},
+             'answer': 'B. The last character of the string',
+             'question_parts': [{'type': 'text', 'text': 'What does the following expression return?'},
+                                {'type': 'code', 'text': 'word[-1]'}]},
 
             {'page': 2,
              'type': 'quiz',
              'question': 'What is the output of word = "Urban" and print(word[::-1])?',
              'options': ['A. Urban', 'B. U', 'C. nabrU', 'D. abrnU'],
-             'answer': 'C. nabrU'},
+             'answer': 'C. nabrU',
+             'question_parts': [{'type': 'text', 'text': 'What is the output of the following code?'},
+                                {'type': 'code', 'text': 'word = "Urban"\nprint(word[::-1])'}]},
 
             {
                 "page": 2,
@@ -1733,7 +1743,7 @@ print(f"Total: ${total}")
 
     "conditionals": {'id': 'conditionals',
      'lesson_number': '2',
-     'description': 'Lesson 2.0 - Teaching Programs to Make Decisions.',
+     'description': 'Lesson 2.0: Teaching Programs to Make Decisions',
      'title': 'Conditionals',
      'blocks': [{'page': 1,
                  'type': 'heading',
@@ -1963,7 +1973,8 @@ print(f"Total: ${total}")
                  'type': 'quiz',
                  'question': 'What is the output?\n12 <= 8',
                  'options': ['A. True', 'B. False', 'C. 12', 'D. An error'],
-                 'answer': 'B. False'},
+                 'answer': 'B. False',
+                 'question_parts': [{'type': 'text', 'text': 'What is the output?'}, {'type': 'code', 'text': '12 <= 8'}]},
                 {'page': 1, 'type': 'heading', 'text': 'Section 3 – The if Statement'},
                 {'page': 1,
                  'type': 'paragraph',
@@ -2032,7 +2043,9 @@ print(f"Total: ${total}")
                  'type': 'quiz',
                  'question': 'What will this program print?\nage = 15\nif age >= 16:\nprint("Can drive")',
                  'options': ['A. Can drive', 'B. 15', 'C. Nothing', 'D. An error'],
-                 'answer': 'C. Nothing'},
+                 'answer': 'C. Nothing',
+                 'question_parts': [{'type': 'text', 'text': 'What will this program print?'},
+                                    {'type': 'code', 'text': 'age = 15\nif age >= 16:\nprint("Can drive")'}]},
                 {'page': 1,
                  'type': 'ide',
                  'instructions': 'Create an if statement that prints "Drink plenty of water." when '
@@ -2162,7 +2175,16 @@ print(f"Total: ${total}")
                              'else:\n'
                              'print("Child")',
                  'options': ['A. Adult', 'B. Teen', 'C. Nothing', 'D. Child'],
-                 'answer': 'D. Child'},
+                 'answer': 'D. Child',
+                 'question_parts': [{'type': 'text', 'text': 'What will this print?'},
+                                    {'type': 'code',
+                                     'text': 'age = 10\n'
+                                             'if age >= 18:\n'
+                                             'print("Adult")\n'
+                                             'elif age >= 13:\n'
+                                             'print("Teen")\n'
+                                             'else:\n'
+                                             'print("Child")'}]},
                 {'page': 1,
                  'type': 'heading',
                  'text': 'Section 5 – Combining Conditions with Logical Operators'},
@@ -2289,7 +2311,9 @@ print(f"Total: ${total}")
                  'type': 'quiz',
                  'question': 'if age >= 18 and has_ticket:\nprint("Enter")\nelse:\nprint("Cannot enter")',
                  'options': ['A. Cannot enter', 'B. Enter', 'C. Nothing', 'D. Error'],
-                 'answer': 'A. Cannot enter'},
+                 'answer': 'A. Cannot enter',
+                 'question_parts': [{'type': 'code',
+                                     'text': 'if age >= 18 and has_ticket:\nprint("Enter")\nelse:\nprint("Cannot enter")'}]},
                 {'page': 1, 'type': 'heading', 'text': 'Section 6 – Common Conditional Mistakes'},
                 {'page': 1,
                  'type': 'paragraph',
@@ -2341,7 +2365,9 @@ print(f"Total: ${total}")
                  'type': 'quiz',
                  'question': 'Which line contains an error?\nage = 18\nif age = 18:\nprint("Adult")',
                  'options': ['A. Line 1', 'B. Line 2', 'C. Line 3', 'D. No errors'],
-                 'answer': 'B. Line 2'},
+                 'answer': 'B. Line 2',
+                 'question_parts': [{'type': 'text', 'text': 'Which line contains an error?'},
+                                    {'type': 'code', 'text': 'age = 18\nif age = 18:\nprint("Adult")'}]},
                 {'page': 1, 'type': 'heading', 'text': 'Spotlight – Predicting Oklahoma Weather'},
 
                 {'page': 1,
@@ -2484,7 +2510,7 @@ print(f"Total: ${total}")
     "lists_dictionaries": {
         "id": "lists_dictionaries",
         "lesson_number": "3",
-        "description": "Lesson 3.0 - Tuples. Lesson 3.1 - Lists, Mutation & Aliasing. Lesson 3.2 - Dictionaries: Organizing Information with Keys.",
+        "description": "Lesson 3.0: Tuples\nLesson 3.1: Lists, Mutation & Aliasing\nLesson 3.2: Dictionaries: Organizing Information with Keys",
         "title": "Collections",
         "blocks": [
             {
@@ -2716,16 +2742,12 @@ print(f"Total: ${total}")
             },
             {'page': 1,
              'type': 'quiz',
-             'question': 'What is printed?\n'
-                         '\n'
-                         'animals = (\n'
-                         '    "Dog",\n'
-                         '    "Cat",\n'
-                         '    "Bird"\n'
-                         ')\n'
-                         'print(animals[1])',
+             'question': 'What is printed?\n\nanimals = (\n    "Dog",\n    "Cat",\n    "Bird"\n)\nprint(animals[1])',
              'options': ['A. Dog', 'B. Bird', 'C. Error', 'D. Cat'],
-             'answer': 'D. Cat'},
+             'answer': 'D. Cat',
+             'question_parts': [{'type': 'text', 'text': 'What is printed?'},
+                                {'type': 'code',
+                                 'text': 'animals = (\n    "Dog",\n    "Cat",\n    "Bird"\n)\nprint(animals[1])'}]},
             {
                 "page": 1,
                 "type": "heading",
@@ -2783,17 +2805,12 @@ print(f"Total: ${total}")
             },
             {'page': 1,
              'type': 'quiz',
-             'question': 'What does this print?\n'
-                         '\n'
-                         'values = (\n'
-                         '    5,\n'
-                         '    10,\n'
-                         '    15,\n'
-                         '    20\n'
-                         ')\n'
-                         'print(values[:2])',
+             'question': 'What does this print?\n\nvalues = (\n    5,\n    10,\n    15,\n    20\n)\nprint(values[:2])',
              'options': ['A. (5,10)', 'B. (15,20)', 'C. 5', 'D. Error'],
-             'answer': 'A. (5,10)'},
+             'answer': 'A. (5,10)',
+             'question_parts': [{'type': 'text', 'text': 'What does this print?'},
+                                {'type': 'code',
+                                 'text': 'values = (\n    5,\n    10,\n    15,\n    20\n)\nprint(values[:2])'}]},
             {
                 "page": 1,
                 "type": "heading",
@@ -2978,6 +2995,19 @@ print(f"Total: ${total}")
                     "3. Prints the first two elements using slicing."
                 ]
             },
+            {'page': 1,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Create the landmark tuple, then print each value and a complete sentence about the landmark.',
+             'starter_code': 'landmark = (\n'
+                             '    "Golden Driller",\n'
+                             '    "Tulsa",\n'
+                             '    1966\n'
+                             ')\n'
+                             '\n'
+                             '# Print each value below.\n'
+                             '\n'
+                             '# Print a complete sentence about the landmark below.\n'},
             {
                 "page": 1,
                 "type": "heading",
@@ -3434,17 +3464,12 @@ print(f"Total: ${total}")
             },
             {'page': 2,
              'type': 'quiz',
-             'question': 'What is printed?\n'
-                         '\n'
-                         'numbers = [\n'
-                         '    10,\n'
-                         '    20,\n'
-                         '    30,\n'
-                         '    40\n'
-                         ']\n'
-                         'print(numbers[-2])',
+             'question': 'What is printed?\n\nnumbers = [\n    10,\n    20,\n    30,\n    40\n]\nprint(numbers[-2])',
              'options': ['A. 20', 'B. 40', 'C. Error', 'D. 30'],
-             'answer': 'D. 30'},
+             'answer': 'D. 30',
+             'question_parts': [{'type': 'text', 'text': 'What is printed?'},
+                                {'type': 'code',
+                                 'text': 'numbers = [\n    10,\n    20,\n    30,\n    40\n]\nprint(numbers[-2])'}]},
             {
                 "page": 2,
                 "type": "heading",
@@ -3813,7 +3838,12 @@ print(f"Total: ${total}")
                          '\n'
                          'what does the list become?',
              'options': ['A. [10, 50, 30]', 'B. [10, 20, 30]', 'C. [50, 20, 30]', 'D. An error occurs.'],
-             'answer': 'A. [10, 50, 30]'},
+             'answer': 'A. [10, 50, 30]',
+             'question_parts': [{'type': 'text', 'text': 'Suppose we have the following list.'},
+                                {'type': 'code', 'text': 'numbers = [\n    10,\n    20,\n    30\n]'},
+                                {'type': 'text', 'text': 'After executing'},
+                                {'type': 'code', 'text': 'numbers[1] = 50'},
+                                {'type': 'text', 'text': 'what does the list become?'}]},
             {
                 "page": 2,
                 "type": "heading",
@@ -3996,7 +4026,19 @@ print(f"Total: ${total}")
                          '\n'
                          'What is printed?',
              'options': ['A. [1, 2, 3]', 'B. [4]', 'C. An error', 'D. [1, 2, 3, 4]'],
-             'answer': 'D. [1, 2, 3, 4]'},
+             'answer': 'D. [1, 2, 3, 4]',
+             'question_parts': [{'type': 'text', 'text': 'Consider the following program.'},
+                                {'type': 'code',
+                                 'text': 'numbers = [\n'
+                                         '    1,\n'
+                                         '    2,\n'
+                                         '    3\n'
+                                         ']\n'
+                                         '\n'
+                                         'other = numbers\n'
+                                         'other.append(4)\n'
+                                         'print(numbers)'},
+                                {'type': 'text', 'text': 'What is printed?'}]},
             {
                 "page": 2,
                 "type": "heading",
@@ -4436,7 +4478,9 @@ print(f"Total: ${total}")
              'type': 'quiz',
              'question': 'Given car = {"make": "Toyota", "year": 2022}, what does print(car["year"]) display?',
              'options': ['A. Toyota', 'B. year', 'C. 2022', 'D. Error'],
-             'answer': 'C. 2022'},
+             'answer': 'C. 2022',
+             'question_parts': [{'type': 'text', 'text': 'What does the following code display?'},
+                                {'type': 'code', 'text': 'car = {"make": "Toyota", "year": 2022}\nprint(car["year"])'}]},
             {
                 "page": 3,
                 "type": "heading",
@@ -4494,7 +4538,10 @@ print(f"Total: ${total}")
                          'B. The key "name" was removed.',
                          'C. An error occurred.',
                          'D. A new key-value pair was added.'],
-             'answer': 'D. A new key-value pair was added.'},
+             'answer': 'D. A new key-value pair was added.',
+             'question_parts': [{'type': 'text', 'text': 'Suppose the following code runs.'},
+                                {'type': 'code', 'text': 'student = {"name": "Jordan"}\nstudent["grade"] = 11'},
+                                {'type': 'text', 'text': 'What happened?'}]},
             {
                 "page": 3,
                 "type": "heading",
@@ -4833,7 +4880,7 @@ print(f"Total: ${total}")
     },
     "loops": {'id': 'loops',
  'lesson_number': '4',
- 'description': 'Lesson 4.0 - While Loops. Lesson 4.1 - For Loops. Lesson 4.2 - Nested Loops. Lesson 4.3 - Advanced Loop Techniques. Build and control loops to process collections.',
+ 'description': 'Lesson 4.0: While Loops\nLesson 4.1: For Loops\nLesson 4.2: Nested Loops\nLesson 4.3: Advanced Loop Techniques',
  'title': 'Loops',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 4.0 – While Loops'},
 {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
@@ -5082,7 +5129,11 @@ print(f"Total: ${total}")
                          '\n'
                          'How many times does the loop execute?',
              'options': ['A. 2', 'B. 3', 'C. 4', 'D. Forever'],
-             'answer': 'B. 3'},
+             'answer': 'B. 3',
+             'question_parts': [{'type': 'text', 'text': 'Suppose the following code is executed.'},
+                                {'type': 'code',
+                                 'text': 'number = 4\nwhile number < 7:\n    print(number)\n    number += 1'},
+                                {'type': 'text', 'text': 'How many times does the loop execute?'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 4 – Counters'},
             {'page': 1,
              'type': 'paragraph',
@@ -5135,17 +5186,12 @@ print(f"Total: ${total}")
             {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 1,
              'type': 'quiz',
-             'question': 'What does this program print?\n'
-                         '\n'
-                         'count = 10\n'
-                         'while count >= 4:\n'
-                         '    print(count)\n'
-                         '    count -= 2',
-             'options': ['A. 10\n8\n6',
-                         'B. 10\n9\n8\n7',
-                         'C. 10\n8\n6\n4',
-                         'D. The program never stops.'],
-             'answer': 'C. 10\n8\n6\n4'},
+             'question': 'What does this program print?\n\ncount = 10\nwhile count >= 4:\n    print(count)\n    count -= 2',
+             'options': ['A. 10\n8\n6', 'B. 10\n9\n8\n7', 'C. 10\n8\n6\n4', 'D. The program never stops.'],
+             'answer': 'C. 10\n8\n6\n4',
+             'question_parts': [{'type': 'text', 'text': 'What does this program print?'},
+                                {'type': 'code',
+                                 'text': 'count = 10\nwhile count >= 4:\n    print(count)\n    count -= 2'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 5 – Infinite Loops'},
             {'page': 1,
              'type': 'rich_paragraph',
@@ -5243,7 +5289,11 @@ print(f"Total: ${total}")
                          '\n'
                          'what is the sentinel value?',
              'options': ['A. "exit"', 'B. command', 'C. input', 'D. while'],
-             'answer': 'A. "exit"'},
+             'answer': 'A. "exit"',
+             'question_parts': [{'type': 'text', 'text': 'In the following program,'},
+                                {'type': 'code',
+                                 'text': 'command = ""\nwhile command != "exit":\n    command = input("Command: ")'},
+                                {'type': 'text', 'text': 'what is the sentinel value?'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 7 – Mini Project: Password Validator'},
             {'page': 1,
              'type': 'paragraph',
@@ -5289,6 +5339,18 @@ print(f"Total: ${total}")
              'type': 'paragraph',
              'text': 'Planning your solution before programming is a habit practiced by '
                      'experienced software developers.'},
+            {'page': 1,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Build the password validator. Sample attempts are provided so the program can run in this '
+                             'editor.',
+             'starter_code': 'correct_password = "python123"\n'
+                             'attempts = ["hello", "abc123", "python123"]\n'
+                             'attempt_index = 0\n'
+                             'password = attempts[attempt_index]\n'
+                             'incorrect_attempts = 0\n'
+                             '\n'
+                             '# Write your while loop below.\n'},
             {'page': 1, 'type': 'heading', 'text': 'Challenge'},
             {'page': 1,
              'type': 'paragraph',
@@ -5469,7 +5531,17 @@ print(f"Total: ${total}")
                          'for color in colors:\n'
                          '    print(color)',
              'options': ['A. 0\n1\n2', 'B. Green\nBlue\nRed', 'C. An error', 'D. Red\nBlue\nGreen'],
-             'answer': 'D. Red\nBlue\nGreen'},
+             'answer': 'D. Red\nBlue\nGreen',
+             'question_parts': [{'type': 'text', 'text': 'What is printed?'},
+                                {'type': 'code',
+                                 'text': 'colors = [\n'
+                                         '    "Red",\n'
+                                         '    "Blue",\n'
+                                         '    "Green"\n'
+                                         ']\n'
+                                         '\n'
+                                         'for color in colors:\n'
+                                         '    print(color)'}]},
             {'page': 2, 'type': 'heading', 'text': 'Section 2 – The Loop Variable'},
             {'page': 2,
              'type': 'rich_paragraph',
@@ -5506,7 +5578,18 @@ print(f"Total: ${total}")
                          '\n'
                          'what is the loop variable?',
              'options': ['A. animals', 'B. animal', 'C. print', 'D. Dog'],
-             'answer': 'B. animal'},
+             'answer': 'B. animal',
+             'question_parts': [{'type': 'text', 'text': 'In the following code,'},
+                                {'type': 'code',
+                                 'text': 'animals = [\n'
+                                         '    "Dog",\n'
+                                         '    "Cat",\n'
+                                         '    "Bird"\n'
+                                         ']\n'
+                                         '\n'
+                                         'for animal in animals:\n'
+                                         '    print(animal)'},
+                                {'type': 'text', 'text': 'what is the loop variable?'}]},
             {'page': 2, 'type': 'heading', 'text': 'Section 3 – Iterating Through Different Collections'},
             {'page': 2,
              'type': 'paragraph',
@@ -5605,7 +5688,9 @@ print(f"Total: ${total}")
              'type': 'quiz',
              'question': 'What does this print?\n\nfor i in range(2,8,2):\n    print(i)',
              'options': ['A. 2\n4\n6\n8', 'B. 0\n2\n4\n6', 'C. 2\n6\n8', 'D. 2\n4\n6'],
-             'answer': 'D. 2\n4\n6'},
+             'answer': 'D. 2\n4\n6',
+             'question_parts': [{'type': 'text', 'text': 'What does this print?'},
+                                {'type': 'code', 'text': 'for i in range(2,8,2):\n    print(i)'}]},
             {'page': 2, 'type': 'heading', 'text': 'Section 5 – Choosing Between while and for'},
             {'page': 2,
              'type': 'paragraph',
@@ -5652,6 +5737,20 @@ print(f"Total: ${total}")
             {'page': 2,
              'type': 'paragraph',
              'text': 'Challenge: Print only the grades that are passing (70 or higher).'},
+            {'page': 2,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Use a for loop to print every grade, calculate the average, find the highest grade, and '
+                             'count scores above 90.',
+             'starter_code': 'grades = [\n'
+                             '    92,\n'
+                             '    85,\n'
+                             '    100,\n'
+                             '    78,\n'
+                             '    95\n'
+                             ']\n'
+                             '\n'
+                             '# Complete the four tasks below.\n'},
             {'page': 2, 'type': 'heading', 'text': 'Key Takeaways'},
             {'page': 2, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
             {'page': 2,
@@ -5766,7 +5865,10 @@ print(f"Total: ${total}")
                          '    for y in range(5):\n'
                          '        print(x, y)',
              'options': ['A. Two', 'B. One', 'C. Three', 'D. Five'],
-             'answer': 'A. Two'},
+             'answer': 'A. Two',
+             'question_parts': [{'type': 'text', 'text': 'How many loops are in the following program?'},
+                                {'type': 'code',
+                                 'text': 'for x in range(2):\n    for y in range(5):\n        print(x, y)'}]},
             {'page': 3, 'type': 'heading', 'text': 'Section 2 – Tracing a Nested Loop'},
             {'page': 3, 'type': 'paragraph', 'text': "Let's examine what actually happens."},
             {'page': 3,
@@ -5801,7 +5903,9 @@ print(f"Total: ${total}")
                          '    for j in range(2):\n'
                          '        print(j)',
              'options': ['A. 2', 'B. 8', 'C. 4', 'D. 6'],
-             'answer': 'B. 8'},
+             'answer': 'B. 8',
+             'question_parts': [{'type': 'text', 'text': 'How many total times is the inner loop executed?'},
+                                {'type': 'code', 'text': 'for i in range(4):\n    for j in range(2):\n        print(j)'}]},
             {'page': 3, 'type': 'heading', 'text': 'Section 3 – Creating Patterns'},
             {'page': 3,
              'type': 'paragraph',
@@ -5846,7 +5950,13 @@ print(f"Total: ${total}")
                          '        print("@", end="")\n'
                          '    print()',
              'options': ['A. @@@@@@', 'B. @\n@@\n@@@', 'C. @@@\n@@@', 'D. @@\n@@\n@@'],
-             'answer': 'C. @@@\n@@@'},
+             'answer': 'C. @@@\n@@@',
+             'question_parts': [{'type': 'text', 'text': 'What does this program print?'},
+                                {'type': 'code',
+                                 'text': 'for row in range(2):\n'
+                                         '    for column in range(3):\n'
+                                         '        print("@", end="")\n'
+                                         '    print()'}]},
             {'page': 3, 'type': 'heading', 'text': 'Section 4 – Nested Loops with Collections'},
             {'page': 3,
              'type': 'paragraph',
@@ -5908,13 +6018,11 @@ print(f"Total: ${total}")
             {'page': 3, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 3,
              'type': 'quiz',
-             'question': 'How many stars are printed?\n'
-                         '\n'
-                         'for i in range(6):\n'
-                         '    for j in range(3):\n'
-                         '        print("*")',
+             'question': 'How many stars are printed?\n\nfor i in range(6):\n    for j in range(3):\n        print("*")',
              'options': ['A. 18', 'B. 9', 'C. 12', 'D. 36'],
-             'answer': 'A. 18'},
+             'answer': 'A. 18',
+             'question_parts': [{'type': 'text', 'text': 'How many stars are printed?'},
+                                {'type': 'code', 'text': 'for i in range(6):\n    for j in range(3):\n        print("*")'}]},
             {'page': 3, 'type': 'heading', 'text': 'Section 6 – Mini Project: Draw a Rectangle'},
             {'page': 3, 'type': 'paragraph', 'text': 'Write a program that asks the user for'},
             {'page': 3, 'type': 'list', 'items': ['the number of rows', 'the number of columns']},
@@ -5927,6 +6035,11 @@ print(f"Total: ${total}")
              'text': 'Modify your program so that it prints the row number before each row.'},
             {'page': 3, 'type': 'heading', 'text': 'Example'},
             {'page': 3, 'type': 'code', 'text': 'Row 1: *****\nRow 2: *****\nRow 3: *****'},
+            {'page': 3,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Use nested loops to draw the rectangle. Change rows and columns to test different sizes.',
+             'starter_code': 'rows = 3\ncolumns = 5\n\n# Use nested loops to draw the rectangle below.\n'},
             {'page': 3, 'type': 'heading', 'text': 'Key Takeaways'},
             {'page': 3, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
             {'page': 3,
@@ -6027,7 +6140,14 @@ print(f"Total: ${total}")
                          '\n'
                          '    print(letter)',
              'options': ['A. py', 'B. python', 'C. pyt', 'D. thon'],
-             'answer': 'A. py'},
+             'answer': 'A. py',
+             'question_parts': [{'type': 'text', 'text': 'What is printed?'},
+                                {'type': 'code',
+                                 'text': 'for letter in "python":\n'
+                                         '    if letter == "h":\n'
+                                         '        break\n'
+                                         '\n'
+                                         '    print(letter)'}]},
             {'page': 4, 'type': 'heading', 'text': 'Section 2 – Skipping an Iteration with continue'},
             {'page': 4,
              'type': 'rich_paragraph',
@@ -6053,7 +6173,10 @@ print(f"Total: ${total}")
              'type': 'quiz',
              'question': 'What prints?\n\nfor i in range(5):\n    if i == 2:\n        continue\n\n    print(i)',
              'options': ['A. 0\n1\n2\n3\n4', 'B. 0\n1\n3\n4', 'C. 2\n3\n4', 'D. 0\n1'],
-             'answer': 'B. 0\n1\n3\n4'},
+             'answer': 'B. 0\n1\n3\n4',
+             'question_parts': [{'type': 'text', 'text': 'What prints?'},
+                                {'type': 'code',
+                                 'text': 'for i in range(5):\n    if i == 2:\n        continue\n\n    print(i)'}]},
             {'page': 4, 'type': 'heading', 'text': 'Section 3 – Placeholder Code with pass'},
             {'page': 4,
              'type': 'rich_paragraph',
@@ -6140,7 +6263,15 @@ print(f"Total: ${total}")
                          '    if letter == "a":\n'
                          '        count += 1',
              'options': ['A. 2', 'B. 4', 'C. 6', 'D. 3'],
-             'answer': 'D. 3'},
+             'answer': 'D. 3',
+             'question_parts': [{'type': 'text', 'text': 'What will count equal after this program finishes?'},
+                                {'type': 'code',
+                                 'text': 'letters = "banana"\n'
+                                         'count = 0\n'
+                                         '\n'
+                                         'for letter in letters:\n'
+                                         '    if letter == "a":\n'
+                                         '        count += 1'}]},
             {'page': 4, 'type': 'heading', 'text': 'Section 5 – Summing Values'},
             {'page': 4,
              'type': 'paragraph',
@@ -6192,7 +6323,10 @@ print(f"Total: ${total}")
                          '\n'
                          'print(total)',
              'options': ['A. 7', 'B. 9', 'C. 12', 'D. 14'],
-             'answer': 'D. 14'},
+             'answer': 'D. 14',
+             'question_parts': [{'type': 'text', 'text': 'What prints after this program finishes?'},
+                                {'type': 'code',
+                                 'text': 'total = 0\n\nfor n in [2, 5, 7]:\n    total += n\n\nprint(total)'}]},
             {'page': 4, 'type': 'heading', 'text': 'Section 6 – Finding the Largest Value'},
             {'page': 4,
              'type': 'paragraph',
@@ -6255,7 +6389,17 @@ print(f"Total: ${total}")
                          '\n'
                          'print(largest)',
              'options': ['A. 2', 'B. 4', 'C. 9', 'D. 15'],
-             'answer': 'C. 9'},
+             'answer': 'C. 9',
+             'question_parts': [{'type': 'text', 'text': 'What is printed after this program finishes?'},
+                                {'type': 'code',
+                                 'text': 'values = [4, 9, 2]\n'
+                                         'largest = values[0]\n'
+                                         '\n'
+                                         'for value in values:\n'
+                                         '    if value > largest:\n'
+                                         '        largest = value\n'
+                                         '\n'
+                                         'print(largest)'}]},
             {'page': 4, 'type': 'heading', 'text': 'Section 7 – Searching'},
             {'page': 4,
              'type': 'rich_paragraph',
@@ -6324,6 +6468,19 @@ print(f"Total: ${total}")
              'type': 'paragraph',
              'text': 'Modify the program so the user enters temperatures until they type -1. Then display all '
                      'of the same statistics.'},
+            {'page': 4,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Analyze the temperatures, then try the challenge using -1 as the sentinel value.',
+             'starter_code': 'temperatures = [91, 85, 88, 94, 99, 86, 90]\n'
+                             '\n'
+                             '# Display every temperature.\n'
+                             '\n'
+                             '# Calculate the average.\n'
+                             '\n'
+                             '# Find the highest and lowest temperatures.\n'
+                             '\n'
+                             '# Count temperatures above 90.\n'},
             {'page': 4, 'type': 'heading', 'text': 'Key Takeaways'},
             {'page': 4, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
             {'page': 4,
@@ -6345,7 +6502,7 @@ print(f"Total: ${total}")
     "functions_modularity": {'id': 'functions_modularity',
  'lesson_number': '5',
  'title': 'Functions & Modularity',
- 'description': 'Lesson 5.0 - Writing Your Own Functions. Lesson 5.1 - Scope, Modules, & Refactoring. Build reusable functions and organize larger Python programs.',
+ 'description': 'Lesson 5.0: Writing Your Own Functions\nLesson 5.1: Scope, Modules, & Refactoring',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 5.0 – Writing Your Own Functions'},
 {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 1,
@@ -6574,11 +6731,10 @@ print(f"Total: ${total}")
                          '\n'
                          'cheer()\n'
                          'cheer()',
-             'options': ['A. Go Team!',
-                         'B. Go Team!\nGo Team!',
-                         'C. Nothing is printed.',
-                         'D. An error occurs.'],
-             'answer': 'B. Go Team!\nGo Team!'},
+             'options': ['A. Go Team!', 'B. Go Team!\nGo Team!', 'C. Nothing is printed.', 'D. An error occurs.'],
+             'answer': 'B. Go Team!\nGo Team!',
+             'question_parts': [{'type': 'text', 'text': 'What is printed by the following program?'},
+                                {'type': 'code', 'text': 'def cheer():\n    print("Go Team!")\n\ncheer()\ncheer()'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 3 – Parameters and Arguments'},
             {'page': 1,
              'type': 'paragraph',
@@ -6673,7 +6829,9 @@ print(f"Total: ${total}")
                          '\n'
                          'multiply(3, 5)',
              'options': ['A. 3', 'B. 5', 'C. a and b', 'D. multiply'],
-             'answer': 'C. a and b'},
+             'answer': 'C. a and b',
+             'question_parts': [{'type': 'text', 'text': 'In the following code, which is the parameter?'},
+                                {'type': 'code', 'text': 'def multiply(a, b):\n    return a * b\n\nmultiply(3, 5)'}]},
             {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 1,
              'type': 'quiz',
@@ -6684,7 +6842,10 @@ print(f"Total: ${total}")
                          '\n'
                          'cheer("Tigers")',
              'options': ['A. Go Tigers!', 'B. Go team!', 'C. Tigers', 'D. An error occurs.'],
-             'answer': 'A. Go Tigers!'},
+             'answer': 'A. Go Tigers!',
+             'question_parts': [{'type': 'text', 'text': 'What is the output of this program?'},
+                                {'type': 'code',
+                                 'text': 'def cheer(team):\n    print("Go", team + "!")\n\ncheer("Tigers")'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 4 – Returning Values'},
             {'page': 1,
              'type': 'paragraph',
@@ -6782,25 +6943,21 @@ print(f"Total: ${total}")
             {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 1,
              'type': 'quiz',
-             'question': 'What is printed?\n'
-                         '\n'
-                         'def square(number):\n'
-                         '    return number * number\n'
-                         '\n'
-                         'print(square(5))',
+             'question': 'What is printed?\n\ndef square(number):\n    return number * number\n\nprint(square(5))',
              'options': ['A. 5', 'B. 10', 'C. 25', 'D. Nothing'],
-             'answer': 'C. 25'},
+             'answer': 'C. 25',
+             'question_parts': [{'type': 'text', 'text': 'What is printed?'},
+                                {'type': 'code',
+                                 'text': 'def square(number):\n    return number * number\n\nprint(square(5))'}]},
             {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 1,
              'type': 'quiz',
-             'question': 'What is stored in result?\n'
-                         '\n'
-                         'def multiply(a, b):\n'
-                         '    return a * b\n'
-                         '\n'
-                         'result = multiply(4, 6)',
+             'question': 'What is stored in result?\n\ndef multiply(a, b):\n    return a * b\n\nresult = multiply(4, 6)',
              'options': ['A. 4', 'B. 6', 'C. 10', 'D. 24'],
-             'answer': 'D. 24'},
+             'answer': 'D. 24',
+             'question_parts': [{'type': 'text', 'text': 'What is stored in result?'},
+                                {'type': 'code',
+                                 'text': 'def multiply(a, b):\n    return a * b\n\nresult = multiply(4, 6)'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 5 – Writing Good Functions'},
             {'page': 1,
              'type': 'paragraph',
@@ -6921,29 +7078,32 @@ print(f"Total: ${total}")
              'text': 'Each task should be handled by its own function.'},
             {'page': 1, 'type': 'heading', 'text': 'Starter Code'},
             {'page': 1,
-             'type': 'code',
-             'text': 'def calculate_subtotal(food_cost, drink_cost):\n'
-                     '    """Returns the subtotal before tax."""\n'
-                     '    pass\n'
-                     '\n'
-                     'def calculate_tax(subtotal):\n'
-                     '    """Returns the sales tax (8%)."""\n'
-                     '    pass\n'
-                     '\n'
-                     'def calculate_total(subtotal, tax):\n'
-                     '    """Returns the final bill."""\n'
-                     '    pass\n'
-                     '\n'
-                     'food = float(input("Food cost: $"))\n'
-                     'drink = float(input("Drink cost: $"))\n'
-                     '\n'
-                     'subtotal = calculate_subtotal(food, drink)\n'
-                     'tax = calculate_tax(subtotal)\n'
-                     'total = calculate_total(subtotal, tax)\n'
-                     '\n'
-                     'print("Subtotal: $", round(subtotal, 2))\n'
-                     'print("Tax: $", round(tax, 2))\n'
-                     'print("Total: $", round(total, 2))'},
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Complete the three functions, then run the program. Change the sample food and drink costs '
+                             'to test it again.',
+             'starter_code': 'def calculate_subtotal(food_cost, drink_cost):\n'
+                             '    """Returns the subtotal before tax."""\n'
+                             '    pass\n'
+                             '\n'
+                             'def calculate_tax(subtotal):\n'
+                             '    """Returns the sales tax (8%)."""\n'
+                             '    pass\n'
+                             '\n'
+                             'def calculate_total(subtotal, tax):\n'
+                             '    """Returns the final bill."""\n'
+                             '    pass\n'
+                             '\n'
+                             'food = 15.50\n'
+                             'drink = 3.50\n'
+                             '\n'
+                             'subtotal = calculate_subtotal(food, drink)\n'
+                             'tax = calculate_tax(subtotal)\n'
+                             'total = calculate_total(subtotal, tax)\n'
+                             '\n'
+                             'print("Subtotal: $", round(subtotal, 2))\n'
+                             'print("Tax: $", round(tax, 2))\n'
+                             'print("Total: $", round(total, 2))\n'},
             {'page': 1, 'type': 'heading', 'text': 'Example Run'},
             {'page': 1,
              'type': 'code',
@@ -7114,7 +7274,10 @@ print(f"Total: ${total}")
                          'say_hi()\n'
                          'print(greeting)',
              'options': ['A. NameError', 'B. Hi!', 'C. greeting', 'D. Nothing is printed.'],
-             'answer': 'A. NameError'},
+             'answer': 'A. NameError',
+             'question_parts': [{'type': 'text', 'text': 'What happens when this program runs?'},
+                                {'type': 'code',
+                                 'text': 'def say_hi():\n    greeting = "Hi!"\n\nsay_hi()\nprint(greeting)'}]},
             {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 2,
              'type': 'quiz',
@@ -7225,20 +7388,18 @@ print(f"Total: ${total}")
              'type': 'quiz',
              'question': 'What type of variable is age?\n\ndef birthday():\n    age = 16\n    print(age)',
              'options': ['A. Global variable', 'B. Parameter', 'C. Local variable', 'D. Argument'],
-             'answer': 'C. Local variable'},
+             'answer': 'C. Local variable',
+             'question_parts': [{'type': 'text', 'text': 'What type of variable is age?'},
+                                {'type': 'code', 'text': 'def birthday():\n    age = 16\n    print(age)'}]},
             {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 2,
              'type': 'quiz',
-             'question': 'What is the output?\n'
-                         '\n'
-                         'city = "Tulsa"\n'
-                         '\n'
-                         'def show_city():\n'
-                         '    print(city)\n'
-                         '\n'
-                         'show_city()',
+             'question': 'What is the output?\n\ncity = "Tulsa"\n\ndef show_city():\n    print(city)\n\nshow_city()',
              'options': ['A. city', 'B. NameError', 'C. Nothing', 'D. Tulsa'],
-             'answer': 'D. Tulsa'},
+             'answer': 'D. Tulsa',
+             'question_parts': [{'type': 'text', 'text': 'What is the output?'},
+                                {'type': 'code',
+                                 'text': 'city = "Tulsa"\n\ndef show_city():\n    print(city)\n\nshow_city()'}]},
             {'page': 2, 'type': 'heading', 'text': 'Section 3 – (OPTIONAL) Modules and import'},
             {'page': 2,
              'type': 'paragraph',
@@ -7451,7 +7612,15 @@ print(f"Total: ${total}")
                          'B. It runs forever.',
                          'C. It creates more variables.',
                          'D. It avoids repeating the same calculation.'],
-             'answer': 'D. It avoids repeating the same calculation.'},
+             'answer': 'D. It avoids repeating the same calculation.',
+             'question_parts': [{'type': 'text', 'text': 'Why is the second program better?'},
+                                {'type': 'code',
+                                 'text': 'def square(number):\n'
+                                         '    return number * number\n'
+                                         '\n'
+                                         'print(square(4))\n'
+                                         'print(square(7))\n'
+                                         'print(square(10))'}]},
             {'page': 2, 'type': 'heading', 'text': 'Mini Project – Build a Math Toolkit'},
             {'page': 2,
              'type': 'paragraph',
@@ -7474,22 +7643,27 @@ print(f"Total: ${total}")
             {'page': 2, 'type': 'heading', 'text': 'Starter Code'},
             {'page': 2, 'type': 'heading', 'text': 'math_tools.py'},
             {'page': 2,
-             'type': 'code',
-             'text': 'def add(a, b):\n'
-                     '    """Returns the sum of two numbers."""\n'
-                     '    pass\n'
-                     '\n'
-                     'def subtract(a, b):\n'
-                     '    """Returns the difference of two numbers."""\n'
-                     '    pass\n'
-                     '\n'
-                     'def multiply(a, b):\n'
-                     '    """Returns the product of two numbers."""\n'
-                     '    pass\n'
-                     '\n'
-                     'def divide(a, b):\n'
-                     '    """Returns the quotient of two numbers."""\n'
-                     '    pass'},
+             'type': 'ide',
+             'filename': 'math_tools.py',
+             'instructions': 'Complete the four functions in math_tools.py. Add function calls at the bottom to test them '
+                             'with Run.',
+             'starter_code': 'def add(a, b):\n'
+                             '    """Returns the sum of two numbers."""\n'
+                             '    pass\n'
+                             '\n'
+                             'def subtract(a, b):\n'
+                             '    """Returns the difference of two numbers."""\n'
+                             '    pass\n'
+                             '\n'
+                             'def multiply(a, b):\n'
+                             '    """Returns the product of two numbers."""\n'
+                             '    pass\n'
+                             '\n'
+                             'def divide(a, b):\n'
+                             '    """Returns the quotient of two numbers."""\n'
+                             '    pass\n'
+                             '\n'
+                             '# Add function calls below to test your toolkit.\n'},
             {'page': 2, 'type': 'heading', 'text': 'main.py'},
             {'page': 2,
              'type': 'code',
@@ -7534,8 +7708,7 @@ print(f"Total: ${total}")
     "recursion_capstone": {'id': 'recursion_capstone',
  'lesson_number': '6',
  'title': 'Recursion',
- 'description': 'Lesson 6.0 - Recursion. Learn how recursive functions use base cases and the call stack to '
-                'solve smaller versions of a problem.',
+ 'description': 'Lesson 6.0: Recursion',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 6.0 – Recursion'},
             {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 1,
@@ -7742,7 +7915,14 @@ print(f"Total: ${total}")
                          '    print(n)\n'
                          '    countdown(n - 1)',
              'options': ['A. print(n)', 'B. countdown(n - 1)', 'C. if n == 0: return', 'D. def countdown(n):'],
-             'answer': 'C. if n == 0: return'},
+             'answer': 'C. if n == 0: return',
+             'question_parts': [{'type': 'text', 'text': 'Which line is the base case in the function below?'},
+                                {'type': 'code',
+                                 'text': 'def countdown(n):\n'
+                                         '    if n == 0:\n'
+                                         '        return\n'
+                                         '    print(n)\n'
+                                         '    countdown(n - 1)'}]},
             {'page': 1,
              'type': 'quiz',
              'question': 'Why does every recursive function need a base case?',
@@ -7969,11 +8149,11 @@ print(f"Total: ${total}")
                          '    if n == 1:\n'
                          '        return 1\n'
                          '    return n + sum_to(n - 1)',
-             'options': ['A. def sum_to(n):',
-                         'B. return n + sum_to(n - 1)',
-                         'C. if n == 1: return 1',
-                         'D. n - 1'],
-             'answer': 'C. if n == 1: return 1'},
+             'options': ['A. def sum_to(n):', 'B. return n + sum_to(n - 1)', 'C. if n == 1: return 1', 'D. n - 1'],
+             'answer': 'C. if n == 1: return 1',
+             'question_parts': [{'type': 'text', 'text': 'What is the base case in the function below?'},
+                                {'type': 'code',
+                                 'text': 'def sum_to(n):\n    if n == 1:\n        return 1\n    return n + sum_to(n - 1)'}]},
             {'page': 1,
              'type': 'quiz',
              'question': 'Which recursive call correctly moves the problem toward the base case?',
@@ -8052,13 +8232,20 @@ print(f"Total: ${total}")
                          '    if n == 0:\n'
                          '        return 1\n'
                          '    return n * factorial(n - 1)',
-             'options': ['A. The base case returns a known value, and the call stack lets each waiting '
-                         'function finish one at a time.',
+             'options': ['A. The base case returns a known value, and the call stack lets each waiting function finish one '
+                         'at a time.',
                          'B. Python guesses the answer.',
                          'C. Each recursive call immediately knows the final answer.',
                          'D. The recursive call runs forever.'],
-             'answer': 'A. The base case returns a known value, and the call stack lets each waiting function '
-                       'finish one at a time.'},
+             'answer': 'A. The base case returns a known value, and the call stack lets each waiting function finish one '
+                       'at a time.',
+             'question_parts': [{'type': 'text',
+                                 'text': 'Why does the following recursive function eventually return a value?'},
+                                {'type': 'code',
+                                 'text': 'def factorial(n):\n'
+                                         '    if n == 0:\n'
+                                         '        return 1\n'
+                                         '    return n * factorial(n - 1)'}]},
             {'page': 1,
              'type': 'quiz',
              'question': 'Which statement best explains why recursion works?',
@@ -8081,14 +8268,15 @@ print(f"Total: ${total}")
                        'A recursive call that moves toward the base case.']},
             {'page': 1, 'type': 'heading', 'text': 'Starter Code'},
             {'page': 1,
-             'type': 'code',
-             'language': 'python',
-             'text': 'def countdown(n):\n'
-                     '    """Prints the numbers from n down to 1 using recursion."""\n'
-                     '    pass\n'
-                     '\n'
-                     'number = int(input("Enter a positive integer: "))\n'
-                     'countdown(number)'},
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Complete countdown(), then run it. After printing 1, add the challenge message "Blast off!"',
+             'starter_code': 'def countdown(n):\n'
+                             '    """Prints the numbers from n down to 1 using recursion."""\n'
+                             '    pass\n'
+                             '\n'
+                             'number = 5\n'
+                             'countdown(number)\n'},
             {'page': 1, 'type': 'heading', 'text': 'Example Run'},
             {'page': 1,
              'type': 'code',
