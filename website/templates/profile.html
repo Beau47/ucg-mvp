@@ -1,421 +1,371 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <title>Profile | Urban Coders Guild</title>
+<title>Profile | Urban Coders Guild</title>
 
-    <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
+<link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/static/css/dashboard.css">
+<link rel="stylesheet" href="/static/css/dashboard.css">
 
 </head>
 
-
 <body>
 
-
 <!-- ========================= -->
+
 <!-- TOP NAVIGATION BAR -->
+
 <!-- ========================= -->
 
 <header class="topbar">
 
-    <div class="logo">
-        Urban Coders Guild
-    </div>
+
+<div class="logo">
+    Urban Coders Guild
+</div>
 
 
-    <nav>
+<nav>
 
-        <a href="/">
-            Dashboard
-        </a>
+    <a href="/">
+        Dashboard
+    </a>
 
-        <a href="/lessons">
-            Lessons
-        </a>
+    <a href="/lessons">
+        Lessons
+    </a>
 
-        <a href="/exercises">
-            Exercises
-        </a>
+    <a href="/exercises">
+        Exercises
+    </a>
 
-        <a href="/profile" class="active">
-            Profile
-        </a>
+    <a href="/profile" class="active">
+        Profile
+    </a>
 
-        <a href="/logout">
-            Logout
-        </a>
+    <a href="/logout">
+        Logout
+    </a>
 
-    </nav>
+</nav>
+
 
 </header>
 
-
-
-
-
 <!-- ========================= -->
+
 <!-- PROFILE CONTENT -->
+
 <!-- ========================= -->
 
 <div class="container">
 
 
+<!-- PROFILE HEADER -->
 
-    <!-- PROFILE HEADER -->
-
-    <div class="card profile-header">
-
-
-        <div class="profile-avatar">
-
-            <div class="default-avatar">
+<div class="card profile-header">
 
 
-            {% if profile.avatar_url %}
+    <div class="profile-avatar">
 
-            <img
+        <div class="default-avatar">
+
+
+        {% if profile.avatar_url %}
+
+        <img
             src="{{ profile.avatar_url }}"
             class="profile-image"
-            >
-
-
-            {% else %}
-
-            <span class="avatar-icon">
-            👤
-            </span>
-
-            {% endif %}
-
-
-            </div>
-
-        </div>
-
-        <input
-            type="file"
-            id="avatar-upload"
-            accept="image/*"
-            hidden
         >
 
 
-        <h1>
-            {{ profile.username }}
-        </h1>
-
-
-        <p>
-            Beginner Developer
-        </p>
-
-
-        <a class="nav-item" href="/edit-profile">
-            Edit Profile
-        </a>
-
-
-    </div>
-
-
-
-
-
-
-
-    <!-- PROGRESS OVERVIEW -->
-
-    <div class="card">
-
-        <h2>
-            Progress Overview
-        </h2>
-
-
-        <div class="grid">
-
-
-
-            <div class="card">
-
-                <h2>
-                    Lessons Completed
-                </h2>
-
-
-                <h1>
-                    {{ profile.lessons_completed }}
-                </h1>
-
-            </div>
-
-
-
-
-            <div class="card">
-
-                <h2>
-                    Problems Solved
-                </h2>
-
-
-                <h1>
-                    {{ profile.problems_solved }}
-                </h1>
-
-            </div>
-
-
-
-
-            <div class="card">
-
-                <h2>
-                    XP
-                </h2>
-
-
-                <h1>
-                    {{ profile.xp }}
-                </h1>
-
-            </div>
-
-
-
-
-            <div class="card">
-
-                <h2>
-                    Day Streak
-                </h2>
-
-
-                <h1>
-                    🔥 {{ profile.streak }}
-                </h1>
-
-            </div>
-
-
-
-        </div>
-
-
-    </div>
-
-
-
-
-
-
-
-    <!-- LEARNING PROGRESS -->
-
-    <div class="card">
-
-
-        <h2>
-            Learning Progress
-        </h2>
-
-
-
-        <p>
-            Python Basics
-        </p>
-
-
-        <div class="xp-bar">
-
-            <div
-                class="xp-fill"
-                style="width:75%">
-            </div>
-
-        </div>
-
-
-
-
-
-        <br>
-
-
-        <p>
-            Functions
-        </p>
-
-
-        <div class="xp-bar">
-
-            <div
-                class="xp-fill"
-                style="width:50%">
-            </div>
-
-        </div>
-
-
-
-
-        <br>
-
-
-        <p>
-            Algorithms
-        </p>
-
-
-        <div class="xp-bar">
-
-            <div
-                class="xp-fill"
-                style="width:25%">
-            </div>
-
-        </div>
-
-
-
-    </div>
-
-
-
-
-
-
-
-    <!-- RECENT ACTIVITY -->
-
-
-    <div class="card">
-
-
-        <h2>
-            Recent Activity
-        </h2>
-
-
-        {% if activities %}
-
-            {% for activity in activities %}
-
-            <p>
-                ✓ {{ activity }}
-            </p>
-
-            {% endfor %}
-
-
         {% else %}
 
-            <p>
-                No recent activity yet.
-            </p>
+        <span class="avatar-icon">
+            👤
+        </span>
 
         {% endif %}
 
 
+        </div>
 
     </div>
 
 
+    <input
+        type="file"
+        id="avatar-upload"
+        accept="image/*"
+        hidden
+    >
 
 
+    <h1>
+        {{ profile.username }}
+    </h1>
 
 
-
-    <!-- ACHIEVEMENTS -->
-
-
-    <div class="card">
+    <p>
+        Beginner Developer
+    </p>
 
 
-        <h2>
-            Achievements
-        </h2>
-
-
-
-        {% if achievements %}
-
-
-            {% for achievement in achievements %}
-
-            <p>
-                {{ achievement }}
-            </p>
-
-            {% endfor %}
-
-
-
-        {% else %}
-
-
-            <p>
-                Complete lessons and exercises to unlock achievements.
-            </p>
-
-
-        {% endif %}
-
-
-
-    </div>
-
-
-
-
-
-
-
-    <!-- ACCOUNT -->
-
-
-    <div class="card">
-
-
-        <h2>
-            Account
-        </h2>
-
-
-        <p>
-            Email: {{ profile.email }}
-        </p>
-
-
-
-        <button>
-            Settings
-        </button>
-
-
-
-        <a class="button account-button" href="/logout">
-            Logout
-        </a>
-
-
-
-    </div>
-
-
+    <a
+        class="card button edit-profile-button"
+        href="/edit-profile"
+    >
+        Edit Profile
+    </a>
 
 
 </div>
 
 
+<!-- PROGRESS OVERVIEW -->
+
+<div class="card">
+
+
+    <h2>
+        Progress Overview
+    </h2>
+
+
+    <div class="grid">
+
+
+        <div class="card">
+
+            <h2>
+                Lessons Completed
+            </h2>
+
+
+            <h1>
+                {{ profile.lessons_completed }}
+            </h1>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>
+                Problems Solved
+            </h2>
+
+
+            <h1>
+                {{ profile.problems_solved }}
+            </h1>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>
+                XP
+            </h2>
+
+
+            <h1>
+                {{ profile.xp }}
+            </h1>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>
+                Day Streak
+            </h2>
+
+
+            <h1>
+                🔥 {{ profile.streak }}
+            </h1>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- LEARNING PROGRESS -->
+
+<div class="card">
+
+
+    <h2>
+        Learning Progress
+    </h2>
+
+
+    <p>
+        Python Basics
+    </p>
+
+
+    <div class="xp-bar">
+
+        <div
+            class="xp-fill"
+            style="width:75%">
+        </div>
+
+    </div>
+
+
+    <br>
+
+
+    <p>
+        Functions
+    </p>
+
+
+    <div class="xp-bar">
+
+        <div
+            class="xp-fill"
+            style="width:50%">
+        </div>
+
+    </div>
+
+
+    <br>
+
+
+    <p>
+        Algorithms
+    </p>
+
+
+    <div class="xp-bar">
+
+        <div
+            class="xp-fill"
+            style="width:25%">
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- RECENT ACTIVITY -->
+
+<div class="card">
+
+
+    <h2>
+        Recent Activity
+    </h2>
+
+
+    {% if activities %}
+
+        {% for activity in activities %}
+
+        <p>
+            ✓ {{ activity }}
+        </p>
+
+        {% endfor %}
+
+
+    {% else %}
+
+        <p>
+            No recent activity yet.
+        </p>
+
+    {% endif %}
+
+
+</div>
+
+
+<!-- ACHIEVEMENTS -->
+
+<div class="card">
+
+
+    <h2>
+        Achievements
+    </h2>
+
+
+    {% if achievements %}
+
+
+        {% for achievement in achievements %}
+
+        <p>
+            {{ achievement }}
+        </p>
+
+        {% endfor %}
+
+
+    {% else %}
+
+
+        <p>
+            Complete lessons and exercises to unlock achievements.
+        </p>
+
+
+    {% endif %}
+
+
+</div>
+
+
+<!-- ACCOUNT -->
+
+<div class="card">
+
+
+    <h2>
+        Account
+    </h2>
+
+
+    <p>
+        Email: {{ profile.email }}
+    </p>
+
+
+    <button>
+        Settings
+    </button>
+
+
+    <a class="button account-button" href="/logout">
+        Logout
+    </a>
+
+
+</div>
+
+
+</div>
 
 </body>
 
