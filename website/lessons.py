@@ -21,11 +21,6 @@ LESSONS = {
                 "text": "Unit 0 - Why Python?"
             },
 
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text": "Estimated Time: 30-40 minutes"
-            },
 
             {
                 "page": 1,
@@ -280,11 +275,6 @@ LESSONS = {
                 "text": "Lesson 0.5 - Read This Before Doing Any Exercises"
             },
 
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text": "Estimated Time: 10-15 minutes"
-            },
 
             {
                 "page": 1,
@@ -601,11 +591,6 @@ LESSONS = {
                 "text": "Lesson 1.0 - Storing Information with Variables"
             },
 
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text": "Estimated Time: 45-60 minutes"
-            },
 
             {
                 "page": 1,
@@ -955,11 +940,6 @@ customer = "Maria"
                 "text": "Lesson 1.1 - Using Variables"
             },
 
-            {
-                "page": 2,
-                "type": "paragraph",
-                "text": "Estimated Time: 60 minutes"
-            },
 
             {
                 "page": 2,
@@ -1758,8 +1738,7 @@ print(f"Total: ${total}")
      'blocks': [{'page': 1,
                  'type': 'heading',
                  'text': 'Lesson 2 – Teaching Programs to Make Decisions'},
-                {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 60–75 minutes'},
-                {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
+{'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
                 {'page': 1,
                  'type': 'list',
                  'items': ['Lesson 1.0 – Variables & Data Types', 'Lesson 1.1 – Using Variables']},
@@ -2515,11 +2494,6 @@ print(f"Total: ${total}")
             },
             {
                 "page": 1,
-                "type": "paragraph",
-                "text": "Estimated Time: 30–45 minutes"
-            },
-            {
-                "page": 1,
                 "type": "heading",
                 "text": "Prerequisites"
             },
@@ -3054,11 +3028,6 @@ print(f"Total: ${total}")
                 "page": 2,
                 "type": "heading",
                 "text": "Lesson 3.1 – Lists, Mutation & Aliasing"
-            },
-            {
-                "page": 2,
-                "type": "paragraph",
-                "text": "Estimated Time: 75–90 minutes"
             },
             {
                 "page": 2,
@@ -4274,11 +4243,6 @@ print(f"Total: ${total}")
             },
             {
                 "page": 3,
-                "type": "paragraph",
-                "text": "Estimated Time: 30 minutes"
-            },
-            {
-                "page": 3,
                 "type": "heading",
                 "text": "Prerequisites"
             },
@@ -4872,8 +4836,7 @@ print(f"Total: ${total}")
  'description': 'Lesson 4.0 - While Loops. Lesson 4.1 - For Loops. Lesson 4.2 - Nested Loops. Lesson 4.3 - Advanced Loop Techniques. Build and control loops to process collections.',
  'title': 'Loops',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 4.0 – While Loops'},
-            {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 60–75 minutes'},
-            {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
+{'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 1,
              'type': 'paragraph',
              'text': 'Before beginning this lesson, you should understand:'},
@@ -5386,7 +5349,6 @@ print(f"Total: ${total}")
                      'loops simplify many repetitive tasks and become one of the most commonly '
                      'used tools in programming.'},
             {'page': 2, 'type': 'heading', 'text': 'Lesson 4.1 – For Loops'},
-            {'page': 2, 'type': 'paragraph', 'text': 'Estimated Time: 30 minutes'},
             {'page': 2, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 2,
              'type': 'list',
@@ -5707,7 +5669,6 @@ print(f"Total: ${total}")
                      "game board, or a multiplication table. In the next lesson, you'll learn about nested "
                      'loops, where one loop runs inside another to solve more complex problems.'},
             {'page': 3, 'type': 'heading', 'text': 'Lesson 4.2 – Nested Loops'},
-            {'page': 3, 'type': 'paragraph', 'text': 'Estimated Time: 20 minutes'},
             {'page': 3, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 3,
              'type': 'list',
@@ -5983,7 +5944,6 @@ print(f"Total: ${total}")
                      "next lesson, you'll learn how to control loop execution using the break, continue, and "
                      'pass statements.'},
             {'page': 4, 'type': 'heading', 'text': 'Lesson 4.3 – Advanced Loop Techniques'},
-            {'page': 4, 'type': 'paragraph', 'text': 'Estimated Time: 60 minutes'},
             {'page': 4, 'type': 'heading', 'text': 'Prerequisites'},
 
             {'page': 4,
@@ -6385,11 +6345,9 @@ print(f"Total: ${total}")
     "functions_modularity": {'id': 'functions_modularity',
  'lesson_number': '5',
  'title': 'Functions & Modularity',
- 'description': 'Lesson 5.0 - Writing Your Own Functions. Define reusable functions with '
-                'parameters, arguments, return values, and docstrings.',
+ 'description': 'Lesson 5.0 - Writing Your Own Functions. Lesson 5.1 - Scope, Modules, & Refactoring. Build reusable functions and organize larger Python programs.',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 5.0 – Writing Your Own Functions'},
-            {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 75–90 minutes'},
-            {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
+{'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 1,
              'type': 'list',
              'items': ['Lesson 1.0 – Variables & Data Types',
@@ -7012,7 +6970,567 @@ print(f"Total: ${total}")
              'text': "In the next lesson, you'll learn how Python keeps track of variables inside "
                      "and outside of functions. You'll explore scope, discover why some variables "
                      'can only be used in certain places, and learn how to organize larger '
-                     'programs by importing functions from modules.'}]},
+                     'programs by importing functions from modules.'},
+            {'page': 2, 'type': 'heading', 'text': 'Lesson 5.1 – Scope, Modules, & Refactoring'},
+            {'page': 2, 'type': 'heading', 'text': 'Prerequisites'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Lesson 1.0 – Variables & Data Types',
+                       'Lesson 1.1 – Using Variables',
+                       'Lesson 2 – Teaching Programs to Make Decisions',
+                       'Lesson 3.0 – Tuples',
+                       'Lesson 3.1 – Lists, Mutation & Aliasing',
+                       'Lesson 3.2 – Dictionaries: Organizing Information with Keys',
+                       'Lesson 4.0 – While Loops',
+                       'Lesson 4.1 – For Loops',
+                       'Lesson 4.2 – Nested Loops',
+                       'Lesson 4.3 – Advanced Loop Techniques',
+                       'Lesson 5.0 – Writing Your Own Functions']},
+            {'page': 2, 'type': 'heading', 'text': 'Learning Objectives'},
+            {'page': 2, 'type': 'paragraph', 'text': 'By the end of this lesson, you will be able to:'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Explain what scope is and why it matters.',
+                       'Distinguish between local and global variables.',
+                       'Import and use functions from another Python module.',
+                       'Refactor repeated code into reusable functions.',
+                       'Organize larger Python programs into multiple files.']},
+            {'page': 2, 'type': 'heading', 'text': 'Vocabulary'},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">scope</span> &nbsp; <span style="background:#fff1df; color:#c74716; '
+                     'padding:2px 7px; border-radius:6px; font-weight:600;">local variable</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">global variable</span> &nbsp; <span style="background:#fff1df; '
+                     'color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">module</span> '
+                     '&nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">import</span> &nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">refactor</span>'},
+            {'page': 2, 'type': 'heading', 'text': 'Introduction'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'As programs become larger, simply writing functions is no longer enough. Professional '
+                     'programmers organize their code into many small functions spread across multiple files. '
+                     'To do this successfully, you need to understand two important ideas:'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Scope, which determines where variables can be used.',
+                       'Modules, which allow you to organize code into separate files.']},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Note that these bullets are not necessarily definitions; rather, they introduce these '
+                     "ideas, so continue reading to get the definitions of these terms. You'll also learn how "
+                     'to refactor your programs by replacing repeated code with reusable functions. These '
+                     'skills make programs easier to read, maintain, and expand.'},
+            {'page': 2, 'type': 'heading', 'text': 'STEM Spotlight – Kimberly Bryant'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Kimberly Bryant is an electrical engineer and the founder of Black Girls CODE, a '
+                     'nonprofit organization that helps girls from underrepresented communities learn '
+                     'programming, robotics, and other technology skills. After working as an engineer, Bryant '
+                     'realized that many young students lacked opportunities to explore computer science, so '
+                     'she created programs that empower them to become creators of technology rather than just '
+                     'users of it.'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'As students learn to build larger programs, Bryant encourages them to think like '
+                     'professional software developers. Large software projects are made up of many small, '
+                     'organized pieces of code that work together. By understanding scope, organizing code '
+                     'into modules, and refactoring repeated code into reusable functions, programmers can '
+                     'create software that is easier to read, maintain, and improve. Just like the students of '
+                     "Black Girls CODE, you're taking the next step toward writing cleaner, more organized "
+                     'programs that can grow into much larger projects.'},
+            {'page': 2, 'type': 'heading', 'text': 'Section 1 – Understanding Variable Scope'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "As your programs become larger, you'll create many variables inside different functions. "
+                     "But here's an important rule: Not every variable exists everywhere in your program."},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': 'Instead, every variable has a <span style="background:#fff1df; color:#c74716; '
+                     'padding:2px 7px; border-radius:6px; font-weight:600;">scope</span>. Scope is the part of '
+                     'a program where a variable can be accessed.'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Think of scope like different rooms in a house. A TV in the living room can be used by '
+                     "anyone in the living room, but someone in the kitchen can't use it unless they walk into "
+                     'that room. Variables work in a similar way. A variable created in one part of a program '
+                     "isn't automatically available everywhere else."},
+            {'page': 2, 'type': 'paragraph', 'text': 'For example, consider this function.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'def greet():\n    message = "Hello!"\n    print(message)\n\ngreet()\n\nOutput\nHello!'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'The variable message exists while the function is running, so the function can print it '
+                     'without any problems. But what happens if we try to use message outside the function?'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'def greet():\n'
+                     '    message = "Hello!"\n'
+                     '    print(message)\n'
+                     '\n'
+                     'greet()\n'
+                     'print(message)\n'
+                     '\n'
+                     'Output\n'
+                     'Hello!\n'
+                     "NameError: name 'message' is not defined"},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Python raises a NameError¹ because the variable message only exists inside the greet() '
+                     'function. Once the function finishes running, the variable disappears.'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Notice that calling the function does not permanently create its variables. Every time a '
+                     'function is called, Python creates a fresh set of variables for that function. When the '
+                     'function ends, those variables are destroyed. This helps prevent different parts of a '
+                     "program from accidentally changing each other's data."},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Imagine if every variable created anywhere in a program stayed around forever. As '
+                     'programs grew larger, it would become very easy for one part of the code to accidentally '
+                     'overwrite another variable with the same name. By limiting where variables exist, scope '
+                     'helps keep programs organized and reduces bugs.'},
+            {'page': 2,
+             'type': 'tip',
+             'text': 'A variable only exists within its scope. If you try to use it outside that scope, Python '
+                     'will raise a NameError.'},
+            {'page': 2,
+             'type': 'footnote',
+             'number': '1',
+             'text': 'An error that occurs when you try to use a variable or name that Python does not '
+                     "recognize because it hasn't been defined or is out of scope."},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What happens when this program runs?\n'
+                         '\n'
+                         'def say_hi():\n'
+                         '    greeting = "Hi!"\n'
+                         '\n'
+                         'say_hi()\n'
+                         'print(greeting)',
+             'options': ['A. NameError', 'B. Hi!', 'C. greeting', 'D. Nothing is printed.'],
+             'answer': 'A. NameError'},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What does scope describe?',
+             'options': ['A. The type of a variable.',
+                         'B. Where a variable can be accessed in a program.',
+                         'C. The value stored in a variable.',
+                         'D. The size of a variable.'],
+             'answer': 'B. Where a variable can be accessed in a program.'},
+            {'page': 2, 'type': 'heading', 'text': 'Section 2 – Local vs. Global Variables'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'In the previous section, you learned that variables only exist within their scope. Now '
+                     "let's look at the two most common types of variables you'll use in Python."},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Local variables exist only inside a function.',
+                       'Global variables are created outside of every function and can be used throughout the '
+                       'program.']},
+            {'page': 2, 'type': 'heading', 'text': 'Local Variables'},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': 'A <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">local variable</span> is created inside a function. It exists only '
+                     'while that function is running.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'def greet():\n    message = "Hello!"\n    print(message)\n\ngreet()\n\nOutput\nHello!'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'The variable message is local because it was created inside greet(). It cannot be used '
+                     'outside the function.'},
+            {'page': 2,
+             'type': 'code',
+             'text': "print(message)\n\nOutput\nNameError: name 'message' is not defined"},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Each time the function is called, Python creates a new local variable.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'def count_to_three():\n'
+                     '    number = 1\n'
+                     '    print(number)\n'
+                     '\n'
+                     'count_to_three()\n'
+                     'count_to_three()\n'
+                     '\n'
+                     'Output\n'
+                     '1\n'
+                     '1'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Notice that number does not remember its previous value. A new local variable is created '
+                     'each time the function runs.'},
+            {'page': 2, 'type': 'heading', 'text': 'Global Variables'},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': 'A <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">global variable</span> is created outside of every function.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'school = "Central High"\n'
+                     '\n'
+                     'def print_school():\n'
+                     '    print(school)\n'
+                     '\n'
+                     'print_school()\n'
+                     '\n'
+                     'Output\n'
+                     'Central High'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Since school was created outside the function, both the function and the rest of the '
+                     'program can access it.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'school = "Central High"\n'
+                     '\n'
+                     'def print_school():\n'
+                     '    print(school)\n'
+                     '\n'
+                     'print_school()\n'
+                     'print(school)\n'
+                     '\n'
+                     'Output\n'
+                     'Central High\n'
+                     'Central High'},
+            {'page': 2, 'type': 'heading', 'text': 'Local vs. Global'},
+            {'page': 2,
+             'type': 'table',
+             'headers': ['Local Variable', 'Global Variable'],
+             'rows': [['Created inside a function.', 'Created outside all functions.'],
+                      ['Exists only while the function runs.', 'Exists for the entire program.'],
+                      ['Cannot be used outside its function.',
+                       'Can usually be accessed throughout the program.']]},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Although global variables are useful in some situations, professional programmers try to '
+                     'use local variables whenever possible. Local variables make functions more independent, '
+                     'easier to understand, and less likely to accidentally change information used elsewhere '
+                     'in the program.'},
+            {'page': 2,
+             'type': 'tip',
+             'text': 'As a general rule, create variables inside functions unless you have a good reason to '
+                     'share them across your entire program.'},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What type of variable is age?\n\ndef birthday():\n    age = 16\n    print(age)',
+             'options': ['A. Global variable', 'B. Parameter', 'C. Local variable', 'D. Argument'],
+             'answer': 'C. Local variable'},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What is the output?\n'
+                         '\n'
+                         'city = "Tulsa"\n'
+                         '\n'
+                         'def show_city():\n'
+                         '    print(city)\n'
+                         '\n'
+                         'show_city()',
+             'options': ['A. city', 'B. NameError', 'C. Nothing', 'D. Tulsa'],
+             'answer': 'D. Tulsa'},
+            {'page': 2, 'type': 'heading', 'text': 'Section 3 – (OPTIONAL) Modules and import'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'This section is completely optional, so feel free to skip this section. Nevertheless, if '
+                     'you have the extra time, consider reading this section because it’s incredibly important '
+                     'for software engineers to understand, as they create large coding projects.'},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': 'As your programs become larger, putting every function into one file can make your code '
+                     'difficult to read and manage. Instead, programmers organize related functions into <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">modules</span>. A module is a Python file that contains code, such as '
+                     'functions and variables, which can be reused in other programs.'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "For example, suppose you've written several functions that perform math calculations."},
+            {'page': 2,
+             'type': 'code',
+             'text': 'def add(a, b):\n'
+                     '    return a + b\n'
+                     '\n'
+                     'def subtract(a, b):\n'
+                     '    return a - b\n'
+                     '\n'
+                     'def multiply(a, b):\n'
+                     '    return a * b'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Instead of copying these functions into every new program you write, you can save them '
+                     'in a file called math_tools.py. Now, whenever you need these functions, you can import '
+                     'the module.'},
+            {'page': 2, 'type': 'heading', 'text': 'Importing an Entire Module'},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': 'The simplest way to use a module is with the <span style="background:#fff1df; '
+                     'color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">import '
+                     'statement</span>.'},
+            {'page': 2, 'type': 'code', 'text': 'import math_tools'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'To call one of its functions, write the module name, followed by a period (.), and then '
+                     'the function name.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'import math_tools\n\nanswer = math_tools.add(4, 7)\nprint(answer)\n\nOutput\n11'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'The period tells Python exactly where to find the function.'},
+            {'page': 2, 'type': 'heading', 'text': 'Importing Specific Functions'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Sometimes you only need one or two functions from a module. Instead of importing the '
+                     'entire module, you can import specific functions.'},
+            {'page': 2, 'type': 'code', 'text': 'from math_tools import add'},
+            {'page': 2, 'type': 'paragraph', 'text': 'Now you can call the function directly.'},
+            {'page': 2, 'type': 'code', 'text': 'from math_tools import add\n\nprint(add(4, 7))\n\nOutput\n11'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Since add() was imported directly, you no longer need to write math_tools. before its '
+                     'name.'},
+            {'page': 2, 'type': 'heading', 'text': 'Why Use Modules?'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "Imagine you're building a large game. One file might contain player functions. Another "
+                     "might contain enemy functions. A third could handle the game's scoring system."},
+            {'page': 2, 'type': 'paragraph', 'text': 'Splitting your program into modules makes it:'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Easier to read.',
+                       'Easier to debug.',
+                       'Easier to reuse code.',
+                       'Easier for multiple programmers to work on the same project.']},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Professional software projects often contain dozens, hundreds, or even thousands of '
+                     'modules working together.'},
+            {'page': 2,
+             'type': 'tip',
+             'text': 'Think of modules like folders in a filing cabinet. Instead of keeping every document in '
+                     "one huge pile, you organize related information into separate folders so it's easier to "
+                     'find and reuse later.'},
+            {'page': 2, 'type': 'heading', 'text': 'Section 4 – Refactoring with Functions'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'As you continue writing programs, you may notice that you sometimes write the same or '
+                     "very similar code more than once. For example, suppose you're writing a program that "
+                     'calculates the area of several rectangles.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'length1 = 5\n'
+                     'width1 = 3\n'
+                     'area1 = length1 * width1\n'
+                     'print(area1)\n'
+                     '\n'
+                     'length2 = 8\n'
+                     'width2 = 4\n'
+                     'area2 = length2 * width2\n'
+                     'print(area2)\n'
+                     '\n'
+                     'length3 = 6\n'
+                     'width3 = 2\n'
+                     'area3 = length3 * width3\n'
+                     'print(area3)'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Although this program works, it repeats the same calculation three times. If you later '
+                     "discover a mistake, you'll have to fix it in multiple places. Instead of repeating code, "
+                     'we can create a function.'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'def rectangle_area(length, width):\n'
+                     '    return length * width\n'
+                     '\n'
+                     'print(rectangle_area(5, 3))\n'
+                     'print(rectangle_area(8, 4))\n'
+                     'print(rectangle_area(6, 2))'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'The program now does exactly the same thing, but the calculation only appears once.'},
+            {'page': 2,
+             'type': 'rich_paragraph',
+             'html': 'This process is called <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">refactoring</span>. Refactoring is improving the '
+                     'structure of code without changing what the program does. When programmers refactor '
+                     'code, they make it easier to read, understand, and maintain.'},
+            {'page': 2, 'type': 'heading', 'text': 'Why Refactor?'},
+            {'page': 2, 'type': 'paragraph', 'text': 'Refactoring has several advantages.'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Less repetition. You write important code only once.',
+                       'Fewer mistakes. If you need to fix a bug, you only update one location.',
+                       'Better readability. Short, organized functions are easier to understand.',
+                       'Greater reusability. The same function can be used throughout your program or even in '
+                       'future projects.']},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Professional programmers constantly refactor their code as projects grow larger.'},
+            {'page': 2, 'type': 'heading', 'text': 'Before and After Refactoring'},
+            {'page': 2, 'type': 'paragraph', 'text': 'Compare these two programs.'},
+            {'page': 2, 'type': 'heading', 'text': 'Before Refactoring'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'score1 = 82\n'
+                     'print(score1 >= 70)\n'
+                     '\n'
+                     'score2 = 95\n'
+                     'print(score2 >= 70)\n'
+                     '\n'
+                     'score3 = 61\n'
+                     'print(score3 >= 70)'},
+            {'page': 2, 'type': 'heading', 'text': 'After Refactoring'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'def passed(score):\n'
+                     '    return score >= 70\n'
+                     '\n'
+                     'print(passed(82))\n'
+                     'print(passed(95))\n'
+                     'print(passed(61))'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Both programs produce the same output. However, the second program is easier to '
+                     'understand because the function name clearly describes what the calculation means. '
+                     'Instead of repeatedly writing'},
+            {'page': 2, 'type': 'code', 'text': 'score >= 70'},
+            {'page': 2, 'type': 'paragraph', 'text': 'we can simply write'},
+            {'page': 2, 'type': 'code', 'text': 'passed(score)'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'The function hides the details of the calculation behind a meaningful name.'},
+            {'page': 2, 'type': 'heading', 'text': 'Refactoring Makes Programs Easier to Change'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Suppose your teacher decides that a passing grade is now 75 instead of 70. Without '
+                     'refactoring, you would have to update every occurrence of'},
+            {'page': 2, 'type': 'code', 'text': 'score >= 70'},
+            {'page': 2, 'type': 'paragraph', 'text': 'After refactoring, you only need to change one line.'},
+            {'page': 2, 'type': 'code', 'text': 'def passed(score):\n    return score >= 75'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Every call to passed() now automatically uses the new rule. This is one of the biggest '
+                     'reasons programmers use functions—they make programs easier to update as requirements '
+                     'change.'},
+            {'page': 2,
+             'type': 'tip',
+             'text': 'If you find yourself copying and pasting the same code several times, ask yourself, '
+                     '"Could this be a function?" If the answer is yes, your program will usually become '
+                     'shorter, cleaner, and easier to maintain.'},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'What is refactoring?',
+             'options': ['A. Adding new features to a program.',
+                         'B. Fixing syntax errors.',
+                         'C. Importing a module.',
+                         'D. Improving the structure of code without changing what it does.'],
+             'answer': 'D. Improving the structure of code without changing what it does.'},
+            {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
+            {'page': 2,
+             'type': 'quiz',
+             'question': 'Why is the second program better?\n'
+                         '\n'
+                         'def square(number):\n'
+                         '    return number * number\n'
+                         '\n'
+                         'print(square(4))\n'
+                         'print(square(7))\n'
+                         'print(square(10))',
+             'options': ['A. It uses less memory.',
+                         'B. It runs forever.',
+                         'C. It creates more variables.',
+                         'D. It avoids repeating the same calculation.'],
+             'answer': 'D. It avoids repeating the same calculation.'},
+            {'page': 2, 'type': 'heading', 'text': 'Mini Project – Build a Math Toolkit'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Throughout this lesson, you learned that programmers organize code into functions and '
+                     'modules so it can be reused in many different programs.'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "In this project, you'll create your own module called math_tools.py and use it in "
+                     'another Python file.'},
+            {'page': 2, 'type': 'paragraph', 'text': 'Your toolkit should include functions that:'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Add two numbers.',
+                       'Subtract two numbers.',
+                       'Multiply two numbers.',
+                       'Divide two numbers.']},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'Then, write a second program that imports your module and uses each function.'},
+            {'page': 2, 'type': 'heading', 'text': 'Starter Code'},
+            {'page': 2, 'type': 'heading', 'text': 'math_tools.py'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'def add(a, b):\n'
+                     '    """Returns the sum of two numbers."""\n'
+                     '    pass\n'
+                     '\n'
+                     'def subtract(a, b):\n'
+                     '    """Returns the difference of two numbers."""\n'
+                     '    pass\n'
+                     '\n'
+                     'def multiply(a, b):\n'
+                     '    """Returns the product of two numbers."""\n'
+                     '    pass\n'
+                     '\n'
+                     'def divide(a, b):\n'
+                     '    """Returns the quotient of two numbers."""\n'
+                     '    pass'},
+            {'page': 2, 'type': 'heading', 'text': 'main.py'},
+            {'page': 2,
+             'type': 'code',
+             'text': 'import math_tools\n'
+                     '\n'
+                     'print(math_tools.add(8, 2))\n'
+                     'print(math_tools.subtract(8, 2))\n'
+                     'print(math_tools.multiply(8, 2))\n'
+                     'print(math_tools.divide(8, 2))'},
+            {'page': 2, 'type': 'heading', 'text': 'Example Output'},
+            {'page': 2, 'type': 'code', 'text': '10\n6\n16\n4.0'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': 'As a challenge, add your own functions to the module, such as square(), cube(), or '
+                     'average().'},
+            {'page': 2, 'type': 'heading', 'text': 'Key Takeaways'},
+            {'page': 2,
+             'type': 'list',
+             'items': ['Every variable has a scope, which determines where it can be used.',
+                       'Local variables exist only inside the function where they are created.',
+                       'Global variables are created outside of functions and can usually be accessed '
+                       'throughout the program.',
+                       '(OPTIONAL) Modules help organize related code into separate Python files.',
+                       '(OPTIONAL) The import statement allows you to reuse functions from another module.',
+                       'Refactoring improves the organization of a program without changing its behavior.',
+                       'Writing small, reusable functions makes programs easier to read, test, and maintain.']},
+            {'page': 2, 'type': 'heading', 'text': 'Looking Ahead'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "In the next unit, you'll explore one of the most fascinating ideas in computer science: "
+                     "recursion. Instead of solving a problem with loops, you'll learn how a function can "
+                     "solve a problem by calling itself. You'll discover when recursion is useful, how to "
+                     'trace recursive function calls, and how to write recursive algorithms to solve problems '
+                     'that would otherwise be difficult to approach.'},
+            {'page': 2,
+             'type': 'paragraph',
+             'text': "After mastering recursion, you'll put everything you've learned throughout this course "
+                     "into practice in a Capstone Project. You'll design, build, and present your own Python "
+                     'application, combining variables, conditionals, loops, data structures, functions, '
+                     'modules, and recursion to solve a real-world problem. It will be your opportunity to '
+                     "demonstrate the programming skills you've developed over the entire course."}]},
     "recursion_capstone": {
 
         "id": "recursion_capstone",
@@ -7031,11 +7549,6 @@ print(f"Total: ${total}")
                 "text": "Lesson 6 - Recursion & the Capstone"
             },
 
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text": "Estimated Time: 30-40 minutes"
-            },
 
             {
                 "page": 1,
