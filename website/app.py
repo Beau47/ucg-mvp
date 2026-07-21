@@ -720,7 +720,10 @@ def edit_profile():
                     .from_("avatars") \
                     .upload(
                         path,
-                        file.read()
+                        file.read(),
+                        file_options={
+                            "upsert": "true"
+                        }
                     )
 
 
