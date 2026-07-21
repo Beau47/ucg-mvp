@@ -387,3 +387,13 @@ nav a.active{
     cursor:pointer;
 
 }
+
+.edit-profile-button {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.container > .card {
+    margin-bottom: 25px;
+}

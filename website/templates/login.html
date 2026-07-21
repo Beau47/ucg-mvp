@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <title>Login | Urban Coders Guild</title>
+<title>Login | Urban Coders Guild</title>
 
-    <link rel="icon" href="/static/images/ucg_logo.webp">
+<link rel="icon" href="/static/images/ucg_logo.webp">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/style.css">
 
 </head>
 
@@ -21,19 +22,24 @@
 
 <div class="session-popup">
 
-    <div class="session-box">
+<div class="session-box">
 
-        <h2>Session Expired</h2>
+    <h2>
+        Session Expired
+    </h2>
 
-        <p>
-            Your session has expired. Please log in again.
-        </p>
 
-        <button onclick="closePopup()">
-            Continue to Login
-        </button>
+    <p>
+        Your session has expired. Please log in again.
+    </p>
 
-    </div>
+
+    <button onclick="closePopup()">
+        Continue to Login
+    </button>
+
+</div>
+
 
 </div>
 
@@ -41,103 +47,145 @@
 
 <header class="topbar">
 
-    <div class="logo">
-        Urban Coders Guild
-    </div>
+
+<div class="logo">
+    Urban Coders Guild
+</div>
+
 
 </header>
 
 <div class="auth-container">
 
-    <div class="auth-info">
 
-        <h1>Welcome Back!</h1>
+<div class="auth-info">
 
-        <p>
-            Continue learning Python, solve coding challenges,
-            and grow your programming skills.
-        </p>
 
-        <div class="feature">
-            🐍 Interactive Python Lessons
-        </div>
+    <h1>
+        Welcome Back!
+    </h1>
 
-        <div class="feature">
-            💻 Hands-on Coding Challenges
-        </div>
 
-        <div class="feature">
-            🚀 Track Your Progress
-        </div>
+    <p>
+        Continue learning Python, solve coding challenges,
+        and grow your programming skills.
+    </p>
 
+
+    <div class="feature">
+        🐍 Interactive Python Lessons
     </div>
 
-    <div class="card auth-card">
 
-        <h2>Login</h2>
+    <div class="feature">
+        💻 Hands-on Coding Challenges
+    </div>
 
-        {% if error %}
-            <div class="error">{{ error }}</div>
-        {% endif %}
 
-        <form method="POST">
+    <div class="feature">
+        🚀 Track Your Progress
+    </div>
 
-            <label>Email</label>
 
-            <input
-                class="input"
-                type="email"
-                name="email"
-                required
+</div>
+
+
+<div class="card auth-card">
+
+
+    <h2>
+        Login
+    </h2>
+
+
+    {% if error %}
+
+        <div class="error">
+            {{ error }}
+        </div>
+
+    {% endif %}
+
+
+    <form method="POST">
+
+
+        <label>
+            Email
+        </label>
+
+
+        <input
+            class="input"
+            type="email"
+            name="email"
+            required
+        >
+
+
+        <label>
+            Password
+        </label>
+
+
+        <input
+            class="input"
+            type="password"
+            name="password"
+            required
+        >
+
+
+        <div class="forgot-link">
+
+            <button
+                type="button"
+                onclick="window.location.href='/forgot-password'"
             >
-
-            <label>Password</label>
-
-            <input
-                class="input"
-                type="password"
-                name="password"
-                required
-            >
-            <p style="text-align:center; margin-top:15px;">
-
-                <div class="forgot-link">
-
-                    <a href="/forgot-password">
-                        Forgot Password?
-                    </a>
-
-                </div>
-
-            </p>
-
-            <button type="submit">
-                Login
+                Forgot Password?
             </button>
 
-        </form>
+        </div>
 
-        <p>
-            Don't have an account?
 
-            <a href="/signup">
-                Create one
-            </a>
+        <button
+            type="submit"
+            class="login-button"
+        >
+            Login
+        </button>
 
-        </p>
 
-    </div>
+    </form>
+
+
+    <p class="signup-prompt">
+
+        Don't have an account?
+
+
+        <a href="/signup">
+            Create one
+        </a>
+
+
+    </p>
+
+
+</div>
+
 
 </div>
 
 </body>
+
 </html>
 
 <script>
 
 function closePopup(){
 
-    window.location.href="/login";
+    window.location.href = "/login";
 
 }
 
