@@ -21,11 +21,6 @@ LESSONS = {
                 "text": "Unit 0 - Why Python?"
             },
 
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text": "Estimated Time: 30-40 minutes"
-            },
 
             {
                 "page": 1,
@@ -280,11 +275,6 @@ LESSONS = {
                 "text": "Lesson 0.5 - Read This Before Doing Any Exercises"
             },
 
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text": "Estimated Time: 10-15 minutes"
-            },
 
             {
                 "page": 1,
@@ -601,11 +591,6 @@ LESSONS = {
                 "text": "Lesson 1.0 - Storing Information with Variables"
             },
 
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text": "Estimated Time: 45-60 minutes"
-            },
 
             {
                 "page": 1,
@@ -955,11 +940,6 @@ customer = "Maria"
                 "text": "Lesson 1.1 - Using Variables"
             },
 
-            {
-                "page": 2,
-                "type": "paragraph",
-                "text": "Estimated Time: 60 minutes"
-            },
 
             {
                 "page": 2,
@@ -1758,8 +1738,7 @@ print(f"Total: ${total}")
      'blocks': [{'page': 1,
                  'type': 'heading',
                  'text': 'Lesson 2 – Teaching Programs to Make Decisions'},
-                {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 60–75 minutes'},
-                {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
+{'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
                 {'page': 1,
                  'type': 'list',
                  'items': ['Lesson 1.0 – Variables & Data Types', 'Lesson 1.1 – Using Variables']},
@@ -2515,11 +2494,6 @@ print(f"Total: ${total}")
             },
             {
                 "page": 1,
-                "type": "paragraph",
-                "text": "Estimated Time: 30–45 minutes"
-            },
-            {
-                "page": 1,
                 "type": "heading",
                 "text": "Prerequisites"
             },
@@ -3054,11 +3028,6 @@ print(f"Total: ${total}")
                 "page": 2,
                 "type": "heading",
                 "text": "Lesson 3.1 – Lists, Mutation & Aliasing"
-            },
-            {
-                "page": 2,
-                "type": "paragraph",
-                "text": "Estimated Time: 75–90 minutes"
             },
             {
                 "page": 2,
@@ -4274,11 +4243,6 @@ print(f"Total: ${total}")
             },
             {
                 "page": 3,
-                "type": "paragraph",
-                "text": "Estimated Time: 30 minutes"
-            },
-            {
-                "page": 3,
                 "type": "heading",
                 "text": "Prerequisites"
             },
@@ -4872,8 +4836,7 @@ print(f"Total: ${total}")
  'description': 'Lesson 4.0 - While Loops. Lesson 4.1 - For Loops. Lesson 4.2 - Nested Loops. Lesson 4.3 - Advanced Loop Techniques. Build and control loops to process collections.',
  'title': 'Loops',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 4.0 – While Loops'},
-            {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 60–75 minutes'},
-            {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
+{'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 1,
              'type': 'paragraph',
              'text': 'Before beginning this lesson, you should understand:'},
@@ -5386,7 +5349,6 @@ print(f"Total: ${total}")
                      'loops simplify many repetitive tasks and become one of the most commonly '
                      'used tools in programming.'},
             {'page': 2, 'type': 'heading', 'text': 'Lesson 4.1 – For Loops'},
-            {'page': 2, 'type': 'paragraph', 'text': 'Estimated Time: 30 minutes'},
             {'page': 2, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 2,
              'type': 'list',
@@ -5707,7 +5669,6 @@ print(f"Total: ${total}")
                      "game board, or a multiplication table. In the next lesson, you'll learn about nested "
                      'loops, where one loop runs inside another to solve more complex problems.'},
             {'page': 3, 'type': 'heading', 'text': 'Lesson 4.2 – Nested Loops'},
-            {'page': 3, 'type': 'paragraph', 'text': 'Estimated Time: 20 minutes'},
             {'page': 3, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 3,
              'type': 'list',
@@ -5983,7 +5944,6 @@ print(f"Total: ${total}")
                      "next lesson, you'll learn how to control loop execution using the break, continue, and "
                      'pass statements.'},
             {'page': 4, 'type': 'heading', 'text': 'Lesson 4.3 – Advanced Loop Techniques'},
-            {'page': 4, 'type': 'paragraph', 'text': 'Estimated Time: 60 minutes'},
             {'page': 4, 'type': 'heading', 'text': 'Prerequisites'},
 
             {'page': 4,
@@ -6388,8 +6348,7 @@ print(f"Total: ${total}")
  'description': 'Lesson 5.0 - Writing Your Own Functions. Define reusable functions with '
                 'parameters, arguments, return values, and docstrings.',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 5.0 – Writing Your Own Functions'},
-            {'page': 1, 'type': 'paragraph', 'text': 'Estimated Time: 75–90 minutes'},
-            {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
+{'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 1,
              'type': 'list',
              'items': ['Lesson 1.0 – Variables & Data Types',
@@ -7031,11 +6990,6 @@ print(f"Total: ${total}")
                 "text": "Lesson 6 - Recursion & the Capstone"
             },
 
-            {
-                "page": 1,
-                "type": "paragraph",
-                "text": "Estimated Time: 30-40 minutes"
-            },
 
             {
                 "page": 1,
