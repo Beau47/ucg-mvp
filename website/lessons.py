@@ -7531,301 +7531,596 @@ print(f"Total: ${total}")
                      'application, combining variables, conditionals, loops, data structures, functions, '
                      'modules, and recursion to solve a real-world problem. It will be your opportunity to '
                      "demonstrate the programming skills you've developed over the entire course."}]},
-    "recursion_capstone": {
-
-        "id": "recursion_capstone",
-
-        "lesson_number": "6",
-
-        "title": "Recursion & the Capstone",
-
-        "description": "Lesson 6.0 - Recursion & the Capstone. Trace recursive functions and bring the course together in a community capstone project.",
-
-        "blocks": [
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Lesson 6 - Recursion & the Capstone"
-            },
-
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Learning Objectives"
-            },
-
-            {
-                "page": 1,
-                "type": "list",
-                "items": [
-                    "Trace and implement a simple recursive function.",
-                    "Identify the base case and the recursive call in a function.",
-                    "Sketch the call stack for factorial(4).",
-                    "Convert an iterative family-tree printer into a recursive one.",
-                    "Plan a capstone project using a checklist of required constructs.",
-                    "Refactor code for clarity by adding docstrings and comments.",
-                    "Deliver a 2-minute capstone demo and capture peer feedback."
-                ]
-            },
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Word Bank"
-            },
-
-            {
-                "page": 1,
-                "type": "rich_paragraph",
-                "html":
-                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">recursion</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">base case</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">call stack</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">capstone project</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">refactor</span>'
-            },
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Introduction"
-            },
-
-            {
-                "page": 1,
-                "type": "rich_paragraph",
-                "html":
-                'Imagine asking a grandparent to tell you a family story. They tell you their part, then say, "for the rest, ask your great-aunt - she knows what came before me." Your great-aunt does the same thing, pointing further back, until someone finally says, "that\'s the beginning - there\'s no one before me." That is exactly how a recursive function works: each step solves a small piece and hands the rest down, until someone finally stops the chain.'
-            },
-
-            {
-                "page": 1,
-                "type": "quote",
-                "text":
-                "Recursion = passing down knowledge. - inspired by Roy Clay Sr., known as the \"Godfather of Silicon Valley\""
-            },
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Section 1 - What Is Recursion?"
-            },
-
-            {
-                "page": 1,
-                "type": "rich_paragraph",
-                "html":
-                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">Recursion</span> is a function calling itself to solve a smaller piece of the same problem. Every recursive function needs a <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">base case</span> - the simple situation where the function stops calling itself. Without one, the function would call itself forever.'
-            },
-
-            {
-                "page": 1,
-                "type": "code",
-                "language": "python",
-                "text":
-"""def factorial(n):
-    # base case: the "no one before me" moment
-    if n == 0:
-        return 1
-    # recursive call: hand off a smaller version of the problem
-    return n * factorial(n - 1)"""
-            },
-
-            {
-                "page": 1,
-                "type": "tip",
-                "text":
-                "Every recursive function needs two things: a base case that stops it, and a recursive call that hands off a smaller version of the same problem."
-            },
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Section 2 - Tracing the Call Stack"
-            },
-
-            {
-                "page": 1,
-                "type": "rich_paragraph",
-                "html":
-                'The <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">call stack</span> is the list of function calls the computer is managing at any moment.<sup>1</sup> Each call waits, paused, for the next one to finish. Here is the full trace for factorial(4) - the stack grows downward as calls are made, then collapses back upward as each call returns its answer:'
-            },
-
-            {
-                "page": 1,
-                "type": "code",
-                "language": "text",
-                "text":
-"""factorial(4)
-  factorial(3)
-    factorial(2)
-      factorial(1)
-        factorial(0) -> base case hit, returns 1
-      returns 1 * 1 = 1
-    returns 2 * 1 = 2
-  returns 3 * 2 = 6
-returns 4 * 6 = 24"""
-            },
-
-            {
-                "page": 1,
-                "type": "footnote",
-                "number": "1",
-                "text": "The call stack is managed automatically by the Python interpreter - you never have to build it yourself."
-            },
-
-            {
-                "page": 1,
-                "type": "warning",
-                "text":
-                "If a recursive function never reaches its base case, the call stack keeps growing until Python runs out of room and raises a RecursionError. Always double-check that every recursive call moves toward the base case."
-            },
-
+    "recursion_capstone": {'id': 'recursion_capstone',
+ 'lesson_number': '6',
+ 'title': 'Recursion',
+ 'description': 'Lesson 6.0 - Recursion. Learn how recursive functions use base cases and the call stack to '
+                'solve smaller versions of a problem.',
+ 'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 6.0 – Recursion'},
+            {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Define and call functions.',
+                       'Use parameters and return values.',
+                       'Write conditional statements.',
+                       'Use loops to repeat code.',
+                       'Understand variable scope.']},
+            {'page': 1, 'type': 'heading', 'text': 'Learning Objectives'},
+            {'page': 1, 'type': 'paragraph', 'text': 'By the end of this lesson, you will be able to:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Lesson 1.0 – Variables & Data Types',
+                       'Lesson 1.1 – Using Variables',
+                       'Lesson 2 – Teaching Programs to Make Decisions',
+                       'Lesson 3.0 – Tuples',
+                       'Lesson 3.1 – Lists, Mutation & Aliasing',
+                       'Lesson 3.2 – Dictionaries: Organizing Information with Keys',
+                       'Lesson 4.0 – While Loops',
+                       'Lesson 4.1 – For Loops',
+                       'Lesson 4.2 – Nested Loops',
+                       'Lesson 4.3 – Advanced Loop Techniques',
+                       'Lesson 5.0 – Writing Your Own Functions',
+                       'Lesson 5.1 – Scope, Modules, & Refactoring']},
+            {'page': 1, 'type': 'heading', 'text': 'Vocabulary'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">recursion</span> &nbsp;•&nbsp; <span style="background:#fff1df; '
+                     'color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">base case</span> '
+                     '&nbsp;•&nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">recursive call</span> &nbsp;•&nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">call stack</span> &nbsp;•&nbsp; <span style="background:#fff1df; '
+                     'color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">RecursionError</span>'},
+            {'page': 1, 'type': 'heading', 'text': 'Introduction'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Imagine asking a grandparent to tell you a family story. They tell you their part, then '
+                     'say, "For the rest, ask your great-aunt—she knows what happened before me." Your '
+                     'great-aunt tells her part and points you to someone even older. This continues until '
+                     'someone finally says, "That\'s the beginning. There is no one before me." This is '
+                     'similar to how recursion works. A recursive function solves a small part of a problem, '
+                     'then asks another copy of itself to solve the rest. Eventually, one function reaches the '
+                     'simplest possible case—the beginning—and stops the chain. Then each waiting function '
+                     'receives its answer and finishes its own work. Unlike loops, which repeat the same '
+                     'instructions over and over, recursion solves problems by breaking them into smaller '
+                     "versions of themselves. In this lesson, you'll learn how recursive functions work, how "
+                     'Python keeps track of them, and when recursion is a useful way to solve problems.'},
+            {'page': 1, 'type': 'heading', 'text': 'Spotlight – You'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Congratulations—you've made it to the final programming lesson of this course."},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "When you began, you may have never written a single line of Python. Since then, you've "
+                     'learned how to use variables, make decisions with conditionals, repeat actions with '
+                     'loops, organize data using lists, tuples, and dictionaries, and write your own reusable '
+                     'functions and modules. Each lesson built on the one before it, helping you think more '
+                     "like a programmer. Now you've reached recursion, a topic that many computer science "
+                     'students find challenging. In fact, recursion is famous within the programming community '
+                     'for being one of the most confusing concepts to learn at first. It requires you to think '
+                     'about problems in a completely different way—breaking a problem into smaller versions of '
+                     "itself until it becomes simple enough to solve. If recursion feels difficult, you're not "
+                     'alone. Even experienced programmers often need to trace recursive functions step by step '
+                     'before everything clicks. With practice, however, recursion becomes a powerful '
+                     'problem-solving tool that appears throughout computer science, from searching trees to '
+                     'processing files and designing algorithms. Most importantly, take a moment to appreciate '
+                     "how far you've come. Not long ago, writing a simple program may have seemed impossible. "
+                     "Now you're learning one of the most advanced topics in an introductory programming "
+                     "course. After this lesson, you'll begin your Capstone Project—an opportunity to combine "
+                     "everything you've learned into a program of your own. Every variable, loop, function, "
+                     "data structure, and recursive algorithm you've studied has prepared you for this "
+                     'moment.'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 1 – What Is Recursion?'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "In previous lessons, you've used loops to repeat actions. For example, this for loop "
+                     'prints the numbers from 5 down to 1.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'for number in range(5, 0, -1):\n    print(number)'},
+            {'page': 1, 'type': 'heading', 'text': 'Output'},
+            {'page': 1, 'type': 'code', 'language': 'text', 'text': '5\n4\n3\n2\n1'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">Recursion</span> provides another way to solve problems that involve '
+                     'repetition. <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">Recursion</span> is a programming technique in '
+                     'which a function calls itself to solve a smaller version of the same problem. Instead of '
+                     'repeating code with a loop, a recursive function solves one small piece of the problem '
+                     'and then asks another copy of itself to solve the rest.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Every recursive function has two essential parts:'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': '• A <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">base case</span>, which tells the function when to '
+                     'stop<sup>1</sup>.'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': '• A <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">recursive call</span>, which calls the function again with a smaller '
+                     'or simpler version of the problem.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Without a base case, the function would continue calling itself forever. For example, '
+                     'consider the factorial function. The factorial of a nonnegative integer is the product '
+                     'of all positive integers less than or equal to that number.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1, 'type': 'list', 'items': ['4! = 4 · 3 · 2 · 1', '3! = 3 · 2 · 1', '1! = 1', '0! = 1']},
+            {'page': 1,
+             'type': 'footnote',
+             'number': '1',
+             'text': 'This may sound a lot like the way we definined the return key word. However, you’ll see '
+                     'why a base case is similar.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'We can write a recursive function to calculate factorials.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def factorial(n):\n'
+                     '    # Base case\n'
+                     '    if n == 0:\n'
+                     '        return 1\n'
+                     '\n'
+                     '    # Recursive call\n'
+                     '    return n * factorial(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Notice the two important parts.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'The base case is'},
+            {'page': 1, 'type': 'code', 'language': 'python', 'text': 'if n == 0:\n    return 1'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'This is the simplest possible case. Once the function reaches 0, it stops making '
+                     'recursive calls.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'The recursive call is'},
+            {'page': 1, 'type': 'code', 'language': 'python', 'text': 'factorial(n - 1)'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Instead of solving the entire problem itself, the function asks another copy of itself '
+                     'to calculate the factorial of a slightly smaller number. Each recursive call gets one '
+                     'step closer to the base case until the recursion eventually stops.'},
+            {'page': 1,
+             'type': 'tip',
+             'text': 'Every recursive function needs two ingredients:\n'
+                     '1. A base case that stops the recursion.\n'
+                     '2. A recursive call that moves the problem closer to the base case.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Notice that the factorial problem is naturally recursive. Every factorial can be written '
+                     'in terms of a smaller factorial.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1, 'type': 'list', 'items': ['4! = 4 · 3 · 2 · 1', '3! = 3 · 2 · 1', '2! = 2 · 1']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Each factorial problem contains a smaller factorial subproblem. Instead of calculating '
+                     'the entire answer at once, we can solve one step and let another function call solve the '
+                     'smaller factorial. This is exactly what the recursive call does. However, this process '
+                     'cannot continue forever. Eventually, we reach a factorial that has no smaller '
+                     'subproblem.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'By convention²,'},
+            {'page': 1, 'type': 'list', 'items': ['(1! = 1)', '(0! = 1)']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "These are facts that we simply know—they don't need to be broken down any further. Since "
+                     'there is no smaller factorial to compute, they tell the recursion when to stop. This is '
+                     'why 1! or 0! serves as the base case of the recursive function. Now we can write the '
+                     'recursive solution.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def factorial(n):\n'
+                     '    # Base case\n'
+                     '    if n == 0:\n'
+                     '        return 1\n'
+                     '\n'
+                     '    # Recursive call\n'
+                     '    return n * factorial(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'The line'},
+            {'page': 1, 'type': 'code', 'language': 'python', 'text': 'return n * factorial(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'matches the mathematical rule'},
+            {'page': 1, 'type': 'code', 'language': 'text', 'text': 'n! = n × (n-1)!'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'The recursive call solves the smaller factorial subproblem, while the base case ends the '
+                     'chain once we reach a factorial whose value is already known.'},
+            {'page': 1,
+             'type': 'footnote',
+             'number': '2',
+             'text': 'A mathelmatical convention is a rule or definition that mathematicians have agreed to '
+                     'use consistently. For example, anything multiplied by zero is zero is a math '
+                     'convention.'},
             {'page': 1,
              'type': 'quiz',
-             'question': 'In the trace above, which call is the base case?',
-             'options': ['A. factorial(0)', 'B. factorial(4)', 'C. factorial(2)', 'D. factorial(1)'],
-             'answer': 'A. factorial(0)'},
-
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Section 3 - From Loops to Lineage: The Family-Tree Printer"
-            },
-
-            {
-                "page": 2,
-                "type": "paragraph",
-                "text":
-                "An iterative printer walks a family tree with a loop and its own manual stack. A recursive printer lets the call stack do that bookkeeping for you - each generation just prints itself and hands the next generation down."
-            },
-
-            {
-                "page": 2,
-                "type": "code",
-                "language": "python",
-                "text":
-"""# Iterative
-def print_tree(root):
-    stack = [(root, 0)]
-    while stack:
-        person, depth = stack.pop()
-        print("  " * depth + person.name)
-        for child in person.children:
-            stack.append((child, depth + 1))
-
-# Recursive
-def print_tree(person, depth=0):
-    # base case: a person with no children simply prints and stops
-    print("  " * depth + person.name)
-    for child in person.children:
-        print_tree(child, depth + 1)"""
-            },
-
-            {
-                "page": 2,
-                "type": "tip",
-                "text":
-                "Notice the recursive version has no explicit stack list - the call stack is doing that job invisibly. Your task: rewrite one iterative function from an earlier unit into recursive form, and label its base case in a comment."
-            },
-
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Section 4 - Planning Your Capstone"
-            },
-
-            {
-                "page": 2,
-                "type": "rich_paragraph",
-                "html":
-                'Your <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">capstone project</span> is a final project that showcases everything you\'ve learned this course. Before writing a line of code, plan against this checklist, then <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">refactor</span> - improve the code without changing what it does - and deliver a 2-minute demo.'
-            },
-
-            {
-                "page": 2,
-                "type": "list",
-                "items": [
-                    "At least one recursive function with a clearly labeled base case.",
-                    "A data structure from this unit - a list, tree, or heap - used meaningfully.",
-                    "Clear docstrings and comments explaining each function.",
-                    "A 2-minute demo, plus one piece of peer feedback you collect afterward."
-                ]
-            },
-
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Section 5 - Passing It Down"
-            },
-
-            {
-                "page": 2,
-                "type": "paragraph",
-                "text":
-                "Recursion works because each generation trusts the next one to finish the job. Roy Clay Sr., the \"Black Godfather of Silicon Valley,\" led the team that built HP's first computer and spent his career mentoring the next generation of Black engineers. Fred Begay, the first Native American to earn a Ph.D. in physics, researched nuclear fusion at Los Alamos while mentoring Indigenous students in STEM - drawing on the Navajo stories his own parents passed down to him."
-            },
-
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Recap Questions"
-            },
-
-            {'page': 2,
+             'question': 'Which line is the base case in the function below?\n'
+                         '\n'
+                         'def countdown(n):\n'
+                         '    if n == 0:\n'
+                         '        return\n'
+                         '    print(n)\n'
+                         '    countdown(n - 1)',
+             'options': ['A. print(n)', 'B. countdown(n - 1)', 'C. if n == 0: return', 'D. def countdown(n):'],
+             'answer': 'C. if n == 0: return'},
+            {'page': 1,
              'type': 'quiz',
-             'question': 'Fred Begay combined Navajo tradition with physics. Which comparison best matches '
-                         'recursion and iteration to two things he grew up with?',
-             'options': ['A. Recursion is like a lab experiment; iteration is like oral storytelling.',
-                         'B. Recursion is like oral storytelling, where each call adds a layer; iteration is '
-                         'like a lab experiment, repeated step-by-step.',
-                         'C. Both recursion and iteration work like oral storytelling.',
-                         'D. Neither recursion nor iteration resembles either tradition.'],
-             'answer': 'B. Recursion is like oral storytelling, where each call adds a layer; iteration is '
-                       'like a lab experiment, repeated step-by-step.'},
-
-            {
-                "page": 2,
-                "type": "code",
-                "language": "python",
-                "text":
-"""def echo(word, times):
-    if times > 0:
-        print(word)
-        echo(word, times - 1)"""
-            },
-
-            {'page': 2,
+             'question': 'Why does every recursive function need a base case?',
+             'options': ['A. To make the function run faster.',
+                         'B. To tell the function when to stop calling itself.',
+                         'C. To print the answer.',
+                         'D. To create a loop.'],
+             'answer': 'B. To tell the function when to stop calling itself.'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 2 – Tracing the Call Stack'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': 'When a recursive function calls itself, you might wonder: "How does Python keep track of '
+                     'all these function calls?" Python uses something called the <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">call stack</span>. A call stack is the collection of function calls '
+                     'that are currently waiting to finish. Every time a function is called, Python places it '
+                     'on top of the call stack. If that function calls another function, the new function is '
+                     'placed on top of the first one. This process continues until the base case is reached. '
+                     'Once the base case returns a value, the function on top of the stack finishes its work '
+                     'and returns a value to the function below it. One by one, each function is removed from '
+                     'the stack until the original function call is complete.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'The word stack is used very intentionally. Later in your computer science education, '
+                     "you'll learn about a data structure called a stack, which follows the Last In, First Out "
+                     '(LIFO) principle. Similar to a stack of blocks, this means the last item added is the '
+                     'first item removed. The call stack works the same way: the most recent function call '
+                     '(the last one added) is the first to finish and return a value. In the factorial '
+                     'example, factorial(0) is the last function called, so it is the first one to return. '
+                     'Then factorial(1) finishes, followed by factorial(2), and so on until the original '
+                     'function call is complete.'},
+            {'page': 1, 'type': 'paragraph', 'text': "Let's trace the execution of factorial(4)."},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def factorial(n):\n'
+                     '    if n == 0:\n'
+                     '        return 1\n'
+                     '\n'
+                     '    return n * factorial(n - 1)\n'
+                     '\n'
+                     'print(factorial(4))'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Here is what happens.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'text',
+             'text': 'factorial(4)\n'
+                     '    waits for factorial(3)\n'
+                     '        waits for factorial(2)\n'
+                     '            waits for factorial(1)\n'
+                     '                waits for factorial(0)\n'
+                     '                base case reached\n'
+                     '                returns 1\n'
+                     '            returns 1 × 1 = 1\n'
+                     '        returns 2 × 1 = 2\n'
+                     '    returns 3 × 2 = 6\n'
+                     'returns 4 × 6 = 24'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Notice what happens:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Each function call pauses and waits for the next recursive call to finish.',
+                       'The base case is reached at factorial(0).',
+                       'The answers then travel back up the call stack one function at a time until '
+                       'factorial(4) returns 24.']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'This process is often described as the call stack growing as recursive calls are made '
+                     'and unwinding as they return.'},
+            {'page': 1,
+             'type': 'warning',
+             'text': 'Every recursive function must eventually reach its base case. If it never does, Python '
+                     'keeps adding function calls to the call stack until it runs out of memory and raises a '
+                     'RecursionError³.'},
+            {'page': 1,
+             'type': 'footnote',
+             'number': '3',
+             'text': 'An error that occurs when a recursive function keeps calling itself without reaching its '
+                     'base case, causing the call stack to grow too large.'},
+            {'page': 1,
              'type': 'quiz',
-             'question': 'What does echo("hi", 3) print?',
-             'options': ['A. hi (once)',
-                         'B. hi hi hi hi (four times)',
-                         'C. hi hi hi (three times, one per line)',
-                         'D. Nothing - it raises a RecursionError'],
-             'answer': 'C. hi hi hi (three times, one per line)'},
-
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Key Takeaways"
-            },
-
-            {
-                "page": 2,
-                "type": "list",
-                "items": [
-                    "A recursive function needs a base case and a recursive call.",
-                    "The call stack tracks every waiting call until the base case is hit, then unwinds those calls one by one.",
-                    "Recursion can replace a loop plus a manual stack - the call stack does that bookkeeping for you.",
-                    "Passing down knowledge - from Roy Clay Sr. to Fred Begay to your own capstone - is what keeps a field like computer science moving forward."
-                ]
-            },
-            {
-                "page": 3,
-                "type": "exericse",
-                "problem": "countdown"
-            }
-
-        ]
-    }
+             'question': 'In the trace above, which function call reaches the base case?',
+             'options': ['A. factorial(4)', 'B. factorial(2)', 'C. factorial(1)', 'D. factorial(0)'],
+             'answer': 'D. factorial(0)'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What is the purpose of the call stack?',
+             'options': ['A. It keeps track of function calls that are waiting to finish.',
+                         'B. It stores lists in memory.',
+                         'C. It repeats loops.',
+                         'D. It stores variables permanently.'],
+             'answer': 'A. It keeps track of function calls that are waiting to finish.'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 3 – Recursion vs. Iteration'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'In previous lessons, you learned that loops repeat a block of code. This is called '
+                     'iteration. Recursion is another way to solve many of the same problems. For example, '
+                     'suppose we want to count down from 5.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Using a while loop, we might write:'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def countdown(n):\n    while n > 0:\n        print(n)\n        n -= 1'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Using recursion, we could write:'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def countdown(n):\n    if n == 0:\n        return\n    print(n)\n    countdown(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Both functions produce the same output.'},
+            {'page': 1, 'type': 'code', 'language': 'text', 'text': '5\n4\n3\n2\n1'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'The difference is how they solve the problem. The iterative solution repeatedly updates '
+                     'the variable n inside a loop. The recursive solution prints one number, then asks '
+                     'another function call to print the rest of the countdown. Neither approach is always '
+                     "better. It depends on the problem you're trying to solve."},
+            {'page': 1, 'type': 'heading', 'text': 'When Should You Use Recursion?'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Many simple problems, like counting or searching through a list, are usually easier to '
+                     'solve with loops. However, recursion is especially useful when a problem naturally '
+                     'breaks into smaller versions of itself.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Examples include:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Calculating factorials.',
+                       'Searching through a family tree.',
+                       'Exploring folders inside folders on a computer.',
+                       'Traversing decision trees used in artificial intelligence.']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'In each of these examples, the problem has the same structure at every level. Instead of '
+                     'writing complicated loops, a recursive function can solve one small part and let another '
+                     'function call solve the rest. Because of this, recursive solutions are often shorter, '
+                     'cleaner, and easier to understand.'},
+            {'page': 1,
+             'type': 'tip',
+             'text': 'Before writing a recursive function, ask yourself:\n'
+                     '"Can this problem be broken into a smaller version of itself?"\n'
+                     'If the answer is yes, recursion may be a good solution.'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which problem is most naturally solved using recursion?',
+             'options': ['A. Printing the numbers from 1 to 100.',
+                         'B. Calculating the sum of a shopping cart.',
+                         'C. Calculating a factorial.',
+                         'D. Printing a multiplication table.'],
+             'answer': 'C. Calculating a factorial.'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What is the main difference between iteration and recursion?',
+             'options': ['A. Iteration uses loops, while recursion uses a function that calls itself.',
+                         'B. Iteration is always faster.',
+                         'C. Recursion cannot repeat code.',
+                         'D. Loops always require a base case.'],
+             'answer': 'A. Iteration uses loops, while recursion uses a function that calls itself.'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 4 – Writing Your Own Recursive Functions'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Writing a recursive function may seem difficult at first, but most recursive functions '
+                     'follow the same pattern. When solving a problem recursively, ask yourself these three '
+                     'questions:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['What is the simplest version of the problem? (The base case)',
+                       'How can I solve one small piece of the problem?',
+                       'How can I let another function call solve the rest? (The recursive call)']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Let's write a function that adds all the numbers from 1 to n."},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['sum_to(1) returns 1',
+                       'sum_to(3) returns 6 because 1 + 2 + 3 = 6',
+                       'sum_to(5) returns 15']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Notice that this problem naturally contains a smaller version of itself.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'text',
+             'text': 'sum_to(5)\n= 5 + sum_to(4)\n\nsum_to(4)\n= 4 + sum_to(3)\n\nsum_to(3)\n= 3 + sum_to(2)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Eventually, we reach the simplest possible case.'},
+            {'page': 1, 'type': 'code', 'language': 'text', 'text': 'sum_to(1) = 1'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'This becomes our base case. Now we can write the recursive function.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def sum_to(n):\n    if n == 1:\n        return 1\n    return n + sum_to(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': "Let's see what happens when we call:"},
+            {'page': 1, 'type': 'code', 'language': 'python', 'text': 'print(sum_to(5))'},
+            {'page': 1, 'type': 'heading', 'text': 'Output'},
+            {'page': 1, 'type': 'code', 'language': 'text', 'text': '15'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'The function solves one small piece of the problem, then lets another function call '
+                     'solve the rest.'},
+            {'page': 1, 'type': 'heading', 'text': 'A Recipe for Writing Recursive Functions'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Whenever you write a recursive function, follow these steps:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Find the base case. What is the smallest or simplest version of the problem?',
+                       'Write the recursive call. How can the problem become slightly smaller?',
+                       'Make sure every recursive call moves toward the base case. Otherwise, the recursion '
+                       'will never stop.']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Following this recipe will help you write recursive functions that are correct and easy '
+                     'to understand.'},
+            {'page': 1,
+             'type': 'tip',
+             'text': "If you're stuck, don't think about the entire problem at once. Instead, imagine your "
+                     'function only needs to solve one small step and trust the next recursive call to solve '
+                     'the rest.'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What is the base case in the function below?\n'
+                         '\n'
+                         'def sum_to(n):\n'
+                         '    if n == 1:\n'
+                         '        return 1\n'
+                         '    return n + sum_to(n - 1)',
+             'options': ['A. def sum_to(n):',
+                         'B. return n + sum_to(n - 1)',
+                         'C. if n == 1: return 1',
+                         'D. n - 1'],
+             'answer': 'C. if n == 1: return 1'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which recursive call correctly moves the problem toward the base case?',
+             'options': ['A. sum_to(n)', 'B. sum_to(n - 1)', 'C. sum_to(n + 1)', 'D. sum_to(2 * n)'],
+             'answer': 'B. sum_to(n - 1)'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 5 – How Does Recursion Genuinely Work?'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "If recursion still feels a little confusing, don't worry—you are asking the same "
+                     'question that countless computer science students have asked before you. By this point, '
+                     'you’ve only called functions you’ve completed defining. Naturally, you may be wondering: '
+                     '"How can a function call itself before it has even finished solving the problem?" At '
+                     'first, this seems impossible.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Consider the factorial function again.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'When Python reaches'},
+            {'page': 1, 'type': 'code', 'language': 'python', 'text': 'return n * factorial(n - 1)'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "it looks like the function is asking for an answer that hasn't been computed yet. So how "
+                     "does this ever work? The answer is that the function doesn't need to know the final "
+                     'answer immediately. Instead, it trusts that the smaller subproblem will eventually be '
+                     'solved.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Remember what you learned earlier:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['By convention, we know that the base case has a correct answer.',
+                       'The call stack GUARANTEES that every recursive call waits until the smaller problem '
+                       'has been solved before continuing.']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'In other words, every function call says, "I can\'t finish my work yet. I\'ll wait until '
+                     'the next smaller problem gives me its answer." Eventually, one function reaches the base '
+                     'case. Since the base case has no smaller subproblem, it can immediately return its '
+                     'answer. Once that happens, every waiting function finally has the information it needs '
+                     'to finish its own work.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'text',
+             'text': 'factorial(4)\n'
+                     '= 4 × factorial(3)\n'
+                     '\n'
+                     'factorial(3)\n'
+                     '= 3 × factorial(2)\n'
+                     '\n'
+                     'factorial(2)\n'
+                     '= 2 × factorial(1)\n'
+                     '\n'
+                     'factorial(1)\n'
+                     '= 1'},
+            {'page': 1, 'type': 'paragraph', 'text': 'The base case already knows that factorial(1) equals 1.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Now the call stack begins working backward.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'text',
+             'text': 'factorial(2)\n= 2 × 1 = 2\n\nfactorial(3)\n= 3 × 2 = 6\n\nfactorial(4)\n= 4 × 6 = 24'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Notice that no function actually finishes until the one below it has finished first. '
+                     'That is why recursion works. Every recursive call simply waits its turn.'},
+            {'page': 1,
+             'type': 'tip',
+             'text': "If recursion feels confusing, that's completely normal. Many computer science "
+                     'students—even experienced programmers—need to trace recursive functions step by step '
+                     'before they "click." The more recursive functions you trace and write, the more natural '
+                     'this way of thinking becomes.'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Why does the following recursive function eventually return a value?\n'
+                         '\n'
+                         'def factorial(n):\n'
+                         '    if n == 0:\n'
+                         '        return 1\n'
+                         '    return n * factorial(n - 1)',
+             'options': ['A. The base case returns a known value, and the call stack lets each waiting '
+                         'function finish one at a time.',
+                         'B. Python guesses the answer.',
+                         'C. Each recursive call immediately knows the final answer.',
+                         'D. The recursive call runs forever.'],
+             'answer': 'A. The base case returns a known value, and the call stack lets each waiting function '
+                       'finish one at a time.'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which statement best explains why recursion works?',
+             'options': ['A. The recursive call finishes before the function begins.',
+                         'B. The function reaches a base case, then the call stack returns answers back '
+                         'through the waiting function calls.',
+                         'C. Python replaces recursion with a loop.',
+                         'D. Every recursive function automatically knows the final answer.'],
+             'answer': 'B. The function reaches a base case, then the call stack returns answers back through '
+                       'the waiting function calls.'},
+            {'page': 1, 'type': 'heading', 'text': 'Mini Project – Recursive Countdown'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "In this project, you'll write your own recursive function to count down from a number to "
+                     '1.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Remember, every recursive function needs:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['A base case that stops the recursion.',
+                       'A recursive call that moves toward the base case.']},
+            {'page': 1, 'type': 'heading', 'text': 'Starter Code'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def countdown(n):\n'
+                     '    """Prints the numbers from n down to 1 using recursion."""\n'
+                     '    pass\n'
+                     '\n'
+                     'number = int(input("Enter a positive integer: "))\n'
+                     'countdown(number)'},
+            {'page': 1, 'type': 'heading', 'text': 'Example Run'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'text',
+             'text': 'Enter a positive integer: 5\n5\n4\n3\n2\n1'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Challenge: After printing 1, print "Blast off!"'},
+            {'page': 1, 'type': 'heading', 'text': 'Key Takeaways'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Recursion is a way of solving problems by breaking them into smaller versions of '
+                       'themselves.',
+                       'Every recursive function needs both a base case and a recursive call.',
+                       'The recursive call should always move the problem closer to the base case.',
+                       'The call stack keeps track of every function call until the base case is reached, then '
+                       'returns the answers one call at a time.',
+                       'Many problems can be solved using either iteration or recursion, but recursion is '
+                       'often cleaner for problems that naturally contain smaller versions of themselves.',
+                       'Learning recursion takes practice. Tracing recursive functions step by step is one of '
+                       'the best ways to build your understanding.']},
+            {'page': 1, 'type': 'heading', 'text': 'Looking Ahead'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Congratulations—you've completed the instructional portion of this course! From your "
+                     "very first program to recursive algorithms, you've built a strong foundation in Python "
+                     "and computational thinking. Along the way, you've learned how to write clean code, "
+                     'organize programs into functions and modules, work with data structures, and solve '
+                     "increasingly complex problems. Now it's time to put everything together. In the next "
+                     "section, you'll begin your Capstone Project. You'll design, build, test, and present a "
+                     "Python program of your own, applying the skills you've developed throughout this course. "
+                     "Think of it as your opportunity to showcase not only what you've learned, but how you've "
+                     'grown as a programmer.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Good luck—and happy coding!'}]}
 }
 
 
