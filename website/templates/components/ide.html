@@ -1,0 +1,101 @@
+<div
+    class="lesson-ide"
+    {% if task_id %}
+    data-task-id="{{ task_id }}"
+    {% endif %}
+>
+
+    <!-- ======================================== -->
+    <!-- IDE Header                               -->
+    <!-- ======================================== -->
+
+    <div class="ide-header">
+
+        <div class="ide-file">
+
+            {{ filename|default("main.py") }}
+
+        </div>
+
+
+        {% if show_run_button %}
+
+        <button
+            type="button"
+            class="ide-run"
+        >
+            Run ▶
+        </button>
+
+        {% endif %}
+
+    </div>
+
+
+
+    <!-- ======================================== -->
+    <!-- Optional instructions                    -->
+    <!-- ======================================== -->
+
+    {% if instructions %}
+
+    <div class="ide-instructions">
+
+        {{ instructions }}
+
+    </div>
+
+    {% endif %}
+
+
+
+
+    <!-- ======================================== -->
+    <!-- Monaco editor                            -->
+    <!-- ======================================== -->
+
+    <div
+
+        class="lesson-editor"
+
+        data-language="{{ language|default('python') }}"
+
+        data-code="{{ starter_code|default('')|e }}"
+
+        {% if readonly %}
+        data-readonly="true"
+        {% endif %}
+
+    ></div>
+
+
+
+
+    <!-- ======================================== -->
+    <!-- Resize divider                           -->
+    <!-- ======================================== -->
+
+    <div class="ide-resize-bar"></div>
+
+
+
+
+
+    <!-- ======================================== -->
+    <!-- Output                                   -->
+    <!-- ======================================== -->
+
+    <div class="ide-output-header">
+
+        Output
+
+    </div>
+
+
+    <pre
+        class="ide-output"
+        id="console-output"
+    ></pre>
+
+
+</div>

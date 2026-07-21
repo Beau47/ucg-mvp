@@ -261,42 +261,21 @@
 
         </div>
 
-    {% elif block["type"] == "ide" %}
-
-    <div
-    class="lesson-ide"
-    data-task-id="{{ lesson.id }}-ide-{{ loop.index }}">
-
-        <div class="ide-header">
-
-            <button class="ide-run">
-                Run ▶
-            </button>
-
-        </div>
+   {% elif block["type"] == "ide" %}
 
 
-        <div class="ide-instructions">
-            {{ block["instructions"] }}
-        </div>
+        {% set task_id = lesson.id ~ "-ide-" ~ loop.index %}
+        {% set filename = "main.py" %}
+        {% set show_run_button = True %}
+        {% set starter_code = block["starter_code"] %}
+        {% set instructions = block["instructions"] %}
+        {% set language = "python" %}
+        {% set readonly = False %}
 
 
-        <div
-        class="lesson-editor"
-        data-code="{{ block['starter_code'] | e }}">
-        </div>
+        {% include "components/ide.html" %}
 
 
-        <div class="ide-output-header">
-            Output
-        </div>
-
-
-        <pre class="ide-output">
-        </pre>
-
-
-    </div>
 
     {% elif block["type"] == "quiz" %}
 
