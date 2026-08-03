@@ -199,7 +199,7 @@ confirmation is enabled, users must verify their email before logging in.
 1. Flask receives the browser request in `website/app.py`.
 2. `check_session()` redirects unauthenticated users away from protected pages.
 3. Jinja templates render lesson, exercise, dashboard, and profile data.
-4. JavaScript initializes Monaco editors and sends code or completion events to
+4. JavaScript loads Monaco editors and sends code or completion events to
    Flask JSON endpoints.
 5. Flask reads lesson and problem definitions from Python dictionaries.
 6. Supabase stores authentication, profile information, and completion data.
