@@ -1,917 +1,518 @@
 # Urban Coders Guild Learning Platform
 
-Urban Coders Guild Learning Platform is a browser-based Python learning platform built with **Flask**, **HTML/CSS**, **JavaScript**, and the **Monaco Editor**. The platform allows students to learn Python through interactive lessons, embedded code editors, quizzes, and automatically graded coding exercises.
+Urban Coders Guild Learning Platform is a browser-based Python learning
+environment built for beginner programmers. It combines guided curriculum,
+interactive examples, quizzes, and automatically graded coding exercises in a
+single Flask application.
 
-Students progress through lessons that contain explanations, examples, interactive IDE snippets, quizzes, and coding challenges.
+The current repository contains an MVP with account management, persistent
+course progress, student profiles, a dashboard, seven numbered curriculum
+units, a prerequisite lesson, and 32 coding exercises.
 
----
+## Table of Contents
 
-# Table of Contents
+1. [Features](#features)
+2. [Technology Stack](#technology-stack)
+3. [Project Structure](#project-structure)
+4. [Local Setup](#local-setup)
+5. [Supabase Configuration](#supabase-configuration)
+6. [Application Architecture](#application-architecture)
+7. [Routes](#routes)
+8. [Curriculum Content](#curriculum-content)
+9. [Creating a Lesson](#creating-a-lesson)
+10. [Lesson Block Types](#lesson-block-types)
+11. [Creating an Exercise](#creating-an-exercise)
+12. [Code Execution](#code-execution)
+13. [Progress and XP](#progress-and-xp)
+14. [Development Checks](#development-checks)
+15. [Current Limitations](#current-limitations)
 
-1. [Technology Stack](#technology-stack)
-2. [Project Structure](#project-structure)
-3. [Running the Application](#running-the-application)
-4. [Creating a New Lesson](#creating-a-new-lesson)
-5. [Lesson Block Types](#lesson-block-types)
-6. [Creating a New Exercise](#creating-a-new-exercise)
-7. [Exercise Structure](#exercise-structure)
-8. [Adding a Lesson Exercise Connection](#adding-a-lesson-exercise-connection)
-9. [Interactive IDE Requirements](#interactive-ide-requirements)
-10. [Future Features](#future-features)
+## Features
 
----
+- Email and password authentication through Supabase Auth
+- Sign-up, login, logout, email verification, and password reset flows
+- Student dashboard with course progress, next lesson, and next exercise
+- Editable student profiles with avatar uploads
+- Multi-page Python curriculum organized into Units 0-6 and Lesson 0.5
+- Rich lesson blocks for explanations, examples, vocabulary, tables, tips,
+  warnings, quizzes, and embedded coding activities
+- Monaco Editor instances for in-browser Python practice
+- Multiple-choice questions within lessons to track learning progress
+- Automatically graded coding exercises with visible test-case feedback
+- Persistent lesson, task, and exercise completion records
+- Browser-side restoration of completed quizzes and lesson IDE activities
+- XP, levels, and progress summaries derived from completed work
+- Exercise prerequisite flow beginning with Lesson 0.5
+- Responsive lesson, dashboard, profile, and exercise interfaces
 
-# Technology Stack
+## Technology Stack
 
-## Backend
+### Backend
 
-### Flask
+- Python
+- Flask and Jinja2
+- Supabase Auth, PostgreSQL API, and Storage
+- python-dotenv for local environment variables
 
-Urban Coders Guild Learning Platform uses Flask as the backend framework.
+### Frontend
 
-Flask handles:
+- HTML and CSS
+- JavaScript
+- Monaco Editor for editable Python code
+- Prism for syntax-highlighted code examples
+- Google Fonts
 
-* Page routing
-* Loading lessons
-* Loading exercises
-* Running Python code
-* Returning JSON responses
+Monaco, Prism, and Google Fonts are loaded from external CDNs, so an internet
+connection is required for the complete local interface.
 
-Documentation:
+## Project Structure
 
-https://flask.palletsprojects.com/
-
----
-
-## Frontend
-
-The frontend uses:
-
-* HTML templates with Jinja2
-* CSS styling
-* JavaScript for interactivity
-
-Templates are stored in:
-
-```
-templates/
-```
-
-CSS:
-
-```
-static/css/
-```
-
-JavaScript:
-
-```
-static/js/
-```
-
----
-
-## Code Editor
-
-The exercise workspace uses:
-
-### Monaco Editor
-
-Monaco is the editor that powers VS Code.
-
-Documentation:
-
-https://microsoft.github.io/monaco-editor/
-
----
-
-# Project Structure
-
-Current project organization:
-
-```
-Urban-Coders-Guild/
-
-│
-├── app.py
-├── lessons.py
-├── problems.py
-├── runner.py
-│
-├── templates/
-│   ├── dashboard.html
-│   ├── lessons.html
-│   ├── lesson.html
-│   ├── exercises.html
-│   └── index.html
-│
-├── static/
-│   ├── css/
-│   │   └── style.css
-│   │
-│   ├── js/
-│   │   └── app.js
-│   │
-│   └── images/
-│
-└── README.md
+```text
+ucg-mvp/
+|-- README.md
+|-- requirements.txt
+|-- models/                    # Legacy prototype code (inactive)
+|-- pages/                     # Legacy Streamlit pages (inactive)
+|-- utilities/                 # Legacy prototype utilities (inactive)
+|-- sandbox.py                 # Legacy prototype runner (inactive)
+|-- website/
+|   |-- app.py                 # Flask application, routes, and progress logic
+|   |-- lessons.py             # Curriculum and lesson block definitions
+|   |-- problems.py            # Graded exercise definitions and test cases
+|   |-- runner.py              # Python execution and grading helpers
+|   |-- supabase_client.py     # Supabase client
+|   |-- static/
+|   |   |-- css/
+|   |   |   |-- dashboard.css
+|   |   |   `-- style.css
+|   |   |-- images/
+|   |   |   `-- ucg_logo.webp
+|   |   `-- js/
+|   |       |-- app.js         # Graded exercise behavior
+|   |       `-- lesson.js      # Monaco setup and lesson IDE behavior
+|   `-- templates/
+|       |-- components/
+|       |   `-- ide.html       # Shared Monaco IDE component
+|       |-- dashboard.html
+|       |-- edit_profile.html
+|       |-- exercises.html
+|       |-- forgot_password.html
+|       |-- index.html         # Individual exercise workspace
+|       |-- lesson.html
+|       |-- lessons.html
+|       |-- login.html
+|       |-- profile.html
+|       |-- reset_password.html
+|       `-- signup.html
 ```
 
----
+The active application lives in `website/`. Root-level `pages/`, `utilities/`,
+`models/`, Streamlit files, and old Next.js artifacts are not part of the
+current Flask runtime.
 
-# Running the Application
+## Local Setup
 
-Install Flask:
+### Prerequisites
+
+- Python 3.10 or newer
+- A Supabase project with the required tables and storage bucket
+- Internet access for frontend CDN assets
+
+### Installation
+
+Clone the repository and enter the project directory:
 
 ```bash
-pip install flask
+git clone https://github.com/Beau47/ucg-mvp.git
+cd ucg-mvp
 ```
 
-Start the development server:
+Create and activate a virtual environment:
 
 ```bash
-python app.py
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
-The website will run at:
+On Windows PowerShell, activate it with:
 
+```powershell
+.venv\Scripts\Activate.ps1
 ```
+
+Install the Python dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Create `website/.env` and add the Supabase values described below. Then start
+the development server:
+
+```bash
+python website/app.py
+```
+
+Open:
+
+```text
 http://127.0.0.1:5000
 ```
 
----
+## Supabase Configuration
 
-# Creating a New Lesson
+### Environment Variables
 
-Lessons are stored inside:
+Create a local file at `website/.env`:
 
+```dotenv
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
-lessons.py
-```
 
-Lessons are stored inside the `LESSONS` dictionary.
+Never commit `.env` or expose the service-role key in frontend code. The
+repository's `.gitignore` excludes environment files.
 
-Example:
+### Required Backend Resources
+
+The application expects the following Supabase resources:
+
+| Resource | Purpose | Fields used by the application |
+| --- | --- | --- |
+| `profiles` | Student account and profile data | `id`, `username`, `xp`, `streak`, `lessons_completed`, `problems_solved`, `avatar_url` |
+| `lesson_progress` | Completed curriculum units | `id`, `user_id`, `lesson_id`, `completed` |
+| `lesson_tasks` | Completed quizzes and lesson IDE tasks | `id`, `user_id`, `lesson_id`, `task_id`, `completed` |
+| `problem_progress` | Passed coding exercises | `id`, `user_id`, `problem_id`, `passed` |
+| `avatars` bucket | Uploaded profile pictures | Public file URLs stored in `profiles.avatar_url` |
+
+`lesson_progress` must support a unique conflict target on
+`(user_id, lesson_id)` because lesson completion uses an upsert with those
+columns.
+
+Supabase Auth must have email/password authentication enabled. If email
+confirmation is enabled, users must verify their email before logging in.
+
+## Application Architecture
+
+### Request Flow
+
+1. Flask receives the browser request in `website/app.py`.
+2. `check_session()` redirects unauthenticated users away from protected pages.
+3. Jinja templates render lesson, exercise, dashboard, and profile data.
+4. JavaScript loads Monaco editors and sends code or completion events to
+   Flask JSON endpoints.
+5. Flask reads lesson and problem definitions from Python dictionaries.
+6. Supabase stores authentication, profile information, and completion data.
+
+### Content Model
+
+Curriculum content is intentionally data-driven:
+
+- `LESSONS` in `website/lessons.py` contains unit metadata and ordered content
+  blocks.
+- `PROBLEMS` in `website/problems.py` contains exercise metadata, starter code,
+  required function names, and test cases.
+- `website/templates/lesson.html` maps each lesson block type to its rendered
+  interface.
+- `website/templates/components/ide.html` provides the shared interactive IDE.
+
+Adding a dictionary entry automatically makes it available to the relevant
+listing template; a separate route is not required for every lesson or
+exercise.
+
+## Routes
+
+### Pages
+
+| Route | Purpose |
+| --- | --- |
+| `GET /` | Student dashboard |
+| `GET /lessons` | Curriculum unit list |
+| `GET /lesson/<lesson_id>/<page>` | One page of a lesson |
+| `GET /exercises` | Exercise catalog |
+| `GET /workspace/<problem_id>` | Interactive graded exercise workspace |
+| `GET /profile` | Student profile and statistics |
+| `GET, POST /edit-profile` | Username and avatar editing |
+| `GET, POST /signup` | Account registration |
+| `GET, POST /login` | Account login |
+| `GET /logout` | Session logout |
+| `GET, POST /forgot-password` | Password-reset email flow |
+| `GET /reset-password` | Password update page |
+
+### JSON Endpoints
+
+| Route | Purpose |
+| --- | --- |
+| `GET /problems` | List exercise summaries |
+| `GET /problem/<problem_id>` | Return one complete problem definition |
+| `POST /run` | Execute and grade an exercise submission |
+| `POST /run_snippet` | Execute an ungraded lesson snippet |
+| `POST /complete_task` | Record a completed lesson task |
+| `POST /lesson/<lesson_id>/complete` | Record lesson completion |
+
+## Curriculum Content
+
+The current curriculum is defined in `website/lessons.py`:
+
+| Unit ID | Displayed unit | Topic | Pages |
+| --- | --- | --- | --- |
+| `why_python` | Unit 0 | Why Python? | 2 |
+| `functions_preview` | Lesson 0.5 | Read This Before Exercises | 1 |
+| `variables` | Unit 1 | Variables and Data Types | 2 |
+| `conditionals` | Unit 2 | Conditionals | 1 |
+| `lists_dictionaries` | Unit 3 | Collections | 3 |
+| `loops` | Unit 4 | Loops | 4 |
+| `functions_modularity` | Unit 5 | Functions and Modularity | 2 |
+| `recursion_capstone` | Unit 6 | Recursion | 1 |
+
+## Creating a Lesson
+
+Add a new entry to `LESSONS` in `website/lessons.py`:
 
 ```python
-LESSONS = {
-
-    "variables": {
-
-        "id": "variables",
-
-        "lesson_number": "1",
-
-        "title": "Variables",
-
-        "description":
-        "Learn how Python stores information.",
-
-
-        "blocks": [
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Introduction to Variables"
-            }
-
-        ]
-
-    }
-
+"variables": {
+    "id": "variables",
+    "lesson_number": "1",
+    "title": "Variables and Data Types",
+    "description": "Lesson 1.0: Introduction to variables.\nLesson 1.1: Using variables.",
+    "blocks": [
+        {
+            "page": 1,
+            "type": "heading",
+            "text": "What Is a Variable?",
+        },
+        {
+            "page": 1,
+            "type": "paragraph",
+            "text": "A variable gives a value a reusable name.",
+        },
+    ],
 }
 ```
 
----
+Every lesson requires:
 
-## Lesson Requirements
+- `id`: unique URL-safe identifier matching the dictionary key
+- `lesson_number`: value displayed in the lesson navigation
+- `title`: unit title
+- `description`: lesson-card summary; use newlines between sub-lessons
+- `blocks`: ordered content blocks
 
-Every lesson needs:
+Every block requires a positive `page` number and a supported `type`. Blocks
+with the same page number render together in dictionary order. Keep page
+numbers contiguous so Previous and Next navigation remains valid.
 
-```python
-"id"
-```
+## Lesson Block Types
 
-The URL identifier.
+The lesson template currently supports:
 
-Example:
+| Type | Required content | Purpose |
+| --- | --- | --- |
+| `heading` | `text` | Section heading |
+| `paragraph` | `text` | Standard prose |
+| `rich_paragraph` | `html` | Trusted formatted HTML, including vocabulary highlights |
+| `footnote` | `number`, `text` | Definition or citation beneath content |
+| `code` | `text` | Syntax-highlighted Python example |
+| `list` | `items` | Bulleted list |
+| `table` | `headers`, `rows` | Responsive reference table |
+| `image` | `src`, optional `caption` | Standalone image |
+| `image_text` | `src`, `alt`, `paragraphs` | Image with adjacent text |
+| `tip` | `text` | Highlighted instructional tip |
+| `warning` | `text` | Highlighted warning |
+| `quote` | `text` | Quotation or emphasized statement |
+| `divider` | none | Visual section break |
+| `quiz` | question data, `options`, `answer` | Required multiple-choice activity |
+| `ide` | `instructions`, `starter_code` | Required interactive Python activity |
+| `exercise` | `problem` | Link to a graded problem |
 
-```python
-"id": "variables"
-```
-
----
-
-```python
-"lesson_number"
-```
-
-The displayed lesson number.
-
-Example:
-
-```python
-"lesson_number": "2"
-```
-
----
-
-```python
-"title"
-```
-
-The lesson title.
-
-Example:
+### Quiz Example
 
 ```python
-"title": "Conditionals"
+{
+    "page": 1,
+    "type": "quiz",
+    "question": "Which value is a Boolean?",
+    "options": ["True", '"hello"', "5", "3.14"],
+    "answer": "True",
+}
 ```
 
----
+The `answer` value must exactly match one item in `options`.
+
+For questions containing Python, use `question_parts` so code is displayed in
+a formatted code block instead of flattened into the heading:
 
 ```python
-"description"
+{
+    "page": 1,
+    "type": "quiz",
+    "question_parts": [
+        {"type": "text", "text": "What is printed?"},
+        {
+            "type": "code",
+            "text": 'def cheer():\n    print("Go Team!")\n\ncheer()\ncheer()',
+        },
+    ],
+    "options": ["Once", "Twice", "Nothing", "An error"],
+    "answer": "Twice",
+}
 ```
 
-Short description displayed on lesson cards.
-
-Example:
+### IDE Example
 
 ```python
-"description":
-"Learn how programs make decisions."
+{
+    "page": 1,
+    "type": "ide",
+    "instructions": "Create a variable and print it.",
+    "starter_code": 'message = "Hello"\nprint(message)',
+}
 ```
 
----
+Students must run every IDE and answer every required quiz on a page before the
+Next button is enabled.
 
-```python
-"blocks"
-```
-
-A list of lesson content.
-
-Each block represents one piece of content.
-
----
-
-# Lesson Pages
-
-Each block requires:
-
-```python
-"page": number
-```
-
-Example:
+### Exercise Link Example
 
 ```python
 {
     "page": 2,
-    "type": "paragraph",
-    "text": "Variables store information."
+    "type": "exercise",
+    "problem": "add_one",
 }
 ```
 
-Blocks with the same page number appear together.
+The `problem` value must match a key in `PROBLEMS`.
 
----
+## Creating an Exercise
 
-# Lesson Block Types
-
-The lesson system supports the following block types:
-
----
-
-# Heading
-
-Creates a section heading.
-
-Example:
-
-```python
-{
-    "page": 1,
-    "type": "heading",
-    "text": "What are Variables?"
-}
-```
-
----
-
-# Paragraph
-
-Creates normal text.
-
-Example:
-
-```python
-{
-    "page": 1,
-    "type": "paragraph",
-    "text":
-    "Variables allow programs to store information."
-}
-```
-
----
-
-# Rich Paragraph
-
-Allows HTML formatting.
-
-Example:
-
-```python
-{
-    "page": 1,
-    "type": "rich_paragraph",
-    "html":
-    """
-    Python uses
-    <span style="color:red">
-    variables
-    </span>
-    """
-}
-```
-
-Use carefully because HTML is rendered directly.
-
----
-
-# Code
-
-Displays formatted Python code.
-
-Example:
-
-```python
-{
-    "page": 1,
-    "type": "code",
-    "text":
-"""
-x = 5
-print(x)
-"""
-}
-```
-
----
-
-# List
-
-Creates a bullet list.
-
-Example:
-
-```python
-{
-    "page": 1,
-    "type": "list",
-    "items": [
-
-        "Variables store data",
-
-        "Python is dynamically typed"
-
-    ]
-}
-```
-
----
-
-# Image
-
-Displays an image.
-
-Example:
-
-```python
-{
-    "page": 1,
-    "type": "image",
-    "src":
-    "/static/images/example.png",
-
-    "caption":
-    "Example image"
-}
-```
-
----
-
-# Image Text
-
-Creates a side-by-side image and explanation.
-
-Example:
-
-```python
-{
-    "page": 1,
-    "type": "image_text",
-
-    "src":
-    "/static/images/example.png",
-
-    "alt":
-    "Example",
-
-    "paragraphs":[
-
-        "Explanation paragraph."
-
-    ]
-}
-```
-
----
-
-# Tip
-
-Creates a green tip box.
-
-Example:
-
-```python
-{
-    "page":1,
-    "type":"tip",
-    "text":
-    "Remember that indexing starts at 0."
-}
-```
-
----
-
-# Warning
-
-Creates a warning box.
-
-Example:
-
-```python
-{
-    "page":1,
-    "type":"warning",
-    "text":
-    "Do not confuse = with ==."
-}
-```
-
----
-
-# Quote
-
-Creates a quote section.
-
-Example:
-
-```python
-{
-    "page":1,
-    "type":"quote",
-    "text":
-    "Programming is problem solving."
-}
-```
-
----
-
-# Divider
-
-Creates a horizontal divider.
-
-Example:
-
-```python
-{
-    "page":1,
-    "type":"divider"
-}
-```
-
----
-
-# Quiz
-
-Creates an interactive multiple choice question.
-
-Example:
-
-```python
-{
-    "page":2,
-
-    "type":"quiz",
-
-    "question":
-    "What does len() return?",
-
-    "options":[
-
-        "The size of a list",
-
-        "A random number",
-
-        "A string"
-
-    ],
-
-    "answer":
-    "The size of a list"
-}
-```
-
-Students must answer correctly before continuing.
-
----
-
-# IDE
-
-Creates an interactive code editor.
-
-Example:
-
-```python
-{
-    "page":3,
-
-    "type":"ide",
-
-    "instructions":
-    "Create a variable called x.",
-
-    "starter_code":
-"""
-x = 5
-print(x)
-"""
-}
-```
-
-Students must click **Run** before continuing.
-
----
-
-# Exercise
-
-Links a lesson to a graded coding problem.
-
-Example:
-
-```python
-{
-    "page":4,
-
-    "type":"exercise",
-
-    "problem":
-    "add_one"
-}
-```
-
-The problem ID must exist in:
-
-```
-problems.py
-```
-
----
-
-# Creating a New Exercise
-
-Exercises are stored in:
-
-```
-problems.py
-```
-
-Inside:
-
-```python
-PROBLEMS = {
-
-}
-```
-
-Example:
+Add a new entry to `PROBLEMS` in `website/problems.py`:
 
 ```python
 "multiply_two": {
-
-    "id":
-    "multiply_two",
-
-    "lesson_number":
-    "LESSON 3",
-
-    "title":
-    "Multiply Two",
-
-    "description":
-    "Return a number multiplied by two.",
-
-
-    "function_name":
-    "multiply_two",
-
-
-    "starter_code":
-'''
-def multiply_two(x):
-
-    """
-    Return x multiplied by 2.
-    """
-
+    "id": "multiply_two",
+    "lesson_number": "LESSON 2",
+    "title": "Multiply Two",
+    "description": "Return a number multiplied by two.",
+    "function_name": "multiply_two",
+    "starter_code": """def multiply_two(number):
     # WRITE CODE HERE
-
     pass
-''',
-
-
-    "challenges":[
-
+""",
+    "challenges": [
         "Function Exists",
-
         "Returns Correct Value",
-
-        "No Extra Output"
-
+        "No Extra Output",
     ],
-
-
-    "test_cases":[
-
-        {
-            "input":5,
-            "expected":10
-        },
-
-        {
-            "input":3,
-            "expected":6
-        }
-
-    ]
-
+    "test_cases": [
+        {"input": 5, "expected": 10},
+        {"input": -3, "expected": -6},
+    ],
 }
 ```
 
----
+Required fields:
 
-# Exercise Fields
+- `id`: unique identifier matching the dictionary key
+- `lesson_number`: curriculum label shown on the exercise card
+- `title`: displayed exercise name
+- `description`: concise student-facing task
+- `function_name`: function the grader retrieves after execution
+- `starter_code`: initial Monaco contents
+- `challenges`: visible completion checklist
+- `test_cases`: inputs and expected return values
 
-## id
-
-Unique identifier.
-
-Used when linking from lessons.
-
-Example:
-
-```python
-"id":"multiply_two"
-```
-
----
-
-## title
-
-Displayed title.
-
-Example:
+For a one-argument function, set `input` to that argument. For multiple
+arguments or no arguments, use a tuple:
 
 ```python
-"title":"Multiply Two"
+{"input": (3, 8), "expected": 24}
+{"input": (), "expected": "Hello"}
 ```
 
----
-
-## description
-
-Displayed on exercise cards.
-
-Example:
-
-```python
-"description":
-"Return twice the value."
-```
-
----
-
-## function_name
-
-Function students must create.
-
-Example:
-
-```python
-"function_name":
-"multiply_two"
-```
-
----
-
-## starter_code
-
-The code shown in Monaco Editor.
-
-Example:
-
-```python
-def multiply_two(x):
-
-    # WRITE CODE HERE
-
-    pass
-```
-
----
-
-## challenges
-
-Checklist displayed to students.
-
-Example:
-
-```python
-[
-"Function Exists",
-"Returns Correct Value"
-]
-```
-
----
-
-## test_cases
-
-Inputs and expected outputs.
-
-Example:
-
-```python
-[
-{
-"input":5,
-"expected":10
-}
-]
-```
-
-The runner uses these to grade submissions.
-
----
-
-# Connecting a Lesson to an Exercise
-
-Inside `lessons.py`:
-
-```python
-{
-    "page":5,
-
-    "type":"exercise",
-
-    "problem":
-    "multiply_two"
-}
-```
-
-The value must match:
-
-```python
-PROBLEMS["multiply_two"]
-```
-
----
-
-# How Code Execution Works
-
-There are two execution systems.
-
----
-
-## Lesson IDEs
-
-Used for practice.
-
-Route:
-
-```
-/run_snippet
-```
-
-Features:
-
-* Runs code
-* Displays output
-* Does not grade
-
----
-
-## Exercises
-
-Used for assessment.
-
-Route:
-
-```
-/run
-```
-
-Features:
-
-* Runs student code
-* Executes test cases
-* Calculates score
-
----
-
-# Adding a New Lesson Workflow
-
-1. Add lesson to:
-
-```
-lessons.py
-```
-
-2. Create lesson blocks.
-
-3. Add exercises:
-
-```
-problems.py
-```
-
-4. Link exercises:
-
-```python
-"type":"exercise"
-```
-
-5. Add lesson card automatically appears through:
-
-```
-lessons.html
-```
-
----
-
-# Adding a New Exercise Workflow
-
-1. Add dictionary entry:
-
-```
-problems.py
-```
-
-2. Define:
-
-* id
-* function name
-* starter code
-* tests
-
-3. Create lesson connection:
-
-```python
-{
-"type":"exercise",
-"problem":"problem_id"
-}
-```
-
----
-
-# Future Features
-
-Potential improvements:
-
-* User authentication
-* Progress tracking
-* Saved submissions
-* Student profiles
-* XP system
-* Leaderboards
-* Course completion tracking
-* Database storage using PostgreSQL/Supabase
-
----
-
-# Credits
-
-Urban Coders Guild Learning Platform was built using:
-
-* Flask
-* Python
-* Monaco Editor
-* HTML/CSS
-* JavaScript
-
-Created as an interactive Python education platform.
+The exercise catalog and `/problems` API include new entries automatically.
+
+## Code Execution
+
+The application has two code-execution paths.
+
+### Lesson IDEs
+
+`POST /run_snippet` sends editor contents to `run_snippet()` in
+`website/runner.py`. The code runs without grading, and captured standard output
+or an exception message is returned to the lesson IDE.
+
+### Graded Exercises
+
+`POST /run` loads the selected problem and sends the submission to
+`run_problem()`. The runner:
+
+1. Executes the submitted Python code in a new namespace.
+2. Finds the required function by `function_name`.
+3. Calls it once for each test case.
+4. Compares actual and expected return values.
+5. Returns console output, per-test results, totals, percentage, and errors.
+6. Records exercise progress for a logged-in user based on the returned pass
+   count.
+
+## Progress and XP
+
+Progress is split between Supabase and browser storage:
+
+- Supabase stores lesson completion, completed lesson task IDs, passed
+  exercises, profile data, and avatars.
+- `localStorage` stores per-page quiz and lesson IDE state so completed controls
+  are restored when a student navigates backward or refreshes the page.
+- Lesson 0.5 completion in local storage currently controls access to the
+  exercise interface.
+
+The dashboard derives XP from completion records:
+
+- Completed lesson: 100 XP
+- Completed exercise: 25 XP
+- Level increase: every 500 XP
+
+## Development Checks
+
+There is not yet a committed automated test suite. Before merging a change,
+perform at least the following checks:
+
+1. Start the Flask server without import or configuration errors.
+2. Create an account or log in with a test account.
+3. Open every changed lesson page and verify block order and formatting.
+4. Confirm required quizzes and IDEs unlock Next only after completion.
+5. Navigate backward and verify completed page activities are restored.
+6. Run one passing and one failing graded exercise.
+7. Confirm dashboard and profile totals update after completion.
+8. Check the browser console for JavaScript errors.
+9. Test the changed interface at desktop and mobile widths.
+
+Avoid committing `.env`, Python cache files, generated frontend files, logs, or
+editor-specific settings.
+
+## Current Limitations
+
+- Student Python is executed with `exec()` inside the Flask process. There is
+  no process isolation, resource limit, timeout, or system-call restriction.
+  **Do not expose the current code runner to untrusted public traffic.** A
+  production release needs an isolated execution service or sandbox.
+- The Flask session secret is currently hard-coded in `website/app.py`. Move it
+  to an environment variable and rotate it before deployment.
+- The application uses a Supabase service-role key on the server. Keep it
+  private and configure database policies before production deployment.
+- Lesson activity restoration and the exercise prerequisite rely partly on
+  browser `localStorage`, so those states do not fully follow a student across
+  browsers or devices.
+- Password-reset redirects currently target `http://127.0.0.1:5000` and need a
+  deployment-specific URL in production.
+- The project does not yet include automated backend, frontend, or end-to-end
+  tests.
+- The `/run` route currently records an exercise as completed when at least one
+  test passes. It should require `passed == total` before progress is saved.
+- Frontend dependencies are loaded from CDNs rather than bundled locally.
+
+## Credits
+
+Urban Coders Guild Learning Platform was created as an interactive Python
+education platform using Flask, Supabase, Monaco Editor, Prism, HTML, CSS, and
+JavaScript.
