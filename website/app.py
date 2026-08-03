@@ -186,46 +186,91 @@ def complete_lesson(user_id, lesson_id):
     )
 
 
-    # Prevent duplicate completions
+    # Already completed
     if existing.data:
-        return
+
+        return False
 
     # Award XP for completing a lesson
     LESSON_XP_REWARD = 100
 
-
-    # Save completion
+    # Save lesson completion
     supabase.table("lesson_progress").upsert(
+
         {
             "user_id": user_id,
             "lesson_id": lesson_id,
             "completed": True
         },
+
         on_conflict="user_id,lesson_id"
+
     ).execute()
 
 
-
-    # Update profile counter
+    # Count completed lessons
     lessons = (
+
         supabase
         .table("lesson_progress")
         .select("id")
         .eq("user_id", user_id)
         .eq("completed", True)
         .execute()
+
     )
 
 
+    # Count completed problems
+    problems = (
+
+        supabase
+        .table("problem_progress")
+        .select("id")
+        .eq("user_id", user_id)
+        .eq("passed", True)
+        .execute()
+
+    )
+
+
+    lessons_completed = len(lessons.data)
+
+    problems_solved = len(problems.data)
+
+
+    # Calculate total XP
+    xp = (
+
+        lessons_completed * 100
+
+        +
+
+        problems_solved * 25
+
+    )
+
+
+    # Save all updated values to profiles
     supabase.table("profiles").update({
 
-        "lessons_completed": len(lessons.data)
+        "lessons_completed": lessons_completed,
+
+        "problems_solved": problems_solved,
+
+        "xp": xp
 
     }).eq(
+
         "id",
+
         user_id
+
     ).execute()
 
+
+    # Tell frontend this was a new completion
+    return True
 
 # =====================================================
 # SAVE LESSON TASK COMPLETION
@@ -276,23 +321,102 @@ def complete_problem(user_id, problem_id):
     )
 
 
-    # Prevent duplicate completion rewards
+    # Do not award XP twice
     if existing.data:
-        return
+
+        return False
 
 
-    # Award XP for completing an exercise
-    PROBLEM_XP_REWARD = 25
-
-
-    supabase.table("problem_progress").insert({
+    # Save problem completion
+    supabase.table("problem_progress").upsert({
 
         "user_id": user_id,
+
         "problem_id": problem_id,
+
         "passed": True
 
     }).execute()
 
+
+    # Count completed lessons
+    lessons = (
+
+        supabase
+        .table("lesson_progress")
+        .select("id")
+        .eq("user_id", user_id)
+        .eq("completed", True)
+        .execute()
+
+    )
+
+
+    # Count completed problems
+    problems = (
+
+        supabase
+        .table("problem_progress")
+        .select("id")
+        .eq("user_id", user_id)
+        .eq("passed", True)
+        .execute()
+
+    )
+
+
+    lessons_completed = len(lessons.data)
+
+    problems_solved = len(problems.data)
+
+
+    # Calculate total XP
+    xp = (
+
+        lessons_completed * 100
+
+        +
+
+        problems_solved * 25
+
+    )
+
+
+    # Save updated stats
+    supabase.table("profiles").update({
+
+        "lessons_completed": lessons_completed,
+
+        "problems_solved": problems_solved,
+
+        "xp": xp
+
+    }).eq(
+
+        "id",
+
+        user_id
+
+    ).execute()
+
+
+    # Tell frontend this was a new completion
+    return True
+
+# =====================================================
+# CALCULATE XP FUNCTION
+# =====================================================
+
+def calculate_xp(user_id):
+
+    lessons = (
+        supabase
+        .table("lesson_progress")
+        .select("id")
+        .eq("user_id", user_id)
+        .eq("completed", True)
+        .execute()
+    )
 
 
     problems = (
@@ -305,16 +429,19 @@ def complete_problem(user_id, problem_id):
     )
 
 
+    lessons_completed = len(lessons.data)
 
-    supabase.table("profiles").update({
+    problems_solved = len(problems.data)
 
-        "problems_solved": len(problems.data)
 
-    }).eq(
-        "id",
-        user_id
-    ).execute()
+    xp = (
+        lessons_completed * 100
+        +
+        problems_solved * 25
+    )
 
+
+    return xp
 
 # =====================================================
 # DASHBOARD ROUTE
@@ -358,7 +485,7 @@ def dashboard():
         for item in completed_lessons_data.data
 
     ]
-    
+
     # Lesson progress percentage
 
     total_lessons = max(
@@ -478,7 +605,7 @@ def dashboard():
     profile["total_lessons"] = total_lessons
 
     profile["lesson_progress"] = lesson_progress
-    
+
     profile["total_problems"] = total_problems
 
     profile["problem_progress"] = problem_progress
@@ -601,14 +728,18 @@ def complete_lesson_api(lesson_id):
         }), 404
 
 
-    complete_lesson(
+    newly_completed = complete_lesson(
         session["user_id"],
         lesson_id
     )
 
 
     return jsonify({
-        "success": True
+
+        "success": True,
+
+        "newly_completed": newly_completed
+
     })
 
 # =====================================================
@@ -665,10 +796,17 @@ def workspace(problem_id):
     if problem is None:
         return "Problem not found.", 404
 
+
+    user_id = session.get("user_id")
+
+    profile = get_or_create_profile(user_id)
+
+
     return render_template(
         "index.html",
         problem=problem,
-        progress_owner=session.get("user_id", "guest")
+        profile=profile,
+        progress_owner=user_id
     )
 
 
