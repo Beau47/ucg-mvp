@@ -73,6 +73,57 @@ def inject_user():
         logged_in="user_id" in session
     )
 
+# =====================================================
+# XP SYSTEM
+# Handles XP calculations, levels, and progress.
+# =====================================================
+
+
+def calculate_level(xp):
+
+    """
+    Converts total XP into a student level.
+
+    Every 500 XP = one level.
+    """
+
+    return (xp // 500) + 1
+
+
+
+def calculate_xp_progress(xp):
+
+    """
+    Calculates progress toward the next level.
+
+    Returns a percentage.
+    """
+
+    current_level_xp = xp % 500
+
+    progress = (
+        current_level_xp / 500
+    ) * 100
+
+
+    return round(progress, 2)
+
+
+
+def xp_until_next_level(xp):
+
+    """
+    Calculates remaining XP needed
+    for the next level.
+    """
+
+    remaining = (
+        500 - (xp % 500)
+    )
+
+
+    return remaining
+
 
 # =====================================================
 # LOAD OR CREATE A USER PROFILE
@@ -140,6 +191,8 @@ def complete_lesson(user_id, lesson_id):
 
         return False
 
+    # Award XP for completing a lesson
+    LESSON_XP_REWARD = 100
 
     # Save lesson completion
     supabase.table("lesson_progress").upsert(
@@ -218,6 +271,36 @@ def complete_lesson(user_id, lesson_id):
 
     # Tell frontend this was a new completion
     return True
+
+# =====================================================
+# SAVE LESSON TASK COMPLETION
+# =====================================================
+
+def complete_task(user_id, lesson_id, task_id):
+
+    existing = (
+        supabase
+        .table("lesson_tasks")
+        .select("id")
+        .eq("user_id", user_id)
+        .eq("lesson_id", lesson_id)
+        .eq("task_id", task_id)
+        .execute()
+    )
+
+
+    if existing.data:
+        return
+
+
+    supabase.table("lesson_tasks").insert({
+
+        "user_id": user_id,
+        "lesson_id": lesson_id,
+        "task_id": task_id,
+        "completed": True
+
+    }).execute()
 
 
 # =====================================================
@@ -403,6 +486,24 @@ def dashboard():
 
     ]
 
+    # Lesson progress percentage
+
+    total_lessons = max(
+        len(LESSONS),
+        len(completed_lessons)
+    )
+
+    lesson_progress = 0
+
+
+    if total_lessons > 0:
+
+        lesson_progress = (
+            len(completed_lessons)
+            /
+            total_lessons
+        ) * 100
+
 
     # Find next lesson
 
@@ -439,6 +540,21 @@ def dashboard():
 
     ]
 
+    # Exercise progress percentage
+
+    total_problems = len(PROBLEMS)
+
+    problem_progress = 0
+
+
+    if total_problems > 0:
+
+        problem_progress = (
+            len(completed_problems)
+            /
+            total_problems
+        ) * 100
+
 
     next_problem = None
 
@@ -450,9 +566,8 @@ def dashboard():
             break
 
 
-
     # -------------------------------
-    # XP
+    # XP AND LEVEL
     # -------------------------------
 
     lessons_completed = len(completed_lessons)
@@ -469,10 +584,31 @@ def dashboard():
 
     profile["xp"] = xp
 
+    profile["level"] = calculate_level(xp)
+
+    profile["xp_progress"] = calculate_xp_progress(xp)
+
+    profile["xp_remaining"] = xp_until_next_level(xp)
+
+
+    # XP inside current level
+    profile["current_level_xp"] = xp % 500
+
+    # XP needed to complete current level
+    profile["next_level_xp"] = 500
+
+
     profile["lessons_completed"] = lessons_completed
 
     profile["problems_solved"] = problems_completed
 
+    profile["total_lessons"] = total_lessons
+
+    profile["lesson_progress"] = lesson_progress
+
+    profile["total_problems"] = total_problems
+
+    profile["problem_progress"] = problem_progress
 
 
     return render_template(
@@ -756,18 +892,28 @@ def profile():
 
 
     # -------------------------------
-    # Calculate XP
+    # XP AND LEVEL
     # -------------------------------
 
     profile["lessons_completed"] = lessons_completed
 
     profile["problems_solved"] = problems_solved
 
-    profile["xp"] = (
+
+    xp = (
         lessons_completed * 100
         +
         problems_solved * 25
     )
+
+
+    profile["xp"] = xp
+
+    profile["level"] = calculate_level(xp)
+
+    profile["xp_progress"] = calculate_xp_progress(xp)
+
+    profile["xp_remaining"] = xp_until_next_level(xp)
 
 
 

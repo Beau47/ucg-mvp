@@ -11,7 +11,7 @@ LESSONS = {
 
         "title": "Why Python?",
 
-        "description": "Lesson 0.0 - Why Python? Learn what Python is, why it matters, and how programming can help solve real community problems.",
+        "description": "Lesson 0.0: Why Python?",
 
         "blocks": [
 
@@ -265,7 +265,7 @@ LESSONS = {
 
         "title": "Read This Before Exercises",
 
-        "description": "Preview what Python functions look like before starting coding exercises.",
+        "description": "Lesson 0.5: Read This Before Doing Any Exercises",
 
         "blocks": [
 
@@ -573,7 +573,7 @@ LESSONS = {
 
         "lesson_number": "1",
 
-        "description": "Lesson 1.0 - Variables & Data Types. Lesson 1.1 - Using Variables.",
+        "description": "Lesson 1.0: Variables & Data Types\nLesson 1.1: Using Variables",
 
         "title": "Variables & Data Types",
 
@@ -802,7 +802,9 @@ print(name)
                          'B. Deletes age',
                          'C. Creates a new variable',
                          'D. Changes age'],
-             'answer': 'A. Displays the value stored inside age'},
+             'answer': 'A. Displays the value stored inside age',
+             'question_parts': [{'type': 'text', 'text': 'What does the following code do?'},
+                                {'type': 'code', 'text': 'print(age)'}]},
 
             {
                 "page": 1,
@@ -1406,7 +1408,9 @@ print(word[3])
              'type': 'quiz',
              'question': 'Given word = "Tulsa", what does print(word[2]) display?',
              'options': ['A. T', 'B. u', 'C. s', 'D. l'],
-             'answer': 'D. l'},
+             'answer': 'D. l',
+             'question_parts': [{'type': 'text', 'text': 'What does the following code display?'},
+                                {'type': 'code', 'text': 'word = "Tulsa"\nprint(word[2])'}]},
 
             {
                 "page": 2,
@@ -1534,7 +1538,9 @@ print(word[0:11:2])
              'type': 'quiz',
              'question': 'What is the output of word = "Computer" and print(word[3:6])?',
              'options': ['A. put', 'B. pute', 'C. ute', 'D. p'],
-             'answer': 'A. put'},
+             'answer': 'A. put',
+             'question_parts': [{'type': 'text', 'text': 'What is the output of the following code?'},
+                                {'type': 'code', 'text': 'word = "Computer"\nprint(word[3:6])'}]},
 
             {
                 "page": 2,
@@ -1639,13 +1645,17 @@ print(word[::-1])
                          'B. The last character of the string',
                          'C. The second character of the string',
                          'D. The length of the string'],
-             'answer': 'B. The last character of the string'},
+             'answer': 'B. The last character of the string',
+             'question_parts': [{'type': 'text', 'text': 'What does the following expression return?'},
+                                {'type': 'code', 'text': 'word[-1]'}]},
 
             {'page': 2,
              'type': 'quiz',
              'question': 'What is the output of word = "Urban" and print(word[::-1])?',
              'options': ['A. Urban', 'B. U', 'C. nabrU', 'D. abrnU'],
-             'answer': 'C. nabrU'},
+             'answer': 'C. nabrU',
+             'question_parts': [{'type': 'text', 'text': 'What is the output of the following code?'},
+                                {'type': 'code', 'text': 'word = "Urban"\nprint(word[::-1])'}]},
 
             {
                 "page": 2,
@@ -1733,7 +1743,7 @@ print(f"Total: ${total}")
 
     "conditionals": {'id': 'conditionals',
      'lesson_number': '2',
-     'description': 'Lesson 2.0 - Teaching Programs to Make Decisions.',
+     'description': 'Lesson 2.0: Teaching Programs to Make Decisions',
      'title': 'Conditionals',
      'blocks': [{'page': 1,
                  'type': 'heading',
@@ -1963,7 +1973,8 @@ print(f"Total: ${total}")
                  'type': 'quiz',
                  'question': 'What is the output?\n12 <= 8',
                  'options': ['A. True', 'B. False', 'C. 12', 'D. An error'],
-                 'answer': 'B. False'},
+                 'answer': 'B. False',
+                 'question_parts': [{'type': 'text', 'text': 'What is the output?'}, {'type': 'code', 'text': '12 <= 8'}]},
                 {'page': 1, 'type': 'heading', 'text': 'Section 3 – The if Statement'},
                 {'page': 1,
                  'type': 'paragraph',
@@ -2032,7 +2043,9 @@ print(f"Total: ${total}")
                  'type': 'quiz',
                  'question': 'What will this program print?\nage = 15\nif age >= 16:\nprint("Can drive")',
                  'options': ['A. Can drive', 'B. 15', 'C. Nothing', 'D. An error'],
-                 'answer': 'C. Nothing'},
+                 'answer': 'C. Nothing',
+                 'question_parts': [{'type': 'text', 'text': 'What will this program print?'},
+                                    {'type': 'code', 'text': 'age = 15\nif age >= 16:\nprint("Can drive")'}]},
                 {'page': 1,
                  'type': 'ide',
                  'instructions': 'Create an if statement that prints "Drink plenty of water." when '
@@ -2162,7 +2175,16 @@ print(f"Total: ${total}")
                              'else:\n'
                              'print("Child")',
                  'options': ['A. Adult', 'B. Teen', 'C. Nothing', 'D. Child'],
-                 'answer': 'D. Child'},
+                 'answer': 'D. Child',
+                 'question_parts': [{'type': 'text', 'text': 'What will this print?'},
+                                    {'type': 'code',
+                                     'text': 'age = 10\n'
+                                             'if age >= 18:\n'
+                                             'print("Adult")\n'
+                                             'elif age >= 13:\n'
+                                             'print("Teen")\n'
+                                             'else:\n'
+                                             'print("Child")'}]},
                 {'page': 1,
                  'type': 'heading',
                  'text': 'Section 5 – Combining Conditions with Logical Operators'},
@@ -2289,7 +2311,9 @@ print(f"Total: ${total}")
                  'type': 'quiz',
                  'question': 'if age >= 18 and has_ticket:\nprint("Enter")\nelse:\nprint("Cannot enter")',
                  'options': ['A. Cannot enter', 'B. Enter', 'C. Nothing', 'D. Error'],
-                 'answer': 'A. Cannot enter'},
+                 'answer': 'A. Cannot enter',
+                 'question_parts': [{'type': 'code',
+                                     'text': 'if age >= 18 and has_ticket:\nprint("Enter")\nelse:\nprint("Cannot enter")'}]},
                 {'page': 1, 'type': 'heading', 'text': 'Section 6 – Common Conditional Mistakes'},
                 {'page': 1,
                  'type': 'paragraph',
@@ -2341,7 +2365,9 @@ print(f"Total: ${total}")
                  'type': 'quiz',
                  'question': 'Which line contains an error?\nage = 18\nif age = 18:\nprint("Adult")',
                  'options': ['A. Line 1', 'B. Line 2', 'C. Line 3', 'D. No errors'],
-                 'answer': 'B. Line 2'},
+                 'answer': 'B. Line 2',
+                 'question_parts': [{'type': 'text', 'text': 'Which line contains an error?'},
+                                    {'type': 'code', 'text': 'age = 18\nif age = 18:\nprint("Adult")'}]},
                 {'page': 1, 'type': 'heading', 'text': 'Spotlight – Predicting Oklahoma Weather'},
 
                 {'page': 1,
@@ -2484,7 +2510,7 @@ print(f"Total: ${total}")
     "lists_dictionaries": {
         "id": "lists_dictionaries",
         "lesson_number": "3",
-        "description": "Lesson 3.0 - Tuples. Lesson 3.1 - Lists, Mutation & Aliasing. Lesson 3.2 - Dictionaries: Organizing Information with Keys.",
+        "description": "Lesson 3.0: Tuples\nLesson 3.1: Lists, Mutation & Aliasing\nLesson 3.2: Dictionaries: Organizing Information with Keys",
         "title": "Collections",
         "blocks": [
             {
@@ -2716,16 +2742,12 @@ print(f"Total: ${total}")
             },
             {'page': 1,
              'type': 'quiz',
-             'question': 'What is printed?\n'
-                         '\n'
-                         'animals = (\n'
-                         '    "Dog",\n'
-                         '    "Cat",\n'
-                         '    "Bird"\n'
-                         ')\n'
-                         'print(animals[1])',
+             'question': 'What is printed?\n\nanimals = (\n    "Dog",\n    "Cat",\n    "Bird"\n)\nprint(animals[1])',
              'options': ['A. Dog', 'B. Bird', 'C. Error', 'D. Cat'],
-             'answer': 'D. Cat'},
+             'answer': 'D. Cat',
+             'question_parts': [{'type': 'text', 'text': 'What is printed?'},
+                                {'type': 'code',
+                                 'text': 'animals = (\n    "Dog",\n    "Cat",\n    "Bird"\n)\nprint(animals[1])'}]},
             {
                 "page": 1,
                 "type": "heading",
@@ -2783,17 +2805,12 @@ print(f"Total: ${total}")
             },
             {'page': 1,
              'type': 'quiz',
-             'question': 'What does this print?\n'
-                         '\n'
-                         'values = (\n'
-                         '    5,\n'
-                         '    10,\n'
-                         '    15,\n'
-                         '    20\n'
-                         ')\n'
-                         'print(values[:2])',
+             'question': 'What does this print?\n\nvalues = (\n    5,\n    10,\n    15,\n    20\n)\nprint(values[:2])',
              'options': ['A. (5,10)', 'B. (15,20)', 'C. 5', 'D. Error'],
-             'answer': 'A. (5,10)'},
+             'answer': 'A. (5,10)',
+             'question_parts': [{'type': 'text', 'text': 'What does this print?'},
+                                {'type': 'code',
+                                 'text': 'values = (\n    5,\n    10,\n    15,\n    20\n)\nprint(values[:2])'}]},
             {
                 "page": 1,
                 "type": "heading",
@@ -2978,6 +2995,19 @@ print(f"Total: ${total}")
                     "3. Prints the first two elements using slicing."
                 ]
             },
+            {'page': 1,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Create the landmark tuple, then print each value and a complete sentence about the landmark.',
+             'starter_code': 'landmark = (\n'
+                             '    "Golden Driller",\n'
+                             '    "Tulsa",\n'
+                             '    1966\n'
+                             ')\n'
+                             '\n'
+                             '# Print each value below.\n'
+                             '\n'
+                             '# Print a complete sentence about the landmark below.\n'},
             {
                 "page": 1,
                 "type": "heading",
@@ -3434,17 +3464,12 @@ print(f"Total: ${total}")
             },
             {'page': 2,
              'type': 'quiz',
-             'question': 'What is printed?\n'
-                         '\n'
-                         'numbers = [\n'
-                         '    10,\n'
-                         '    20,\n'
-                         '    30,\n'
-                         '    40\n'
-                         ']\n'
-                         'print(numbers[-2])',
+             'question': 'What is printed?\n\nnumbers = [\n    10,\n    20,\n    30,\n    40\n]\nprint(numbers[-2])',
              'options': ['A. 20', 'B. 40', 'C. Error', 'D. 30'],
-             'answer': 'D. 30'},
+             'answer': 'D. 30',
+             'question_parts': [{'type': 'text', 'text': 'What is printed?'},
+                                {'type': 'code',
+                                 'text': 'numbers = [\n    10,\n    20,\n    30,\n    40\n]\nprint(numbers[-2])'}]},
             {
                 "page": 2,
                 "type": "heading",
@@ -3813,7 +3838,12 @@ print(f"Total: ${total}")
                          '\n'
                          'what does the list become?',
              'options': ['A. [10, 50, 30]', 'B. [10, 20, 30]', 'C. [50, 20, 30]', 'D. An error occurs.'],
-             'answer': 'A. [10, 50, 30]'},
+             'answer': 'A. [10, 50, 30]',
+             'question_parts': [{'type': 'text', 'text': 'Suppose we have the following list.'},
+                                {'type': 'code', 'text': 'numbers = [\n    10,\n    20,\n    30\n]'},
+                                {'type': 'text', 'text': 'After executing'},
+                                {'type': 'code', 'text': 'numbers[1] = 50'},
+                                {'type': 'text', 'text': 'what does the list become?'}]},
             {
                 "page": 2,
                 "type": "heading",
@@ -3996,7 +4026,19 @@ print(f"Total: ${total}")
                          '\n'
                          'What is printed?',
              'options': ['A. [1, 2, 3]', 'B. [4]', 'C. An error', 'D. [1, 2, 3, 4]'],
-             'answer': 'D. [1, 2, 3, 4]'},
+             'answer': 'D. [1, 2, 3, 4]',
+             'question_parts': [{'type': 'text', 'text': 'Consider the following program.'},
+                                {'type': 'code',
+                                 'text': 'numbers = [\n'
+                                         '    1,\n'
+                                         '    2,\n'
+                                         '    3\n'
+                                         ']\n'
+                                         '\n'
+                                         'other = numbers\n'
+                                         'other.append(4)\n'
+                                         'print(numbers)'},
+                                {'type': 'text', 'text': 'What is printed?'}]},
             {
                 "page": 2,
                 "type": "heading",
@@ -4436,7 +4478,9 @@ print(f"Total: ${total}")
              'type': 'quiz',
              'question': 'Given car = {"make": "Toyota", "year": 2022}, what does print(car["year"]) display?',
              'options': ['A. Toyota', 'B. year', 'C. 2022', 'D. Error'],
-             'answer': 'C. 2022'},
+             'answer': 'C. 2022',
+             'question_parts': [{'type': 'text', 'text': 'What does the following code display?'},
+                                {'type': 'code', 'text': 'car = {"make": "Toyota", "year": 2022}\nprint(car["year"])'}]},
             {
                 "page": 3,
                 "type": "heading",
@@ -4494,7 +4538,10 @@ print(f"Total: ${total}")
                          'B. The key "name" was removed.',
                          'C. An error occurred.',
                          'D. A new key-value pair was added.'],
-             'answer': 'D. A new key-value pair was added.'},
+             'answer': 'D. A new key-value pair was added.',
+             'question_parts': [{'type': 'text', 'text': 'Suppose the following code runs.'},
+                                {'type': 'code', 'text': 'student = {"name": "Jordan"}\nstudent["grade"] = 11'},
+                                {'type': 'text', 'text': 'What happened?'}]},
             {
                 "page": 3,
                 "type": "heading",
@@ -4833,7 +4880,7 @@ print(f"Total: ${total}")
     },
     "loops": {'id': 'loops',
  'lesson_number': '4',
- 'description': 'Lesson 4.0 - While Loops. Lesson 4.1 - For Loops. Lesson 4.2 - Nested Loops. Lesson 4.3 - Advanced Loop Techniques. Build and control loops to process collections.',
+ 'description': 'Lesson 4.0: While Loops\nLesson 4.1: For Loops\nLesson 4.2: Nested Loops\nLesson 4.3: Advanced Loop Techniques',
  'title': 'Loops',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 4.0 – While Loops'},
 {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
@@ -5082,7 +5129,11 @@ print(f"Total: ${total}")
                          '\n'
                          'How many times does the loop execute?',
              'options': ['A. 2', 'B. 3', 'C. 4', 'D. Forever'],
-             'answer': 'B. 3'},
+             'answer': 'B. 3',
+             'question_parts': [{'type': 'text', 'text': 'Suppose the following code is executed.'},
+                                {'type': 'code',
+                                 'text': 'number = 4\nwhile number < 7:\n    print(number)\n    number += 1'},
+                                {'type': 'text', 'text': 'How many times does the loop execute?'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 4 – Counters'},
             {'page': 1,
              'type': 'paragraph',
@@ -5135,17 +5186,12 @@ print(f"Total: ${total}")
             {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 1,
              'type': 'quiz',
-             'question': 'What does this program print?\n'
-                         '\n'
-                         'count = 10\n'
-                         'while count >= 4:\n'
-                         '    print(count)\n'
-                         '    count -= 2',
-             'options': ['A. 10\n8\n6',
-                         'B. 10\n9\n8\n7',
-                         'C. 10\n8\n6\n4',
-                         'D. The program never stops.'],
-             'answer': 'C. 10\n8\n6\n4'},
+             'question': 'What does this program print?\n\ncount = 10\nwhile count >= 4:\n    print(count)\n    count -= 2',
+             'options': ['A. 10\n8\n6', 'B. 10\n9\n8\n7', 'C. 10\n8\n6\n4', 'D. The program never stops.'],
+             'answer': 'C. 10\n8\n6\n4',
+             'question_parts': [{'type': 'text', 'text': 'What does this program print?'},
+                                {'type': 'code',
+                                 'text': 'count = 10\nwhile count >= 4:\n    print(count)\n    count -= 2'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 5 – Infinite Loops'},
             {'page': 1,
              'type': 'rich_paragraph',
@@ -5243,7 +5289,11 @@ print(f"Total: ${total}")
                          '\n'
                          'what is the sentinel value?',
              'options': ['A. "exit"', 'B. command', 'C. input', 'D. while'],
-             'answer': 'A. "exit"'},
+             'answer': 'A. "exit"',
+             'question_parts': [{'type': 'text', 'text': 'In the following program,'},
+                                {'type': 'code',
+                                 'text': 'command = ""\nwhile command != "exit":\n    command = input("Command: ")'},
+                                {'type': 'text', 'text': 'what is the sentinel value?'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 7 – Mini Project: Password Validator'},
             {'page': 1,
              'type': 'paragraph',
@@ -5289,6 +5339,18 @@ print(f"Total: ${total}")
              'type': 'paragraph',
              'text': 'Planning your solution before programming is a habit practiced by '
                      'experienced software developers.'},
+            {'page': 1,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Build the password validator. Sample attempts are provided so the program can run in this '
+                             'editor.',
+             'starter_code': 'correct_password = "python123"\n'
+                             'attempts = ["hello", "abc123", "python123"]\n'
+                             'attempt_index = 0\n'
+                             'password = attempts[attempt_index]\n'
+                             'incorrect_attempts = 0\n'
+                             '\n'
+                             '# Write your while loop below.\n'},
             {'page': 1, 'type': 'heading', 'text': 'Challenge'},
             {'page': 1,
              'type': 'paragraph',
@@ -5469,7 +5531,17 @@ print(f"Total: ${total}")
                          'for color in colors:\n'
                          '    print(color)',
              'options': ['A. 0\n1\n2', 'B. Green\nBlue\nRed', 'C. An error', 'D. Red\nBlue\nGreen'],
-             'answer': 'D. Red\nBlue\nGreen'},
+             'answer': 'D. Red\nBlue\nGreen',
+             'question_parts': [{'type': 'text', 'text': 'What is printed?'},
+                                {'type': 'code',
+                                 'text': 'colors = [\n'
+                                         '    "Red",\n'
+                                         '    "Blue",\n'
+                                         '    "Green"\n'
+                                         ']\n'
+                                         '\n'
+                                         'for color in colors:\n'
+                                         '    print(color)'}]},
             {'page': 2, 'type': 'heading', 'text': 'Section 2 – The Loop Variable'},
             {'page': 2,
              'type': 'rich_paragraph',
@@ -5506,7 +5578,18 @@ print(f"Total: ${total}")
                          '\n'
                          'what is the loop variable?',
              'options': ['A. animals', 'B. animal', 'C. print', 'D. Dog'],
-             'answer': 'B. animal'},
+             'answer': 'B. animal',
+             'question_parts': [{'type': 'text', 'text': 'In the following code,'},
+                                {'type': 'code',
+                                 'text': 'animals = [\n'
+                                         '    "Dog",\n'
+                                         '    "Cat",\n'
+                                         '    "Bird"\n'
+                                         ']\n'
+                                         '\n'
+                                         'for animal in animals:\n'
+                                         '    print(animal)'},
+                                {'type': 'text', 'text': 'what is the loop variable?'}]},
             {'page': 2, 'type': 'heading', 'text': 'Section 3 – Iterating Through Different Collections'},
             {'page': 2,
              'type': 'paragraph',
@@ -5605,7 +5688,9 @@ print(f"Total: ${total}")
              'type': 'quiz',
              'question': 'What does this print?\n\nfor i in range(2,8,2):\n    print(i)',
              'options': ['A. 2\n4\n6\n8', 'B. 0\n2\n4\n6', 'C. 2\n6\n8', 'D. 2\n4\n6'],
-             'answer': 'D. 2\n4\n6'},
+             'answer': 'D. 2\n4\n6',
+             'question_parts': [{'type': 'text', 'text': 'What does this print?'},
+                                {'type': 'code', 'text': 'for i in range(2,8,2):\n    print(i)'}]},
             {'page': 2, 'type': 'heading', 'text': 'Section 5 – Choosing Between while and for'},
             {'page': 2,
              'type': 'paragraph',
@@ -5652,6 +5737,20 @@ print(f"Total: ${total}")
             {'page': 2,
              'type': 'paragraph',
              'text': 'Challenge: Print only the grades that are passing (70 or higher).'},
+            {'page': 2,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Use a for loop to print every grade, calculate the average, find the highest grade, and '
+                             'count scores above 90.',
+             'starter_code': 'grades = [\n'
+                             '    92,\n'
+                             '    85,\n'
+                             '    100,\n'
+                             '    78,\n'
+                             '    95\n'
+                             ']\n'
+                             '\n'
+                             '# Complete the four tasks below.\n'},
             {'page': 2, 'type': 'heading', 'text': 'Key Takeaways'},
             {'page': 2, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
             {'page': 2,
@@ -5766,7 +5865,10 @@ print(f"Total: ${total}")
                          '    for y in range(5):\n'
                          '        print(x, y)',
              'options': ['A. Two', 'B. One', 'C. Three', 'D. Five'],
-             'answer': 'A. Two'},
+             'answer': 'A. Two',
+             'question_parts': [{'type': 'text', 'text': 'How many loops are in the following program?'},
+                                {'type': 'code',
+                                 'text': 'for x in range(2):\n    for y in range(5):\n        print(x, y)'}]},
             {'page': 3, 'type': 'heading', 'text': 'Section 2 – Tracing a Nested Loop'},
             {'page': 3, 'type': 'paragraph', 'text': "Let's examine what actually happens."},
             {'page': 3,
@@ -5801,7 +5903,9 @@ print(f"Total: ${total}")
                          '    for j in range(2):\n'
                          '        print(j)',
              'options': ['A. 2', 'B. 8', 'C. 4', 'D. 6'],
-             'answer': 'B. 8'},
+             'answer': 'B. 8',
+             'question_parts': [{'type': 'text', 'text': 'How many total times is the inner loop executed?'},
+                                {'type': 'code', 'text': 'for i in range(4):\n    for j in range(2):\n        print(j)'}]},
             {'page': 3, 'type': 'heading', 'text': 'Section 3 – Creating Patterns'},
             {'page': 3,
              'type': 'paragraph',
@@ -5846,7 +5950,13 @@ print(f"Total: ${total}")
                          '        print("@", end="")\n'
                          '    print()',
              'options': ['A. @@@@@@', 'B. @\n@@\n@@@', 'C. @@@\n@@@', 'D. @@\n@@\n@@'],
-             'answer': 'C. @@@\n@@@'},
+             'answer': 'C. @@@\n@@@',
+             'question_parts': [{'type': 'text', 'text': 'What does this program print?'},
+                                {'type': 'code',
+                                 'text': 'for row in range(2):\n'
+                                         '    for column in range(3):\n'
+                                         '        print("@", end="")\n'
+                                         '    print()'}]},
             {'page': 3, 'type': 'heading', 'text': 'Section 4 – Nested Loops with Collections'},
             {'page': 3,
              'type': 'paragraph',
@@ -5908,13 +6018,11 @@ print(f"Total: ${total}")
             {'page': 3, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 3,
              'type': 'quiz',
-             'question': 'How many stars are printed?\n'
-                         '\n'
-                         'for i in range(6):\n'
-                         '    for j in range(3):\n'
-                         '        print("*")',
+             'question': 'How many stars are printed?\n\nfor i in range(6):\n    for j in range(3):\n        print("*")',
              'options': ['A. 18', 'B. 9', 'C. 12', 'D. 36'],
-             'answer': 'A. 18'},
+             'answer': 'A. 18',
+             'question_parts': [{'type': 'text', 'text': 'How many stars are printed?'},
+                                {'type': 'code', 'text': 'for i in range(6):\n    for j in range(3):\n        print("*")'}]},
             {'page': 3, 'type': 'heading', 'text': 'Section 6 – Mini Project: Draw a Rectangle'},
             {'page': 3, 'type': 'paragraph', 'text': 'Write a program that asks the user for'},
             {'page': 3, 'type': 'list', 'items': ['the number of rows', 'the number of columns']},
@@ -5927,6 +6035,11 @@ print(f"Total: ${total}")
              'text': 'Modify your program so that it prints the row number before each row.'},
             {'page': 3, 'type': 'heading', 'text': 'Example'},
             {'page': 3, 'type': 'code', 'text': 'Row 1: *****\nRow 2: *****\nRow 3: *****'},
+            {'page': 3,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Use nested loops to draw the rectangle. Change rows and columns to test different sizes.',
+             'starter_code': 'rows = 3\ncolumns = 5\n\n# Use nested loops to draw the rectangle below.\n'},
             {'page': 3, 'type': 'heading', 'text': 'Key Takeaways'},
             {'page': 3, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
             {'page': 3,
@@ -6027,7 +6140,14 @@ print(f"Total: ${total}")
                          '\n'
                          '    print(letter)',
              'options': ['A. py', 'B. python', 'C. pyt', 'D. thon'],
-             'answer': 'A. py'},
+             'answer': 'A. py',
+             'question_parts': [{'type': 'text', 'text': 'What is printed?'},
+                                {'type': 'code',
+                                 'text': 'for letter in "python":\n'
+                                         '    if letter == "h":\n'
+                                         '        break\n'
+                                         '\n'
+                                         '    print(letter)'}]},
             {'page': 4, 'type': 'heading', 'text': 'Section 2 – Skipping an Iteration with continue'},
             {'page': 4,
              'type': 'rich_paragraph',
@@ -6053,7 +6173,10 @@ print(f"Total: ${total}")
              'type': 'quiz',
              'question': 'What prints?\n\nfor i in range(5):\n    if i == 2:\n        continue\n\n    print(i)',
              'options': ['A. 0\n1\n2\n3\n4', 'B. 0\n1\n3\n4', 'C. 2\n3\n4', 'D. 0\n1'],
-             'answer': 'B. 0\n1\n3\n4'},
+             'answer': 'B. 0\n1\n3\n4',
+             'question_parts': [{'type': 'text', 'text': 'What prints?'},
+                                {'type': 'code',
+                                 'text': 'for i in range(5):\n    if i == 2:\n        continue\n\n    print(i)'}]},
             {'page': 4, 'type': 'heading', 'text': 'Section 3 – Placeholder Code with pass'},
             {'page': 4,
              'type': 'rich_paragraph',
@@ -6140,7 +6263,15 @@ print(f"Total: ${total}")
                          '    if letter == "a":\n'
                          '        count += 1',
              'options': ['A. 2', 'B. 4', 'C. 6', 'D. 3'],
-             'answer': 'D. 3'},
+             'answer': 'D. 3',
+             'question_parts': [{'type': 'text', 'text': 'What will count equal after this program finishes?'},
+                                {'type': 'code',
+                                 'text': 'letters = "banana"\n'
+                                         'count = 0\n'
+                                         '\n'
+                                         'for letter in letters:\n'
+                                         '    if letter == "a":\n'
+                                         '        count += 1'}]},
             {'page': 4, 'type': 'heading', 'text': 'Section 5 – Summing Values'},
             {'page': 4,
              'type': 'paragraph',
@@ -6192,7 +6323,10 @@ print(f"Total: ${total}")
                          '\n'
                          'print(total)',
              'options': ['A. 7', 'B. 9', 'C. 12', 'D. 14'],
-             'answer': 'D. 14'},
+             'answer': 'D. 14',
+             'question_parts': [{'type': 'text', 'text': 'What prints after this program finishes?'},
+                                {'type': 'code',
+                                 'text': 'total = 0\n\nfor n in [2, 5, 7]:\n    total += n\n\nprint(total)'}]},
             {'page': 4, 'type': 'heading', 'text': 'Section 6 – Finding the Largest Value'},
             {'page': 4,
              'type': 'paragraph',
@@ -6255,7 +6389,17 @@ print(f"Total: ${total}")
                          '\n'
                          'print(largest)',
              'options': ['A. 2', 'B. 4', 'C. 9', 'D. 15'],
-             'answer': 'C. 9'},
+             'answer': 'C. 9',
+             'question_parts': [{'type': 'text', 'text': 'What is printed after this program finishes?'},
+                                {'type': 'code',
+                                 'text': 'values = [4, 9, 2]\n'
+                                         'largest = values[0]\n'
+                                         '\n'
+                                         'for value in values:\n'
+                                         '    if value > largest:\n'
+                                         '        largest = value\n'
+                                         '\n'
+                                         'print(largest)'}]},
             {'page': 4, 'type': 'heading', 'text': 'Section 7 – Searching'},
             {'page': 4,
              'type': 'rich_paragraph',
@@ -6324,6 +6468,19 @@ print(f"Total: ${total}")
              'type': 'paragraph',
              'text': 'Modify the program so the user enters temperatures until they type -1. Then display all '
                      'of the same statistics.'},
+            {'page': 4,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Analyze the temperatures, then try the challenge using -1 as the sentinel value.',
+             'starter_code': 'temperatures = [91, 85, 88, 94, 99, 86, 90]\n'
+                             '\n'
+                             '# Display every temperature.\n'
+                             '\n'
+                             '# Calculate the average.\n'
+                             '\n'
+                             '# Find the highest and lowest temperatures.\n'
+                             '\n'
+                             '# Count temperatures above 90.\n'},
             {'page': 4, 'type': 'heading', 'text': 'Key Takeaways'},
             {'page': 4, 'type': 'paragraph', 'text': 'By the end of this lesson, you should be able to:'},
             {'page': 4,
@@ -6345,7 +6502,7 @@ print(f"Total: ${total}")
     "functions_modularity": {'id': 'functions_modularity',
  'lesson_number': '5',
  'title': 'Functions & Modularity',
- 'description': 'Lesson 5.0 - Writing Your Own Functions. Lesson 5.1 - Scope, Modules, & Refactoring. Build reusable functions and organize larger Python programs.',
+ 'description': 'Lesson 5.0: Writing Your Own Functions\nLesson 5.1: Scope, Modules, & Refactoring',
  'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 5.0 – Writing Your Own Functions'},
 {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
             {'page': 1,
@@ -6574,11 +6731,10 @@ print(f"Total: ${total}")
                          '\n'
                          'cheer()\n'
                          'cheer()',
-             'options': ['A. Go Team!',
-                         'B. Go Team!\nGo Team!',
-                         'C. Nothing is printed.',
-                         'D. An error occurs.'],
-             'answer': 'B. Go Team!\nGo Team!'},
+             'options': ['A. Go Team!', 'B. Go Team!\nGo Team!', 'C. Nothing is printed.', 'D. An error occurs.'],
+             'answer': 'B. Go Team!\nGo Team!',
+             'question_parts': [{'type': 'text', 'text': 'What is printed by the following program?'},
+                                {'type': 'code', 'text': 'def cheer():\n    print("Go Team!")\n\ncheer()\ncheer()'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 3 – Parameters and Arguments'},
             {'page': 1,
              'type': 'paragraph',
@@ -6673,7 +6829,9 @@ print(f"Total: ${total}")
                          '\n'
                          'multiply(3, 5)',
              'options': ['A. 3', 'B. 5', 'C. a and b', 'D. multiply'],
-             'answer': 'C. a and b'},
+             'answer': 'C. a and b',
+             'question_parts': [{'type': 'text', 'text': 'In the following code, which is the parameter?'},
+                                {'type': 'code', 'text': 'def multiply(a, b):\n    return a * b\n\nmultiply(3, 5)'}]},
             {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 1,
              'type': 'quiz',
@@ -6684,7 +6842,10 @@ print(f"Total: ${total}")
                          '\n'
                          'cheer("Tigers")',
              'options': ['A. Go Tigers!', 'B. Go team!', 'C. Tigers', 'D. An error occurs.'],
-             'answer': 'A. Go Tigers!'},
+             'answer': 'A. Go Tigers!',
+             'question_parts': [{'type': 'text', 'text': 'What is the output of this program?'},
+                                {'type': 'code',
+                                 'text': 'def cheer(team):\n    print("Go", team + "!")\n\ncheer("Tigers")'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 4 – Returning Values'},
             {'page': 1,
              'type': 'paragraph',
@@ -6782,25 +6943,21 @@ print(f"Total: ${total}")
             {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 1,
              'type': 'quiz',
-             'question': 'What is printed?\n'
-                         '\n'
-                         'def square(number):\n'
-                         '    return number * number\n'
-                         '\n'
-                         'print(square(5))',
+             'question': 'What is printed?\n\ndef square(number):\n    return number * number\n\nprint(square(5))',
              'options': ['A. 5', 'B. 10', 'C. 25', 'D. Nothing'],
-             'answer': 'C. 25'},
+             'answer': 'C. 25',
+             'question_parts': [{'type': 'text', 'text': 'What is printed?'},
+                                {'type': 'code',
+                                 'text': 'def square(number):\n    return number * number\n\nprint(square(5))'}]},
             {'page': 1, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 1,
              'type': 'quiz',
-             'question': 'What is stored in result?\n'
-                         '\n'
-                         'def multiply(a, b):\n'
-                         '    return a * b\n'
-                         '\n'
-                         'result = multiply(4, 6)',
+             'question': 'What is stored in result?\n\ndef multiply(a, b):\n    return a * b\n\nresult = multiply(4, 6)',
              'options': ['A. 4', 'B. 6', 'C. 10', 'D. 24'],
-             'answer': 'D. 24'},
+             'answer': 'D. 24',
+             'question_parts': [{'type': 'text', 'text': 'What is stored in result?'},
+                                {'type': 'code',
+                                 'text': 'def multiply(a, b):\n    return a * b\n\nresult = multiply(4, 6)'}]},
             {'page': 1, 'type': 'heading', 'text': 'Section 5 – Writing Good Functions'},
             {'page': 1,
              'type': 'paragraph',
@@ -6921,29 +7078,32 @@ print(f"Total: ${total}")
              'text': 'Each task should be handled by its own function.'},
             {'page': 1, 'type': 'heading', 'text': 'Starter Code'},
             {'page': 1,
-             'type': 'code',
-             'text': 'def calculate_subtotal(food_cost, drink_cost):\n'
-                     '    """Returns the subtotal before tax."""\n'
-                     '    pass\n'
-                     '\n'
-                     'def calculate_tax(subtotal):\n'
-                     '    """Returns the sales tax (8%)."""\n'
-                     '    pass\n'
-                     '\n'
-                     'def calculate_total(subtotal, tax):\n'
-                     '    """Returns the final bill."""\n'
-                     '    pass\n'
-                     '\n'
-                     'food = float(input("Food cost: $"))\n'
-                     'drink = float(input("Drink cost: $"))\n'
-                     '\n'
-                     'subtotal = calculate_subtotal(food, drink)\n'
-                     'tax = calculate_tax(subtotal)\n'
-                     'total = calculate_total(subtotal, tax)\n'
-                     '\n'
-                     'print("Subtotal: $", round(subtotal, 2))\n'
-                     'print("Tax: $", round(tax, 2))\n'
-                     'print("Total: $", round(total, 2))'},
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Complete the three functions, then run the program. Change the sample food and drink costs '
+                             'to test it again.',
+             'starter_code': 'def calculate_subtotal(food_cost, drink_cost):\n'
+                             '    """Returns the subtotal before tax."""\n'
+                             '    pass\n'
+                             '\n'
+                             'def calculate_tax(subtotal):\n'
+                             '    """Returns the sales tax (8%)."""\n'
+                             '    pass\n'
+                             '\n'
+                             'def calculate_total(subtotal, tax):\n'
+                             '    """Returns the final bill."""\n'
+                             '    pass\n'
+                             '\n'
+                             'food = 15.50\n'
+                             'drink = 3.50\n'
+                             '\n'
+                             'subtotal = calculate_subtotal(food, drink)\n'
+                             'tax = calculate_tax(subtotal)\n'
+                             'total = calculate_total(subtotal, tax)\n'
+                             '\n'
+                             'print("Subtotal: $", round(subtotal, 2))\n'
+                             'print("Tax: $", round(tax, 2))\n'
+                             'print("Total: $", round(total, 2))\n'},
             {'page': 1, 'type': 'heading', 'text': 'Example Run'},
             {'page': 1,
              'type': 'code',
@@ -7114,7 +7274,10 @@ print(f"Total: ${total}")
                          'say_hi()\n'
                          'print(greeting)',
              'options': ['A. NameError', 'B. Hi!', 'C. greeting', 'D. Nothing is printed.'],
-             'answer': 'A. NameError'},
+             'answer': 'A. NameError',
+             'question_parts': [{'type': 'text', 'text': 'What happens when this program runs?'},
+                                {'type': 'code',
+                                 'text': 'def say_hi():\n    greeting = "Hi!"\n\nsay_hi()\nprint(greeting)'}]},
             {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 2,
              'type': 'quiz',
@@ -7225,20 +7388,18 @@ print(f"Total: ${total}")
              'type': 'quiz',
              'question': 'What type of variable is age?\n\ndef birthday():\n    age = 16\n    print(age)',
              'options': ['A. Global variable', 'B. Parameter', 'C. Local variable', 'D. Argument'],
-             'answer': 'C. Local variable'},
+             'answer': 'C. Local variable',
+             'question_parts': [{'type': 'text', 'text': 'What type of variable is age?'},
+                                {'type': 'code', 'text': 'def birthday():\n    age = 16\n    print(age)'}]},
             {'page': 2, 'type': 'heading', 'text': 'Check Your Understanding'},
             {'page': 2,
              'type': 'quiz',
-             'question': 'What is the output?\n'
-                         '\n'
-                         'city = "Tulsa"\n'
-                         '\n'
-                         'def show_city():\n'
-                         '    print(city)\n'
-                         '\n'
-                         'show_city()',
+             'question': 'What is the output?\n\ncity = "Tulsa"\n\ndef show_city():\n    print(city)\n\nshow_city()',
              'options': ['A. city', 'B. NameError', 'C. Nothing', 'D. Tulsa'],
-             'answer': 'D. Tulsa'},
+             'answer': 'D. Tulsa',
+             'question_parts': [{'type': 'text', 'text': 'What is the output?'},
+                                {'type': 'code',
+                                 'text': 'city = "Tulsa"\n\ndef show_city():\n    print(city)\n\nshow_city()'}]},
             {'page': 2, 'type': 'heading', 'text': 'Section 3 – (OPTIONAL) Modules and import'},
             {'page': 2,
              'type': 'paragraph',
@@ -7451,7 +7612,15 @@ print(f"Total: ${total}")
                          'B. It runs forever.',
                          'C. It creates more variables.',
                          'D. It avoids repeating the same calculation.'],
-             'answer': 'D. It avoids repeating the same calculation.'},
+             'answer': 'D. It avoids repeating the same calculation.',
+             'question_parts': [{'type': 'text', 'text': 'Why is the second program better?'},
+                                {'type': 'code',
+                                 'text': 'def square(number):\n'
+                                         '    return number * number\n'
+                                         '\n'
+                                         'print(square(4))\n'
+                                         'print(square(7))\n'
+                                         'print(square(10))'}]},
             {'page': 2, 'type': 'heading', 'text': 'Mini Project – Build a Math Toolkit'},
             {'page': 2,
              'type': 'paragraph',
@@ -7474,22 +7643,27 @@ print(f"Total: ${total}")
             {'page': 2, 'type': 'heading', 'text': 'Starter Code'},
             {'page': 2, 'type': 'heading', 'text': 'math_tools.py'},
             {'page': 2,
-             'type': 'code',
-             'text': 'def add(a, b):\n'
-                     '    """Returns the sum of two numbers."""\n'
-                     '    pass\n'
-                     '\n'
-                     'def subtract(a, b):\n'
-                     '    """Returns the difference of two numbers."""\n'
-                     '    pass\n'
-                     '\n'
-                     'def multiply(a, b):\n'
-                     '    """Returns the product of two numbers."""\n'
-                     '    pass\n'
-                     '\n'
-                     'def divide(a, b):\n'
-                     '    """Returns the quotient of two numbers."""\n'
-                     '    pass'},
+             'type': 'ide',
+             'filename': 'math_tools.py',
+             'instructions': 'Complete the four functions in math_tools.py. Add function calls at the bottom to test them '
+                             'with Run.',
+             'starter_code': 'def add(a, b):\n'
+                             '    """Returns the sum of two numbers."""\n'
+                             '    pass\n'
+                             '\n'
+                             'def subtract(a, b):\n'
+                             '    """Returns the difference of two numbers."""\n'
+                             '    pass\n'
+                             '\n'
+                             'def multiply(a, b):\n'
+                             '    """Returns the product of two numbers."""\n'
+                             '    pass\n'
+                             '\n'
+                             'def divide(a, b):\n'
+                             '    """Returns the quotient of two numbers."""\n'
+                             '    pass\n'
+                             '\n'
+                             '# Add function calls below to test your toolkit.\n'},
             {'page': 2, 'type': 'heading', 'text': 'main.py'},
             {'page': 2,
              'type': 'code',
@@ -7531,301 +7705,610 @@ print(f"Total: ${total}")
                      'application, combining variables, conditionals, loops, data structures, functions, '
                      'modules, and recursion to solve a real-world problem. It will be your opportunity to '
                      "demonstrate the programming skills you've developed over the entire course."}]},
-    "recursion_capstone": {
-
-        "id": "recursion_capstone",
-
-        "lesson_number": "6",
-
-        "title": "Recursion & the Capstone",
-
-        "description": "Lesson 6.0 - Recursion & the Capstone. Trace recursive functions and bring the course together in a community capstone project.",
-
-        "blocks": [
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Lesson 6 - Recursion & the Capstone"
-            },
-
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Learning Objectives"
-            },
-
-            {
-                "page": 1,
-                "type": "list",
-                "items": [
-                    "Trace and implement a simple recursive function.",
-                    "Identify the base case and the recursive call in a function.",
-                    "Sketch the call stack for factorial(4).",
-                    "Convert an iterative family-tree printer into a recursive one.",
-                    "Plan a capstone project using a checklist of required constructs.",
-                    "Refactor code for clarity by adding docstrings and comments.",
-                    "Deliver a 2-minute capstone demo and capture peer feedback."
-                ]
-            },
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Word Bank"
-            },
-
-            {
-                "page": 1,
-                "type": "rich_paragraph",
-                "html":
-                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">recursion</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">base case</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">call stack</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">capstone project</span> &nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">refactor</span>'
-            },
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Introduction"
-            },
-
-            {
-                "page": 1,
-                "type": "rich_paragraph",
-                "html":
-                'Imagine asking a grandparent to tell you a family story. They tell you their part, then say, "for the rest, ask your great-aunt - she knows what came before me." Your great-aunt does the same thing, pointing further back, until someone finally says, "that\'s the beginning - there\'s no one before me." That is exactly how a recursive function works: each step solves a small piece and hands the rest down, until someone finally stops the chain.'
-            },
-
-            {
-                "page": 1,
-                "type": "quote",
-                "text":
-                "Recursion = passing down knowledge. - inspired by Roy Clay Sr., known as the \"Godfather of Silicon Valley\""
-            },
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Section 1 - What Is Recursion?"
-            },
-
-            {
-                "page": 1,
-                "type": "rich_paragraph",
-                "html":
-                '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">Recursion</span> is a function calling itself to solve a smaller piece of the same problem. Every recursive function needs a <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">base case</span> - the simple situation where the function stops calling itself. Without one, the function would call itself forever.'
-            },
-
-            {
-                "page": 1,
-                "type": "code",
-                "language": "python",
-                "text":
-"""def factorial(n):
-    # base case: the "no one before me" moment
-    if n == 0:
-        return 1
-    # recursive call: hand off a smaller version of the problem
-    return n * factorial(n - 1)"""
-            },
-
-            {
-                "page": 1,
-                "type": "tip",
-                "text":
-                "Every recursive function needs two things: a base case that stops it, and a recursive call that hands off a smaller version of the same problem."
-            },
-
-            {
-                "page": 1,
-                "type": "heading",
-                "text": "Section 2 - Tracing the Call Stack"
-            },
-
-            {
-                "page": 1,
-                "type": "rich_paragraph",
-                "html":
-                'The <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">call stack</span> is the list of function calls the computer is managing at any moment.<sup>1</sup> Each call waits, paused, for the next one to finish. Here is the full trace for factorial(4) - the stack grows downward as calls are made, then collapses back upward as each call returns its answer:'
-            },
-
-            {
-                "page": 1,
-                "type": "code",
-                "language": "text",
-                "text":
-"""factorial(4)
-  factorial(3)
-    factorial(2)
-      factorial(1)
-        factorial(0) -> base case hit, returns 1
-      returns 1 * 1 = 1
-    returns 2 * 1 = 2
-  returns 3 * 2 = 6
-returns 4 * 6 = 24"""
-            },
-
-            {
-                "page": 1,
-                "type": "footnote",
-                "number": "1",
-                "text": "The call stack is managed automatically by the Python interpreter - you never have to build it yourself."
-            },
-
-            {
-                "page": 1,
-                "type": "warning",
-                "text":
-                "If a recursive function never reaches its base case, the call stack keeps growing until Python runs out of room and raises a RecursionError. Always double-check that every recursive call moves toward the base case."
-            },
-
+    "recursion_capstone": {'id': 'recursion_capstone',
+ 'lesson_number': '6',
+ 'title': 'Recursion',
+ 'description': 'Lesson 6.0: Recursion',
+ 'blocks': [{'page': 1, 'type': 'heading', 'text': 'Lesson 6.0 – Recursion'},
+            {'page': 1, 'type': 'heading', 'text': 'Prerequisites'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Define and call functions.',
+                       'Use parameters and return values.',
+                       'Write conditional statements.',
+                       'Use loops to repeat code.',
+                       'Understand variable scope.']},
+            {'page': 1, 'type': 'heading', 'text': 'Learning Objectives'},
+            {'page': 1, 'type': 'paragraph', 'text': 'By the end of this lesson, you will be able to:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Lesson 1.0 – Variables & Data Types',
+                       'Lesson 1.1 – Using Variables',
+                       'Lesson 2 – Teaching Programs to Make Decisions',
+                       'Lesson 3.0 – Tuples',
+                       'Lesson 3.1 – Lists, Mutation & Aliasing',
+                       'Lesson 3.2 – Dictionaries: Organizing Information with Keys',
+                       'Lesson 4.0 – While Loops',
+                       'Lesson 4.1 – For Loops',
+                       'Lesson 4.2 – Nested Loops',
+                       'Lesson 4.3 – Advanced Loop Techniques',
+                       'Lesson 5.0 – Writing Your Own Functions',
+                       'Lesson 5.1 – Scope, Modules, & Refactoring']},
+            {'page': 1, 'type': 'heading', 'text': 'Vocabulary'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">recursion</span> &nbsp;•&nbsp; <span style="background:#fff1df; '
+                     'color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">base case</span> '
+                     '&nbsp;•&nbsp; <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">recursive call</span> &nbsp;•&nbsp; <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">call stack</span> &nbsp;•&nbsp; <span style="background:#fff1df; '
+                     'color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">RecursionError</span>'},
+            {'page': 1, 'type': 'heading', 'text': 'Introduction'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Imagine asking a grandparent to tell you a family story. They tell you their part, then '
+                     'say, "For the rest, ask your great-aunt—she knows what happened before me." Your '
+                     'great-aunt tells her part and points you to someone even older. This continues until '
+                     'someone finally says, "That\'s the beginning. There is no one before me." This is '
+                     'similar to how recursion works. A recursive function solves a small part of a problem, '
+                     'then asks another copy of itself to solve the rest. Eventually, one function reaches the '
+                     'simplest possible case—the beginning—and stops the chain. Then each waiting function '
+                     'receives its answer and finishes its own work. Unlike loops, which repeat the same '
+                     'instructions over and over, recursion solves problems by breaking them into smaller '
+                     "versions of themselves. In this lesson, you'll learn how recursive functions work, how "
+                     'Python keeps track of them, and when recursion is a useful way to solve problems.'},
+            {'page': 1, 'type': 'heading', 'text': 'Spotlight – You'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Congratulations—you've made it to the final programming lesson of this course."},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "When you began, you may have never written a single line of Python. Since then, you've "
+                     'learned how to use variables, make decisions with conditionals, repeat actions with '
+                     'loops, organize data using lists, tuples, and dictionaries, and write your own reusable '
+                     'functions and modules. Each lesson built on the one before it, helping you think more '
+                     "like a programmer. Now you've reached recursion, a topic that many computer science "
+                     'students find challenging. In fact, recursion is famous within the programming community '
+                     'for being one of the most confusing concepts to learn at first. It requires you to think '
+                     'about problems in a completely different way—breaking a problem into smaller versions of '
+                     "itself until it becomes simple enough to solve. If recursion feels difficult, you're not "
+                     'alone. Even experienced programmers often need to trace recursive functions step by step '
+                     'before everything clicks. With practice, however, recursion becomes a powerful '
+                     'problem-solving tool that appears throughout computer science, from searching trees to '
+                     'processing files and designing algorithms. Most importantly, take a moment to appreciate '
+                     "how far you've come. Not long ago, writing a simple program may have seemed impossible. "
+                     "Now you're learning one of the most advanced topics in an introductory programming "
+                     "course. After this lesson, you'll begin your Capstone Project—an opportunity to combine "
+                     "everything you've learned into a program of your own. Every variable, loop, function, "
+                     "data structure, and recursive algorithm you've studied has prepared you for this "
+                     'moment.'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 1 – What Is Recursion?'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "In previous lessons, you've used loops to repeat actions. For example, this for loop "
+                     'prints the numbers from 5 down to 1.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'for number in range(5, 0, -1):\n    print(number)'},
+            {'page': 1, 'type': 'heading', 'text': 'Output'},
+            {'page': 1, 'type': 'code', 'language': 'text', 'text': '5\n4\n3\n2\n1'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': '<span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">Recursion</span> provides another way to solve problems that involve '
+                     'repetition. <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">Recursion</span> is a programming technique in '
+                     'which a function calls itself to solve a smaller version of the same problem. Instead of '
+                     'repeating code with a loop, a recursive function solves one small piece of the problem '
+                     'and then asks another copy of itself to solve the rest.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Every recursive function has two essential parts:'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': '• A <span style="background:#fff1df; color:#c74716; padding:2px 7px; '
+                     'border-radius:6px; font-weight:600;">base case</span>, which tells the function when to '
+                     'stop<sup>1</sup>.'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': '• A <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">recursive call</span>, which calls the function again with a smaller '
+                     'or simpler version of the problem.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Without a base case, the function would continue calling itself forever. For example, '
+                     'consider the factorial function. The factorial of a nonnegative integer is the product '
+                     'of all positive integers less than or equal to that number.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1, 'type': 'list', 'items': ['4! = 4 · 3 · 2 · 1', '3! = 3 · 2 · 1', '1! = 1', '0! = 1']},
+            {'page': 1,
+             'type': 'footnote',
+             'number': '1',
+             'text': 'This may sound a lot like the way we definined the return key word. However, you’ll see '
+                     'why a base case is similar.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'We can write a recursive function to calculate factorials.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def factorial(n):\n'
+                     '    # Base case\n'
+                     '    if n == 0:\n'
+                     '        return 1\n'
+                     '\n'
+                     '    # Recursive call\n'
+                     '    return n * factorial(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Notice the two important parts.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'The base case is'},
+            {'page': 1, 'type': 'code', 'language': 'python', 'text': 'if n == 0:\n    return 1'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'This is the simplest possible case. Once the function reaches 0, it stops making '
+                     'recursive calls.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'The recursive call is'},
+            {'page': 1, 'type': 'code', 'language': 'python', 'text': 'factorial(n - 1)'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Instead of solving the entire problem itself, the function asks another copy of itself '
+                     'to calculate the factorial of a slightly smaller number. Each recursive call gets one '
+                     'step closer to the base case until the recursion eventually stops.'},
+            {'page': 1,
+             'type': 'tip',
+             'text': 'Every recursive function needs two ingredients:\n'
+                     '1. A base case that stops the recursion.\n'
+                     '2. A recursive call that moves the problem closer to the base case.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Notice that the factorial problem is naturally recursive. Every factorial can be written '
+                     'in terms of a smaller factorial.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1, 'type': 'list', 'items': ['4! = 4 · 3 · 2 · 1', '3! = 3 · 2 · 1', '2! = 2 · 1']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Each factorial problem contains a smaller factorial subproblem. Instead of calculating '
+                     'the entire answer at once, we can solve one step and let another function call solve the '
+                     'smaller factorial. This is exactly what the recursive call does. However, this process '
+                     'cannot continue forever. Eventually, we reach a factorial that has no smaller '
+                     'subproblem.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'By convention²,'},
+            {'page': 1, 'type': 'list', 'items': ['(1! = 1)', '(0! = 1)']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "These are facts that we simply know—they don't need to be broken down any further. Since "
+                     'there is no smaller factorial to compute, they tell the recursion when to stop. This is '
+                     'why 1! or 0! serves as the base case of the recursive function. Now we can write the '
+                     'recursive solution.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def factorial(n):\n'
+                     '    # Base case\n'
+                     '    if n == 0:\n'
+                     '        return 1\n'
+                     '\n'
+                     '    # Recursive call\n'
+                     '    return n * factorial(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'The line'},
+            {'page': 1, 'type': 'code', 'language': 'python', 'text': 'return n * factorial(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'matches the mathematical rule'},
+            {'page': 1, 'type': 'code', 'language': 'text', 'text': 'n! = n × (n-1)!'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'The recursive call solves the smaller factorial subproblem, while the base case ends the '
+                     'chain once we reach a factorial whose value is already known.'},
+            {'page': 1,
+             'type': 'footnote',
+             'number': '2',
+             'text': 'A mathelmatical convention is a rule or definition that mathematicians have agreed to '
+                     'use consistently. For example, anything multiplied by zero is zero is a math '
+                     'convention.'},
             {'page': 1,
              'type': 'quiz',
-             'question': 'In the trace above, which call is the base case?',
-             'options': ['A. factorial(0)', 'B. factorial(4)', 'C. factorial(2)', 'D. factorial(1)'],
-             'answer': 'A. factorial(0)'},
-
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Section 3 - From Loops to Lineage: The Family-Tree Printer"
-            },
-
-            {
-                "page": 2,
-                "type": "paragraph",
-                "text":
-                "An iterative printer walks a family tree with a loop and its own manual stack. A recursive printer lets the call stack do that bookkeeping for you - each generation just prints itself and hands the next generation down."
-            },
-
-            {
-                "page": 2,
-                "type": "code",
-                "language": "python",
-                "text":
-"""# Iterative
-def print_tree(root):
-    stack = [(root, 0)]
-    while stack:
-        person, depth = stack.pop()
-        print("  " * depth + person.name)
-        for child in person.children:
-            stack.append((child, depth + 1))
-
-# Recursive
-def print_tree(person, depth=0):
-    # base case: a person with no children simply prints and stops
-    print("  " * depth + person.name)
-    for child in person.children:
-        print_tree(child, depth + 1)"""
-            },
-
-            {
-                "page": 2,
-                "type": "tip",
-                "text":
-                "Notice the recursive version has no explicit stack list - the call stack is doing that job invisibly. Your task: rewrite one iterative function from an earlier unit into recursive form, and label its base case in a comment."
-            },
-
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Section 4 - Planning Your Capstone"
-            },
-
-            {
-                "page": 2,
-                "type": "rich_paragraph",
-                "html":
-                'Your <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">capstone project</span> is a final project that showcases everything you\'ve learned this course. Before writing a line of code, plan against this checklist, then <span style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; font-weight:600;">refactor</span> - improve the code without changing what it does - and deliver a 2-minute demo.'
-            },
-
-            {
-                "page": 2,
-                "type": "list",
-                "items": [
-                    "At least one recursive function with a clearly labeled base case.",
-                    "A data structure from this unit - a list, tree, or heap - used meaningfully.",
-                    "Clear docstrings and comments explaining each function.",
-                    "A 2-minute demo, plus one piece of peer feedback you collect afterward."
-                ]
-            },
-
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Section 5 - Passing It Down"
-            },
-
-            {
-                "page": 2,
-                "type": "paragraph",
-                "text":
-                "Recursion works because each generation trusts the next one to finish the job. Roy Clay Sr., the \"Black Godfather of Silicon Valley,\" led the team that built HP's first computer and spent his career mentoring the next generation of Black engineers. Fred Begay, the first Native American to earn a Ph.D. in physics, researched nuclear fusion at Los Alamos while mentoring Indigenous students in STEM - drawing on the Navajo stories his own parents passed down to him."
-            },
-
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Recap Questions"
-            },
-
-            {'page': 2,
+             'question': 'Which line is the base case in the function below?\n'
+                         '\n'
+                         'def countdown(n):\n'
+                         '    if n == 0:\n'
+                         '        return\n'
+                         '    print(n)\n'
+                         '    countdown(n - 1)',
+             'options': ['A. print(n)', 'B. countdown(n - 1)', 'C. if n == 0: return', 'D. def countdown(n):'],
+             'answer': 'C. if n == 0: return',
+             'question_parts': [{'type': 'text', 'text': 'Which line is the base case in the function below?'},
+                                {'type': 'code',
+                                 'text': 'def countdown(n):\n'
+                                         '    if n == 0:\n'
+                                         '        return\n'
+                                         '    print(n)\n'
+                                         '    countdown(n - 1)'}]},
+            {'page': 1,
              'type': 'quiz',
-             'question': 'Fred Begay combined Navajo tradition with physics. Which comparison best matches '
-                         'recursion and iteration to two things he grew up with?',
-             'options': ['A. Recursion is like a lab experiment; iteration is like oral storytelling.',
-                         'B. Recursion is like oral storytelling, where each call adds a layer; iteration is '
-                         'like a lab experiment, repeated step-by-step.',
-                         'C. Both recursion and iteration work like oral storytelling.',
-                         'D. Neither recursion nor iteration resembles either tradition.'],
-             'answer': 'B. Recursion is like oral storytelling, where each call adds a layer; iteration is '
-                       'like a lab experiment, repeated step-by-step.'},
-
-            {
-                "page": 2,
-                "type": "code",
-                "language": "python",
-                "text":
-"""def echo(word, times):
-    if times > 0:
-        print(word)
-        echo(word, times - 1)"""
-            },
-
-            {'page': 2,
+             'question': 'Why does every recursive function need a base case?',
+             'options': ['A. To make the function run faster.',
+                         'B. To tell the function when to stop calling itself.',
+                         'C. To print the answer.',
+                         'D. To create a loop.'],
+             'answer': 'B. To tell the function when to stop calling itself.'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 2 – Tracing the Call Stack'},
+            {'page': 1,
+             'type': 'rich_paragraph',
+             'html': 'When a recursive function calls itself, you might wonder: "How does Python keep track of '
+                     'all these function calls?" Python uses something called the <span '
+                     'style="background:#fff1df; color:#c74716; padding:2px 7px; border-radius:6px; '
+                     'font-weight:600;">call stack</span>. A call stack is the collection of function calls '
+                     'that are currently waiting to finish. Every time a function is called, Python places it '
+                     'on top of the call stack. If that function calls another function, the new function is '
+                     'placed on top of the first one. This process continues until the base case is reached. '
+                     'Once the base case returns a value, the function on top of the stack finishes its work '
+                     'and returns a value to the function below it. One by one, each function is removed from '
+                     'the stack until the original function call is complete.'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'The word stack is used very intentionally. Later in your computer science education, '
+                     "you'll learn about a data structure called a stack, which follows the Last In, First Out "
+                     '(LIFO) principle. Similar to a stack of blocks, this means the last item added is the '
+                     'first item removed. The call stack works the same way: the most recent function call '
+                     '(the last one added) is the first to finish and return a value. In the factorial '
+                     'example, factorial(0) is the last function called, so it is the first one to return. '
+                     'Then factorial(1) finishes, followed by factorial(2), and so on until the original '
+                     'function call is complete.'},
+            {'page': 1, 'type': 'paragraph', 'text': "Let's trace the execution of factorial(4)."},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def factorial(n):\n'
+                     '    if n == 0:\n'
+                     '        return 1\n'
+                     '\n'
+                     '    return n * factorial(n - 1)\n'
+                     '\n'
+                     'print(factorial(4))'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Here is what happens.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'text',
+             'text': 'factorial(4)\n'
+                     '    waits for factorial(3)\n'
+                     '        waits for factorial(2)\n'
+                     '            waits for factorial(1)\n'
+                     '                waits for factorial(0)\n'
+                     '                base case reached\n'
+                     '                returns 1\n'
+                     '            returns 1 × 1 = 1\n'
+                     '        returns 2 × 1 = 2\n'
+                     '    returns 3 × 2 = 6\n'
+                     'returns 4 × 6 = 24'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Notice what happens:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Each function call pauses and waits for the next recursive call to finish.',
+                       'The base case is reached at factorial(0).',
+                       'The answers then travel back up the call stack one function at a time until '
+                       'factorial(4) returns 24.']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'This process is often described as the call stack growing as recursive calls are made '
+                     'and unwinding as they return.'},
+            {'page': 1,
+             'type': 'warning',
+             'text': 'Every recursive function must eventually reach its base case. If it never does, Python '
+                     'keeps adding function calls to the call stack until it runs out of memory and raises a '
+                     'RecursionError³.'},
+            {'page': 1,
+             'type': 'footnote',
+             'number': '3',
+             'text': 'An error that occurs when a recursive function keeps calling itself without reaching its '
+                     'base case, causing the call stack to grow too large.'},
+            {'page': 1,
              'type': 'quiz',
-             'question': 'What does echo("hi", 3) print?',
-             'options': ['A. hi (once)',
-                         'B. hi hi hi hi (four times)',
-                         'C. hi hi hi (three times, one per line)',
-                         'D. Nothing - it raises a RecursionError'],
-             'answer': 'C. hi hi hi (three times, one per line)'},
-
-            {
-                "page": 2,
-                "type": "heading",
-                "text": "Key Takeaways"
-            },
-
-            {
-                "page": 2,
-                "type": "list",
-                "items": [
-                    "A recursive function needs a base case and a recursive call.",
-                    "The call stack tracks every waiting call until the base case is hit, then unwinds those calls one by one.",
-                    "Recursion can replace a loop plus a manual stack - the call stack does that bookkeeping for you.",
-                    "Passing down knowledge - from Roy Clay Sr. to Fred Begay to your own capstone - is what keeps a field like computer science moving forward."
-                ]
-            },
-            {
-                "page": 3,
-                "type": "exericse",
-                "problem": "countdown"
-            }
-
-        ]
-    }
+             'question': 'In the trace above, which function call reaches the base case?',
+             'options': ['A. factorial(4)', 'B. factorial(2)', 'C. factorial(1)', 'D. factorial(0)'],
+             'answer': 'D. factorial(0)'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What is the purpose of the call stack?',
+             'options': ['A. It keeps track of function calls that are waiting to finish.',
+                         'B. It stores lists in memory.',
+                         'C. It repeats loops.',
+                         'D. It stores variables permanently.'],
+             'answer': 'A. It keeps track of function calls that are waiting to finish.'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 3 – Recursion vs. Iteration'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'In previous lessons, you learned that loops repeat a block of code. This is called '
+                     'iteration. Recursion is another way to solve many of the same problems. For example, '
+                     'suppose we want to count down from 5.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Using a while loop, we might write:'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def countdown(n):\n    while n > 0:\n        print(n)\n        n -= 1'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Using recursion, we could write:'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def countdown(n):\n    if n == 0:\n        return\n    print(n)\n    countdown(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Both functions produce the same output.'},
+            {'page': 1, 'type': 'code', 'language': 'text', 'text': '5\n4\n3\n2\n1'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'The difference is how they solve the problem. The iterative solution repeatedly updates '
+                     'the variable n inside a loop. The recursive solution prints one number, then asks '
+                     'another function call to print the rest of the countdown. Neither approach is always '
+                     "better. It depends on the problem you're trying to solve."},
+            {'page': 1, 'type': 'heading', 'text': 'When Should You Use Recursion?'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Many simple problems, like counting or searching through a list, are usually easier to '
+                     'solve with loops. However, recursion is especially useful when a problem naturally '
+                     'breaks into smaller versions of itself.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Examples include:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Calculating factorials.',
+                       'Searching through a family tree.',
+                       'Exploring folders inside folders on a computer.',
+                       'Traversing decision trees used in artificial intelligence.']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'In each of these examples, the problem has the same structure at every level. Instead of '
+                     'writing complicated loops, a recursive function can solve one small part and let another '
+                     'function call solve the rest. Because of this, recursive solutions are often shorter, '
+                     'cleaner, and easier to understand.'},
+            {'page': 1,
+             'type': 'tip',
+             'text': 'Before writing a recursive function, ask yourself:\n'
+                     '"Can this problem be broken into a smaller version of itself?"\n'
+                     'If the answer is yes, recursion may be a good solution.'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which problem is most naturally solved using recursion?',
+             'options': ['A. Printing the numbers from 1 to 100.',
+                         'B. Calculating the sum of a shopping cart.',
+                         'C. Calculating a factorial.',
+                         'D. Printing a multiplication table.'],
+             'answer': 'C. Calculating a factorial.'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What is the main difference between iteration and recursion?',
+             'options': ['A. Iteration uses loops, while recursion uses a function that calls itself.',
+                         'B. Iteration is always faster.',
+                         'C. Recursion cannot repeat code.',
+                         'D. Loops always require a base case.'],
+             'answer': 'A. Iteration uses loops, while recursion uses a function that calls itself.'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 4 – Writing Your Own Recursive Functions'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Writing a recursive function may seem difficult at first, but most recursive functions '
+                     'follow the same pattern. When solving a problem recursively, ask yourself these three '
+                     'questions:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['What is the simplest version of the problem? (The base case)',
+                       'How can I solve one small piece of the problem?',
+                       'How can I let another function call solve the rest? (The recursive call)']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Let's write a function that adds all the numbers from 1 to n."},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['sum_to(1) returns 1',
+                       'sum_to(3) returns 6 because 1 + 2 + 3 = 6',
+                       'sum_to(5) returns 15']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Notice that this problem naturally contains a smaller version of itself.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'text',
+             'text': 'sum_to(5)\n= 5 + sum_to(4)\n\nsum_to(4)\n= 4 + sum_to(3)\n\nsum_to(3)\n= 3 + sum_to(2)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Eventually, we reach the simplest possible case.'},
+            {'page': 1, 'type': 'code', 'language': 'text', 'text': 'sum_to(1) = 1'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'This becomes our base case. Now we can write the recursive function.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def sum_to(n):\n    if n == 1:\n        return 1\n    return n + sum_to(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': "Let's see what happens when we call:"},
+            {'page': 1, 'type': 'code', 'language': 'python', 'text': 'print(sum_to(5))'},
+            {'page': 1, 'type': 'heading', 'text': 'Output'},
+            {'page': 1, 'type': 'code', 'language': 'text', 'text': '15'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'The function solves one small piece of the problem, then lets another function call '
+                     'solve the rest.'},
+            {'page': 1, 'type': 'heading', 'text': 'A Recipe for Writing Recursive Functions'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Whenever you write a recursive function, follow these steps:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Find the base case. What is the smallest or simplest version of the problem?',
+                       'Write the recursive call. How can the problem become slightly smaller?',
+                       'Make sure every recursive call moves toward the base case. Otherwise, the recursion '
+                       'will never stop.']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Following this recipe will help you write recursive functions that are correct and easy '
+                     'to understand.'},
+            {'page': 1,
+             'type': 'tip',
+             'text': "If you're stuck, don't think about the entire problem at once. Instead, imagine your "
+                     'function only needs to solve one small step and trust the next recursive call to solve '
+                     'the rest.'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'What is the base case in the function below?\n'
+                         '\n'
+                         'def sum_to(n):\n'
+                         '    if n == 1:\n'
+                         '        return 1\n'
+                         '    return n + sum_to(n - 1)',
+             'options': ['A. def sum_to(n):', 'B. return n + sum_to(n - 1)', 'C. if n == 1: return 1', 'D. n - 1'],
+             'answer': 'C. if n == 1: return 1',
+             'question_parts': [{'type': 'text', 'text': 'What is the base case in the function below?'},
+                                {'type': 'code',
+                                 'text': 'def sum_to(n):\n    if n == 1:\n        return 1\n    return n + sum_to(n - 1)'}]},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which recursive call correctly moves the problem toward the base case?',
+             'options': ['A. sum_to(n)', 'B. sum_to(n - 1)', 'C. sum_to(n + 1)', 'D. sum_to(2 * n)'],
+             'answer': 'B. sum_to(n - 1)'},
+            {'page': 1, 'type': 'heading', 'text': 'Section 5 – How Does Recursion Genuinely Work?'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "If recursion still feels a little confusing, don't worry—you are asking the same "
+                     'question that countless computer science students have asked before you. By this point, '
+                     'you’ve only called functions you’ve completed defining. Naturally, you may be wondering: '
+                     '"How can a function call itself before it has even finished solving the problem?" At '
+                     'first, this seems impossible.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Consider the factorial function again.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'python',
+             'text': 'def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)'},
+            {'page': 1, 'type': 'paragraph', 'text': 'When Python reaches'},
+            {'page': 1, 'type': 'code', 'language': 'python', 'text': 'return n * factorial(n - 1)'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "it looks like the function is asking for an answer that hasn't been computed yet. So how "
+                     "does this ever work? The answer is that the function doesn't need to know the final "
+                     'answer immediately. Instead, it trusts that the smaller subproblem will eventually be '
+                     'solved.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Remember what you learned earlier:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['By convention, we know that the base case has a correct answer.',
+                       'The call stack GUARANTEES that every recursive call waits until the smaller problem '
+                       'has been solved before continuing.']},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'In other words, every function call says, "I can\'t finish my work yet. I\'ll wait until '
+                     'the next smaller problem gives me its answer." Eventually, one function reaches the base '
+                     'case. Since the base case has no smaller subproblem, it can immediately return its '
+                     'answer. Once that happens, every waiting function finally has the information it needs '
+                     'to finish its own work.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'For example,'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'text',
+             'text': 'factorial(4)\n'
+                     '= 4 × factorial(3)\n'
+                     '\n'
+                     'factorial(3)\n'
+                     '= 3 × factorial(2)\n'
+                     '\n'
+                     'factorial(2)\n'
+                     '= 2 × factorial(1)\n'
+                     '\n'
+                     'factorial(1)\n'
+                     '= 1'},
+            {'page': 1, 'type': 'paragraph', 'text': 'The base case already knows that factorial(1) equals 1.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Now the call stack begins working backward.'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'text',
+             'text': 'factorial(2)\n= 2 × 1 = 2\n\nfactorial(3)\n= 3 × 2 = 6\n\nfactorial(4)\n= 4 × 6 = 24'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': 'Notice that no function actually finishes until the one below it has finished first. '
+                     'That is why recursion works. Every recursive call simply waits its turn.'},
+            {'page': 1,
+             'type': 'tip',
+             'text': "If recursion feels confusing, that's completely normal. Many computer science "
+                     'students—even experienced programmers—need to trace recursive functions step by step '
+                     'before they "click." The more recursive functions you trace and write, the more natural '
+                     'this way of thinking becomes.'},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Why does the following recursive function eventually return a value?\n'
+                         '\n'
+                         'def factorial(n):\n'
+                         '    if n == 0:\n'
+                         '        return 1\n'
+                         '    return n * factorial(n - 1)',
+             'options': ['A. The base case returns a known value, and the call stack lets each waiting function finish one '
+                         'at a time.',
+                         'B. Python guesses the answer.',
+                         'C. Each recursive call immediately knows the final answer.',
+                         'D. The recursive call runs forever.'],
+             'answer': 'A. The base case returns a known value, and the call stack lets each waiting function finish one '
+                       'at a time.',
+             'question_parts': [{'type': 'text',
+                                 'text': 'Why does the following recursive function eventually return a value?'},
+                                {'type': 'code',
+                                 'text': 'def factorial(n):\n'
+                                         '    if n == 0:\n'
+                                         '        return 1\n'
+                                         '    return n * factorial(n - 1)'}]},
+            {'page': 1,
+             'type': 'quiz',
+             'question': 'Which statement best explains why recursion works?',
+             'options': ['A. The recursive call finishes before the function begins.',
+                         'B. The function reaches a base case, then the call stack returns answers back '
+                         'through the waiting function calls.',
+                         'C. Python replaces recursion with a loop.',
+                         'D. Every recursive function automatically knows the final answer.'],
+             'answer': 'B. The function reaches a base case, then the call stack returns answers back through '
+                       'the waiting function calls.'},
+            {'page': 1, 'type': 'heading', 'text': 'Mini Project – Recursive Countdown'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "In this project, you'll write your own recursive function to count down from a number to "
+                     '1.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Remember, every recursive function needs:'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['A base case that stops the recursion.',
+                       'A recursive call that moves toward the base case.']},
+            {'page': 1, 'type': 'heading', 'text': 'Starter Code'},
+            {'page': 1,
+             'type': 'ide',
+             'filename': 'main.py',
+             'instructions': 'Complete countdown(), then run it. After printing 1, add the challenge message "Blast off!"',
+             'starter_code': 'def countdown(n):\n'
+                             '    """Prints the numbers from n down to 1 using recursion."""\n'
+                             '    pass\n'
+                             '\n'
+                             'number = 5\n'
+                             'countdown(number)\n'},
+            {'page': 1, 'type': 'heading', 'text': 'Example Run'},
+            {'page': 1,
+             'type': 'code',
+             'language': 'text',
+             'text': 'Enter a positive integer: 5\n5\n4\n3\n2\n1'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Challenge: After printing 1, print "Blast off!"'},
+            {'page': 1, 'type': 'heading', 'text': 'Key Takeaways'},
+            {'page': 1,
+             'type': 'list',
+             'items': ['Recursion is a way of solving problems by breaking them into smaller versions of '
+                       'themselves.',
+                       'Every recursive function needs both a base case and a recursive call.',
+                       'The recursive call should always move the problem closer to the base case.',
+                       'The call stack keeps track of every function call until the base case is reached, then '
+                       'returns the answers one call at a time.',
+                       'Many problems can be solved using either iteration or recursion, but recursion is '
+                       'often cleaner for problems that naturally contain smaller versions of themselves.',
+                       'Learning recursion takes practice. Tracing recursive functions step by step is one of '
+                       'the best ways to build your understanding.']},
+            {'page': 1, 'type': 'heading', 'text': 'Looking Ahead'},
+            {'page': 1,
+             'type': 'paragraph',
+             'text': "Congratulations—you've completed the instructional portion of this course! From your "
+                     "very first program to recursive algorithms, you've built a strong foundation in Python "
+                     "and computational thinking. Along the way, you've learned how to write clean code, "
+                     'organize programs into functions and modules, work with data structures, and solve '
+                     "increasingly complex problems. Now it's time to put everything together. In the next "
+                     "section, you'll begin your Capstone Project. You'll design, build, test, and present a "
+                     "Python program of your own, applying the skills you've developed throughout this course. "
+                     "Think of it as your opportunity to showcase not only what you've learned, but how you've "
+                     'grown as a programmer.'},
+            {'page': 1, 'type': 'paragraph', 'text': 'Good luck—and happy coding!'}]}
 }
 
 

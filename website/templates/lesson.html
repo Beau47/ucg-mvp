@@ -265,7 +265,7 @@
 
 
         {% set task_id = lesson.id ~ "-ide-" ~ loop.index %}
-        {% set filename = "main.py" %}
+        {% set filename = block.get("filename", "main.py") %}
         {% set show_run_button = True %}
         {% set starter_code = block["starter_code"] %}
         {% set instructions = block["instructions"] %}
@@ -284,7 +284,31 @@
     data-required="true"
     data-task-id="{{ lesson.id }}-quiz-{{ loop.index0 }}">
 
-        <h2>{{ block["question"] }}</h2>
+        {% if block.get("question_parts") %}
+
+            {% for question_part in block["question_parts"] %}
+
+                {% if question_part["type"] == "code" %}
+
+                <pre class="quiz-code"><code class="language-python">{{ question_part["text"] }}</code></pre>
+
+                {% elif loop.first %}
+
+                <h2 class="quiz-question">{{ question_part["text"] }}</h2>
+
+                {% else %}
+
+                <p class="quiz-question-followup">{{ question_part["text"] }}</p>
+
+                {% endif %}
+
+            {% endfor %}
+
+        {% else %}
+
+        <h2 class="quiz-question">{{ block["question"] }}</h2>
+
+        {% endif %}
 
         <div class="quiz-options">
 
