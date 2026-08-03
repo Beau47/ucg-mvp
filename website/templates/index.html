@@ -36,62 +36,8 @@
 <!-- ========================= -->
 
 
-<header class="topbar">
-
-
-    <!-- Website logo -->
-    <div class="logo">
-        Urban Coders Guild
-    </div>
-
-
-
-    <!-- Navigation links -->
-    <nav class="nav-links">
-
-
-        <!-- Dashboard link -->
-        <a href="/" class="nav-item">Dashboard</a>
-
-
-        <!-- Lessons link -->
-        <a href="/lessons" class="nav-item">Lessons</a>
-
-
-        <!-- Exercises page currently active -->
-        <a href="/exercises" class="nav-item active">Exercises</a>
-
-
-
-        <!-- Show different options based on login status -->
-        {% if logged_in %}
-
-
-        <!-- Profile link -->
-        <a href="/profile" class="nav-item">Profile</a>
-
-
-        <!-- Logout link -->
-        <a href="/logout" class ="nav-item">
-            Logout
-        </a>
-
-
-        {% else %}
-
-
-        <!-- Redirect profile to login if not logged in -->
-        <a href="/login" class="nav-item">Profile</a>
-
-
-        {% endif %}
-
-
-
-    </nav>
-
-
-</header>
+{% from "components/navbar.html" import navbar with context %}
+{{ navbar("exercises") }}
 
 
 
@@ -350,129 +296,15 @@
 
 
 <script>
-
-
-// Stores which user owns the current progress data
-const progressOwner = {{ progress_owner | tojson }};
-
-
-
-// Checks if user completed Lesson 0.5 before unlocking exercises
-function hasCompletedLesson05() {
-
-
-
-    // Retrieve saved lesson progress from local storage
-    const progress =
-        JSON.parse(
-            localStorage.getItem(
-                `ucg:lesson-progress:${progressOwner}:functions_preview:1`
-            ) || "{}"
-        );
-
-
-
-    // Verify required quizzes were completed
-    return (
-        Array.isArray(progress.quizzes) &&
-        progress.quizzes.length >= 2 &&
-        progress.quizzes.every(Boolean)
-    );
-
-
-}
-
-
-
-
-// Lock exercises if Lesson 0.5 is incomplete
-if (!hasCompletedLesson05()) {
-
-
-
-    // Replace page content with locked message
-    document.querySelector(".page").innerHTML = `
-
-
-        <main class="main content-page">
-
-
-            <section class="page-header">
-
-
-                <h1>
-                    Exercises Locked
-                </h1>
-
-
-
-                <p>
-                    Complete Lesson 0.5 to unlock coding exercises.
-                </p>
-
-
-
-            </section>
-
-
-
-
-            <!-- Lesson unlock card -->
-            <div class="content-card">
-
-
-                <h2>
-                    Complete Lesson 0.5 to unlock
-                </h2>
-
-
-
-                <p>
-                    Lesson 0.5 explains how exercise functions work.
-                    Finish it first, then come back to start coding.
-                </p>
-
-
-
-                <!-- Link back to required lesson -->
-                <a href="/lesson/functions_preview/1">
-
-
-                    <button>
-                        Go to Lesson 0.5 →
-                    </button>
-
-
-                </a>
-
-
-
-            </div>
-
-
-
-        </main>
-
-
-    `;
-
-
-}
-
-
-
-else {
-
-
-    // Store current problem information globally
     window.problem = {{ problem | tojson }};
-
-
-}
-
-
-
 </script>
+
+<script
+    src="/static/js/exercise-access.js"
+    data-progress-owner="{{ progress_owner }}"
+    data-lock-target=".page"
+    data-wrap-main="true"
+></script>
 
 
 
@@ -496,6 +328,11 @@ else {
 
 
 <script>
+
+
+// The access script runs first and removes the workspace for locked users.
+// Only initialize Monaco when the editable workspace is still available.
+if (window.exerciseAccessUnlocked) {
 
 
 // Configure Monaco editor path
@@ -558,6 +395,9 @@ require(["vs/editor/editor.main"], function () {
 
 
 });
+
+
+}
 
 
 

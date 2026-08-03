@@ -36,47 +36,8 @@
 
 
     <!-- Top navigation bar -->
-    <header class="topbar">
-
-
-        <!-- Website logo/name -->
-        <div class="logo">
-            Urban Coders Guild
-        </div>
-
-
-        <!-- Navigation links -->
-        <nav>
-
-
-            <!-- Dashboard navigation link -->
-            <a href="/" class="nav-item">
-                Dashboard
-            </a>
-
-
-            <!-- Lessons navigation link -->
-            <a href="/lessons" class="nav-item">
-                Lessons
-            </a>
-
-
-            <!-- Exercises navigation link -->
-            <a href="/exercises" class="nav-item">
-                Dashboard
-            </a>
-
-
-            <!-- Profile navigation link (current active page) -->
-            <a href="/profile" class="nav-item active">
-                Profile
-            </a>
-
-
-        </nav>
-
-
-    </header>
+{% from "components/navbar.html" import navbar with context %}
+{{ navbar("profile") }}
 
 
 
