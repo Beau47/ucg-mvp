@@ -1300,7 +1300,7 @@ def forgot_password():
             email,
             {
                 "redirect_to":
-                "http://127.0.0.1:5000/reset-password"
+                "https://mriinda.pythonanywhere.com/reset-password"
             }
         )
 
