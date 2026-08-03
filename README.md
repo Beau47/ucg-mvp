@@ -37,7 +37,7 @@ units, a prerequisite lesson, and 32 coding exercises.
 - Rich lesson blocks for explanations, examples, vocabulary, tables, tips,
   warnings, quizzes, and embedded coding activities
 - Monaco Editor instances for in-browser Python practice
-- Multiple-choice quizzes with code-aware formatting
+- Multiple-choice questions within lessons to track learning progress
 - Automatically graded coding exercises with visible test-case feedback
 - Persistent lesson, task, and exercise completion records
 - Browser-side restoration of completed quizzes and lesson IDE activities
