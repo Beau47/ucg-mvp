@@ -415,6 +415,10 @@
 
 </html>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script src="/static/js/xp-celebration.js"></script>
+
 <script>
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -499,17 +503,50 @@ document.addEventListener("DOMContentLoaded", () => {
         completionRequestSent = true;
 
         try {
+
             const response = await fetch(
                 "/lesson/{{ lesson.id }}/complete",
-                { method: "POST" }
+                {
+                    method: "POST"
+                }
             );
 
+
+            const data =
+                await response.json();
+
+
             if (!response.ok) {
+
                 completionRequestSent = false;
+
+                return;
+
             }
+
+
+            /*
+            Only show XP celebration if this
+            was a brand-new completion.
+            */
+
+            if (data.newly_completed) {
+
+                celebrateXP(100);
+
+            }
+
         }
+
         catch (error) {
+
+            console.error(
+                "Could not save lesson completion:",
+                error
+            );
+
             completionRequestSent = false;
+
         }
 
     }
@@ -911,5 +948,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
 
 </script>

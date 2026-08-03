@@ -397,3 +397,7 @@ nav a.active{
 .container > .card {
     margin-bottom: 25px;
 }
+
+.dashboard-subtitle {
+    margin-bottom: 30px;
+}

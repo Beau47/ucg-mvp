@@ -1555,3 +1555,81 @@ object-fit:cover;
 .signup-prompt {
     margin-top: 20px;
 }
+
+/* ===================================================== */
+/* XP CELEBRATION                                        */
+/* ===================================================== */
+
+.xp-popup {
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) scale(0.7);
+
+    background: white;
+
+    padding: 24px 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+
+    color: #ff512f;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    z-index: 10000;
+
+    opacity: 0;
+
+    animation: xp-popup-animation 2.2s ease forwards;
+
+}
+
+
+@keyframes xp-popup-animation {
+
+    0% {
+
+        opacity: 0;
+
+        transform: translate(-50%, -50%) scale(0.7);
+
+    }
+
+    20% {
+
+        opacity: 1;
+
+        transform: translate(-50%, -50%) scale(1.05);
+
+    }
+
+    35% {
+
+        transform: translate(-50%, -50%) scale(1);
+
+    }
+
+    75% {
+
+        opacity: 1;
+
+        transform: translate(-50%, -55%) scale(1);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform: translate(-50%, -70%) scale(0.95);
+
+    }
+
+}

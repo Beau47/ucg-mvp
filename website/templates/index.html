@@ -66,12 +66,21 @@
         <div class="profile-card">
 
             <div class="avatar">
-                A
+
+                {{ profile.username[0]|upper }}
+
             </div>
 
             <div>
-                <h3>Alex</h3>
-                <p>Level 4 Coder</p>
+
+                <h3>
+                    {{ profile.username }}
+                </h3>
+
+                <p>
+                    Coder
+                </p>
+
             </div>
 
         </div>
@@ -312,6 +321,11 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script src="/static/js/xp-celebration.js"></script>
+
 <script>
 
 require.config({
@@ -353,6 +367,7 @@ require(["vs/editor/editor.main"], function () {
 
 
 });
+
 
 </script>
 
