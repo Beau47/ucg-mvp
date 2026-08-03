@@ -3,24 +3,31 @@
 
 <head>
 
+    <!-- Defines the character encoding for the webpage -->
     <meta charset="UTF-8">
 
+    <!-- Sets the browser tab title -->
     <title>Sign Up | Urban Coders Guild</title>
 
+    <!-- Website favicon/logo displayed in the browser tab -->
     <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
 
+    <!-- Imports the Poppins font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Links the main stylesheet for page styling -->
     <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
 
 <body>
 
+<!-- If verification_sent is true, show the email verification message instead of the signup form -->
 {% if verification_sent %}
 
 <div class="verification-popup">
 
+    <!-- Popup box informing the user to check their email -->
     <div class="verification-box">
 
         <h2>
@@ -28,12 +35,14 @@
         </h2>
 
 
+        <!-- Explains that Supabase sent a verification email -->
         <p>
             A verification email has been sent from Supabase.
             Please verify your email before logging in.
         </p>
 
 
+        <!-- Lets the user know they will be redirected -->
         <p>
             Redirecting to login...
         </p>
@@ -45,20 +54,24 @@
 
 <script>
 
-setTimeout(() => {
+    <!-- Redirects the user to the login page after 4 seconds -->
+    setTimeout(() => {
 
-    window.location.href="/login";
+        window.location.href="/login";
 
-}, 4000);
+    }, 4000);
 
 
 </script>
 
 
+<!-- If verification has not been sent, display the signup page -->
 {% else %}
 
+<!-- Top navigation bar -->
 <header class="topbar">
 
+    <!-- Website name/logo text -->
     <div class="logo">
         Urban Coders Guild
     </div>
@@ -66,22 +79,25 @@ setTimeout(() => {
 </header>
 
 
+<!-- Main signup page container -->
 <div class="auth-container">
 
 
-    <!-- Left Side -->
-
+    <!-- Left side containing information about the platform -->
     <div class="auth-info">
 
+        <!-- Main signup encouragement heading -->
         <h1>
             Start Your Coding Journey
         </h1>
 
+        <!-- Description of the Urban Coders Guild platform -->
         <p>
             Learn Python from the ground up with interactive lessons,
             coding challenges, and real-world projects.
         </p>
 
+        <!-- List of platform features -->
         <div class="feature">
             🐍 Learn Python Step by Step
         </div>
@@ -101,26 +117,32 @@ setTimeout(() => {
     </div>
 
 
-    <!-- Sign Up Card -->
-
+    <!-- Right side containing the signup form -->
     <div class="card auth-card">
 
+        <!-- Signup form title -->
         <h2>
             Create Your Account
         </h2>
 
+        <!-- Short description under the title -->
         <p style="text-align:center; margin-bottom:30px;">
             Join Urban Coders Guild today.
         </p>
 
+
+        <!-- Displays signup errors if they exist -->
         {% if error %}
             <div class="error">
                 {{ error }}
             </div>
         {% endif %}
 
+
+        <!-- Signup form that sends data to the Flask /signup route -->
         <form action="/signup" method="POST">
 
+            <!-- Username input field -->
             <label>
                 Username
             </label>
@@ -134,6 +156,7 @@ setTimeout(() => {
             >
 
 
+            <!-- Email input field -->
             <label>
                 Email Address
             </label>
@@ -147,6 +170,7 @@ setTimeout(() => {
             >
 
 
+            <!-- Password input field -->
             <label>
                 Password
             </label>
@@ -160,6 +184,7 @@ setTimeout(() => {
             >
 
 
+            <!-- Confirmation password input field -->
             <label>
                 Confirm Password
             </label>
@@ -172,12 +197,15 @@ setTimeout(() => {
                 required
             >
 
+            <!-- Submits the signup form -->
             <button type="submit">
                 Create Account
             </button>
 
         </form>
 
+
+        <!-- Link for existing users to go to the login page -->
         <p style="text-align:center; margin-top:25px;">
 
             Already have an account?

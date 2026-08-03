@@ -4,34 +4,39 @@
 
 <head>
 
+<!-- Defines character encoding -->
 <meta charset="UTF-8">
 
+<!-- Page title shown in browser tab -->
 <title>Profile | Urban Coders Guild</title>
 
+<!-- Website favicon -->
 <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
 
+<!-- Import website fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<!-- Profile/dashboard styling -->
 <link rel="stylesheet" href="/static/css/dashboard.css">
 
 </head>
 
 <body>
 
+
 <!-- ========================= -->
-
 <!-- TOP NAVIGATION BAR -->
-
 <!-- ========================= -->
 
 <header class="topbar">
 
-
+<!-- Website logo/name -->
 <div class="logo">
     Urban Coders Guild
 </div>
 
 
+<!-- Main navigation links -->
 <nav>
 
     <a href="/">
@@ -46,10 +51,12 @@
         Exercises
     </a>
 
+    <!-- Current page highlighted as active -->
     <a href="/profile" class="active">
         Profile
     </a>
 
+    <!-- Logs user out -->
     <a href="/logout">
         Logout
     </a>
@@ -59,25 +66,31 @@
 
 </header>
 
-<!-- ========================= -->
 
+<!-- ========================= -->
 <!-- PROFILE CONTENT -->
-
 <!-- ========================= -->
+
 
 <div class="container">
 
 
+<!-- ========================= -->
 <!-- PROFILE HEADER -->
+<!-- ========================= -->
+
 
 <div class="card profile-header">
 
 
+    <!-- User avatar section -->
     <div class="profile-avatar">
+
 
         <div class="default-avatar">
 
 
+        <!-- Display uploaded avatar if available -->
         {% if profile.avatar_url %}
 
         <img
@@ -86,6 +99,7 @@
         >
 
 
+        <!-- Otherwise display default avatar icon -->
         {% else %}
 
         <span class="avatar-icon">
@@ -100,6 +114,7 @@
     </div>
 
 
+    <!-- Hidden file input for future avatar uploads -->
     <input
         type="file"
         id="avatar-upload"
@@ -108,16 +123,19 @@
     >
 
 
+    <!-- Display username -->
     <h1>
         {{ profile.username }}
     </h1>
 
 
+    <!-- User role/level description -->
     <p>
         Beginner Developer
     </p>
 
 
+    <!-- Link to profile editing page -->
     <a
         class="card button edit-profile-button"
         href="/edit-profile"
@@ -129,7 +147,11 @@
 </div>
 
 
+
+<!-- ========================= -->
 <!-- PROGRESS OVERVIEW -->
+<!-- ========================= -->
+
 
 <div class="card">
 
@@ -139,9 +161,11 @@
     </h2>
 
 
+    <!-- Grid containing user statistics -->
     <div class="grid">
 
 
+        <!-- Lessons completed statistic -->
         <div class="card">
 
             <h2>
@@ -156,6 +180,7 @@
         </div>
 
 
+        <!-- Problems solved statistic -->
         <div class="card">
 
             <h2>
@@ -170,6 +195,7 @@
         </div>
 
 
+        <!-- XP statistic -->
         <div class="card">
 
             <h2>
@@ -184,6 +210,7 @@
         </div>
 
 
+        <!-- Current learning streak -->
         <div class="card">
 
             <h2>
@@ -204,7 +231,11 @@
 </div>
 
 
+
+<!-- ========================= -->
 <!-- LEARNING PROGRESS -->
+<!-- ========================= -->
+
 
 <div class="card">
 
@@ -214,6 +245,7 @@
     </h2>
 
 
+    <!-- Individual topic progress bars -->
     <p>
         Python Basics
     </p>
@@ -268,7 +300,11 @@
 </div>
 
 
+
+<!-- ========================= -->
 <!-- RECENT ACTIVITY -->
+<!-- ========================= -->
+
 
 <div class="card">
 
@@ -278,7 +314,9 @@
     </h2>
 
 
+    <!-- Display activity history if available -->
     {% if activities %}
+
 
         {% for activity in activities %}
 
@@ -286,14 +324,17 @@
             ✓ {{ activity }}
         </p>
 
+
         {% endfor %}
 
 
+    <!-- Default message if no activity exists -->
     {% else %}
 
         <p>
             No recent activity yet.
         </p>
+
 
     {% endif %}
 
@@ -301,7 +342,11 @@
 </div>
 
 
+
+<!-- ========================= -->
 <!-- ACHIEVEMENTS -->
+<!-- ========================= -->
+
 
 <div class="card">
 
@@ -311,6 +356,7 @@
     </h2>
 
 
+    <!-- Display unlocked achievements -->
     {% if achievements %}
 
 
@@ -320,9 +366,11 @@
             {{ achievement }}
         </p>
 
+
         {% endfor %}
 
 
+    <!-- Default message if no achievements exist -->
     {% else %}
 
 
@@ -337,7 +385,11 @@
 </div>
 
 
-<!-- ACCOUNT -->
+
+<!-- ========================= -->
+<!-- ACCOUNT INFORMATION -->
+<!-- ========================= -->
+
 
 <div class="card">
 
@@ -347,16 +399,19 @@
     </h2>
 
 
+    <!-- Display account email -->
     <p>
         Email: {{ profile.email }}
     </p>
 
 
+    <!-- Placeholder settings button -->
     <button>
         Settings
     </button>
 
 
+    <!-- Logout button -->
     <a class="button account-button" href="/logout">
         Logout
     </a>

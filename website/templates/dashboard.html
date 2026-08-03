@@ -4,19 +4,25 @@
 
 <head>
 
+    <!-- Defines the character encoding for the webpage -->
     <meta charset="UTF-8">
 
+
+    <!-- Sets the browser tab title -->
     <title>
         Urban Coders Guild
     </title>
 
 
+    <!-- Sets the website favicon -->
     <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
 
 
+    <!-- Imports website fonts from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 
+    <!-- Links the dashboard-specific stylesheet -->
     <link rel="stylesheet" href="/static/css/dashboard.css">
 
 
@@ -27,47 +33,62 @@
 <body>
 
 
+<!-- Top navigation bar -->
 <header class="topbar">
 
 
+    <!-- Website logo/name -->
     <div class="logo">
         Urban Coders Guild
     </div>
 
 
+    <!-- Navigation links -->
     <nav>
 
 
+        <!-- Dashboard link (currently active page) -->
         <a href="/" class="active">
             Dashboard
         </a>
 
 
+        <!-- Lessons page link -->
         <a href="/lessons">
             Lessons
         </a>
 
 
+        <!-- Exercises page link -->
         <a href="/exercises">
             Exercises
         </a>
 
 
+        <!-- Displays different links depending on login status -->
         {% if logged_in %}
 
+
+        <!-- User profile link -->
         <a href="/profile">
             Profile
         </a>
 
+
+        <!-- Logout link -->
         <a href="/logout">
             Logout
         </a>
 
+
         {% else %}
 
+
+        <!-- Profile link redirects to login if user is not logged in -->
         <a href="/login">
             Profile
         </a>
+
 
         {% endif %}
 
@@ -81,20 +102,23 @@
 
 
 
+<!-- Main dashboard container -->
 <div class="container">
 
 
 
-    <!-- Welcome -->
+    <!-- Welcome section -->
 
     <div class="dashboard-header">
 
 
+        <!-- Personalized welcome message -->
         <h1>
             Welcome Back, {{ profile.username }}!
         </h1>
 
 
+        <!-- Dashboard description -->
         <p class="dashboard-subtitle">
             Continue your coding journey and keep building your Python skills.
         </p>
@@ -106,33 +130,37 @@
 
 
 
+    <!-- Dashboard cards grid -->
     <div class="grid">
 
 
 
 
 
-        <!-- Continue Lesson -->
+        <!-- Continue Lesson card -->
 
 
         <div class="card">
 
 
+            <!-- Card heading -->
             <h2>
                 📚 Continue Learning
             </h2>
 
 
 
+            <!-- Checks if there is another lesson available -->
             {% if next_lesson %}
 
 
+            <!-- Displays the next lesson title -->
             <p>
                 {{ next_lesson.title }}
             </p>
 
 
-
+            <!-- Button to continue the next lesson -->
             <button
                 onclick="location.href='/lesson/{{ next_lesson.id }}/1'"
             >
@@ -146,6 +174,7 @@
             {% else %}
 
 
+            <!-- Message displayed when all lessons are complete -->
             <p>
                 🎉 You completed all lessons!
             </p>
@@ -163,27 +192,30 @@
 
 
 
-        <!-- Continue Exercise -->
+        <!-- Continue Exercise card -->
 
 
         <div class="card">
 
 
+            <!-- Card heading -->
             <h2>
                 💻 Next Exercise
             </h2>
 
 
 
+            <!-- Checks if there is another exercise available -->
             {% if next_problem %}
 
 
+            <!-- Displays the next exercise title -->
             <p>
                 {{ next_problem.title }}
             </p>
 
 
-
+            <!-- Button to open coding workspace -->
             <button
                 onclick="location.href='/workspace/{{ next_problem.id }}'"
             >
@@ -197,6 +229,7 @@
             {% else %}
 
 
+            <!-- Message displayed when all exercises are complete -->
             <p>
                 🏆 All exercises completed!
             </p>
@@ -215,33 +248,38 @@
 
 
 
-        <!-- XP Card -->
+        <!-- XP Progress card -->
 
 
         <div class="card">
 
 
+            <!-- Card heading -->
             <h2>
                 ⭐ XP Progress
             </h2>
 
 
 
+            <!-- Displays current user level -->
             <h1>
                 Level {{ profile.level }}
             </h1>
 
 
 
+            <!-- Displays current XP compared to XP needed for next level -->
             <p>
                 {{ profile.current_level_xp }} / {{ profile.next_level_xp }} XP
             </p>
 
 
 
+            <!-- XP progress bar container -->
             <div class="xp-bar">
 
 
+                <!-- Filled portion of XP progress bar -->
                 <div
                     class="xp-fill"
                     style="
@@ -256,6 +294,7 @@
 
 
 
+            <!-- Shows remaining XP needed for next level -->
             <p>
                 {{ profile.xp_remaining }} XP until next level
             </p>
@@ -269,18 +308,20 @@
 
 
 
-        <!-- Statistics -->
+        <!-- Statistics card -->
 
 
         <div class="card">
 
 
+            <!-- Card heading -->
             <h2>
                 📊 Your Progress
             </h2>
 
 
 
+            <!-- Lesson completion statistics -->
             <div class="stat">
 
 
@@ -300,6 +341,7 @@
 
 
 
+            <!-- Displays lesson completion percentage -->
             <div class="progress-label">
 
                 {{ "%.0f"|format(profile.lesson_progress) }}% Complete
@@ -308,9 +350,11 @@
 
 
 
+            <!-- Lesson progress bar -->
             <div class="small-progress-bar">
 
 
+                <!-- Filled portion of lesson progress -->
                 <div
                     class="small-progress-fill"
                     style="
@@ -326,6 +370,7 @@
 
 
 
+            <!-- Coding problem completion statistics -->
             <div class="stat">
 
 
@@ -345,6 +390,7 @@
 
 
 
+            <!-- Displays problem completion percentage -->
             <div class="progress-label">
 
                 {{ "%.0f"|format(profile.problem_progress) }}% Complete
@@ -353,9 +399,11 @@
 
 
 
+            <!-- Problem progress bar -->
             <div class="small-progress-bar">
 
 
+                <!-- Filled portion of problem progress -->
                 <div
                     class="small-progress-fill"
                     style="

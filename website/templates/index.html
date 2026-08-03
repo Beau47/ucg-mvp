@@ -2,140 +2,231 @@
 <html>
 <head>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Import website fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Urban Coders Guild</title>
+<!-- Page title -->
+<title>Urban Coders Guild</title>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet"
-    />
 
-    <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
+<!-- Additional font import -->
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+/>
 
-    <link rel="stylesheet" href="/static/css/style.css">
+
+<!-- Browser tab icon -->
+<link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
+
+
+<!-- Main stylesheet -->
+<link rel="stylesheet" href="/static/css/style.css">
+
 
 </head>
+
 
 
 <body class="workspace-page">
 
 
+<!-- ========================= -->
+<!-- TOP NAVIGATION BAR -->
+<!-- ========================= -->
+
+
 <header class="topbar">
 
+
+    <!-- Website logo -->
     <div class="logo">
         Urban Coders Guild
     </div>
 
 
+
+    <!-- Navigation links -->
     <nav class="nav-links">
 
+
+        <!-- Dashboard link -->
         <a href="/" class="nav-item">Dashboard</a>
 
+
+        <!-- Lessons link -->
         <a href="/lessons" class="nav-item">Lessons</a>
 
+
+        <!-- Exercises page currently active -->
         <a href="/exercises" class="nav-item active">Exercises</a>
 
 
+
+        <!-- Show different options based on login status -->
         {% if logged_in %}
+
+
+        <!-- Profile link -->
         <a href="/profile" class="nav-item">Profile</a>
+
+
+        <!-- Logout link -->
         <a href="/logout" class ="nav-item">
             Logout
         </a>
+
+
         {% else %}
+
+
+        <!-- Redirect profile to login if not logged in -->
         <a href="/login" class="nav-item">Profile</a>
+
+
         {% endif %}
+
+
 
     </nav>
 
-
-    <!-- <button id="navbar-run-button">
-        Run My Code
-    </button> -->
 
 </header>
 
 
 
+
+<!-- ========================= -->
+<!-- MAIN PAGE LAYOUT -->
+<!-- ========================= -->
+
+
 <div class="page">
+
+
+
+
+    <!-- ========================= -->
+    <!-- LEFT SIDEBAR -->
+    <!-- ========================= -->
 
 
     <aside class="sidebar">
 
 
+
+        <!-- User profile information -->
         <div class="profile-card">
 
+
+            <!-- Display first letter of username as avatar -->
             <div class="avatar">
 
                 {{ profile.username[0]|upper }}
 
             </div>
 
+
+
             <div>
 
+
+                <!-- Username -->
                 <h3>
                     {{ profile.username }}
                 </h3>
 
+
+                <!-- User role -->
                 <p>
                     Coder
                 </p>
 
+
             </div>
+
 
         </div>
 
 
 
+
+        <!-- User experience progress -->
         <div class="xp-section">
 
+
             <span>XP</span>
+
             <span>320 / 500</span>
 
+
+
+            <!-- XP progress bar -->
             <div class="xp-bar">
+
                 <div class="xp-fill"></div>
+
             </div>
+
 
         </div>
 
 
 
 
+
+        <!-- Current problem information -->
         <div class="lesson-card">
 
+
+            <!-- Lesson number -->
             <p class="lesson-number">
                 {{ problem.lesson_number }}
             </p>
 
 
+
+            <!-- Problem title -->
             <h2>
                 {{ problem.title }}
             </h2>
 
 
+
+            <!-- Problem description -->
             <p>
                 {{ problem.description }}
             </p>
+
+
 
         </div>
 
 
 
 
+
+        <!-- Challenge buttons -->
         <div class="challenge-section">
+
 
             <h3>
                 CHALLENGES
             </h3>
 
 
+
+            <!-- Create button for every challenge -->
             {% for challenge in problem.challenges %}
+
 
             <button>
                 {{ challenge }}
             </button>
 
+
             {% endfor %}
+
 
 
         </div>
@@ -147,19 +238,32 @@
 
 
 
+
+    <!-- ========================= -->
+    <!-- CODE EDITOR AREA -->
+    <!-- ========================= -->
+
+
     <main class="main">
+
 
 
         <div class="lesson-ide workspace-ide">
 
 
+
+            <!-- IDE header containing filename and run button -->
             <div class="ide-header">
 
+
+                <!-- Current file name -->
                 <div class="ide-file">
                     main.py
                 </div>
 
 
+
+                <!-- Executes code -->
                 <button
                     type="button"
                     class="ide-run"
@@ -168,10 +272,14 @@
                     Run ▶
                 </button>
 
+
+
             </div>
 
 
 
+
+            <!-- Monaco code editor container -->
             <div
                 class="lesson-editor"
                 data-code="{{ problem.starter_code | e }}"
@@ -183,40 +291,54 @@
 
 
 
+
+            <!-- Output section title -->
             <div class="ide-output-header">
                 Output
             </div>
 
 
 
+            <!-- Displays program output -->
             <pre
                 class="ide-output"
                 id="console-output"
             ></pre>
 
 
+
+            <!-- Resize bar for output/test area -->
             <div class="output-test-resize-bar"></div>
 
 
+
+
+            <!-- Test results section -->
             <h3 class="test-results-title">
                 Test Results
             </h3>
 
 
 
+            <!-- Test result information inserted here -->
             <div id="test-results"></div>
 
 
 
+
+            <!-- Score display -->
             <p id="score">
                 Passed: 0/0 | Percentage: N/A
             </p>
 
 
+
         </div>
 
 
+
     </main>
+
 
 
 </div>
@@ -226,150 +348,222 @@
 
 
 
+
 <script>
 
-    const progressOwner = {{ progress_owner | tojson }};
+
+// Stores which user owns the current progress data
+const progressOwner = {{ progress_owner | tojson }};
 
 
-    function hasCompletedLesson05() {
+
+// Checks if user completed Lesson 0.5 before unlocking exercises
+function hasCompletedLesson05() {
 
 
-        const progress =
-            JSON.parse(
-                localStorage.getItem(
-                    `ucg:lesson-progress:${progressOwner}:functions_preview:1`
-                ) || "{}"
-            );
 
-
-        return (
-            Array.isArray(progress.quizzes) &&
-            progress.quizzes.length >= 2 &&
-            progress.quizzes.every(Boolean)
+    // Retrieve saved lesson progress from local storage
+    const progress =
+        JSON.parse(
+            localStorage.getItem(
+                `ucg:lesson-progress:${progressOwner}:functions_preview:1`
+            ) || "{}"
         );
 
-    }
+
+
+    // Verify required quizzes were completed
+    return (
+        Array.isArray(progress.quizzes) &&
+        progress.quizzes.length >= 2 &&
+        progress.quizzes.every(Boolean)
+    );
+
+
+}
 
 
 
-    if (!hasCompletedLesson05()) {
+
+// Lock exercises if Lesson 0.5 is incomplete
+if (!hasCompletedLesson05()) {
 
 
-        document.querySelector(".page").innerHTML = `
 
-            <main class="main content-page">
-
-
-                <section class="page-header">
-
-                    <h1>
-                        Exercises Locked
-                    </h1>
+    // Replace page content with locked message
+    document.querySelector(".page").innerHTML = `
 
 
-                    <p>
-                        Complete Lesson 0.5 to unlock coding exercises.
-                    </p>
+        <main class="main content-page">
 
 
-                </section>
+            <section class="page-header">
 
 
-                <div class="content-card">
+                <h1>
+                    Exercises Locked
+                </h1>
 
 
-                    <h2>
-                        Complete Lesson 0.5 to unlock
-                    </h2>
+
+                <p>
+                    Complete Lesson 0.5 to unlock coding exercises.
+                </p>
 
 
-                    <p>
-                        Lesson 0.5 explains how exercise functions work.
-                        Finish it first, then come back to start coding.
-                    </p>
+
+            </section>
 
 
-                    <a href="/lesson/functions_preview/1">
-
-                        <button>
-                            Go to Lesson 0.5 →
-                        </button>
-
-                    </a>
 
 
-                </div>
+            <!-- Lesson unlock card -->
+            <div class="content-card">
 
 
-            </main>
-
-        `;
-
-
-    }
+                <h2>
+                    Complete Lesson 0.5 to unlock
+                </h2>
 
 
-    else {
 
-        window.problem = {{ problem | tojson }};
+                <p>
+                    Lesson 0.5 explains how exercise functions work.
+                    Finish it first, then come back to start coding.
+                </p>
 
-    }
+
+
+                <!-- Link back to required lesson -->
+                <a href="/lesson/functions_preview/1">
+
+
+                    <button>
+                        Go to Lesson 0.5 →
+                    </button>
+
+
+                </a>
+
+
+
+            </div>
+
+
+
+        </main>
+
+
+    `;
+
+
+}
+
+
+
+else {
+
+
+    // Store current problem information globally
+    window.problem = {{ problem | tojson }};
+
+
+}
+
 
 
 </script>
 
 
+
+
+
+<!-- Monaco editor library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
 
 
+
+<!-- Confetti animation library -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
+
+
+<!-- XP celebration functionality -->
 <script src="/static/js/xp-celebration.js"></script>
+
+
+
+
 
 <script>
 
+
+// Configure Monaco editor path
 require.config({
+
     paths: {
+
         vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs"
+
     }
+
 });
 
 
+
+
+// Load Monaco editor
 require(["vs/editor/editor.main"], function () {
 
 
+
+    // Create lesson JavaScript dynamically
     const lessonScript =
         document.createElement("script");
+
 
 
     lessonScript.src =
         "/static/js/lesson.js";
 
 
+
+
+    // Load main app script after lesson script finishes
     lessonScript.onload = function () {
+
 
 
         const appScript =
             document.createElement("script");
 
 
+
         appScript.src =
             "/static/js/app.js";
+
 
 
         document.body.appendChild(appScript);
 
 
+
     };
 
 
+
+    // Add lesson script to page
     document.body.appendChild(lessonScript);
+
 
 
 });
 
 
+
 </script>
+
+
 
 
 

@@ -3,14 +3,17 @@
 
 <head>
 
+<!-- Page title shown in browser tab -->
 <title>Lessons</title>
 
+<!-- Import website fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<!-- Main website stylesheet -->
 <link rel="stylesheet" href="/static/css/style.css">
 
 <!-- Browser tab icon -->
-    <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
+<link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
 
 </head>
 
@@ -18,36 +21,64 @@
 <body>
 
 
+<!-- ========================= -->
+<!-- TOP NAVIGATION BAR -->
+<!-- ========================= -->
+
+
 <header class="topbar">
 
+
+    <!-- Website logo/name -->
     <div class="logo">
         Urban Coders Guild
     </div>
 
 
+    <!-- Navigation links -->
     <nav class="nav-links">
 
+
+        <!-- Dashboard navigation -->
         <a href="/" class="nav-item">
             Dashboard
         </a>
 
+
+        <!-- Current page highlighted as active -->
         <a href="/lessons" class="nav-item active">
             Lessons
         </a>
 
+
+        <!-- Exercises navigation -->
         <a href="/exercises" class="nav-item">
             Exercises
         </a>
 
+
+
+        <!-- Display different links depending on login status -->
         {% if logged_in %}
+
+
+        <!-- Profile page for logged-in users -->
         <a href="/profile" class="nav-item">Profile</a>
 
+
+        <!-- Logout option -->
         <a href="/logout" class ="nav-item">
             Logout
         </a>
 
+
         {% else %}
+
+
+        <!-- Redirect profile link to login if user is not logged in -->
         <a href="/login" class="nav-item">Profile</a>
+
+
         {% endif %}
 
 
@@ -58,13 +89,22 @@
 
 
 
+
+<!-- ========================= -->
+<!-- LESSON PAGE CONTENT -->
+<!-- ========================= -->
+
+
 <div class="page">
 
 
 <main class="main content-page">
 
 
+
+<!-- Page title and description -->
 <section class="page-header">
+
 
     <h1>
         Coding Lessons
@@ -75,16 +115,28 @@
         Learn programming concepts through guided lessons and examples.
     </p>
 
+
 </section>
 
+
+
+
+<!-- ========================= -->
+<!-- LESSON CARD GRID -->
+<!-- ========================= -->
 
 
 <section class="card-grid">
 
 
+
+<!-- Loop through every lesson stored in the lessons dictionary -->
 {% for lesson in lessons.values() %}
 
 
+
+<!-- Lesson card -->
+<!-- Adds completed-card class if user has finished this lesson -->
 <div class="content-card
 {% if lesson.id in completed_lessons %}
 completed-card
@@ -92,68 +144,130 @@ completed-card
 ">
 
 
+
+<!-- Display lesson/unit number -->
 <div class="card-number">
+
+
+    <!-- Special formatting for introduction lesson -->
     {% if lesson.lesson_number == "0.5" %}
+
     Lesson 0.5
+
     {% else %}
+
     Unit {{ lesson.lesson_number }}
+
     {% endif %}
+
+
 </div>
 
 
+
+
+<!-- Lesson title -->
 <h2>
+
 
 {{ lesson.title }}
 
+
+
+<!-- Display completion checkmark -->
 {% if lesson.id in completed_lessons %}
+
 
 ✅
 
+
 {% endif %}
+
+
 
 </h2>
 
 
+
+
+<!-- Lesson description -->
 <p class="unit-description">
+
+
+    <!-- Split description into separate lines -->
     {% for description_line in lesson.description.split('\n') %}
+
+
     <span>{{ description_line }}</span>
+
+
     {% endfor %}
+
+
 </p>
 
 
 
+
+<!-- Link to first page of lesson -->
 <a href="/lesson/{{ lesson.id }}/1">
+
+
 
 <button>
 
+
+
+<!-- Change button text depending on completion status -->
 {% if lesson.id in completed_lessons %}
 
+
+
+<!-- Review completed lesson -->
 {% if lesson.lesson_number == "0.5" %}Review Lesson →{% else %}Review Unit →{% endif %}
+
+
 
 {% else %}
 
+
+
+<!-- Start incomplete lesson -->
 {% if lesson.lesson_number == "0.5" %}Start Lesson →{% else %}Start Unit →{% endif %}
+
+
 
 {% endif %}
 
+
+
 </button>
 
+
+
 </a>
+
 
 
 </div>
 
 
+
+<!-- End lesson loop -->
 {% endfor %}
+
 
 
 </section>
 
 
+
 </main>
 
 
+
 </div>
+
 
 
 </body>
