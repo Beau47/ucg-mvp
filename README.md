@@ -80,7 +80,7 @@ ucg-mvp/
 |   |-- lessons.py             # Curriculum and lesson block definitions
 |   |-- problems.py            # Graded exercise definitions and test cases
 |   |-- runner.py              # Python execution and grading helpers
-|   |-- supabase_client.py     # Supabase client initialization
+|   |-- supabase_client.py     # Supabase client
 |   |-- static/
 |   |   |-- css/
 |   |   |   |-- dashboard.css
