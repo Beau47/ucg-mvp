@@ -455,3 +455,27 @@ nav a.active{
 .dashboard-subtitle {
     margin-bottom: 30px;
 }
+
+.profile-level {
+
+    margin-top: 10px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #ff6a2b;
+
+}
+
+.profile-xp {
+
+    margin-top: 8px;
+
+    margin-bottom: 20px;
+
+    font-size: 16px;
+
+    color: #666;
+
+}

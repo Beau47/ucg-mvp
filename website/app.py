@@ -57,12 +57,6 @@ def check_session():
 
         return redirect("/login?expired=true")
 
-#TODO add this later. remove app.secret_key and replace with below and move secret key to .env
-##import os
-
-##app.secret_key = os.environ.get(
-##    "SECRET_KEY"
-##)
 
 # Log-ins are remembered for 7 days
 app.permanent_session_lifetime = timedelta(days=7)
@@ -911,9 +905,6 @@ def profile():
 
     profile["level"] = calculate_level(xp)
 
-    profile["xp_progress"] = calculate_xp_progress(xp)
-
-    profile["xp_remaining"] = xp_until_next_level(xp)
 
 
 
