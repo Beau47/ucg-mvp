@@ -905,9 +905,6 @@ def profile():
 
     profile["level"] = calculate_level(xp)
 
-    profile["xp_progress"] = calculate_xp_progress(xp)
-
-    profile["xp_remaining"] = xp_until_next_level(xp)
 
 
 
@@ -1294,7 +1291,7 @@ def forgot_password():
             email,
             {
                 "redirect_to":
-                "http://127.0.0.1:5000/reset-password"
+                "https://mriinda.pythonanywhere.com/reset-password"
             }
         )
 
