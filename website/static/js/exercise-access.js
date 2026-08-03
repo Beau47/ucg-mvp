@@ -1,4 +1,6 @@
 (function () {
+    // Both exercise pages load this file and describe their differing layout
+    // through data attributes on the script tag.
     const script = document.currentScript;
     const progressOwner = script.dataset.progressOwner;
     const lockTarget = script.dataset.lockTarget;
@@ -26,6 +28,7 @@
         progress.quizzes.length >= 2 &&
         progress.quizzes.every(Boolean);
 
+    // The workspace bootstrap reads this before loading Monaco and app.js.
     window.exerciseAccessUnlocked = unlocked;
 
     if (unlocked) {
@@ -39,6 +42,7 @@
         return;
     }
 
+    // Keep one lock message for the exercise list and individual workspace.
     const lockContent = `
         <section class="page-header">
             <h1>Exercises Locked</h1>

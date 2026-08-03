@@ -1,4 +1,6 @@
 (function () {
+    // The template supplies page identity through data attributes so this
+    // controller can be reused by every lesson without inline JavaScript.
     const configScript = document.currentScript;
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -12,6 +14,8 @@
         const ides = document.querySelectorAll(".lesson-ide");
         const nextButton = document.getElementById("next-button");
         const nextLink = document.getElementById("next-link");
+        // Browser state restores the exact page UI. The API calls below remain
+        // the source of truth for account progress and XP in Supabase.
         const progressKey =
             `ucg:lesson-progress:${progressOwner}:${lessonId}:${page}`;
         const isFinalPage = page === totalPages;
@@ -46,6 +50,8 @@
             );
         }
 
+        // A lesson is recorded only after the required tasks on its final page
+        // are complete. The guard prevents duplicate requests and XP effects.
         async function saveLessonCompletion() {
             if (
                 !isFinalPage ||
@@ -82,6 +88,8 @@
             }
         }
 
+        // Navigation stays locked until every required quiz and IDE on this
+        // page is complete. Pages without tasks remain immediately navigable.
         function checkRequirements() {
             const quizzesComplete =
                 completedQuizzes === quizzes.length;
@@ -110,6 +118,7 @@
             nextLink.style.opacity = "0.5";
         }
 
+        // Rebuild completed controls before attaching interaction handlers.
         quizzes.forEach(function (quiz, quizIndex) {
             if (!quizProgress[quizIndex]) {
                 return;
@@ -140,6 +149,8 @@
 
         checkRequirements();
 
+        // Quiz attempts are retryable until correct; only correct answers are
+        // persisted and sent to the account-progress endpoint.
         quizzes.forEach(function (quiz, quizIndex) {
             const feedback = quiz.querySelector(".quiz-feedback");
 
@@ -200,6 +211,8 @@
             });
         });
 
+        // Running an IDE once completes its page requirement. The editor value
+        // comes from the Monaco instances created by lesson.js.
         document.querySelectorAll(".ide-run").forEach(
             function (button, ideIndex) {
                 button.addEventListener("click", async function () {
