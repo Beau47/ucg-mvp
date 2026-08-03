@@ -3,22 +3,30 @@
 
 <head>
 
+    <!-- Defines the character encoding for the webpage -->
     <meta charset="UTF-8">
 
+    <!-- Makes the page responsive on different screen sizes -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Sets the browser tab title -->
     <title>Edit Profile | Urban Coders Guild</title>
 
+
     <!-- Load Poppins -->
+    <!-- Preconnects to Google Fonts for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- Imports the Poppins font -->
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
+
     <!-- Your CSS -->
+    <!-- Links the main stylesheet -->
     <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
@@ -26,55 +34,89 @@
 
 <body>
 
+
+    <!-- Top navigation bar -->
     <header class="topbar">
 
+
+        <!-- Website logo/name -->
         <div class="logo">
             Urban Coders Guild
         </div>
 
+
+        <!-- Navigation links -->
         <nav>
 
+
+            <!-- Dashboard navigation link -->
             <a href="/" class="nav-item">
                 Dashboard
             </a>
 
+
+            <!-- Lessons navigation link -->
             <a href="/lessons" class="nav-item">
                 Lessons
             </a>
 
+
+            <!-- Exercises navigation link -->
             <a href="/exercises" class="nav-item">
                 Dashboard
             </a>
 
+
+            <!-- Profile navigation link (current active page) -->
             <a href="/profile" class="nav-item active">
                 Profile
             </a>
 
+
         </nav>
+
 
     </header>
 
 
+
+
+    <!-- Main profile editing section -->
     <main class="profile-edit-page">
 
+
+        <!-- Page heading section -->
         <div class="page-header">
 
+
+            <!-- Page title -->
             <h1>
                 Edit Profile
             </h1>
 
+
+            <!-- Page description -->
             <p>
                 Update your username and profile picture.
             </p>
 
+
         </div>
 
 
+
+
+        <!-- Profile edit card containing image and form -->
         <div class="profile-edit-card">
 
+
+            <!-- Profile picture display section -->
             <div class="profile-picture-section">
 
+
+                <!-- Displays existing profile image if user has one -->
                 {% if profile.avatar_url %}
+
 
                     <img
                         src="{{ profile.avatar_url }}"
@@ -82,31 +124,47 @@
                         class="profile-image"
                     >
 
+
+                <!-- Displays username initial if no image exists -->
                 {% else %}
+
 
                     <div class="profile-image profile-placeholder">
 
+
+                        <!-- Displays first letter of username -->
                         {{ profile.username[0]|upper }}
+
 
                     </div>
 
+
                 {% endif %}
+
 
             </div>
 
 
+
+
+            <!-- Profile update form -->
             <form
                 method="POST"
                 enctype="multipart/form-data"
                 class="profile-form"
             >
 
+
+                <!-- Username input section -->
                 <div class="form-group">
+
 
                     <label for="username">
                         Username
                     </label>
 
+
+                    <!-- Input field pre-filled with current username -->
                     <input
                         type="text"
                         id="username"
@@ -115,15 +173,22 @@
                         required
                     >
 
+
                 </div>
 
 
+
+
+                <!-- Profile picture upload section -->
                 <div class="form-group">
+
 
                     <label for="avatar">
                         Profile Picture
                     </label>
 
+
+                    <!-- Allows user to upload a new profile image -->
                     <input
                         type="file"
                         id="avatar"
@@ -131,15 +196,23 @@
                         accept="image/*"
                     >
 
+
+                    <!-- Helper text explaining accepted file types -->
                     <p class="form-help">
                         Choose a JPG, PNG, or other image file.
                     </p>
 
+
                 </div>
 
 
+
+
+                <!-- Form action buttons -->
                 <div class="form-actions">
 
+
+                    <!-- Cancels editing and returns to profile page -->
                     <a
                         href="/profile"
                         class="cancel-button"
@@ -147,6 +220,8 @@
                         Cancel
                     </a>
 
+
+                    <!-- Saves profile changes -->
                     <button
                         type="submit"
                         class="save-button"
@@ -154,13 +229,18 @@
                         Save Changes
                     </button>
 
+
                 </div>
+
 
             </form>
 
+
         </div>
 
+
     </main>
+
 
 </body>
 

@@ -3,12 +3,16 @@
 
 <head>
 
+<!-- Sets the browser tab title -->
 <title>Exercises</title>
 
+<!-- Imports website fonts: Poppins for general text and JetBrains Mono for code -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<!-- Links the main CSS stylesheet -->
 <link rel="stylesheet" href="/static/css/style.css">
 
+<!-- Sets the website favicon -->
 <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
 
 </head>
@@ -17,71 +21,111 @@
 <body>
 
 
+<!-- Top navigation bar -->
 <header class="topbar">
 
+
+    <!-- Website logo/name -->
     <div class="logo">
         Urban Coders Guild
     </div>
 
 
+    <!-- Navigation links -->
     <nav class="nav-links">
 
+
+        <!-- Link to dashboard page -->
         <a href="/" class="nav-item">
             Dashboard
         </a>
 
+
+        <!-- Link to lessons page -->
         <a href="/lessons" class="nav-item">
             Lessons
         </a>
 
+
+        <!-- Current active page -->
         <a href="/exercises" class="nav-item active">
             Exercises
         </a>
 
+
+        <!-- Displays different navigation options depending on login status -->
         {% if logged_in %}
+
+
+        <!-- Link to user profile -->
         <a href="/profile" class="nav-item">Profile</a>
 
+
+        <!-- Logout link -->
         <a href="/logout" class ="nav-item">
             Logout
         </a>
 
+
         {% else %}
+
+
+        <!-- Profile link redirects to login if user is not logged in -->
         <a href="/login" class="nav-item">Profile</a>
+
+
         {% endif %}
 
+
     </nav>
+
 
 </header>
 
 
 
+
+<!-- Main page wrapper -->
 <div class="page">
 
 
+<!-- Main content section -->
 <main class="main content-page">
 
 
+<!-- Page heading section -->
 <section class="page-header">
 
+
+    <!-- Page title -->
     <h1>
         Coding Exercises
     </h1>
 
 
+    <!-- Page description -->
     <p>
         Practice your skills with interactive coding challenges.
     </p>
+
 
 </section>
 
 
 
+
+
+<!-- Grid containing all coding exercises -->
 <section class="card-grid">
 
 
+
+<!-- Loops through every available problem -->
 {% for problem in problems.values() %}
 
 
+
+<!-- Exercise card. Adds completed-card styling if the user completed the exercise -->
 <div class="content-card
 {% if problem.id in completed_problems %}
 completed-card
@@ -89,56 +133,83 @@ completed-card
 ">
 
 
+
+<!-- Exercise card label -->
 <div class="card-number">
     Exercise
 </div>
 
 
+
+<!-- Exercise title -->
 <h2>
+
 
 {{ problem.title }}
 
+
+<!-- Displays checkmark if exercise has been completed -->
 {% if problem.id in completed_problems %}
 
 ✅
 
 {% endif %}
 
+
 </h2>
 
 
+
+<!-- Exercise description -->
 <p>
     {{ problem.description }}
 </p>
 
 
 
+
+<!-- Link to coding workspace -->
 <a href="/workspace/{{ problem.id }}">
 
+
+<!-- Button text changes depending on completion status -->
 <button>
+
 
 {% if problem.id in completed_problems %}
 
+
 Redo Exercise →
+
 
 {% else %}
 
+
 Start Exercise →
+
 
 {% endif %}
 
+
 </button>
 
+
 </a>
+
 
 
 </div>
 
 
+
+<!-- Ends problem loop -->
 {% endfor %}
 
 
+
+
 </section>
+
 
 
 </main>
@@ -146,13 +217,23 @@ Start Exercise →
 
 </div>
 
+
+
+
+
 <script>
 
+
+// Stores the current user's identifier for local storage progress tracking
 const progressOwner = {{ progress_owner | tojson }};
 
 
+
+// Checks whether the user has completed Lesson 0.5
 function hasCompletedLesson05() {
 
+
+    // Retrieves saved lesson progress from local storage
     const progress =
         JSON.parse(
             localStorage.getItem(
@@ -160,36 +241,68 @@ function hasCompletedLesson05() {
             ) || "{}"
         );
 
+
+    // Returns true if both quizzes have been completed
     return (
         Array.isArray(progress.quizzes) &&
         progress.quizzes.length >= 2 &&
         progress.quizzes.every(Boolean)
     );
 
+
 }
 
 
+
+// Locks exercises if Lesson 0.5 has not been completed
 if (!hasCompletedLesson05()) {
 
+
+    // Replaces exercise content with a locked message
     document.querySelector(".content-page").innerHTML = `
+
         <section class="page-header">
+
             <h1>Exercises Locked</h1>
+
             <p>Complete Lesson 0.5 to unlock coding exercises.</p>
+
         </section>
 
+
         <div class="content-card">
+
+
             <h2>Complete Lesson 0.5 to unlock</h2>
+
+
             <p>
+
                 Lesson 0.5 explains how exercise functions work.
                 Finish it first, then come back to start coding.
+
             </p>
+
+
+            <!-- Link to the required lesson -->
             <a href="/lesson/functions_preview/1">
-                <button>Go to Lesson 0.5 →</button>
+
+
+                <button>
+                    Go to Lesson 0.5 →
+                </button>
+
+
             </a>
+
+
         </div>
+
     `;
 
+
 }
+
 
 </script>
 

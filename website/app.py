@@ -1183,10 +1183,11 @@ def signup():
 
 
     # Check if Supabase actually created the account
-    if (
-        response.user is not None
-        and len(response.user.identities) == 0
-    ):
+    if response.user is None:
+        return render_template(
+            "signup.html",
+            error="Signup failed."
+        )
 
         return render_template(
             "signup.html",
@@ -1220,12 +1221,21 @@ def login():
     password = request.form["password"]
 
 
-    response = supabase.auth.sign_in_with_password(
-        {
-            "email": email,
-            "password": password
-        }
-    )
+    try:
+
+        response = supabase.auth.sign_in_with_password(
+            {
+                "email": email,
+                "password": password
+            }
+        )
+
+    except Exception as e:
+
+        return render_template(
+            "login.html",
+            error="Invalid email or password."
+        )
 
     if response.user.email_confirmed_at is None:
 

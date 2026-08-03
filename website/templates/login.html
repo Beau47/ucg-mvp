@@ -4,50 +4,77 @@
 
 <head>
 
+<!-- Defines character encoding -->
 <meta charset="UTF-8">
 
+<!-- Page title shown in browser tab -->
 <title>Login | Urban Coders Guild</title>
 
+<!-- Website favicon -->
 <link rel="icon" href="/static/images/ucg_logo.webp">
 
+<!-- Import website font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<!-- Main website stylesheet -->
 <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
 
 <body>
 
+
+<!-- ========================= -->
+<!-- SESSION EXPIRATION POPUP -->
+<!-- ========================= -->
+
+
+<!-- Display popup if user session has expired -->
 {% if expired %}
+
 
 <div class="session-popup">
 
+
 <div class="session-box">
+
 
     <h2>
         Session Expired
     </h2>
 
 
+    <!-- Message explaining session expiration -->
     <p>
         Your session has expired. Please log in again.
     </p>
 
 
+    <!-- Redirects user back to login page -->
     <button onclick="closePopup()">
         Continue to Login
     </button>
 
+
 </div>
 
 
 </div>
+
 
 {% endif %}
+
+
+
+<!-- ========================= -->
+<!-- TOP HEADER -->
+<!-- ========================= -->
+
 
 <header class="topbar">
 
 
+<!-- Website logo/name -->
 <div class="logo">
     Urban Coders Guild
 </div>
@@ -55,39 +82,64 @@
 
 </header>
 
+
+
+<!-- ========================= -->
+<!-- LOGIN CONTENT -->
+<!-- ========================= -->
+
+
 <div class="auth-container">
+
+
+
+<!-- ========================= -->
+<!-- LOGIN INFORMATION PANEL -->
+<!-- ========================= -->
 
 
 <div class="auth-info">
 
 
+    <!-- Welcome message -->
     <h1>
         Welcome Back!
     </h1>
 
 
+    <!-- Description of website features -->
     <p>
         Continue learning Python, solve coding challenges,
         and grow your programming skills.
     </p>
 
 
+    <!-- Feature highlight -->
     <div class="feature">
         🐍 Interactive Python Lessons
     </div>
 
 
+    <!-- Feature highlight -->
     <div class="feature">
         💻 Hands-on Coding Challenges
     </div>
 
 
+    <!-- Feature highlight -->
     <div class="feature">
         🚀 Track Your Progress
     </div>
 
 
 </div>
+
+
+
+
+<!-- ========================= -->
+<!-- LOGIN FORM CARD -->
+<!-- ========================= -->
 
 
 <div class="card auth-card">
@@ -98,18 +150,24 @@
     </h2>
 
 
+    <!-- Display login error message if one exists -->
     {% if error %}
+
 
         <div class="error">
             {{ error }}
         </div>
 
+
     {% endif %}
 
 
+
+    <!-- Login form submitted using POST request -->
     <form method="POST">
 
 
+        <!-- Email input field -->
         <label>
             Email
         </label>
@@ -123,6 +181,8 @@
         >
 
 
+
+        <!-- Password input field -->
         <label>
             Password
         </label>
@@ -136,7 +196,10 @@
         >
 
 
+
+        <!-- Forgot password button -->
         <div class="forgot-link">
+
 
             <button
                 type="button"
@@ -145,9 +208,12 @@
                 Forgot Password?
             </button>
 
+
         </div>
 
 
+
+        <!-- Submit login form -->
         <button
             type="submit"
             class="login-button"
@@ -156,10 +222,15 @@
         </button>
 
 
+
     </form>
 
 
+
+
+    <!-- Link to account creation page -->
     <p class="signup-prompt">
+
 
         Don't have an account?
 
@@ -172,21 +243,33 @@
     </p>
 
 
+
 </div>
 
 
+
 </div>
+
+
 
 </body>
 
 </html>
 
+
+
+
 <script>
 
+
+// Redirect user to login page after closing session popup
 function closePopup(){
+
 
     window.location.href = "/login";
 
+
 }
+
 
 </script>
