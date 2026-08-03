@@ -125,15 +125,16 @@
 
     <!-- Display username -->
     <h1>
-        {{ profile.username }}
+    {{ profile.username }}
     </h1>
 
-
-    <!-- User role/level description -->
-    <p>
-        Beginner Developer
+    <p class="profile-level">
+        Level {{ profile.level }}
     </p>
 
+    <p class="profile-xp">
+        {{ profile.xp }} XP
+    </p>
 
     <!-- Link to profile editing page -->
     <a
@@ -147,31 +148,21 @@
 </div>
 
 
-
-<!-- ========================= -->
-<!-- PROGRESS OVERVIEW -->
-<!-- ========================= -->
-
+<!-- QUICK STATS -->
 
 <div class="card">
 
-
     <h2>
-        Progress Overview
+        Quick Stats
     </h2>
 
-
-    <!-- Grid containing user statistics -->
     <div class="grid">
 
-
-        <!-- Lessons completed statistic -->
         <div class="card">
 
             <h2>
                 Lessons Completed
             </h2>
-
 
             <h1>
                 {{ profile.lessons_completed }}
@@ -179,14 +170,11 @@
 
         </div>
 
-
-        <!-- Problems solved statistic -->
         <div class="card">
 
             <h2>
                 Problems Solved
             </h2>
-
 
             <h1>
                 {{ profile.problems_solved }}
@@ -194,29 +182,11 @@
 
         </div>
 
-
-        <!-- XP statistic -->
         <div class="card">
 
             <h2>
-                XP
+                Current Streak
             </h2>
-
-
-            <h1>
-                {{ profile.xp }}
-            </h1>
-
-        </div>
-
-
-        <!-- Current learning streak -->
-        <div class="card">
-
-            <h2>
-                Day Streak
-            </h2>
-
 
             <h1>
                 🔥 {{ profile.streak }}
@@ -224,163 +194,7 @@
 
         </div>
 
-
     </div>
-
-
-</div>
-
-
-
-<!-- ========================= -->
-<!-- LEARNING PROGRESS -->
-<!-- ========================= -->
-
-
-<div class="card">
-
-
-    <h2>
-        Learning Progress
-    </h2>
-
-
-    <!-- Individual topic progress bars -->
-    <p>
-        Python Basics
-    </p>
-
-
-    <div class="xp-bar">
-
-        <div
-            class="xp-fill"
-            style="width:75%">
-        </div>
-
-    </div>
-
-
-    <br>
-
-
-    <p>
-        Functions
-    </p>
-
-
-    <div class="xp-bar">
-
-        <div
-            class="xp-fill"
-            style="width:50%">
-        </div>
-
-    </div>
-
-
-    <br>
-
-
-    <p>
-        Algorithms
-    </p>
-
-
-    <div class="xp-bar">
-
-        <div
-            class="xp-fill"
-            style="width:25%">
-        </div>
-
-    </div>
-
-
-</div>
-
-
-
-<!-- ========================= -->
-<!-- RECENT ACTIVITY -->
-<!-- ========================= -->
-
-
-<div class="card">
-
-
-    <h2>
-        Recent Activity
-    </h2>
-
-
-    <!-- Display activity history if available -->
-    {% if activities %}
-
-
-        {% for activity in activities %}
-
-        <p>
-            ✓ {{ activity }}
-        </p>
-
-
-        {% endfor %}
-
-
-    <!-- Default message if no activity exists -->
-    {% else %}
-
-        <p>
-            No recent activity yet.
-        </p>
-
-
-    {% endif %}
-
-
-</div>
-
-
-
-<!-- ========================= -->
-<!-- ACHIEVEMENTS -->
-<!-- ========================= -->
-
-
-<div class="card">
-
-
-    <h2>
-        Achievements
-    </h2>
-
-
-    <!-- Display unlocked achievements -->
-    {% if achievements %}
-
-
-        {% for achievement in achievements %}
-
-        <p>
-            {{ achievement }}
-        </p>
-
-
-        {% endfor %}
-
-
-    <!-- Default message if no achievements exist -->
-    {% else %}
-
-
-        <p>
-            Complete lessons and exercises to unlock achievements.
-        </p>
-
-
-    {% endif %}
-
 
 </div>
 

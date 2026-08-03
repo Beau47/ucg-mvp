@@ -905,9 +905,6 @@ def profile():
 
     profile["level"] = calculate_level(xp)
 
-    profile["xp_progress"] = calculate_xp_progress(xp)
-
-    profile["xp_remaining"] = xp_until_next_level(xp)
 
 
 
