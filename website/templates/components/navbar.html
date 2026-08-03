@@ -1,3 +1,7 @@
+{#
+Shared site navigation. Pass active_page to highlight the current section;
+authentication pages set show_links=false so they display only the brand.
+#}
 {% macro navbar(active_page=None, show_links=True) %}
 <header class="topbar">
     <div class="logo">
@@ -27,6 +31,7 @@
             Exercises
         </a>
 
+        {# The default keeps standalone template previews from failing. #}
         {% if logged_in|default(false) %}
         <a
             href="/profile"
