@@ -71,10 +71,6 @@ connection is required for the complete local interface.
 ucg-mvp/
 |-- README.md
 |-- requirements.txt
-|-- models/                    # Legacy prototype code (inactive)
-|-- pages/                     # Legacy Streamlit pages (inactive)
-|-- utilities/                 # Legacy prototype utilities (inactive)
-|-- sandbox.py                 # Legacy prototype runner (inactive)
 |-- website/
 |   |-- app.py                 # Flask application, routes, and progress logic
 |   |-- lessons.py             # Curriculum and lesson block definitions
@@ -89,10 +85,14 @@ ucg-mvp/
 |   |   |   `-- ucg_logo.webp
 |   |   `-- js/
 |   |       |-- app.js         # Graded exercise behavior
-|   |       `-- lesson.js      # Monaco setup and lesson IDE behavior
+|   |       |-- exercise-access.js # Lesson 0.5 exercise prerequisite gate
+|   |       |-- lesson-progress.js # Lesson task restoration and completion
+|   |       |-- lesson.js      # Monaco setup and lesson IDE behavior
+|   |       `-- xp-celebration.js # XP completion animation
 |   `-- templates/
 |       |-- components/
-|       |   `-- ide.html       # Shared Monaco IDE component
+|       |   |-- ide.html       # Shared Monaco IDE component
+|       |   `-- navbar.html    # Shared site navigation
 |       |-- dashboard.html
 |       |-- edit_profile.html
 |       |-- exercises.html
@@ -106,9 +106,11 @@ ucg-mvp/
 |       `-- signup.html
 ```
 
-The active application lives in `website/`. Root-level `pages/`, `utilities/`,
-`models/`, Streamlit files, and old Next.js artifacts are not part of the
-current Flask runtime.
+The active and tracked application source now lives entirely in `website/`.
+The former root-level Streamlit prototype, prototype models and utilities, and
+tracked Python cache files were removed during consolidation. Local `.next/`,
+`node_modules/`, and `__pycache__/` directories are generated or obsolete
+artifacts; they are ignored by Git and can be deleted without affecting Flask.
 
 ## Local Setup
 
@@ -167,11 +169,12 @@ Create a local file at `website/.env`:
 
 ```dotenv
 SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+SUPABASE_KEY=your-project-api-key
 ```
 
-Never commit `.env` or expose the service-role key in frontend code. The
-repository's `.gitignore` excludes environment files.
+Never commit `.env` or place a privileged Supabase key in frontend code. Use
+the least-privileged project key supported by the configured database policies.
+The repository's `.gitignore` excludes environment files.
 
 ### Required Backend Resources
 
@@ -199,10 +202,12 @@ confirmation is enabled, users must verify their email before logging in.
 1. Flask receives the browser request in `website/app.py`.
 2. `check_session()` redirects unauthenticated users away from protected pages.
 3. Jinja templates render lesson, exercise, dashboard, and profile data.
-4. JavaScript loads Monaco editors and sends code or completion events to
-   Flask JSON endpoints.
-5. Flask reads lesson and problem definitions from Python dictionaries.
-6. Supabase stores authentication, profile information, and completion data.
+4. Shared Jinja components render navigation and embedded lesson IDEs.
+5. JavaScript loads Monaco editors, restores page task state, enforces the
+   exercise prerequisite, and sends code or completion events to Flask JSON
+   endpoints.
+6. Flask reads lesson and problem definitions from Python dictionaries.
+7. Supabase stores authentication, profile information, and completion data.
 
 ### Content Model
 
@@ -215,10 +220,28 @@ Curriculum content is intentionally data-driven:
 - `website/templates/lesson.html` maps each lesson block type to its rendered
   interface.
 - `website/templates/components/ide.html` provides the shared interactive IDE.
+- `website/templates/components/navbar.html` provides consistent navigation
+  and active-page highlighting across templates.
 
 Adding a dictionary entry automatically makes it available to the relevant
 listing template; a separate route is not required for every lesson or
 exercise.
+
+### Shared Frontend Behavior
+
+The consolidated frontend modules have distinct responsibilities:
+
+- `app.js` controls the graded exercise workspace and displays test results.
+- `lesson.js` creates and resizes Monaco editors embedded in lessons.
+- `lesson-progress.js` restores completed page activities, locks or unlocks
+  lesson navigation, and synchronizes task and lesson completion with Flask.
+- `exercise-access.js` applies the Lesson 0.5 prerequisite consistently to the
+  exercise catalog and individual workspaces.
+- `xp-celebration.js` owns the reusable XP completion animation.
+
+Templates pass page-specific values to shared scripts through `data-*`
+attributes. Keep this interface synchronized when changing lesson progress or
+exercise access behavior.
 
 ## Routes
 
@@ -498,13 +521,14 @@ editor-specific settings.
   production release needs an isolated execution service or sandbox.
 - The Flask session secret is currently hard-coded in `website/app.py`. Move it
   to an environment variable and rotate it before deployment.
-- The application uses a Supabase service-role key on the server. Keep it
-  private and configure database policies before production deployment.
+- Supabase access depends on the policies and privileges attached to
+  `SUPABASE_KEY`. Review row-level security and use a least-privileged key
+  before production deployment.
 - Lesson activity restoration and the exercise prerequisite rely partly on
   browser `localStorage`, so those states do not fully follow a student across
   browsers or devices.
-- Password-reset redirects currently target `http://127.0.0.1:5000` and need a
-  deployment-specific URL in production.
+- The password-reset redirect is hard-coded to the current PythonAnywhere URL
+  and should become an environment-specific setting before another deployment.
 - The project does not yet include automated backend, frontend, or end-to-end
   tests.
 - The `/run` route currently records an exercise as completed when at least one
