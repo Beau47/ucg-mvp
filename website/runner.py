@@ -5,6 +5,7 @@
 import io
 from copy import deepcopy
 from contextlib import redirect_stdout
+from unittest.mock import patch
 
 
 def run_problem(code, problem):
@@ -36,14 +37,41 @@ def run_problem(code, problem):
                 # every run a fresh value so shared problem data stays clean.
                 test_input = deepcopy(test["input"])
                 expected = test["expected"]
+                output_start = output.tell()
 
-                # Support functions with one or more parameters.
-                if isinstance(test_input, tuple):
-                    actual = student_function(*test_input)
+                def call_student_function():
+                    if isinstance(test_input, tuple):
+                        return student_function(*test_input)
+
+                    return student_function(test_input)
+
+                stdin_values = test.get("stdin")
+
+                if stdin_values is not None:
+                    with patch(
+                        "builtins.input",
+                        side_effect=stdin_values
+                    ) as mocked_input:
+                        returned = call_student_function()
+
+                    used_expected_inputs = (
+                        mocked_input.call_count == len(stdin_values)
+                    )
                 else:
-                    actual = student_function(test_input)
-                    
-                did_pass = actual == expected
+                    returned = call_student_function()
+                    used_expected_inputs = True
+
+                printed = output.getvalue()[output_start:]
+                actual = (
+                    printed
+                    if test.get("compare_output")
+                    else returned
+                )
+
+                did_pass = (
+                    actual == expected
+                    and used_expected_inputs
+                )
 
                 if did_pass:
                     passed += 1

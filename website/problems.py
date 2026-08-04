@@ -1293,7 +1293,157 @@ PROBLEMS = {
     },
 
     # =====================================================
-    # LESSON 5
+    # LESSON 4.0
+    # =====================================================
+
+    "while_countdown": {
+        "id": "while_countdown",
+        "lesson_number": "LESSON 4.0",
+        "title": "Countdown",
+        "description": "Use a while loop to print every number from a starting value down to 1.",
+        "function_name": "countdown",
+        "starter_code": '''def countdown(start):
+    """
+    Given a positive integer start,
+
+    print every number from start down to 1,
+    one number per line.
+
+    Example:
+    countdown(5)
+
+    Output:
+    5
+    4
+    3
+    2
+    1
+
+    Hint:
+    Use a while loop and a counter.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses a Countdown",
+            "Prints One Number per Line",
+            "Stops After Printing 1",
+        ],
+        "test_cases": [
+            {"input": 1, "expected": "1\n", "compare_output": True},
+            {"input": 3, "expected": "3\n2\n1\n", "compare_output": True},
+            {
+                "input": 5,
+                "expected": "5\n4\n3\n2\n1\n",
+                "compare_output": True
+            },
+        ],
+    },
+
+    "sum_to_n": {
+        "id": "sum_to_n",
+        "lesson_number": "LESSON 4.0",
+        "title": "Sum to N",
+        "description": "Use a while loop and an accumulator to sum every integer from 1 through n.",
+        "function_name": "sum_to_n",
+        "starter_code": '''def sum_to_n(n):
+    """
+    Given a positive integer n,
+
+    return the sum of every integer from 1 through n.
+
+    Example:
+    sum_to_n(5)
+    -> 15
+
+    because
+    1 + 2 + 3 + 4 + 5 = 15
+
+    Hint:
+    Use a while loop and an accumulator.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses an Accumulator",
+            "Includes Both 1 and N",
+            "Returns the Correct Sum",
+        ],
+        "test_cases": [
+            {"input": 1, "expected": 1},
+            {"input": 2, "expected": 3},
+            {"input": 5, "expected": 15},
+            {"input": 10, "expected": 55},
+            {"input": 25, "expected": 325},
+        ],
+    },
+
+    "quit_menu": {
+        "id": "quit_menu",
+        "lesson_number": "LESSON 4.0",
+        "title": "Quit Menu",
+        "description": "Keep asking for commands until the user enters the sentinel value quit.",
+        "function_name": "quit_menu",
+        "starter_code": '''def quit_menu():
+    """
+    Repeatedly ask the user to enter a command.
+
+    Continue prompting until the user types
+    "quit"
+
+    When the user enters "quit",
+    print
+    "Goodbye!"
+
+    Example interaction:
+    Command: help
+    Command: settings
+    Command: quit
+    Goodbye!
+
+    Hint:
+    "quit" is the sentinel value.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Repeats Until quit",
+            "Uses the Sentinel Value",
+            "Prints Goodbye Exactly Once",
+        ],
+        "test_cases": [
+            {
+                "input": (),
+                "stdin": ["quit"],
+                "expected": "Goodbye!\n",
+                "compare_output": True
+            },
+            {
+                "input": (),
+                "stdin": ["help", "settings", "quit"],
+                "expected": "Goodbye!\n",
+                "compare_output": True
+            },
+            {
+                "input": (),
+                "stdin": ["QUIT", "quit"],
+                "expected": "Goodbye!\n",
+                "compare_output": True
+            },
+        ],
+    },
+
+    # =====================================================
+    # LESSON 4.1
     # =====================================================
 
     "count_to_n": {
@@ -1593,6 +1743,17 @@ EXERCISE_CURRICULUM = (
             "update_book",
             "dictionary_summary",
             "emergency_contact",
+        ),
+    },
+    {
+        "lesson_id": "loops",
+        "lesson_page": 1,
+        "lesson_label": "Lesson 4.0",
+        "featured_problem_id": "while_countdown",
+        "problem_ids": (
+            "while_countdown",
+            "sum_to_n",
+            "quit_menu",
         ),
     },
     {
