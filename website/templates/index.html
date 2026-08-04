@@ -59,18 +59,35 @@
 
     <aside class="sidebar">
 
-
+        <a href="/exercises" class="back-button">
+            ← Back to Exercises
+        </a>
 
         <!-- User profile information -->
+
         <div class="profile-card">
 
 
-            <!-- Display first letter of username as avatar -->
+            <!-- Display uploaded profile picture if available -->
+            {% if profile.avatar_url %}
+
+            <img
+                src="{{ profile.avatar_url }}"
+                class="avatar profile-image"
+            >
+
+
+            <!-- Otherwise display first letter of username -->
+            {% else %}
+
             <div class="avatar">
 
                 {{ profile.username[0]|upper }}
 
             </div>
+
+            {% endif %}
+
 
 
 
@@ -83,9 +100,9 @@
                 </h3>
 
 
-                <!-- User role -->
+                <!-- User XP -->
                 <p>
-                    Coder
+                    {{ profile.xp }} XP
                 </p>
 
 
@@ -94,28 +111,6 @@
 
         </div>
 
-
-
-
-        <!-- User experience progress -->
-        <div class="xp-section">
-
-
-            <span>XP</span>
-
-            <span>320 / 500</span>
-
-
-
-            <!-- XP progress bar -->
-            <div class="xp-bar">
-
-                <div class="xp-fill"></div>
-
-            </div>
-
-
-        </div>
 
 
 

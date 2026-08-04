@@ -1724,6 +1724,12 @@ print(f"Total: ${total}")
                 "type": "paragraph",
                 "text":
                 "Next you'll learn how programs make decisions using conditions such as if, elif, and else."
+            },
+
+            {
+                "page": 3,
+                "type": "exercise",
+                "problem": "food_truck_total"
             }
 
         ]
