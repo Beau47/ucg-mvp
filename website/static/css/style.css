@@ -25,7 +25,7 @@ body {
 
 .topbar {
     height: 70px;
-    background: linear-gradient(90deg, #ff512f, #ff8a00);
+    background: linear-gradient(90deg, #ff8a00, #ff512f);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -517,7 +517,7 @@ nav {
     padding: 12px 18px;
     border-radius: 999px;
     border: none;
-    background: linear-gradient(90deg, #ff512f, #ff8a00);
+    background: linear-gradient(90deg, #ff8a00, #ff512f);
     color: white;
     font-weight: 600;
     cursor: pointer;
@@ -592,7 +592,7 @@ nav {
 
 .ide-run {
 
-    background:linear-gradient(90deg,#ff512f,#ff8a00);
+    background:linear-gradient(90deg, #ff8a00, #ff512f);
 
     border:none;
 
@@ -1107,7 +1107,7 @@ body:has(.auth-container) {
     padding: 12px 18px;
     border: none;
     border-radius: 999px;
-    background: linear-gradient(90deg, #ff512f, #ff8a00);
+    background: linear-gradient(90deg, #ff8a00, #ff512f);
     color: white;
     font-weight: 600;
     cursor: pointer;
@@ -1167,8 +1167,8 @@ body:has(.auth-container) {
 
     background:linear-gradient(
         90deg,
-        #ff512f,
-        #ff8a00
+        #ff8a00,
+        #ff512f
     );
 
     color:white;
@@ -1258,8 +1258,8 @@ body:has(.auth-container) {
 
     background: linear-gradient(
         90deg,
-        #ff512f,
-        #ff8a00
+        #ff8a00,
+        #ff512f
     );
 
     color: white;
@@ -1377,8 +1377,8 @@ object-fit:cover;
 
     background: linear-gradient(
         135deg,
-        #ff512f,
-        #ff8a00
+        #ff8a00,
+        #ff512f
     );
 
     color: white;
@@ -1520,8 +1520,8 @@ object-fit:cover;
 
     background: linear-gradient(
         90deg,
-        #ff512f,
-        #ff8a00
+        #ff8a00,
+        #ff512f
     );
 
     color: white;
@@ -1674,8 +1674,8 @@ object-fit:cover;
 
     background: linear-gradient(
         90deg,
-        #ff512f,
-        #ff8a00
+        #ff8a00,
+        #ff512f
     );
 
     color: white;

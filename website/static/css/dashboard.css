@@ -28,8 +28,8 @@ body{
 
     background:linear-gradient(
         90deg,
-        #ff512f,
-        #ff8a00
+        #ff8a00,
+        #ff512f
     );
 
     display:flex;
@@ -228,8 +228,8 @@ nav a.active{
     background:
     linear-gradient(
         90deg,
-        #ff512f,
-        #ff8a00
+        #ff8a00,
+        #ff512f
     );
 
     color:white;
