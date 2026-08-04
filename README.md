@@ -7,7 +7,7 @@ single Flask application.
 
 The current repository contains an MVP with account management, persistent
 course progress, student profiles, a dashboard, seven numbered curriculum
-units, a prerequisite lesson, and 32 coding exercises.
+units, a prerequisite lesson, and 26 coding exercises.
 
 ## Table of Contents
 
@@ -42,7 +42,7 @@ units, a prerequisite lesson, and 32 coding exercises.
 - Persistent lesson, task, and exercise completion records
 - Browser-side restoration of completed quizzes and lesson IDE activities
 - XP, levels, and progress summaries derived from completed work
-- Exercise prerequisite flow beginning with Lesson 0.5
+- Lesson-based exercise prerequisites enforced by Flask
 - Responsive lesson, dashboard, profile, and exercise interfaces
 
 ## Technology Stack
@@ -85,7 +85,6 @@ ucg-mvp/
 |   |   |   `-- ucg_logo.webp
 |   |   `-- js/
 |   |       |-- app.js         # Graded exercise behavior
-|   |       |-- exercise-access.js # Lesson 0.5 exercise prerequisite gate
 |   |       |-- lesson-progress.js # Lesson task restoration and completion
 |   |       |-- lesson.js      # Monaco setup and lesson IDE behavior
 |   |       `-- xp-celebration.js # XP completion animation
@@ -184,7 +183,7 @@ The application expects the following Supabase resources:
 | --- | --- | --- |
 | `profiles` | Student account and profile data | `id`, `username`, `xp`, `streak`, `lessons_completed`, `problems_solved`, `avatar_url` |
 | `lesson_progress` | Completed curriculum units | `id`, `user_id`, `lesson_id`, `completed` |
-| `lesson_tasks` | Completed quizzes and lesson IDE tasks | `id`, `user_id`, `lesson_id`, `task_id`, `completed` |
+| `lesson_tasks` | Completed quizzes, IDE tasks, and lesson pages | `id`, `user_id`, `lesson_id`, `task_id`, `completed` |
 | `problem_progress` | Passed coding exercises | `id`, `user_id`, `problem_id`, `passed` |
 | `avatars` bucket | Uploaded profile pictures | Public file URLs stored in `profiles.avatar_url` |
 
@@ -203,10 +202,10 @@ confirmation is enabled, users must verify their email before logging in.
 2. `check_session()` redirects unauthenticated users away from protected pages.
 3. Jinja templates render lesson, exercise, dashboard, and profile data.
 4. Shared Jinja components render navigation and embedded lesson IDEs.
-5. JavaScript loads Monaco editors, restores page task state, enforces the
-   exercise prerequisite, and sends code or completion events to Flask JSON
-   endpoints.
-6. Flask reads lesson and problem definitions from Python dictionaries.
+5. JavaScript loads Monaco editors, restores page task state, and sends code
+   or completion events to Flask JSON endpoints.
+6. Flask reads lesson and problem definitions from Python dictionaries and
+   enforces lesson prerequisites for exercise routes.
 7. Supabase stores authentication, profile information, and completion data.
 
 ### Content Model
@@ -215,17 +214,19 @@ Curriculum content is intentionally data-driven:
 
 - `LESSONS` in `website/lessons.py` contains unit metadata and ordered content
   blocks.
-- `PROBLEMS` in `website/problems.py` contains exercise metadata, starter code,
-  required function names, and test cases.
+- `PROBLEMS` in `website/problems.py` contains active exercise metadata,
+  starter code, required function names, and test cases.
+- `EXERCISE_CURRICULUM` in `website/problems.py` defines exercise order,
+  lesson prerequisites, and the featured exercise for each lesson page.
 - `website/templates/lesson.html` maps each lesson block type to its rendered
   interface.
 - `website/templates/components/ide.html` provides the shared interactive IDE.
 - `website/templates/components/navbar.html` provides consistent navigation
   and active-page highlighting across templates.
 
-Adding a dictionary entry automatically makes it available to the relevant
-listing template; a separate route is not required for every lesson or
-exercise.
+Adding a lesson dictionary entry makes it available to the lesson listing. A
+new exercise must also be placed in `EXERCISE_CURRICULUM`; a separate Flask
+route is not required for either content type.
 
 ### Shared Frontend Behavior
 
@@ -235,8 +236,6 @@ The consolidated frontend modules have distinct responsibilities:
 - `lesson.js` creates and resizes Monaco editors embedded in lessons.
 - `lesson-progress.js` restores completed page activities, locks or unlocks
   lesson navigation, and synchronizes task and lesson completion with Flask.
-- `exercise-access.js` applies the Lesson 0.5 prerequisite consistently to the
-  exercise catalog and individual workspaces.
 - `xp-celebration.js` owns the reusable XP completion animation.
 
 Templates pass page-specific values to shared scripts through `data-*`
@@ -414,7 +413,6 @@ Add a new entry to `PROBLEMS` in `website/problems.py`:
 ```python
 "multiply_two": {
     "id": "multiply_two",
-    "lesson_number": "LESSON 2",
     "title": "Multiply Two",
     "description": "Return a number multiplied by two.",
     "function_name": "multiply_two",
@@ -437,7 +435,6 @@ Add a new entry to `PROBLEMS` in `website/problems.py`:
 Required fields:
 
 - `id`: unique identifier matching the dictionary key
-- `lesson_number`: curriculum label shown on the exercise card
 - `title`: displayed exercise name
 - `description`: concise student-facing task
 - `function_name`: function the grader retrieves after execution
@@ -453,7 +450,9 @@ arguments or no arguments, use a tuple:
 {"input": (), "expected": "Hello"}
 ```
 
-The exercise catalog and `/problems` API include new entries automatically.
+Add the problem ID to the appropriate `EXERCISE_CURRICULUM` group after
+creating its definition. The group determines where the exercise appears,
+which lesson unlocks it, and whether it is the featured lesson-end link.
 
 ## Code Execution
 
@@ -484,10 +483,12 @@ Progress is split between Supabase and browser storage:
 
 - Supabase stores lesson completion, completed lesson task IDs, passed
   exercises, profile data, and avatars.
-- `localStorage` stores per-page quiz and lesson IDE state so completed controls
-  are restored when a student navigates backward or refreshes the page.
-- Lesson 0.5 completion in local storage currently controls access to the
-  exercise interface.
+- `lesson_tasks` stores `page-complete-N` records used to unlock exercises at
+  the end of individual lesson pages such as Lesson 1.1 or Lesson 3.2.
+- `localStorage` stores per-page quiz and lesson IDE display state so completed
+  controls are restored when a student navigates backward or refreshes.
+- Flask checks Supabase completion records before rendering a workspace,
+  returning problem details, or running submitted exercise code.
 
 The dashboard derives XP from completion records:
 
@@ -524,9 +525,9 @@ editor-specific settings.
 - Supabase access depends on the policies and privileges attached to
   `SUPABASE_KEY`. Review row-level security and use a least-privileged key
   before production deployment.
-- Lesson activity restoration and the exercise prerequisite rely partly on
-  browser `localStorage`, so those states do not fully follow a student across
-  browsers or devices.
+- Lesson activity display restoration relies on browser `localStorage`, so the
+  restored button and editor state does not fully follow a student across
+  browsers or devices. Exercise access itself is stored in Supabase.
 - The password-reset redirect is hard-coded to the current PythonAnywhere URL
   and should become an environment-specific setting before another deployment.
 - The project does not yet include automated backend, frontend, or end-to-end

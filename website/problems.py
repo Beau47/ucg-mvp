@@ -616,7 +616,7 @@ PROBLEMS = {
         "id": "square_number",
         "lesson_number": "LESSON 4",
         "title": "Square Number",
-        "description": "Write a function called square_number that returns the square of its integer input.",
+        "description": "Return the square of a number.",
         "function_name": "square_number",
         "starter_code": '''def square_number(x):
     """
@@ -748,116 +748,9 @@ PROBLEMS = {
             {"input": [7, 1, 4, 8], "expected": 20},
         ],
     },
-    "debug_add_numbers": {
-    "id": "debug_add_numbers",
-    "lesson_number": "LESSON 5",
-    "title": "Debug Add Numbers",
-    "description": "Write a function that returns the sum of two numbers.",
-    "function_name": "add_numbers",
-    "starter_code": '''def add_numbers(a, b):
-    """
-    Return the sum of a and b.
-    """
 
-    # Your code here
-    pass
-''',
-    "challenges": [
-        "Function Exists",
-        "Uses Return",
-        "Returns Correct Sum",
-        "No Extra Output",
-    ],
-    "test_cases": [
-        {"input": (3, 5), "expected": 8},
-        {"input": (10, 0), "expected": 10},
-        {"input": (-2, 7), "expected": 5},
-        {"input": (100, 25), "expected": 125},
-    ],
-},
 
-"greet_user": {
-    "id": "greet_user",
-    "lesson_number": "LESSON 5",
-    "title": "Greet User",
-    "description": "Return a greeting using the user's name.",
-    "function_name": "greet_user",
-    "starter_code": '''def greet_user(name):
-    """
-    Return "Hello, [name]!"
-    """
 
-    # Your code here
-    pass
-''',
-    "challenges": [
-        "Function Exists",
-        "Uses Parameter",
-        "Returns Greeting",
-        "No Extra Output",
-    ],
-    "test_cases": [
-        {"input": "Alex", "expected": "Hello, Alex!"},
-        {"input": "Jordan", "expected": "Hello, Jordan!"},
-        {"input": "Taylor", "expected": "Hello, Taylor!"},
-    ],
-},
-
-"square_number": {
-    "id": "square_number",
-    "lesson_number": "LESSON 5",
-    "title": "Square Number",
-    "description": "Return the square of a number.",
-    "function_name": "square_number",
-    "starter_code": '''def square_number(num):
-    """
-    Return the square of num.
-    """
-
-    # Your code here
-    pass
-''',
-    "challenges": [
-        "Function Exists",
-        "Uses Return",
-        "Returns Correct Square",
-        "No Extra Output",
-    ],
-    "test_cases": [
-        {"input": 4, "expected": 16},
-        {"input": 0, "expected": 0},
-        {"input": -3, "expected": 9},
-        {"input": 10, "expected": 100},
-    ],
-},
-
-"get_area_rectangle": {
-    "id": "get_area_rectangle",
-    "lesson_number": "LESSON 5",
-    "title": "Rectangle Area",
-    "description": "Return the area of a rectangle.",
-    "function_name": "get_area",
-    "starter_code": '''def get_area(length, width):
-    """
-    Return the area of a rectangle.
-    """
-
-    # Your code here
-    pass
-''',
-    "challenges": [
-        "Function Exists",
-        "Uses Parameters",
-        "Returns Correct Area",
-        "No Extra Output",
-    ],
-    "test_cases": [
-        {"input": (5, 4), "expected": 20},
-        {"input": (10, 2), "expected": 20},
-        {"input": (7, 3), "expected": 21},
-        {"input": (1, 9), "expected": 9},
-    ],
-},
 
 "validate_coordinates": {
     "id": "validate_coordinates",
@@ -888,87 +781,8 @@ PROBLEMS = {
     ],
 },
 
-"format_name": {
-    "id": "format_name",
-    "lesson_number": "LESSON 5",
-    "title": "Format Name",
-    "description": "Return a name in 'Last, First' format.",
-    "function_name": "format_name",
-    "starter_code": '''def format_name(first_name, last_name):
-    """
-    Return the name as "Last, First".
-    """
 
-    # Your code here
-    pass
-''',
-    "challenges": [
-        "Function Exists",
-        "Uses Parameters",
-        "Returns Formatted String",
-        "No Extra Output",
-    ],
-    "test_cases": [
-        {"input": ("Lorena", "Mesa"), "expected": "Mesa, Lorena"},
-        {"input": ("Ada", "Lovelace"), "expected": "Lovelace, Ada"},
-        {"input": ("Grace", "Hopper"), "expected": "Hopper, Grace"},
-    ],
-},
 
-"refactor_gps_distance": {
-    "id": "refactor_gps_distance",
-    "lesson_number": "LESSON 5",
-    "title": "GPS Distance",
-    "description": "Return the distance between two coordinates using the distance formula.",
-    "function_name": "calculate_distance",
-    "starter_code": '''def calculate_distance(lat1, lon1, lat2, lon2):
-    """
-    Return the distance between two points.
-    """
-
-    # Your code here
-    pass
-''',
-    "challenges": [
-        "Function Exists",
-        "Uses Formula",
-        "Returns Float",
-        "No Extra Output",
-    ],
-    "test_cases": [
-        {"input": (0, 0, 3, 4), "expected": 5.0},
-        {"input": (1, 1, 1, 1), "expected": 0.0},
-        {"input": (2, 3, 5, 7), "expected": 5.0},
-    ],
-},
-
-"tech_conference_scheduler": {
-    "id": "tech_conference_scheduler",
-    "lesson_number": "LESSON 5",
-    "title": "Assign Conference Room",
-    "description": "Return 'Main Stage' if the topic is 'Keynote'; otherwise return 'Breakout 1'.",
-    "function_name": "assign_room",
-    "starter_code": '''def assign_room(speaker, topic):
-    """
-    Return the correct room assignment.
-    """
-
-    # Your code here
-    pass
-''',
-    "challenges": [
-        "Function Exists",
-        "Uses Conditional",
-        "Returns Correct Room",
-        "No Extra Output",
-    ],
-    "test_cases": [
-        {"input": ("Dr. West", "Keynote"), "expected": "Main Stage"},
-        {"input": ("Lorena Mesa", "Open Source"), "expected": "Breakout 1"},
-        {"input": ("Alex", "Python"), "expected": "Breakout 1"},
-        {"input": ("Jordan", "Keynote"), "expected": "Main Stage"},
-    ],
-},
     # =====================================================
     # LESSON 6
     # =====================================================
@@ -1112,5 +926,136 @@ PROBLEMS = {
 
 }
 
+
+# =====================================================
+# EXERCISE CURRICULUM ORDER
+#
+# This allowlist is the single source of truth for catalog order, lesson
+# prerequisites, and the featured exercise shown at the end of each lesson.
+# Problem definitions omitted here are not exposed by the app or API.
+# =====================================================
+
+EXERCISE_CURRICULUM = (
+    {
+        "lesson_id": "functions_preview",
+        "lesson_page": 1,
+        "lesson_label": "Lesson 0.5",
+        "featured_problem_id": "print_greeting",
+        "problem_ids": (
+            "print_greeting",
+            "favorite_place",
+        ),
+    },
+    {
+        "lesson_id": "variables",
+        "lesson_page": 2,
+        "lesson_label": "Lesson 1.1",
+        "featured_problem_id": "add_one",
+        "problem_ids": (
+            "food_truck_total",
+            "format_receipt_line",
+            "clean_menu_item",
+            "reverse_word",
+            "first_initial",
+            "last_character",
+            "every_other_character",
+            "repeat_chant",
+            "make_order_code",
+            "add_one",
+            "double_number",
+            "square_number",
+            "rectangle_area",
+        ),
+    },
+    {
+        "lesson_id": "conditionals",
+        "lesson_page": 1,
+        "lesson_label": "Lesson 2.0",
+        "featured_problem_id": "is_adult",
+        "problem_ids": (
+            "is_adult",
+            "largest_number",
+            "validate_coordinates",
+        ),
+    },
+    {
+        "lesson_id": "lists_dictionaries",
+        "lesson_page": 2,
+        "lesson_label": "Lesson 3.1",
+        "featured_problem_id": "first_item",
+        "problem_ids": (
+            "update_inventory",
+            "first_item",
+        ),
+    },
+    {
+        "lesson_id": "lists_dictionaries",
+        "lesson_page": 3,
+        "lesson_label": "Lesson 3.2",
+        "featured_problem_id": "dictionary_lookup",
+        "problem_ids": (
+            "copy_profile",
+            "dictionary_lookup",
+        ),
+    },
+    {
+        "lesson_id": "loops",
+        "lesson_page": 2,
+        "lesson_label": "Lesson 4.1",
+        "featured_problem_id": "count_to_n",
+        "problem_ids": (
+            "count_to_n",
+            "sum_list",
+        ),
+    },
+    {
+        "lesson_id": "recursion_capstone",
+        "lesson_page": 1,
+        "lesson_label": "Lesson 6.0",
+        "featured_problem_id": "countdown",
+        "problem_ids": (
+            "countdown",
+            "repeat_word",
+        ),
+    },
+)
+
+
+def _build_active_problems():
+    """Return active problems in curriculum order with prerequisite data."""
+
+    active_problems = {}
+
+    for lesson_group in EXERCISE_CURRICULUM:
+        for problem_id in lesson_group["problem_ids"]:
+            problem = PROBLEMS[problem_id].copy()
+            problem.update({
+                "lesson_number": lesson_group["lesson_label"],
+                "required_lesson_id": lesson_group["lesson_id"],
+                "required_lesson_page": lesson_group["lesson_page"],
+                "required_lesson_label": lesson_group["lesson_label"],
+                "is_featured": (
+                    problem_id == lesson_group["featured_problem_id"]
+                ),
+            })
+            active_problems[problem_id] = problem
+
+    return active_problems
+
+
+PROBLEMS = _build_active_problems()
+
+
 def get_problem(problem_id="add_one"):
     return PROBLEMS.get(problem_id)
+
+
+def get_lesson_exercises(lesson_id, lesson_page):
+    """Return the ordered exercises assigned to one lesson page."""
+
+    return [
+        problem
+        for problem in PROBLEMS.values()
+        if problem["required_lesson_id"] == lesson_id
+        and problem["required_lesson_page"] == lesson_page
+    ]

@@ -247,11 +247,6 @@ LESSONS = {
                     "Good programmers learn to think carefully and logically.",
                     "Every programmer starts with a simple first program."
                 ]
-            },
-            {
-                "page": 2,
-                "type": "exercise",
-                "problem": "print_greeting"
             }
 
         ]
@@ -1729,12 +1724,6 @@ print(f"Total: ${total}")
                 "type": "paragraph",
                 "text":
                 "Next you'll learn how programs make decisions using conditions such as if, elif, and else."
-            },
-
-            {
-                "page": 2,
-                "type": "exercise",
-                "problem": "food_truck_total"
             }
 
         ]

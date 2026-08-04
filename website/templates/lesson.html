@@ -311,6 +311,29 @@
 {% endfor %}
 
 
+<section class="lesson-exercise-summary">
+    <h3>Exercises to complete:</h3>
+
+    {% if lesson_exercises %}
+    <ul>
+        {% for problem in lesson_exercises %}
+        <li>{{ problem.title }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if featured_exercise %}
+    <a href="/workspace/{{ featured_exercise.id }}">
+        <button class="featured-exercise-button">
+            Start {{ featured_exercise.title }} →
+        </button>
+    </a>
+    {% endif %}
+    {% else %}
+    <p>None</p>
+    {% endif %}
+</section>
+
+
 
 <!-- PAGE NAVIGATION -->
 

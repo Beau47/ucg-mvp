@@ -54,6 +54,11 @@
 
 </section>
 
+{% if locked_lesson %}
+<div class="exercise-lock-banner" role="status">
+    Complete {{ locked_lesson }} to unlock that exercise.
+</div>
+{% endif %}
 
 
 
@@ -66,20 +71,22 @@
 <!-- Loops through every available problem -->
 {% for problem in problems.values() %}
 
+{% set is_unlocked = problem.id in unlocked_problem_ids %}
 
 
 <!-- Exercise card. Adds completed-card styling if the user completed the exercise -->
-<div class="content-card
-{% if problem.id in completed_problems %}
-completed-card
+<div class="content-card{% if problem.id in completed_problems %} completed-card{% endif %}{% if not is_unlocked %} locked-card{% endif %}"
+{% if not is_unlocked %}
+title="Complete {{ problem.required_lesson_label }} to unlock."
+tabindex="0"
 {% endif %}
-">
+>
 
 
 
 <!-- Exercise card label -->
 <div class="card-number">
-    Exercise
+    Exercise · {{ problem.lesson_number }}
 </div>
 
 
@@ -111,6 +118,8 @@ completed-card
 
 
 
+{% if is_unlocked %}
+
 <!-- Link to coding workspace -->
 <a href="/workspace/{{ problem.id }}">
 
@@ -139,6 +148,22 @@ Start Exercise →
 
 </a>
 
+{% else %}
+
+<button disabled aria-describedby="lock-{{ problem.id }}">
+    Locked
+</button>
+
+<p
+    id="lock-{{ problem.id }}"
+    class="exercise-lock-message"
+    role="tooltip"
+>
+    Complete {{ problem.required_lesson_label }} to unlock.
+</p>
+
+{% endif %}
+
 
 
 </div>
@@ -159,17 +184,6 @@ Start Exercise →
 
 
 </div>
-
-
-
-
-
-<script
-    src="/static/js/exercise-access.js"
-    data-progress-owner="{{ progress_owner }}"
-    data-lock-target=".content-page"
-></script>
-
 
 </body>
 

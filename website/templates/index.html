@@ -299,17 +299,6 @@
     window.problem = {{ problem | tojson }};
 </script>
 
-<script
-    src="/static/js/exercise-access.js"
-    data-progress-owner="{{ progress_owner }}"
-    data-lock-target=".page"
-    data-wrap-main="true"
-></script>
-
-
-
-
-
 <!-- Monaco editor library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
 
@@ -328,11 +317,6 @@
 
 
 <script>
-
-
-// The access script runs first and removes the workspace for locked users.
-// Only initialize Monaco when the editable workspace is still available.
-if (window.exerciseAccessUnlocked) {
 
 
 // Configure Monaco editor path
@@ -395,10 +379,6 @@ require(["vs/editor/editor.main"], function () {
 
 
 });
-
-
-}
-
 
 
 </script>
