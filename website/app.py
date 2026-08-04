@@ -7,11 +7,12 @@
 from flask import Flask, render_template, request, jsonify, redirect, session
 
 # Import website functions
-from problems import get_problem, PROBLEMS
+from problems import get_lesson_exercises, get_problem, PROBLEMS
 from runner import run_problem, run_snippet
 
 # Time import
 from datetime import timedelta
+from urllib.parse import urlencode
 
 # Authentication client
 from supabase_client import supabase
@@ -437,6 +438,141 @@ def calculate_xp(user_id):
 
     return xp
 
+
+# =====================================================
+# EXERCISE PREREQUISITES
+# A completed unit unlocks all of its exercises for existing students. New
+# page-completion tasks provide the finer Lesson 1.1/3.1/etc. unlock points.
+# =====================================================
+
+PAGE_COMPLETION_PREFIX = "page-complete-"
+
+
+def get_required_page_task_ids(lesson_id, page):
+    """Return the task IDs that prove a lesson page was completed."""
+
+    lesson = get_lesson(lesson_id)
+
+    if lesson is None:
+        return set()
+
+    required_task_ids = set()
+
+    for block_index, block in enumerate(lesson["blocks"]):
+        if block.get("page") != page:
+            continue
+
+        if block.get("type") == "quiz":
+            required_task_ids.add(
+                f"{lesson_id}-quiz-{block_index}"
+            )
+        elif block.get("type") == "ide":
+            # Jinja's loop.index is one-based in lesson.html.
+            required_task_ids.add(
+                f"{lesson_id}-ide-{block_index + 1}"
+            )
+
+    return required_task_ids
+
+
+def get_completed_lesson_access(user_id):
+    """Return completed unit IDs and completed lesson-page pairs."""
+
+    lesson_rows = (
+        supabase
+        .table("lesson_progress")
+        .select("lesson_id")
+        .eq("user_id", user_id)
+        .eq("completed", True)
+        .execute()
+    )
+
+    task_rows = (
+        supabase
+        .table("lesson_tasks")
+        .select("lesson_id,task_id")
+        .eq("user_id", user_id)
+        .eq("completed", True)
+        .execute()
+    )
+
+    completed_lessons = {
+        row["lesson_id"]
+        for row in lesson_rows.data
+    }
+    completed_pages = set()
+    completed_task_ids = {}
+
+    for row in task_rows.data:
+        task_id = row.get("task_id", "")
+        lesson_id = row["lesson_id"]
+
+        completed_task_ids.setdefault(lesson_id, set()).add(task_id)
+
+        if not task_id.startswith(PAGE_COMPLETION_PREFIX):
+            continue
+
+        page_text = task_id.removeprefix(PAGE_COMPLETION_PREFIX)
+
+        if page_text.isdigit():
+            completed_pages.add((lesson_id, int(page_text)))
+
+    # Older accounts may have every quiz/IDE task saved without the newer
+    # page-complete marker. Inferring the page also closes the brief race
+    # between completing the final task and opening its featured exercise.
+    for lesson_id, task_ids in completed_task_ids.items():
+        lesson = get_lesson(lesson_id)
+
+        if lesson is None:
+            continue
+
+        pages = {
+            block["page"]
+            for block in lesson["blocks"]
+        }
+
+        for page in pages:
+            required_task_ids = get_required_page_task_ids(
+                lesson_id,
+                page
+            )
+
+            if (
+                required_task_ids
+                and required_task_ids.issubset(task_ids)
+            ):
+                completed_pages.add((lesson_id, page))
+
+    return completed_lessons, completed_pages
+
+
+def is_problem_unlocked(problem, completed_lessons, completed_pages):
+    """Check whether the problem's assigned lesson has been completed."""
+
+    lesson_id = problem["required_lesson_id"]
+    lesson_page = problem["required_lesson_page"]
+
+    return (
+        lesson_id in completed_lessons
+        or (lesson_id, lesson_page) in completed_pages
+    )
+
+
+def get_unlocked_problem_ids(user_id):
+    """Return all problem IDs currently available to one student."""
+
+    completed_lessons, completed_pages = get_completed_lesson_access(user_id)
+
+    return {
+        problem["id"]
+        for problem in PROBLEMS.values()
+        if is_problem_unlocked(
+            problem,
+            completed_lessons,
+            completed_pages
+        )
+    }
+
 # =====================================================
 # DASHBOARD ROUTE
 # =====================================================
@@ -672,6 +808,19 @@ def lesson(lesson_id, page):
         block["page"] for block in lesson["blocks"]
     )
 
+    if page < 1 or page > total_pages:
+        return "Lesson page not found.", 404
+
+    lesson_exercises = get_lesson_exercises(lesson_id, page)
+    featured_exercise = next(
+        (
+            problem
+            for problem in lesson_exercises
+            if problem["is_featured"]
+        ),
+        None
+    )
+
 
     return render_template(
         "lesson.html",
@@ -679,7 +828,9 @@ def lesson(lesson_id, page):
         lesson_id=lesson_id,
         page=page,
         total_pages=total_pages,
-        progress_owner=session.get("user_id", "guest")
+        progress_owner=session.get("user_id", "guest"),
+        lesson_exercises=lesson_exercises,
+        featured_exercise=featured_exercise
     )
 
 
@@ -768,12 +919,17 @@ def exercises():
 
     ]
 
+    unlocked_problem_ids = get_unlocked_problem_ids(
+        session["user_id"]
+    )
+
 
     return render_template(
         "exercises.html",
         problems=PROBLEMS,
         completed_problems=completed_problems,
-        progress_owner=session["user_id"]
+        unlocked_problem_ids=unlocked_problem_ids,
+        locked_lesson=request.args.get("locked")
     )
 
 
@@ -791,7 +947,13 @@ def workspace(problem_id):
         return "Problem not found.", 404
 
 
-    user_id = session.get("user_id")
+    user_id = session["user_id"]
+
+    if problem_id not in get_unlocked_problem_ids(user_id):
+        query = urlencode({
+            "locked": problem["required_lesson_label"]
+        })
+        return redirect(f"/exercises?{query}")
 
     profile = get_or_create_profile(user_id)
 
@@ -799,8 +961,7 @@ def workspace(problem_id):
     return render_template(
         "index.html",
         problem=problem,
-        profile=profile,
-        progress_owner=user_id
+        profile=profile
     )
 
 
@@ -1054,6 +1215,14 @@ def problem_api(problem_id):
     if problem is None:
         return jsonify({"error": "Problem not found."}), 404
 
+    if problem_id not in get_unlocked_problem_ids(session["user_id"]):
+        return jsonify({
+            "error": (
+                f"Complete {problem['required_lesson_label']} "
+                "to unlock this exercise."
+            )
+        }), 403
+
     return jsonify(problem)
 
 
@@ -1077,6 +1246,14 @@ def run_code():
 
     if problem is None:
         return jsonify({"error": "Problem not found."}), 404
+
+    if problem_id not in get_unlocked_problem_ids(session["user_id"]):
+        return jsonify({
+            "error": (
+                f"Complete {problem['required_lesson_label']} "
+                "to unlock this exercise."
+            )
+        }), 403
 
     # Execute the student's code and grade it
     result = run_problem(code, problem)

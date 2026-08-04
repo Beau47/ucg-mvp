@@ -1028,6 +1028,91 @@ body:has(.auth-container) {
 
 }
 
+/* Server-controlled lesson prerequisite states for exercise cards. */
+
+.exercise-lock-banner {
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    border-left: 5px solid #ff8a00;
+    border-radius: 8px;
+    background: #fff6e5;
+    color: #5f421c;
+    font-weight: 600;
+}
+
+.locked-card {
+    position: relative;
+    background: #f1f2f5;
+    box-shadow: none;
+}
+
+.locked-card:hover {
+    transform: none;
+}
+
+.content-card button:disabled,
+.locked-card button {
+    background: #a4a7ae;
+    color: #f7f7f8;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.exercise-lock-message {
+    display: none;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 76px;
+    z-index: 2;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: #242428;
+    color: white !important;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.locked-card:hover .exercise-lock-message,
+.locked-card:focus .exercise-lock-message,
+.locked-card:focus-within .exercise-lock-message {
+    display: block;
+}
+
+/* Exercise checklist shown at the end of every lesson page. */
+
+.lesson-exercise-summary {
+    margin-top: 50px;
+    padding: 24px;
+    border-left: 5px solid #ff8a00;
+    border-radius: 8px;
+    background: #fff8ed;
+}
+
+.lesson-exercise-summary h3 {
+    margin-bottom: 12px;
+}
+
+.lesson-exercise-summary ul {
+    margin-left: 22px;
+    line-height: 1.8;
+}
+
+.lesson-exercise-summary p {
+    color: #666;
+}
+
+.featured-exercise-button {
+    margin-top: 18px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff512f, #ff8a00);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 .session-popup {
 
     position: fixed;

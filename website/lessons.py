@@ -247,11 +247,6 @@ LESSONS = {
                     "Good programmers learn to think carefully and logically.",
                     "Every programmer starts with a simple first program."
                 ]
-            },
-            {
-                "page": 2,
-                "type": "exercise",
-                "problem": "print_greeting"
             }
 
         ]

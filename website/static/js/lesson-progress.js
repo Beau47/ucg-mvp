@@ -20,6 +20,7 @@
             `ucg:lesson-progress:${progressOwner}:${lessonId}:${page}`;
         const isFinalPage = page === totalPages;
 
+        let pageCompletionRequestSent = false;
         let completionRequestSent = false;
         let savedProgress = {};
 
@@ -48,6 +49,40 @@
                     ides: ideProgress
                 })
             );
+        }
+
+        // Page completion is stored as a normal lesson task so sub-lessons
+        // such as 1.1 and 3.2 can unlock their own exercise groups.
+        async function savePageCompletion() {
+            if (
+                progressOwner === "guest" ||
+                pageCompletionRequestSent
+            ) {
+                return;
+            }
+
+            pageCompletionRequestSent = true;
+
+            try {
+                const response = await fetch("/complete_task", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        lesson_id: lessonId,
+                        task_id: `page-complete-${page}`
+                    })
+                });
+
+                if (!response.ok) {
+                    pageCompletionRequestSent = false;
+                }
+            }
+            catch (error) {
+                console.error("Could not save page completion:", error);
+                pageCompletionRequestSent = false;
+            }
         }
 
         // A lesson is recorded only after the required tasks on its final page
@@ -99,6 +134,7 @@
                 return;
             }
 
+            savePageCompletion();
             saveLessonCompletion();
 
             if (nextButton && nextLink) {
