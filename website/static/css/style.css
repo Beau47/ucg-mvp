@@ -1648,3 +1648,44 @@ object-fit:cover;
     }
 
 }
+
+.back-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-bottom: 20px;
+
+    padding: 10px 16px;
+
+    background: #fff1e6;
+
+    color: #d95f02;
+
+    text-decoration: none;
+
+    border-radius: 999px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 600;
+
+    border: 1px solid #ffd8b5;
+
+    transition: all 0.2s ease;
+
+}
+
+
+.back-button:hover {
+
+    background: #ffe4cc;
+
+    color: #b84d00;
+
+    transform: translateX(-3px);
+
+}

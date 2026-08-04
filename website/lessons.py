@@ -1732,7 +1732,7 @@ print(f"Total: ${total}")
             },
 
             {
-                "page": 2,
+                "page": 3,
                 "type": "exercise",
                 "problem": "food_truck_total"
             }
