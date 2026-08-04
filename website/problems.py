@@ -640,9 +640,119 @@ PROBLEMS = {
             {"input": (17, True, True, True), "expected": "Not Eligible"},
         ],
     },
-# =====================================================
-# LESSON 3.1
-# =====================================================
+    # =====================================================
+    # LESSON 3.0
+    # =====================================================
+
+    "earthquake_summary": {
+        "id": "earthquake_summary",
+        "lesson_number": "LESSON 3.0",
+        "title": "Earthquake Summary",
+        "description": "Use tuple indexing to summarize an earthquake's magnitude and recorded time.",
+        "function_name": "earthquake_summary",
+        "starter_code": '''def earthquake_summary(earthquake):
+    """
+    Given an earthquake tuple in the form
+
+    (
+        magnitude,
+        latitude,
+        longitude,
+        time
+    )
+
+    return the following string:
+
+    "Magnitude [magnitude] earthquake recorded at [time]."
+
+    Example:
+    earthquake_summary((4.2, 35.47, -97.52, "2:31 PM"))
+    -> "Magnitude 4.2 earthquake recorded at 2:31 PM."
+
+    Hint:
+    Access the tuple's elements using indexing.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Tuple Indexing",
+            "Uses Magnitude and Time",
+            "Returns Exact Summary",
+        ],
+        "test_cases": [
+            {
+                "input": ((4.2, 35.47, -97.52, "2:31 PM"),),
+                "expected": "Magnitude 4.2 earthquake recorded at 2:31 PM."
+            },
+            {
+                "input": ((3.0, 36.15, -95.99, "8:05 AM"),),
+                "expected": "Magnitude 3.0 earthquake recorded at 8:05 AM."
+            },
+            {
+                "input": ((5.75, 34.60, -98.40, "11:47 PM"),),
+                "expected": "Magnitude 5.75 earthquake recorded at 11:47 PM."
+            },
+        ],
+    },
+
+    "tuple_information": {
+        "id": "tuple_information",
+        "lesson_number": "LESSON 3.0",
+        "title": "Tuple Information",
+        "description": "Return selected values and a slice from a tuple without modifying it.",
+        "function_name": "tuple_information",
+        "starter_code": '''def tuple_information(data):
+    """
+    Given a tuple containing at least four elements,
+    return a new tuple containing:
+
+    - the first element,
+    - the last element,
+    - a slice containing the first two elements.
+
+    Examples:
+    tuple_information(("Tulsa", "Norman", "Stillwater", "Lawton"))
+    -> ("Tulsa", "Lawton", ("Tulsa", "Norman"))
+
+    tuple_information((5, 10, 15, 20))
+    -> (5, 20, (5, 10))
+
+    Remember:
+    Tuples are immutable, so do NOT modify the original tuple.
+    Instead, create and return a new tuple.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Positive and Negative Indexing",
+            "Uses Tuple Slicing",
+            "Returns a New Tuple",
+        ],
+        "test_cases": [
+            {
+                "input": (("Tulsa", "Norman", "Stillwater", "Lawton"),),
+                "expected": ("Tulsa", "Lawton", ("Tulsa", "Norman"))
+            },
+            {
+                "input": ((5, 10, 15, 20),),
+                "expected": (5, 20, (5, 10))
+            },
+            {
+                "input": ((True, False, None, "done", 42),),
+                "expected": (True, 42, (True, False))
+            },
+        ],
+    },
+
+    # =====================================================
+    # LESSON 3.1
+    # =====================================================
 
 "update_inventory": {
     "id": "update_inventory",
@@ -1084,6 +1194,16 @@ EXERCISE_CURRICULUM = (
             "letter_grade",
             "validate_coordinates",
             "can_register",
+        ),
+    },
+    {
+        "lesson_id": "lists_dictionaries",
+        "lesson_page": 1,
+        "lesson_label": "Lesson 3.0",
+        "featured_problem_id": "earthquake_summary",
+        "problem_ids": (
+            "earthquake_summary",
+            "tuple_information",
         ),
     },
     {
