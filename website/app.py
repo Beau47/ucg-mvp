@@ -448,6 +448,33 @@ def calculate_xp(user_id):
 PAGE_COMPLETION_PREFIX = "page-complete-"
 
 
+def get_required_page_task_ids(lesson_id, page):
+    """Return the task IDs that prove a lesson page was completed."""
+
+    lesson = get_lesson(lesson_id)
+
+    if lesson is None:
+        return set()
+
+    required_task_ids = set()
+
+    for block_index, block in enumerate(lesson["blocks"]):
+        if block.get("page") != page:
+            continue
+
+        if block.get("type") == "quiz":
+            required_task_ids.add(
+                f"{lesson_id}-quiz-{block_index}"
+            )
+        elif block.get("type") == "ide":
+            # Jinja's loop.index is one-based in lesson.html.
+            required_task_ids.add(
+                f"{lesson_id}-ide-{block_index + 1}"
+            )
+
+    return required_task_ids
+
+
 def get_completed_lesson_access(user_id):
     """Return completed unit IDs and completed lesson-page pairs."""
 
@@ -474,9 +501,13 @@ def get_completed_lesson_access(user_id):
         for row in lesson_rows.data
     }
     completed_pages = set()
+    completed_task_ids = {}
 
     for row in task_rows.data:
         task_id = row.get("task_id", "")
+        lesson_id = row["lesson_id"]
+
+        completed_task_ids.setdefault(lesson_id, set()).add(task_id)
 
         if not task_id.startswith(PAGE_COMPLETION_PREFIX):
             continue
@@ -484,7 +515,33 @@ def get_completed_lesson_access(user_id):
         page_text = task_id.removeprefix(PAGE_COMPLETION_PREFIX)
 
         if page_text.isdigit():
-            completed_pages.add((row["lesson_id"], int(page_text)))
+            completed_pages.add((lesson_id, int(page_text)))
+
+    # Older accounts may have every quiz/IDE task saved without the newer
+    # page-complete marker. Inferring the page also closes the brief race
+    # between completing the final task and opening its featured exercise.
+    for lesson_id, task_ids in completed_task_ids.items():
+        lesson = get_lesson(lesson_id)
+
+        if lesson is None:
+            continue
+
+        pages = {
+            block["page"]
+            for block in lesson["blocks"]
+        }
+
+        for page in pages:
+            required_task_ids = get_required_page_task_ids(
+                lesson_id,
+                page
+            )
+
+            if (
+                required_task_ids
+                and required_task_ids.issubset(task_ids)
+            ):
+                completed_pages.add((lesson_id, page))
 
     return completed_lessons, completed_pages
 
