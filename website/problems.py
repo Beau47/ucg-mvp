@@ -2535,6 +2535,7 @@ PROBLEMS = {
             "Returns Correct List",
             "No Extra Output",
         ],
+        "require_recursion": True,
         "test_cases": [
             {"input": 1, "expected": [1]},
             {"input": 2, "expected": [2, 1]},
@@ -2569,11 +2570,152 @@ PROBLEMS = {
             "Returns Correct String",
             "No Extra Output",
         ],
+        "require_recursion": True,
         "test_cases": [
             {"input": ("A", 1), "expected": "A"},
             {"input": ("Hi", 3), "expected": "HiHiHi"},
             {"input": ("Go", 2), "expected": "GoGo"},
             {"input": ("Python", 4), "expected": "PythonPythonPythonPython"},
+        ],
+    },
+
+    "digit_sum": {
+        "id": "digit_sum",
+        "lesson_number": "LESSON 6.0",
+        "title": "Digit Sum",
+        "description": "Return the sum of a positive integer's digits using recursion.",
+        "function_name": "digit_sum",
+        "starter_code": '''def digit_sum(number):
+    """
+    Given a positive integer,
+    return the sum of its digits using recursion.
+
+    Examples:
+
+    digit_sum(482)
+
+    -> 14
+
+    because
+
+    4 + 8 + 2 = 14
+
+    digit_sum(7)
+
+    -> 7
+
+    Hint:
+    The last digit is number % 10.
+    The remaining digits are number // 10.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Recursion",
+            "Handles the Base Case",
+            "Returns the Sum of Every Digit",
+        ],
+        "require_recursion": True,
+        "test_cases": [
+            {"input": 482, "expected": 14},
+            {"input": 7, "expected": 7},
+            {"input": 10, "expected": 1},
+            {"input": 9999, "expected": 36},
+            {"input": 10005, "expected": 6},
+        ],
+    },
+
+    "count_letter": {
+        "id": "count_letter",
+        "lesson_number": "LESSON 6.0",
+        "title": "Count Letter",
+        "description": "Count how many times a letter appears in a string using recursion.",
+        "function_name": "count_letter",
+        "starter_code": '''def count_letter(word, letter):
+    """
+    Given a string and a letter,
+    return the number of times the letter
+    appears in the string using recursion.
+
+    Examples:
+
+    count_letter("banana", "a")
+
+    -> 3
+
+    count_letter("Python", "z")
+
+    -> 0
+
+    Hint:
+    Solve one character, then recursively
+    solve the rest of the string.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Recursion",
+            "Handles an Empty String",
+            "Counts Matching Letters Correctly",
+        ],
+        "require_recursion": True,
+        "test_cases": [
+            {"input": ("banana", "a"), "expected": 3},
+            {"input": ("Python", "z"), "expected": 0},
+            {"input": ("", "a"), "expected": 0},
+            {"input": ("Mississippi", "s"), "expected": 4},
+            {"input": ("AaA", "A"), "expected": 2},
+        ],
+    },
+
+    "largest_recursive": {
+        "id": "largest_recursive",
+        "lesson_number": "LESSON 6.0",
+        "title": "Largest Recursive",
+        "description": "Return the largest value in a nonempty list using recursion.",
+        "function_name": "largest_recursive",
+        "starter_code": '''def largest_recursive(numbers):
+    """
+    Given a nonempty list of numbers,
+    return the largest value using recursion.
+
+    Examples:
+
+    largest_recursive([4, 8, 2, 10, 5])
+
+    -> 10
+
+    largest_recursive([7])
+
+    -> 7
+
+    Hint:
+    Compare the first element with the
+    largest element in the rest of the list.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Recursion",
+            "Handles a One-Item List",
+            "Returns the Largest Value",
+        ],
+        "require_recursion": True,
+        "test_cases": [
+            {"input": [4, 8, 2, 10, 5], "expected": 10},
+            {"input": [7], "expected": 7},
+            {"input": [-4, -8, -2], "expected": -2},
+            {"input": [3, 3, 3], "expected": 3},
+            {"input": [1.5, 9.2, 4.8], "expected": 9.2},
         ],
     }
 
@@ -2745,6 +2887,9 @@ EXERCISE_CURRICULUM = (
         "problem_ids": (
             "countdown",
             "repeat_word",
+            "digit_sum",
+            "count_letter",
+            "largest_recursive",
         ),
     },
 )

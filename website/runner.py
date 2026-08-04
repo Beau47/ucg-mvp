@@ -23,6 +23,22 @@ def _validate_source_requirements(code, problem):
         node for node in function_nodes if node.name != function_name
     ]
 
+    if problem.get("require_recursion"):
+        target_functions = [
+            node for node in function_nodes if node.name == function_name
+        ]
+        calls_itself = any(
+            isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Name)
+            and node.func.id == function_name
+            for target in target_functions
+            for node in ast.walk(target)
+        )
+        if not calls_itself:
+            raise Exception(
+                f"Function '{function_name}' must call itself recursively."
+            )
+
     minimum_helpers = problem.get("min_helper_functions", 0)
     if len(helper_nodes) < minimum_helpers:
         raise Exception(
