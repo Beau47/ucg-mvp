@@ -4,8 +4,19 @@ authentication pages set show_links=false so they display only the brand.
 #}
 {% macro navbar(active_page=None, show_links=True) %}
 <header class="topbar">
-    <div class="logo">
-        Urban Coders Guild
+
+    <div class="brand">
+
+        <img
+            src="/static/images/ucg_logo.webp"
+            class="brand-logo"
+            alt="Urban Coders Guild Logo"
+        >
+
+        <div class="logo">
+            Urban Coders Guild
+        </div>
+
     </div>
 
     {% if show_links %}

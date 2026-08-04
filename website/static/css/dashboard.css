@@ -44,6 +44,18 @@ body{
 
 }
 
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
 /* Website logo */
 
 .logo{

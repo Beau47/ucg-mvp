@@ -29,8 +29,25 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 40px;
     color: white;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
 }
 
 .logo {
@@ -680,6 +697,16 @@ body {
 
     height:auto;
 
+}
+
+.workspace-page .main {
+    background: #1e1e1e;
+    padding: 0;
+}
+
+.workspace-page .lesson-ide {
+    border-radius: 0;
+    margin: 0;
 }
 
 /* ===================================================== */
