@@ -26,6 +26,7 @@ units, a prerequisite lesson, and 26 coding exercises.
 13. [Progress and XP](#progress-and-xp)
 14. [Development Checks](#development-checks)
 15. [Current Limitations](#current-limitations)
+16. [Next Features](#next-features)
 
 ## Features
 
@@ -535,6 +536,41 @@ editor-specific settings.
 - The `/run` route currently records an exercise as completed when at least one
   test passes. It should require `passed == total` before progress is saved.
 - Frontend dependencies are loaded from CDNs rather than bundled locally.
+
+## Next Features
+
+Future improvements planned for Urban Coders Guild include:
+
+### Instructor View
+Develop an instructor dashboard to allow teachers to:
+- Monitor student progress and lesson completion
+- View exercise performance and learning milestones
+- Provide feedback and support
+
+### Account Email Management
+Allow users to securely change their account email through profile settings with proper verification.
+
+### Student Achievements
+Introduce achievements and badges to reward:
+- Lesson completion
+- Coding milestones
+- XP goals
+- Learning streaks
+
+### Exercise Hint System
+Add a hint feature for exercises that provides guidance without immediately revealing solutions.
+
+### Advanced Exercise Checking
+Improve challenge validation with:
+- Additional test cases
+- More detailed feedback
+- Bonus XP and achievement rewards for completing difficult challenges
+
+### Mobile Support
+Improve usability on mobile devices through:
+- Responsive layouts
+- Better navigation
+- Mobile-friendly coding workspace
 
 ## Credits
 
