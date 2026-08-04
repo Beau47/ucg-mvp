@@ -2,10 +2,73 @@
 # runs code and grades tests
 # =========================
 
+import ast
 import io
 from copy import deepcopy
 from contextlib import redirect_stdout
 from unittest.mock import patch
+
+
+def _validate_source_requirements(code, problem):
+    """Validate optional structural requirements before running tests."""
+
+    tree = ast.parse(code)
+    function_name = problem["function_name"]
+    function_nodes = [
+        node
+        for node in ast.walk(tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    ]
+    helper_nodes = [
+        node for node in function_nodes if node.name != function_name
+    ]
+
+    minimum_helpers = problem.get("min_helper_functions", 0)
+    if len(helper_nodes) < minimum_helpers:
+        raise Exception(
+            f"Create at least {minimum_helpers} helper functions."
+        )
+
+    if problem.get("require_helper_docstrings"):
+        missing_docstrings = [
+            node.name
+            for node in helper_nodes
+            if ast.get_docstring(node) is None
+        ]
+        if missing_docstrings:
+            names = ", ".join(missing_docstrings)
+            raise Exception(f"Add docstrings to helper functions: {names}.")
+
+    forbidden_calls = set(problem.get("forbidden_calls", ()))
+    used_forbidden_calls = set()
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Call):
+            continue
+
+        if isinstance(node.func, ast.Name):
+            called_name = node.func.id
+        elif isinstance(node.func, ast.Attribute):
+            called_name = node.func.attr
+        else:
+            called_name = None
+
+        if called_name in forbidden_calls:
+            used_forbidden_calls.add(called_name)
+
+    if used_forbidden_calls:
+        names = ", ".join(sorted(used_forbidden_calls))
+        raise Exception(f"Do not use these functions: {names}.")
+
+    if problem.get("forbid_global_variables"):
+        has_global_statement = any(
+            isinstance(node, ast.Global) for node in ast.walk(tree)
+        )
+        has_module_assignment = any(
+            isinstance(node, (ast.Assign, ast.AnnAssign, ast.AugAssign))
+            for node in tree.body
+        )
+        if has_global_statement or has_module_assignment:
+            raise Exception("Do not use global variables.")
 
 
 def run_problem(code, problem):
@@ -22,6 +85,8 @@ def run_problem(code, problem):
     results = []
 
     try:
+        _validate_source_requirements(code, problem)
+
         with redirect_stdout(output):
             exec(code, namespace)
 

@@ -2322,6 +2322,121 @@ PROBLEMS = {
     },
 
     # =====================================================
+    # LESSON 5.1
+    # =====================================================
+
+    "class_statistics": {
+        "id": "class_statistics",
+        "lesson_number": "LESSON 5.1",
+        "title": "Class Statistics",
+        "description": "Return class statistics using helper functions and loop-based calculations.",
+        "function_name": "class_statistics",
+        "starter_code": '''def class_statistics(scores):
+    """
+    Given a nonempty list of quiz scores,
+    return a dictionary containing:
+
+    {
+        "average": average_score,
+        "highest": highest_score,
+        "lowest": lowest_score,
+        "passed": number_of_passing_students
+    }
+
+    A passing score is 70 or higher.
+
+    Example:
+
+    class_statistics([82, 95, 61, 74])
+
+    -> {
+        "average": 78.0,
+        "highest": 95,
+        "lowest": 61,
+        "passed": 3
+    }
+
+    Requirements:
+    - Create at least TWO helper functions to avoid repeating code.
+      (For example, one function could count passing students,
+      while another could calculate the average.)
+    - Do NOT use sum(), max(), or min().
+    - Use descriptive function names and write docstrings for each helper function.
+    - Do not use global variables.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses at Least Two Documented Helper Functions",
+            "Calculates Statistics Without sum(), max(), or min()",
+            "Returns the Complete Class Report",
+        ],
+        "min_helper_functions": 2,
+        "require_helper_docstrings": True,
+        "forbidden_calls": ("sum", "max", "min"),
+        "forbid_global_variables": True,
+        "test_cases": [
+            {
+                "input": [82, 95, 61, 74],
+                "expected": {
+                    "average": 78.0,
+                    "highest": 95,
+                    "lowest": 61,
+                    "passed": 3,
+                }
+            },
+            {
+                "input": [70],
+                "expected": {
+                    "average": 70.0,
+                    "highest": 70,
+                    "lowest": 70,
+                    "passed": 1,
+                }
+            },
+            {
+                "input": [69, 70],
+                "expected": {
+                    "average": 69.5,
+                    "highest": 70,
+                    "lowest": 69,
+                    "passed": 1,
+                }
+            },
+            {
+                "input": [100, 0, 50],
+                "expected": {
+                    "average": 50.0,
+                    "highest": 100,
+                    "lowest": 0,
+                    "passed": 1,
+                }
+            },
+            {
+                "input": [-5, -10],
+                "expected": {
+                    "average": -7.5,
+                    "highest": -5,
+                    "lowest": -10,
+                    "passed": 0,
+                }
+            },
+            {
+                "input": [88.5, 72.5],
+                "expected": {
+                    "average": 80.5,
+                    "highest": 88.5,
+                    "lowest": 72.5,
+                    "passed": 2,
+                }
+            },
+        ],
+    },
+
+    # =====================================================
     # LESSON 6
     # =====================================================
 
@@ -2611,6 +2726,15 @@ EXERCISE_CURRICULUM = (
             "create_grade_report",
             "update_inventory_copy",
             "analyze_message",
+        ),
+    },
+    {
+        "lesson_id": "functions_modularity",
+        "lesson_page": 2,
+        "lesson_label": "Lesson 5.1",
+        "featured_problem_id": "class_statistics",
+        "problem_ids": (
+            "class_statistics",
         ),
     },
     {
