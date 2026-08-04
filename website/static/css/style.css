@@ -1043,7 +1043,9 @@ body:has(.auth-container) {
 .locked-card {
     position: relative;
     background: #f1f2f5;
-    box-shadow: none;
+    border: 1px solid #d5d6dc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    opacity: 0.85;
 }
 
 .locked-card:hover {
@@ -1850,5 +1852,90 @@ object-fit:cover;
     width: min(600px, 80vw);
 
     padding: 50px;
+
+}
+
+/* ========================= */
+/* Animated geometric background */
+/* ========================= */
+
+body {
+    position: relative;
+    background: #f3f4f7;
+    overflow-x: hidden;
+}
+
+
+/* Creates floating shapes behind the page */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.35;
+}
+
+
+/* Large moving circle */
+body::before {
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(
+        135deg,
+        #ff8a00,
+        #ff512f
+    );
+    border-radius: 50%;
+    top: -150px;
+    left: -150px;
+    animation: floatShape 18s ease-in-out infinite;
+}
+
+
+/* Floating square */
+body::after {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(
+        135deg,
+        #8f94fb,
+        #4e54c8
+    );
+    transform: rotate(30deg);
+    bottom: -120px;
+    right: -100px;
+    animation: floatShapeReverse 22s ease-in-out infinite;
+}
+
+
+
+
+
+/* Animation movement */
+
+@keyframes floatShape {
+
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(80px, 60px);
+    }
+
+}
+
+
+
+@keyframes floatShapeReverse {
+
+    0%, 100% {
+        transform: rotate(30deg) translate(0, 0);
+    }
+
+    50% {
+        transform: rotate(70deg) translate(-80px, -50px);
+    }
 
 }
