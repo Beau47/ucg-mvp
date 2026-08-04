@@ -640,9 +640,119 @@ PROBLEMS = {
             {"input": (17, True, True, True), "expected": "Not Eligible"},
         ],
     },
-# =====================================================
-# LESSON 3.1
-# =====================================================
+    # =====================================================
+    # LESSON 3.0
+    # =====================================================
+
+    "earthquake_summary": {
+        "id": "earthquake_summary",
+        "lesson_number": "LESSON 3.0",
+        "title": "Earthquake Summary",
+        "description": "Use tuple indexing to summarize an earthquake's magnitude and recorded time.",
+        "function_name": "earthquake_summary",
+        "starter_code": '''def earthquake_summary(earthquake):
+    """
+    Given an earthquake tuple in the form
+
+    (
+        magnitude,
+        latitude,
+        longitude,
+        time
+    )
+
+    return the following string:
+
+    "Magnitude [magnitude] earthquake recorded at [time]."
+
+    Example:
+    earthquake_summary((4.2, 35.47, -97.52, "2:31 PM"))
+    -> "Magnitude 4.2 earthquake recorded at 2:31 PM."
+
+    Hint:
+    Access the tuple's elements using indexing.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Tuple Indexing",
+            "Uses Magnitude and Time",
+            "Returns Exact Summary",
+        ],
+        "test_cases": [
+            {
+                "input": ((4.2, 35.47, -97.52, "2:31 PM"),),
+                "expected": "Magnitude 4.2 earthquake recorded at 2:31 PM."
+            },
+            {
+                "input": ((3.0, 36.15, -95.99, "8:05 AM"),),
+                "expected": "Magnitude 3.0 earthquake recorded at 8:05 AM."
+            },
+            {
+                "input": ((5.75, 34.60, -98.40, "11:47 PM"),),
+                "expected": "Magnitude 5.75 earthquake recorded at 11:47 PM."
+            },
+        ],
+    },
+
+    "tuple_information": {
+        "id": "tuple_information",
+        "lesson_number": "LESSON 3.0",
+        "title": "Tuple Information",
+        "description": "Return selected values and a slice from a tuple without modifying it.",
+        "function_name": "tuple_information",
+        "starter_code": '''def tuple_information(data):
+    """
+    Given a tuple containing at least four elements,
+    return a new tuple containing:
+
+    - the first element,
+    - the last element,
+    - a slice containing the first two elements.
+
+    Examples:
+    tuple_information(("Tulsa", "Norman", "Stillwater", "Lawton"))
+    -> ("Tulsa", "Lawton", ("Tulsa", "Norman"))
+
+    tuple_information((5, 10, 15, 20))
+    -> (5, 20, (5, 10))
+
+    Remember:
+    Tuples are immutable, so do NOT modify the original tuple.
+    Instead, create and return a new tuple.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Positive and Negative Indexing",
+            "Uses Tuple Slicing",
+            "Returns a New Tuple",
+        ],
+        "test_cases": [
+            {
+                "input": (("Tulsa", "Norman", "Stillwater", "Lawton"),),
+                "expected": ("Tulsa", "Lawton", ("Tulsa", "Norman"))
+            },
+            {
+                "input": ((5, 10, 15, 20),),
+                "expected": (5, 20, (5, 10))
+            },
+            {
+                "input": ((True, False, None, "done", 42),),
+                "expected": (True, 42, (True, False))
+            },
+        ],
+    },
+
+    # =====================================================
+    # LESSON 3.1
+    # =====================================================
 
 "update_inventory": {
     "id": "update_inventory",
@@ -688,6 +798,149 @@ PROBLEMS = {
         },
     ],
 },
+
+
+    "manage_guest_list": {
+        "id": "manage_guest_list",
+        "lesson_number": "LESSON 3.1",
+        "title": "Manage Guest List",
+        "description": "Update a guest list using append(), insert(), and remove().",
+        "function_name": "manage_guest_list",
+        "starter_code": '''def manage_guest_list(guests):
+    """
+    Given a list of guest names,
+
+    1. Add "Jordan" to the end of the list.
+    2. Insert "Maria" at the beginning of the list.
+    3. Remove the first occurrence of "Alex" if it exists.
+    4. Return the updated list.
+
+    Example:
+    manage_guest_list(["Alex", "Chris"])
+    -> ["Maria", "Chris", "Jordan"]
+
+    Hint:
+    Use append(), insert(), and remove().
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Appends Jordan",
+            "Inserts Maria First",
+            "Removes Only the First Alex",
+        ],
+        "test_cases": [
+            {
+                "input": ["Alex", "Chris"],
+                "expected": ["Maria", "Chris", "Jordan"]
+            },
+            {
+                "input": ["Chris"],
+                "expected": ["Maria", "Chris", "Jordan"]
+            },
+            {
+                "input": ["Alex", "Alex", "Sam"],
+                "expected": ["Maria", "Alex", "Sam", "Jordan"]
+            },
+            {
+                "input": [],
+                "expected": ["Maria", "Jordan"]
+            },
+        ],
+    },
+
+    "sorted_reverse": {
+        "id": "sorted_reverse",
+        "lesson_number": "LESSON 3.1",
+        "title": "Sorted Reverse",
+        "description": "Sort a list in ascending order, reverse it, and return the modified list.",
+        "function_name": "sorted_reverse",
+        "starter_code": '''def sorted_reverse(numbers):
+    """
+    Given a list of numbers,
+
+    1. Sort the list in ascending order.
+    2. Reverse the list.
+    3. Return the modified list.
+
+    Example:
+    sorted_reverse([4, 1, 7, 3])
+    -> [7, 4, 3, 1]
+
+    Hint:
+    Use sort() and reverse().
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Sorts the List",
+            "Reverses the List",
+            "Returns Descending Order",
+        ],
+        "test_cases": [
+            {"input": [4, 1, 7, 3], "expected": [7, 4, 3, 1]},
+            {"input": [5, -2, 5, 0], "expected": [5, 5, 0, -2]},
+            {"input": [1], "expected": [1]},
+            {"input": [], "expected": []},
+        ],
+    },
+
+    "copy_and_add": {
+        "id": "copy_and_add",
+        "lesson_number": "LESSON 3.1",
+        "title": "Copy and Add",
+        "description": "Copy a scores list, add 100 to the copy, and return both lists.",
+        "function_name": "copy_and_add",
+        "starter_code": '''def copy_and_add(scores):
+    """
+    Given a list of scores,
+
+    Create a COPY of the list.
+
+    Add 100 to the copied list.
+    Return BOTH lists as a tuple:
+
+    (original_list, copied_list)
+
+    Example:
+    copy_and_add([80, 90])
+    -> ([80, 90], [80, 90, 100])
+
+    Remember:
+    Do NOT create an alias.
+    The original list should remain unchanged.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Creates an Independent Copy",
+            "Leaves the Original Unchanged",
+            "Returns Both Lists as a Tuple",
+        ],
+        "test_cases": [
+            {
+                "input": [80, 90],
+                "expected": ([80, 90], [80, 90, 100])
+            },
+            {
+                "input": [],
+                "expected": ([], [100])
+            },
+            {
+                "input": [100, 70, 85],
+                "expected": ([100, 70, 85], [100, 70, 85, 100])
+            },
+        ],
+    },
 
 
 "copy_profile": {
@@ -749,6 +1002,226 @@ PROBLEMS = {
         },
     ],
 },
+
+    "update_book": {
+        "id": "update_book",
+        "lesson_number": "LESSON 3.2",
+        "title": "Update Book",
+        "description": "Add, update, and remove fields in a book dictionary.",
+        "function_name": "update_book",
+        "starter_code": '''def update_book(book):
+    """
+    Given a dictionary representing a book,
+
+    1. Add the key "available" with the value True.
+    2. Update the book's "year" to 2026.
+    3. Remove the key "publisher".
+    4. Return the updated dictionary.
+
+    Example:
+    update_book({
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "year": 1937,
+        "publisher": "Allen & Unwin"
+    })
+
+    -> {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "year": 2026,
+        "available": True
+    }
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Adds and Updates Keys",
+            "Removes Publisher",
+            "Preserves Other Book Data",
+        ],
+        "test_cases": [
+            {
+                "input": {
+                    "title": "The Hobbit",
+                    "author": "J.R.R. Tolkien",
+                    "year": 1937,
+                    "publisher": "Allen & Unwin"
+                },
+                "expected": {
+                    "title": "The Hobbit",
+                    "author": "J.R.R. Tolkien",
+                    "year": 2026,
+                    "available": True
+                }
+            },
+            {
+                "input": {
+                    "title": "Kindred",
+                    "year": 1979,
+                    "publisher": "Doubleday",
+                    "genre": "Science Fiction"
+                },
+                "expected": {
+                    "title": "Kindred",
+                    "year": 2026,
+                    "genre": "Science Fiction",
+                    "available": True
+                }
+            },
+            {
+                "input": {
+                    "title": "Python Basics",
+                    "year": 2024,
+                    "publisher": "UCG Press",
+                    "available": False
+                },
+                "expected": {
+                    "title": "Python Basics",
+                    "year": 2026,
+                    "available": True
+                }
+            },
+        ],
+    },
+
+    "dictionary_summary": {
+        "id": "dictionary_summary",
+        "lesson_number": "LESSON 3.2",
+        "title": "Dictionary Summary",
+        "description": "Return a dictionary's keys, values, and items as lists.",
+        "function_name": "dictionary_summary",
+        "starter_code": '''def dictionary_summary(student):
+    """
+    Given a student dictionary,
+
+    return a tuple containing:
+
+    (
+        list(student.keys()),
+        list(student.values()),
+        list(student.items())
+    )
+
+    Example:
+    dictionary_summary({
+        "name": "Jordan",
+        "grade": 11
+    })
+
+    -> (
+        ["name", "grade"],
+        ["Jordan", 11],
+        [("name", "Jordan"), ("grade", 11)]
+    )
+
+    Hint:
+    Use the dictionary methods keys(), values(), and items().
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses keys(), values(), and items()",
+            "Converts Views to Lists",
+            "Returns the Three Lists as a Tuple",
+        ],
+        "test_cases": [
+            {
+                "input": {"name": "Jordan", "grade": 11},
+                "expected": (
+                    ["name", "grade"],
+                    ["Jordan", 11],
+                    [("name", "Jordan"), ("grade", 11)]
+                )
+            },
+            {
+                "input": {"city": "Tulsa", "active": True, "score": 95},
+                "expected": (
+                    ["city", "active", "score"],
+                    ["Tulsa", True, 95],
+                    [
+                        ("city", "Tulsa"),
+                        ("active", True),
+                        ("score", 95)
+                    ]
+                )
+            },
+            {
+                "input": {},
+                "expected": ([], [], [])
+            },
+        ],
+    },
+
+    "emergency_contact": {
+        "id": "emergency_contact",
+        "lesson_number": "LESSON 3.2",
+        "title": "Emergency Contact",
+        "description": "Return an emergency contact or a fallback message when it is missing.",
+        "function_name": "emergency_contact",
+        "starter_code": '''def emergency_contact(profile):
+    """
+    Given a profile dictionary,
+
+    Return the value associated with the key
+    "emergency_contact".
+
+    If the key does not exist,
+    return "No emergency contact on file."
+
+    Examples:
+    emergency_contact({
+        "name": "Maria",
+        "emergency_contact": "Jordan"
+    })
+    -> "Jordan"
+
+    emergency_contact({
+        "name": "Maria"
+    })
+    -> "No emergency contact on file."
+
+    Hint:
+    Use the get() method.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Dictionary Lookup",
+            "Handles a Missing Key",
+            "Returns the Stored Value Unchanged",
+        ],
+        "test_cases": [
+            {
+                "input": {
+                    "name": "Maria",
+                    "emergency_contact": "Jordan"
+                },
+                "expected": "Jordan"
+            },
+            {
+                "input": {"name": "Maria"},
+                "expected": "No emergency contact on file."
+            },
+            {
+                "input": {},
+                "expected": "No emergency contact on file."
+            },
+            {
+                "input": {"emergency_contact": None},
+                "expected": None
+            },
+        ],
+    },
     # =====================================================
     # LESSON 4
     # =====================================================
@@ -1088,12 +1561,25 @@ EXERCISE_CURRICULUM = (
     },
     {
         "lesson_id": "lists_dictionaries",
+        "lesson_page": 1,
+        "lesson_label": "Lesson 3.0",
+        "featured_problem_id": "earthquake_summary",
+        "problem_ids": (
+            "earthquake_summary",
+            "tuple_information",
+        ),
+    },
+    {
+        "lesson_id": "lists_dictionaries",
         "lesson_page": 2,
         "lesson_label": "Lesson 3.1",
         "featured_problem_id": "first_item",
         "problem_ids": (
             "update_inventory",
             "first_item",
+            "manage_guest_list",
+            "sorted_reverse",
+            "copy_and_add",
         ),
     },
     {
@@ -1104,6 +1590,9 @@ EXERCISE_CURRICULUM = (
         "problem_ids": (
             "copy_profile",
             "dictionary_lookup",
+            "update_book",
+            "dictionary_summary",
+            "emergency_contact",
         ),
     },
     {
