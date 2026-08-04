@@ -499,6 +499,147 @@ PROBLEMS = {
             {"input": (100, 99), "expected": 100},
         ],
     },
+
+    "letter_grade": {
+        "id": "letter_grade",
+        "lesson_number": "LESSON 2.0",
+        "title": "Letter Grade",
+        "description": "Return the corresponding letter grade for a student's numerical score.",
+        "function_name": "letter_grade",
+        "starter_code": '''def letter_grade(score):
+    """
+    Given a student's numerical score,
+    return the corresponding letter grade.
+
+    Grading Scale:
+    90-100 -> "A"
+    80-89 -> "B"
+    70-79 -> "C"
+    60-69 -> "D"
+    Below 60 -> "F"
+
+    Example:
+    letter_grade(86)
+    -> "B"
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Conditional Logic",
+            "Handles Grade Boundaries",
+            "Returns Correct Letter Grade",
+        ],
+        "test_cases": [
+            {"input": 100, "expected": "A"},
+            {"input": 90, "expected": "A"},
+            {"input": 89, "expected": "B"},
+            {"input": 80, "expected": "B"},
+            {"input": 79, "expected": "C"},
+            {"input": 70, "expected": "C"},
+            {"input": 69, "expected": "D"},
+            {"input": 60, "expected": "D"},
+            {"input": 59, "expected": "F"},
+            {"input": 0, "expected": "F"},
+        ],
+    },
+
+    "validate_coordinates": {
+        "id": "validate_coordinates",
+        "lesson_number": "LESSON 2.0",
+        "title": "Validate Coordinates",
+        "description": "Return Valid when both latitude and longitude are in range; otherwise return Invalid.",
+        "function_name": "validate_coordinates",
+        "starter_code": '''def validate_coordinates(latitude, longitude):
+    """
+    Given a latitude and longitude,
+    return:
+    "Valid" if the latitude is between -90 and 90 (inclusive)
+    and the longitude is between -180 and 180 (inclusive).
+
+    Otherwise, return "Invalid".
+
+    Examples:
+    validate_coordinates(36.15, -95.99)
+    -> "Valid"
+
+    validate_coordinates(120, 40)
+    -> "Invalid"
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Checks Latitude Range",
+            "Checks Longitude Range",
+            "Returns Valid or Invalid",
+        ],
+        "test_cases": [
+            {"input": (36.15, -95.99), "expected": "Valid"},
+            {"input": (-90, -180), "expected": "Valid"},
+            {"input": (90, 180), "expected": "Valid"},
+            {"input": (120, 40), "expected": "Invalid"},
+            {"input": (-90.1, 0), "expected": "Invalid"},
+            {"input": (0, 180.1), "expected": "Invalid"},
+            {"input": (0, -180.1), "expected": "Invalid"},
+        ],
+    },
+
+    "can_register": {
+        "id": "can_register",
+        "lesson_number": "LESSON 2.0",
+        "title": "Can Register",
+        "description": "Determine whether a student may register for a community coding workshop.",
+        "function_name": "can_register",
+        "starter_code": '''def can_register(age, completed_intro, permission_slip, banned):
+    """
+    Determine whether a student may register for a community coding workshop.
+
+    A student may register if:
+    - They are 18 or older, OR
+    - They are at least 13 years old, have completed the introductory
+      workshop, and have a signed permission slip.
+
+    However, if the student is banned, they may never register.
+
+    Return:
+    "Eligible" or "Not Eligible"
+
+    Examples:
+    can_register(14, True, True, False)
+    -> "Eligible"
+
+    can_register(14, True, False, False)
+    -> "Not Eligible"
+
+    can_register(25, False, False, True)
+    -> "Not Eligible"
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Combines Boolean Conditions",
+            "Honors the Ban Override",
+            "Returns Correct Eligibility",
+        ],
+        "test_cases": [
+            {"input": (18, False, False, False), "expected": "Eligible"},
+            {"input": (14, True, True, False), "expected": "Eligible"},
+            {"input": (13, True, True, False), "expected": "Eligible"},
+            {"input": (12, True, True, False), "expected": "Not Eligible"},
+            {"input": (14, True, False, False), "expected": "Not Eligible"},
+            {"input": (14, False, True, False), "expected": "Not Eligible"},
+            {"input": (25, False, False, True), "expected": "Not Eligible"},
+            {"input": (17, True, True, True), "expected": "Not Eligible"},
+        ],
+    },
 # =====================================================
 # LESSON 3.1
 # =====================================================
@@ -748,41 +889,6 @@ PROBLEMS = {
             {"input": [7, 1, 4, 8], "expected": 20},
         ],
     },
-
-
-
-
-"validate_coordinates": {
-    "id": "validate_coordinates",
-    "lesson_number": "LESSON 5",
-    "title": "Validate Coordinates",
-    "description": "Return True if the latitude is between -90 and 90 inclusive.",
-    "function_name": "validate_coordinates",
-    "starter_code": '''def validate_coordinates(lat, lon):
-    """
-    Return True if latitude is valid.
-    """
-
-    # Your code here
-    pass
-''',
-    "challenges": [
-        "Function Exists",
-        "Uses Comparison",
-        "Returns Boolean",
-        "No Extra Output",
-    ],
-    "test_cases": [
-        {"input": (45, 120), "expected": True},
-        {"input": (-90, 0), "expected": True},
-        {"input": (90, -80), "expected": True},
-        {"input": (95, 20), "expected": False},
-        {"input": (-100, 0), "expected": False},
-    ],
-},
-
-
-
     # =====================================================
     # LESSON 6
     # =====================================================
@@ -975,7 +1081,9 @@ EXERCISE_CURRICULUM = (
         "problem_ids": (
             "is_adult",
             "largest_number",
+            "letter_grade",
             "validate_coordinates",
+            "can_register",
         ),
     },
     {
