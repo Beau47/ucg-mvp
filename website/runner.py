@@ -36,6 +36,7 @@ def run_problem(code, problem):
                 # Student functions may mutate lists or dictionaries. Give
                 # every run a fresh value so shared problem data stays clean.
                 test_input = deepcopy(test["input"])
+                original_input = deepcopy(test_input)
                 expected = test["expected"]
                 output_start = output.tell()
 
@@ -68,9 +69,25 @@ def run_problem(code, problem):
                     else returned
                 )
 
+                input_was_preserved = (
+                    not test.get("preserve_input")
+                    or test_input == original_input
+                )
+                original_result_object = (
+                    test_input[0]
+                    if isinstance(test_input, tuple)
+                    else test_input
+                )
+                returned_new_object = (
+                    not test.get("require_new_result")
+                    or returned is not original_result_object
+                )
+
                 did_pass = (
                     actual == expected
                     and used_expected_inputs
+                    and input_was_preserved
+                    and returned_new_object
                 )
 
                 if did_pass:
@@ -80,7 +97,9 @@ def run_problem(code, problem):
                     "input": test_input,
                     "expected": expected,
                     "actual": actual,
-                    "passed": did_pass
+                    "passed": did_pass,
+                    "input_preserved": input_was_preserved,
+                    "returned_new_object": returned_new_object
                 })
 
         percentage = "N/A" if total == 0 else f"{(passed / total) * 100:.1f}%"

@@ -1875,6 +1875,453 @@ PROBLEMS = {
     },
 
     # =====================================================
+    # LESSON 4.3
+    # =====================================================
+
+    "first_negative": {
+        "id": "first_negative",
+        "lesson_number": "LESSON 4.3",
+        "title": "First Negative",
+        "description": "Return the first negative number and stop searching as soon as it is found.",
+        "function_name": "first_negative",
+        "starter_code": '''def first_negative(numbers):
+    """
+    Given a list of numbers,
+
+    return the first negative number.
+
+    As soon as a negative number is found,
+    stop searching.
+
+    If the list contains no negative numbers,
+    return None.
+
+    Examples:
+
+    first_negative([4, 7, -3, -8])
+
+    -> -3
+
+    first_negative([5, 8, 10])
+
+    -> None
+
+    Hint:
+    Use break to stop the search early.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Finds the First Negative Number",
+            "Stops Searching Early",
+            "Returns None When No Negative Exists",
+        ],
+        "test_cases": [
+            {"input": [4, 7, -3, -8], "expected": -3},
+            {"input": [5, 8, 10], "expected": None},
+            {"input": [-1, -2], "expected": -1},
+            {"input": [0, -4, 2], "expected": -4},
+            {"input": [], "expected": None},
+        ],
+    },
+
+    "average_positive": {
+        "id": "average_positive",
+        "lesson_number": "LESSON 4.3",
+        "title": "Average Positive",
+        "description": "Calculate and return the average of only the positive numbers.",
+        "function_name": "average_positive",
+        "starter_code": '''def average_positive(numbers):
+    """
+    Given a list of numbers,
+
+    calculate and return the average
+    of only the positive numbers.
+
+    Ignore all negative numbers.
+
+    If there are no positive numbers,
+    return 0.
+
+    Examples:
+
+    average_positive([4, -2, 6, -1])
+
+    -> 5.0
+
+    average_positive([-5, -8])
+
+    -> 0
+
+    Hint:
+    Use continue to skip negative numbers.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Skips Negative Numbers",
+            "Averages Only Positive Numbers",
+            "Returns Zero When No Positive Exists",
+        ],
+        "test_cases": [
+            {"input": [4, -2, 6, -1], "expected": 5.0},
+            {"input": [-5, -8], "expected": 0},
+            {"input": [2, 4, 6], "expected": 4.0},
+            {"input": [0, 10, -5], "expected": 10.0},
+            {"input": [], "expected": 0},
+        ],
+    },
+
+    "placeholder_example": {
+        "id": "placeholder_example",
+        "lesson_number": "LESSON 4.3",
+        "title": "Placeholder Example",
+        "description": "Find and return the largest even number while ignoring odd numbers.",
+        "function_name": "placeholder_example",
+        "starter_code": '''def placeholder_example(numbers):
+    """
+    Given a list of numbers,
+
+    find and return the largest even number.
+
+    Ignore odd numbers for now by using
+    the pass statement as a placeholder.
+
+    Examples:
+
+    placeholder_example([7, 8, 12, 3])
+
+    -> 12
+
+    placeholder_example([1, 3, 5])
+
+    -> None
+
+    Hint:
+    This exercise is designed to practice
+    using pass while developing a program.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Ignores Odd Numbers",
+            "Finds the Largest Even Number",
+            "Returns None When No Even Number Exists",
+        ],
+        "test_cases": [
+            {"input": [7, 8, 12, 3], "expected": 12},
+            {"input": [1, 3, 5], "expected": None},
+            {"input": [-8, -2, -10], "expected": -2},
+            {"input": [4], "expected": 4},
+            {"input": [], "expected": None},
+            {"input": [0, -3, -2], "expected": 0},
+        ],
+    },
+
+    # =====================================================
+    # LESSON 5.0
+    # =====================================================
+
+    "calculate_ticket_price": {
+        "id": "calculate_ticket_price",
+        "lesson_number": "LESSON 5.0",
+        "title": "Calculate Ticket Price",
+        "description": "Calculate a ticket price using age, student status, and weekend pricing rules.",
+        "function_name": "calculate_ticket_price",
+        "starter_code": '''def calculate_ticket_price(age, is_student, is_weekend):
+    """
+    Given a person's age, student status, and whether it is the weekend,
+    calculate and return their ticket price.
+
+    Pricing Rules:
+    - Children younger than 13 pay $6.
+    - Adults 65 or older pay $7.
+    - Everyone else pays $12.
+    - Students receive a $2 discount.
+    - Weekend tickets cost an additional $3.
+
+    The final price cannot be less than $0.
+
+    Examples:
+    calculate_ticket_price(10, False, False)
+    -> 6
+
+    calculate_ticket_price(20, True, True)
+    -> 13
+
+    calculate_ticket_price(70, False, True)
+    -> 10
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Applies the Correct Base Price",
+            "Applies Student and Weekend Adjustments",
+            "Never Returns a Negative Price",
+        ],
+        "test_cases": [
+            {"input": (10, False, False), "expected": 6},
+            {"input": (20, True, True), "expected": 13},
+            {"input": (70, False, True), "expected": 10},
+            {"input": (13, False, False), "expected": 12},
+            {"input": (65, False, False), "expected": 7},
+            {"input": (10, True, False), "expected": 4},
+            {"input": (70, True, True), "expected": 8},
+        ],
+    },
+
+    "create_grade_report": {
+        "id": "create_grade_report",
+        "lesson_number": "LESSON 5.0",
+        "title": "Create Grade Report",
+        "description": "Calculate a student's average and highest score and return a grade report dictionary.",
+        "function_name": "create_grade_report",
+        "starter_code": '''def create_grade_report(student_name, scores):
+    """
+    Given a student's name and a nonempty list of scores,
+    calculate the student's average and highest score.
+
+    Return a dictionary in this form:
+
+    {
+        "name": student_name,
+        "average": average_score,
+        "highest": highest_score,
+        "passed": True or False
+    }
+
+    The student passes if their average is at least 70.
+
+    Example:
+    create_grade_report("Maria", [80, 95, 75])
+    -> {
+        "name": "Maria",
+        "average": 83.33333333333333,
+        "highest": 95,
+        "passed": True
+    }
+
+    Do not use sum() or max().
+    Calculate both values using a loop.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Calculates the Average",
+            "Finds the Highest Score",
+            "Builds the Complete Grade Report",
+        ],
+        "test_cases": [
+            {
+                "input": ("Maria", [80, 95, 75]),
+                "expected": {
+                    "name": "Maria",
+                    "average": 83.33333333333333,
+                    "highest": 95,
+                    "passed": True,
+                }
+            },
+            {
+                "input": ("Alex", [70]),
+                "expected": {
+                    "name": "Alex",
+                    "average": 70.0,
+                    "highest": 70,
+                    "passed": True,
+                }
+            },
+            {
+                "input": ("Jordan", [68, 70]),
+                "expected": {
+                    "name": "Jordan",
+                    "average": 69.0,
+                    "highest": 70,
+                    "passed": False,
+                }
+            },
+            {
+                "input": ("Sam", [0, 100]),
+                "expected": {
+                    "name": "Sam",
+                    "average": 50.0,
+                    "highest": 100,
+                    "passed": False,
+                }
+            },
+        ],
+    },
+
+    "update_inventory_copy": {
+        "id": "update_inventory_copy",
+        "lesson_number": "LESSON 5.0",
+        "title": "Update Inventory Copy",
+        "description": "Return an updated copy of an inventory without modifying the original dictionary.",
+        "function_name": "update_inventory_copy",
+        "starter_code": '''def update_inventory_copy(inventory, item, amount):
+    """
+    Given an inventory dictionary, an item name, and an amount,
+    return an updated COPY of the inventory.
+
+    Rules:
+    - Do not modify the original dictionary.
+    - If the item already exists, add amount to its current quantity.
+    - If the item does not exist, add it with the given amount.
+    - If the resulting quantity is 0 or less, remove the item.
+
+    Examples:
+    update_inventory_copy(
+        {"Rice": 10, "Beans": 5},
+        "Rice",
+        3
+    )
+    -> {"Rice": 13, "Beans": 5}
+
+    update_inventory_copy(
+        {"Rice": 10, "Beans": 5},
+        "Beans",
+        -5
+    )
+    -> {"Rice": 10}
+
+    The original inventory must remain unchanged.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Returns a New Dictionary",
+            "Leaves the Original Unchanged",
+            "Updates, Adds, and Removes Items Correctly",
+        ],
+        "test_cases": [
+            {
+                "input": ({"Rice": 10, "Beans": 5}, "Rice", 3),
+                "expected": {"Rice": 13, "Beans": 5},
+                "preserve_input": True,
+                "require_new_result": True
+            },
+            {
+                "input": ({"Rice": 10, "Beans": 5}, "Beans", -5),
+                "expected": {"Rice": 10},
+                "preserve_input": True,
+                "require_new_result": True
+            },
+            {
+                "input": ({"Rice": 10}, "Beans", 4),
+                "expected": {"Rice": 10, "Beans": 4},
+                "preserve_input": True,
+                "require_new_result": True
+            },
+            {
+                "input": ({"Rice": 2}, "Rice", -5),
+                "expected": {},
+                "preserve_input": True,
+                "require_new_result": True
+            },
+            {
+                "input": ({"Rice": 10}, "Beans", 0),
+                "expected": {"Rice": 10},
+                "preserve_input": True,
+                "require_new_result": True
+            },
+        ],
+    },
+
+    "analyze_message": {
+        "id": "analyze_message",
+        "lesson_number": "LESSON 5.0",
+        "title": "Analyze Message",
+        "description": "Return a message summary with its length, vowel count, and allowed status.",
+        "function_name": "analyze_message",
+        "starter_code": '''def analyze_message(message, banned_words):
+    """
+    Given a message and a list of banned words,
+    return a summary dictionary in this form:
+
+    {
+        "length": number_of_characters,
+        "vowels": number_of_vowels,
+        "allowed": True or False
+    }
+
+    The message is allowed only if none of the banned words
+    appear inside it.
+
+    Ignore capitalization when checking banned words.
+
+    Examples:
+    analyze_message(
+        "Welcome to Python!",
+        ["spam", "scam"]
+    )
+    -> {
+        "length": 18,
+        "vowels": 5,
+        "allowed": True
+    }
+
+    analyze_message(
+        "This looks like a SCAM",
+        ["spam", "scam"]
+    )
+    -> {
+        "length": 22,
+        "vowels": 7,
+        "allowed": False
+    }
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Counts Characters and Vowels",
+            "Checks Banned Words Inside the Message",
+            "Ignores Capitalization",
+        ],
+        "test_cases": [
+            {
+                "input": ("Welcome to Python!", ["spam", "scam"]),
+                "expected": {"length": 18, "vowels": 5, "allowed": True}
+            },
+            {
+                "input": ("This looks like a SCAM", ["spam", "scam"]),
+                "expected": {"length": 22, "vowels": 7, "allowed": False}
+            },
+            {
+                "input": ("SpAmmy message", ["spam"]),
+                "expected": {"length": 14, "vowels": 4, "allowed": False}
+            },
+            {
+                "input": ("AEIOU", []),
+                "expected": {"length": 5, "vowels": 5, "allowed": True}
+            },
+            {
+                "input": ("", ["spam"]),
+                "expected": {"length": 0, "vowels": 0, "allowed": True}
+            },
+        ],
+    },
+
+    # =====================================================
     # LESSON 6
     # =====================================================
 
@@ -2141,6 +2588,29 @@ EXERCISE_CURRICULUM = (
             "multiplication_table",
             "total_seats",
             "checkerboard",
+        ),
+    },
+    {
+        "lesson_id": "loops",
+        "lesson_page": 4,
+        "lesson_label": "Lesson 4.3",
+        "featured_problem_id": "first_negative",
+        "problem_ids": (
+            "first_negative",
+            "average_positive",
+            "placeholder_example",
+        ),
+    },
+    {
+        "lesson_id": "functions_modularity",
+        "lesson_page": 1,
+        "lesson_label": "Lesson 5.0",
+        "featured_problem_id": "calculate_ticket_price",
+        "problem_ids": (
+            "calculate_ticket_price",
+            "create_grade_report",
+            "update_inventory_copy",
+            "analyze_message",
         ),
     },
     {
