@@ -1043,7 +1043,9 @@ body:has(.auth-container) {
 .locked-card {
     position: relative;
     background: #f1f2f5;
-    box-shadow: none;
+    border: 1px solid #d5d6dc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    opacity: 0.85;
 }
 
 .locked-card:hover {
