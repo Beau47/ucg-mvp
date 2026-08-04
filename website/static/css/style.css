@@ -848,20 +848,26 @@ button:disabled {
 /* AUTH PAGES                */
 /* ========================= */
 
-.auth-container{
+.auth-container {
 
-    max-width:1200px;
+    max-width: 1200px;
 
-    margin:60px auto;
+    margin: 60px auto;
 
-    display:grid;
+    padding: 20px 40px;
 
-    grid-template-columns:1fr 420px;
+    display: grid;
 
-    gap:60px;
+    grid-template-columns: 1fr 420px;
 
-    align-items:center;
+    gap: 60px;
 
+    align-items: start;
+
+}
+
+body:has(.auth-container) {
+    overflow-y: auto;
 }
 
 .auth-info h1{
@@ -1687,5 +1693,35 @@ object-fit:cover;
     color: #b84d00;
 
     transform: translateX(-3px);
+
+}
+
+/* ========================= */
+/* SINGLE AUTH CARD PAGES     */
+/* Used for forgot/reset pages */
+/* ========================= */
+
+.single-auth {
+
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding-top: 50px;
+
+    padding-bottom: 60px;
+
+}
+
+
+.single-auth .auth-card {
+
+    width: min(600px, 80vw);
+
+    padding: 50px;
 
 }
