@@ -1512,6 +1512,202 @@ PROBLEMS = {
             {"input": [7, 1, 4, 8], "expected": 20},
         ],
     },
+
+    "count_vowels": {
+        "id": "count_vowels",
+        "lesson_number": "LESSON 4.1",
+        "title": "Count Vowels",
+        "description": "Use a for loop to count uppercase and lowercase vowels in a string.",
+        "function_name": "count_vowels",
+        "starter_code": '''def count_vowels(word):
+    """
+    Given a string,
+
+    return the number of vowels in the string.
+
+    Count both uppercase and lowercase vowels.
+
+    Examples:
+    count_vowels("Python")
+    -> 1
+
+    count_vowels("Education")
+    -> 5
+
+    Hint:
+    Iterate through the string using a for loop.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Iterates Through the String",
+            "Counts Uppercase and Lowercase Vowels",
+            "Returns the Correct Count",
+        ],
+        "test_cases": [
+            {"input": "Python", "expected": 1},
+            {"input": "Education", "expected": 5},
+            {"input": "AEIOUaeiou", "expected": 10},
+            {"input": "rhythm", "expected": 0},
+            {"input": "", "expected": 0},
+        ],
+    },
+
+    "largest_coordinate": {
+        "id": "largest_coordinate",
+        "lesson_number": "LESSON 4.1",
+        "title": "Largest Coordinate",
+        "description": "Iterate through a tuple of numbers and return its largest value.",
+        "function_name": "largest_coordinate",
+        "starter_code": '''def largest_coordinate(coordinates):
+    """
+    Given a tuple of numbers,
+
+    return the largest value.
+
+    Examples:
+    largest_coordinate((35.4, -97.5, 42.1))
+    -> 42.1
+
+    largest_coordinate((8, 3, 10, 6))
+    -> 10
+
+    Hint:
+    Iterate through the tuple with a for loop.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Iterates Through the Tuple",
+            "Handles Negative Values",
+            "Returns the Largest Coordinate",
+        ],
+        "test_cases": [
+            {"input": ((35.4, -97.5, 42.1),), "expected": 42.1},
+            {"input": ((8, 3, 10, 6),), "expected": 10},
+            {"input": ((-8, -3, -10, -6),), "expected": -3},
+            {"input": ((4.5,),), "expected": 4.5},
+        ],
+    },
+
+    "print_dictionary_keys": {
+        "id": "print_dictionary_keys",
+        "lesson_number": "LESSON 4.1",
+        "title": "Print Dictionary Keys",
+        "description": "Use a for loop to print every dictionary key on its own line.",
+        "function_name": "print_dictionary_keys",
+        "starter_code": '''def print_dictionary_keys(profile):
+    """
+    Given a dictionary,
+
+    print each key on its own line.
+
+    Example:
+    print_dictionary_keys({
+        "name": "Jordan",
+        "grade": 11,
+        "gpa": 3.8
+    })
+
+    Output:
+    name
+    grade
+    gpa
+
+    Hint:
+    Remember what a for loop iterates through by default.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Iterates Through Dictionary Keys",
+            "Preserves Key Order",
+            "Prints One Key per Line",
+        ],
+        "test_cases": [
+            {
+                "input": {"name": "Jordan", "grade": 11, "gpa": 3.8},
+                "expected": "name\ngrade\ngpa\n",
+                "compare_output": True
+            },
+            {
+                "input": {"city": "Tulsa", "active": True},
+                "expected": "city\nactive\n",
+                "compare_output": True
+            },
+            {
+                "input": {},
+                "expected": "",
+                "compare_output": True
+            },
+        ],
+    },
+
+    "print_even_numbers": {
+        "id": "print_even_numbers",
+        "lesson_number": "LESSON 4.1",
+        "title": "Print Even Numbers",
+        "description": "Print every even number from start to stop, including the endpoints when even.",
+        "function_name": "print_even_numbers",
+        "starter_code": '''def print_even_numbers(start, stop):
+    """
+    Print every even number from start to stop (inclusive).
+
+    Example:
+    print_even_numbers(2, 10)
+
+    Output:
+    2
+    4
+    6
+    8
+    10
+
+    Hint:
+    Use range() with an appropriate step size.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Handles Even and Odd Start Values",
+            "Includes an Even Stop Value",
+            "Prints One Even Number per Line",
+        ],
+        "test_cases": [
+            {
+                "input": (2, 10),
+                "expected": "2\n4\n6\n8\n10\n",
+                "compare_output": True
+            },
+            {
+                "input": (3, 9),
+                "expected": "4\n6\n8\n",
+                "compare_output": True
+            },
+            {
+                "input": (8, 8),
+                "expected": "8\n",
+                "compare_output": True
+            },
+            {
+                "input": (9, 9),
+                "expected": "",
+                "compare_output": True
+            },
+        ],
+    },
     # =====================================================
     # LESSON 6
     # =====================================================
@@ -1764,6 +1960,10 @@ EXERCISE_CURRICULUM = (
         "problem_ids": (
             "count_to_n",
             "sum_list",
+            "count_vowels",
+            "largest_coordinate",
+            "print_dictionary_keys",
+            "print_even_numbers",
         ),
     },
     {
