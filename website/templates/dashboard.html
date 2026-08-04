@@ -34,69 +34,8 @@
 
 
 <!-- Top navigation bar -->
-<header class="topbar">
-
-
-    <!-- Website logo/name -->
-    <div class="logo">
-        Urban Coders Guild
-    </div>
-
-
-    <!-- Navigation links -->
-    <nav>
-
-
-        <!-- Dashboard link (currently active page) -->
-        <a href="/" class="active">
-            Dashboard
-        </a>
-
-
-        <!-- Lessons page link -->
-        <a href="/lessons">
-            Lessons
-        </a>
-
-
-        <!-- Exercises page link -->
-        <a href="/exercises">
-            Exercises
-        </a>
-
-
-        <!-- Displays different links depending on login status -->
-        {% if logged_in %}
-
-
-        <!-- User profile link -->
-        <a href="/profile">
-            Profile
-        </a>
-
-
-        <!-- Logout link -->
-        <a href="/logout">
-            Logout
-        </a>
-
-
-        {% else %}
-
-
-        <!-- Profile link redirects to login if user is not logged in -->
-        <a href="/login">
-            Profile
-        </a>
-
-
-        {% endif %}
-
-
-    </nav>
-
-
-</header>
+{% from "components/navbar.html" import navbar with context %}
+{{ navbar("dashboard") }}
 
 
 

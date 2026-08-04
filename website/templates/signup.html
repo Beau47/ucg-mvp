@@ -69,14 +69,8 @@
 {% else %}
 
 <!-- Top navigation bar -->
-<header class="topbar">
-
-    <!-- Website name/logo text -->
-    <div class="logo">
-        Urban Coders Guild
-    </div>
-
-</header>
+{% from "components/navbar.html" import navbar with context %}
+{{ navbar(show_links=false) }}
 
 
 <!-- Main signup page container -->

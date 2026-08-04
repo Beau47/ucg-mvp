@@ -1,0 +1,54 @@
+{#
+Shared site navigation. Pass active_page to highlight the current section;
+authentication pages set show_links=false so they display only the brand.
+#}
+{% macro navbar(active_page=None, show_links=True) %}
+<header class="topbar">
+    <div class="logo">
+        Urban Coders Guild
+    </div>
+
+    {% if show_links %}
+    <nav class="nav-links">
+        <a
+            href="/"
+            class="nav-item{% if active_page == 'dashboard' %} active{% endif %}"
+        >
+            Dashboard
+        </a>
+
+        <a
+            href="/lessons"
+            class="nav-item{% if active_page == 'lessons' %} active{% endif %}"
+        >
+            Lessons
+        </a>
+
+        <a
+            href="/exercises"
+            class="nav-item{% if active_page == 'exercises' %} active{% endif %}"
+        >
+            Exercises
+        </a>
+
+        {# The default keeps standalone template previews from failing. #}
+        {% if logged_in|default(false) %}
+        <a
+            href="/profile"
+            class="nav-item{% if active_page == 'profile' %} active{% endif %}"
+        >
+            Profile
+        </a>
+
+        <a href="/logout" class="nav-item">
+            Logout
+        </a>
+        {% else %}
+        <a href="/login" class="nav-item">
+            Profile
+        </a>
+        {% endif %}
+    </nav>
+    {% endif %}
+</header>
+{% endmacro %}
