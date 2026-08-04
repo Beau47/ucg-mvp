@@ -3,6 +3,7 @@
 # =========================
 
 import io
+from copy import deepcopy
 from contextlib import redirect_stdout
 
 
@@ -31,7 +32,9 @@ def run_problem(code, problem):
             student_function = namespace[function_name]
 
             for test in problem["test_cases"]:
-                test_input = test["input"]
+                # Student functions may mutate lists or dictionaries. Give
+                # every run a fresh value so shared problem data stays clean.
+                test_input = deepcopy(test["input"])
                 expected = test["expected"]
 
                 # Support functions with one or more parameters.

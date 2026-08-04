@@ -800,6 +800,149 @@ PROBLEMS = {
 },
 
 
+    "manage_guest_list": {
+        "id": "manage_guest_list",
+        "lesson_number": "LESSON 3.1",
+        "title": "Manage Guest List",
+        "description": "Update a guest list using append(), insert(), and remove().",
+        "function_name": "manage_guest_list",
+        "starter_code": '''def manage_guest_list(guests):
+    """
+    Given a list of guest names,
+
+    1. Add "Jordan" to the end of the list.
+    2. Insert "Maria" at the beginning of the list.
+    3. Remove the first occurrence of "Alex" if it exists.
+    4. Return the updated list.
+
+    Example:
+    manage_guest_list(["Alex", "Chris"])
+    -> ["Maria", "Chris", "Jordan"]
+
+    Hint:
+    Use append(), insert(), and remove().
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Appends Jordan",
+            "Inserts Maria First",
+            "Removes Only the First Alex",
+        ],
+        "test_cases": [
+            {
+                "input": ["Alex", "Chris"],
+                "expected": ["Maria", "Chris", "Jordan"]
+            },
+            {
+                "input": ["Chris"],
+                "expected": ["Maria", "Chris", "Jordan"]
+            },
+            {
+                "input": ["Alex", "Alex", "Sam"],
+                "expected": ["Maria", "Alex", "Sam", "Jordan"]
+            },
+            {
+                "input": [],
+                "expected": ["Maria", "Jordan"]
+            },
+        ],
+    },
+
+    "sorted_reverse": {
+        "id": "sorted_reverse",
+        "lesson_number": "LESSON 3.1",
+        "title": "Sorted Reverse",
+        "description": "Sort a list in ascending order, reverse it, and return the modified list.",
+        "function_name": "sorted_reverse",
+        "starter_code": '''def sorted_reverse(numbers):
+    """
+    Given a list of numbers,
+
+    1. Sort the list in ascending order.
+    2. Reverse the list.
+    3. Return the modified list.
+
+    Example:
+    sorted_reverse([4, 1, 7, 3])
+    -> [7, 4, 3, 1]
+
+    Hint:
+    Use sort() and reverse().
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Sorts the List",
+            "Reverses the List",
+            "Returns Descending Order",
+        ],
+        "test_cases": [
+            {"input": [4, 1, 7, 3], "expected": [7, 4, 3, 1]},
+            {"input": [5, -2, 5, 0], "expected": [5, 5, 0, -2]},
+            {"input": [1], "expected": [1]},
+            {"input": [], "expected": []},
+        ],
+    },
+
+    "copy_and_add": {
+        "id": "copy_and_add",
+        "lesson_number": "LESSON 3.1",
+        "title": "Copy and Add",
+        "description": "Copy a scores list, add 100 to the copy, and return both lists.",
+        "function_name": "copy_and_add",
+        "starter_code": '''def copy_and_add(scores):
+    """
+    Given a list of scores,
+
+    Create a COPY of the list.
+
+    Add 100 to the copied list.
+    Return BOTH lists as a tuple:
+
+    (original_list, copied_list)
+
+    Example:
+    copy_and_add([80, 90])
+    -> ([80, 90], [80, 90, 100])
+
+    Remember:
+    Do NOT create an alias.
+    The original list should remain unchanged.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Creates an Independent Copy",
+            "Leaves the Original Unchanged",
+            "Returns Both Lists as a Tuple",
+        ],
+        "test_cases": [
+            {
+                "input": [80, 90],
+                "expected": ([80, 90], [80, 90, 100])
+            },
+            {
+                "input": [],
+                "expected": ([], [100])
+            },
+            {
+                "input": [100, 70, 85],
+                "expected": ([100, 70, 85], [100, 70, 85, 100])
+            },
+        ],
+    },
+
+
 "copy_profile": {
     "id": "copy_profile",
     "lesson_number": "LESSON 3.1",
@@ -1214,6 +1357,9 @@ EXERCISE_CURRICULUM = (
         "problem_ids": (
             "update_inventory",
             "first_item",
+            "manage_guest_list",
+            "sorted_reverse",
+            "copy_and_add",
         ),
     },
     {
