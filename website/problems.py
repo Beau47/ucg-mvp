@@ -1708,6 +1708,172 @@ PROBLEMS = {
             },
         ],
     },
+
+    # =====================================================
+    # LESSON 4.2
+    # =====================================================
+
+    "multiplication_table": {
+        "id": "multiplication_table",
+        "lesson_number": "LESSON 4.2",
+        "title": "Multiplication Table",
+        "description": "Print the 3-times multiplication table from 3 x 1 through 3 x 10 using nested loops.",
+        "function_name": "multiplication_table",
+        "starter_code": '''def multiplication_table():
+    """
+    Print the 3-times multiplication table from
+
+    3 x 1
+
+    through
+
+    3 x 10
+
+    using nested loops.
+
+    Output:
+
+    3 x 1 = 3
+    3 x 2 = 6
+
+    ...
+    3 x 10 = 30
+
+    Hint:
+    Use one outer loop and one inner loop,
+    even though the outer loop only executes once.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Prints the 3-Times Table",
+            "Includes 3 x 1 Through 3 x 10",
+            "Matches the Required Output",
+        ],
+        "test_cases": [
+            {
+                "input": (),
+                "expected": (
+                    "3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9\n"
+                    "3 x 4 = 12\n3 x 5 = 15\n3 x 6 = 18\n"
+                    "3 x 7 = 21\n3 x 8 = 24\n3 x 9 = 27\n"
+                    "3 x 10 = 30\n"
+                ),
+                "compare_output": True
+            },
+        ],
+    },
+
+    "total_seats": {
+        "id": "total_seats",
+        "lesson_number": "LESSON 4.2",
+        "title": "Total Seats",
+        "description": "Given a classroom represented as a list of lists, return the total number of students.",
+        "function_name": "total_seats",
+        "starter_code": '''def total_seats(classroom):
+    """
+    Given a classroom represented as a list of lists,
+    return the total number of students.
+
+    Example:
+    total_seats([
+        ["Alex", "Maria", "Jordan"],
+        ["Sophia", "Liam"],
+        ["Emma"]
+    ])
+    -> 6
+
+    Hint:
+    Use nested for loops to visit every student.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Visits Every Classroom Row",
+            "Counts Every Student",
+            "Handles Empty Rows",
+        ],
+        "test_cases": [
+            {
+                "input": [
+                    ["Alex", "Maria", "Jordan"],
+                    ["Sophia", "Liam"],
+                    ["Emma"],
+                ],
+                "expected": 6
+            },
+            {
+                "input": [[], ["Alex"], [], ["Maria", "Jordan"]],
+                "expected": 3
+            },
+            {"input": [], "expected": 0},
+            {"input": [[]], "expected": 0},
+            {"input": [[1], [2, 3], [4, 5, 6]], "expected": 6},
+        ],
+    },
+
+    "checkerboard": {
+        "id": "checkerboard",
+        "lesson_number": "LESSON 4.2",
+        "title": "Checkerboard",
+        "description": "Print a checkerboard pattern using X and O.",
+        "function_name": "checkerboard",
+        "starter_code": '''def checkerboard(rows, columns):
+    """
+    Print a checkerboard pattern using X and O.
+
+    Example:
+    checkerboard(3, 4)
+
+    Output:
+    XOXO
+    OXOX
+    XOXO
+
+    Hint:
+    The character printed depends on both
+    the current row and current column.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Both Row and Column Positions",
+            "Alternates X and O",
+            "Prints the Requested Dimensions",
+        ],
+        "test_cases": [
+            {
+                "input": (3, 4),
+                "expected": "XOXO\nOXOX\nXOXO\n",
+                "compare_output": True
+            },
+            {
+                "input": (1, 1),
+                "expected": "X\n",
+                "compare_output": True
+            },
+            {
+                "input": (2, 3),
+                "expected": "XOX\nOXO\n",
+                "compare_output": True
+            },
+            {
+                "input": (4, 1),
+                "expected": "X\nO\nX\nO\n",
+                "compare_output": True
+            },
+        ],
+    },
+
     # =====================================================
     # LESSON 6
     # =====================================================
@@ -1964,6 +2130,17 @@ EXERCISE_CURRICULUM = (
             "largest_coordinate",
             "print_dictionary_keys",
             "print_even_numbers",
+        ),
+    },
+    {
+        "lesson_id": "loops",
+        "lesson_page": 3,
+        "lesson_label": "Lesson 4.2",
+        "featured_problem_id": "multiplication_table",
+        "problem_ids": (
+            "multiplication_table",
+            "total_seats",
+            "checkerboard",
         ),
     },
     {
