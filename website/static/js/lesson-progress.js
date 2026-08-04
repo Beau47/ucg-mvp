@@ -6,7 +6,6 @@
     document.addEventListener("DOMContentLoaded", function () {
         const lessonId = configScript.dataset.lessonId;
         const page = Number(configScript.dataset.page);
-        const totalPages = Number(configScript.dataset.totalPages);
         const progressOwner = configScript.dataset.progressOwner;
 
         const quizzes =
@@ -18,10 +17,8 @@
         // the source of truth for account progress and XP in Supabase.
         const progressKey =
             `ucg:lesson-progress:${progressOwner}:${lessonId}:${page}`;
-        const isFinalPage = page === totalPages;
 
         let pageCompletionRequestSent = false;
-        let completionRequestSent = false;
         let savedProgress = {};
 
         try {
@@ -74,39 +71,10 @@
                         task_id: `page-complete-${page}`
                     })
                 });
-
-                if (!response.ok) {
-                    pageCompletionRequestSent = false;
-                }
-            }
-            catch (error) {
-                console.error("Could not save page completion:", error);
-                pageCompletionRequestSent = false;
-            }
-        }
-
-        // A lesson is recorded only after the required tasks on its final page
-        // are complete. The guard prevents duplicate requests and XP effects.
-        async function saveLessonCompletion() {
-            if (
-                !isFinalPage ||
-                progressOwner === "guest" ||
-                completionRequestSent
-            ) {
-                return;
-            }
-
-            completionRequestSent = true;
-
-            try {
-                const response = await fetch(
-                    `/lesson/${lessonId}/complete`,
-                    { method: "POST" }
-                );
                 const data = await response.json();
 
                 if (!response.ok) {
-                    completionRequestSent = false;
+                    pageCompletionRequestSent = false;
                     return;
                 }
 
@@ -118,8 +86,8 @@
                 }
             }
             catch (error) {
-                console.error("Could not save lesson completion:", error);
-                completionRequestSent = false;
+                console.error("Could not save page completion:", error);
+                pageCompletionRequestSent = false;
             }
         }
 
@@ -135,7 +103,6 @@
             }
 
             savePageCompletion();
-            saveLessonCompletion();
 
             if (nextButton && nextLink) {
                 nextButton.disabled = false;

@@ -187,9 +187,10 @@ The application expects the following Supabase resources:
 | `problem_progress` | Passed coding exercises | `id`, `user_id`, `problem_id`, `passed` |
 | `avatars` bucket | Uploaded profile pictures | Public file URLs stored in `profiles.avatar_url` |
 
-`lesson_progress` must support a unique conflict target on
-`(user_id, lesson_id)` because lesson completion uses an upsert with those
-columns.
+A unique constraint on `lesson_progress(user_id, lesson_id)` is recommended
+to prevent duplicate records, but lesson completion does not depend on an
+upsert conflict target. The application updates an existing row or inserts a
+new one as needed.
 
 Supabase Auth must have email/password authentication enabled. If email
 confirmation is enabled, users must verify their email before logging in.
