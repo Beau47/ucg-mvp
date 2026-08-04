@@ -1002,6 +1002,226 @@ PROBLEMS = {
         },
     ],
 },
+
+    "update_book": {
+        "id": "update_book",
+        "lesson_number": "LESSON 3.2",
+        "title": "Update Book",
+        "description": "Add, update, and remove fields in a book dictionary.",
+        "function_name": "update_book",
+        "starter_code": '''def update_book(book):
+    """
+    Given a dictionary representing a book,
+
+    1. Add the key "available" with the value True.
+    2. Update the book's "year" to 2026.
+    3. Remove the key "publisher".
+    4. Return the updated dictionary.
+
+    Example:
+    update_book({
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "year": 1937,
+        "publisher": "Allen & Unwin"
+    })
+
+    -> {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "year": 2026,
+        "available": True
+    }
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Adds and Updates Keys",
+            "Removes Publisher",
+            "Preserves Other Book Data",
+        ],
+        "test_cases": [
+            {
+                "input": {
+                    "title": "The Hobbit",
+                    "author": "J.R.R. Tolkien",
+                    "year": 1937,
+                    "publisher": "Allen & Unwin"
+                },
+                "expected": {
+                    "title": "The Hobbit",
+                    "author": "J.R.R. Tolkien",
+                    "year": 2026,
+                    "available": True
+                }
+            },
+            {
+                "input": {
+                    "title": "Kindred",
+                    "year": 1979,
+                    "publisher": "Doubleday",
+                    "genre": "Science Fiction"
+                },
+                "expected": {
+                    "title": "Kindred",
+                    "year": 2026,
+                    "genre": "Science Fiction",
+                    "available": True
+                }
+            },
+            {
+                "input": {
+                    "title": "Python Basics",
+                    "year": 2024,
+                    "publisher": "UCG Press",
+                    "available": False
+                },
+                "expected": {
+                    "title": "Python Basics",
+                    "year": 2026,
+                    "available": True
+                }
+            },
+        ],
+    },
+
+    "dictionary_summary": {
+        "id": "dictionary_summary",
+        "lesson_number": "LESSON 3.2",
+        "title": "Dictionary Summary",
+        "description": "Return a dictionary's keys, values, and items as lists.",
+        "function_name": "dictionary_summary",
+        "starter_code": '''def dictionary_summary(student):
+    """
+    Given a student dictionary,
+
+    return a tuple containing:
+
+    (
+        list(student.keys()),
+        list(student.values()),
+        list(student.items())
+    )
+
+    Example:
+    dictionary_summary({
+        "name": "Jordan",
+        "grade": 11
+    })
+
+    -> (
+        ["name", "grade"],
+        ["Jordan", 11],
+        [("name", "Jordan"), ("grade", 11)]
+    )
+
+    Hint:
+    Use the dictionary methods keys(), values(), and items().
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses keys(), values(), and items()",
+            "Converts Views to Lists",
+            "Returns the Three Lists as a Tuple",
+        ],
+        "test_cases": [
+            {
+                "input": {"name": "Jordan", "grade": 11},
+                "expected": (
+                    ["name", "grade"],
+                    ["Jordan", 11],
+                    [("name", "Jordan"), ("grade", 11)]
+                )
+            },
+            {
+                "input": {"city": "Tulsa", "active": True, "score": 95},
+                "expected": (
+                    ["city", "active", "score"],
+                    ["Tulsa", True, 95],
+                    [
+                        ("city", "Tulsa"),
+                        ("active", True),
+                        ("score", 95)
+                    ]
+                )
+            },
+            {
+                "input": {},
+                "expected": ([], [], [])
+            },
+        ],
+    },
+
+    "emergency_contact": {
+        "id": "emergency_contact",
+        "lesson_number": "LESSON 3.2",
+        "title": "Emergency Contact",
+        "description": "Return an emergency contact or a fallback message when it is missing.",
+        "function_name": "emergency_contact",
+        "starter_code": '''def emergency_contact(profile):
+    """
+    Given a profile dictionary,
+
+    Return the value associated with the key
+    "emergency_contact".
+
+    If the key does not exist,
+    return "No emergency contact on file."
+
+    Examples:
+    emergency_contact({
+        "name": "Maria",
+        "emergency_contact": "Jordan"
+    })
+    -> "Jordan"
+
+    emergency_contact({
+        "name": "Maria"
+    })
+    -> "No emergency contact on file."
+
+    Hint:
+    Use the get() method.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Dictionary Lookup",
+            "Handles a Missing Key",
+            "Returns the Stored Value Unchanged",
+        ],
+        "test_cases": [
+            {
+                "input": {
+                    "name": "Maria",
+                    "emergency_contact": "Jordan"
+                },
+                "expected": "Jordan"
+            },
+            {
+                "input": {"name": "Maria"},
+                "expected": "No emergency contact on file."
+            },
+            {
+                "input": {},
+                "expected": "No emergency contact on file."
+            },
+            {
+                "input": {"emergency_contact": None},
+                "expected": None
+            },
+        ],
+    },
     # =====================================================
     # LESSON 4
     # =====================================================
@@ -1370,6 +1590,9 @@ EXERCISE_CURRICULUM = (
         "problem_ids": (
             "copy_profile",
             "dictionary_lookup",
+            "update_book",
+            "dictionary_summary",
+            "emergency_contact",
         ),
     },
     {
