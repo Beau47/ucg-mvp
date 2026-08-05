@@ -24,6 +24,8 @@ from lessons import get_lesson, LESSONS
 from werkzeug.utils import secure_filename
 import os
 
+# Imports for password requirements
+import re
 
 # =====================================================
 # CREATE THE FLASK APPLICATION
@@ -1320,6 +1322,29 @@ def signup():
             error="Passwords do not match."
         )
 
+    # Password requirements:
+    # - At least 8 characters
+    # - One lowercase letter
+    # - One uppercase letter
+    # - One number
+    # - One symbol
+
+    password_requirements = (
+        len(password) >= 8
+        and re.search(r"[a-z]", password)
+        and re.search(r"[A-Z]", password)
+        and re.search(r"\d", password)
+        and re.search(r"[^A-Za-z0-9]", password)
+    )
+
+
+    if not password_requirements:
+
+        return render_template(
+            "signup.html",
+            error="Password must be at least 8 characters and contain a lowercase letter, uppercase letter, number, and symbol."
+        )
+
 
     try:
 
@@ -1422,7 +1447,11 @@ def login():
     session.permanent = True
 
     session["user_id"] = response.user.id
-    session["username"] = response.user.email.split("@")[0]
+
+    session["username"] = (
+        response.user.user_metadata.get("username")
+        or response.user.email.split("@")[0]
+    )
 
     if get_or_create_profile(response.user.id) is None:
         session.clear()
