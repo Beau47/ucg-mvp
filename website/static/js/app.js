@@ -81,12 +81,44 @@ runButton.addEventListener("click", async () => {
     console.log(data);
     console.log(data.results);
 
+    const consoleMessages = [];
+
+    if (data.console) {
+
+        consoleMessages.push(data.console);
+
+    }
+
+    if (data.error) {
+
+        consoleMessages.push(`Error: ${data.error}`);
+
+        const errorResult =
+            document.createElement("div");
+
+        errorResult.textContent =
+            `Could not grade submission: ${data.error}`;
+
+        errorResult.style.color =
+            "red";
+
+        testResults.appendChild(errorResult);
+
+    }
+
     consoleOutput.textContent =
-        data.console;
+        consoleMessages.join("\n") || "No console output.";
 
 
 
-    data.results.forEach(result => {
+    const results =
+        Array.isArray(data.results)
+            ? data.results
+            : [];
+
+
+
+    results.forEach(result => {
 
 
         const div =
@@ -114,7 +146,7 @@ runButton.addEventListener("click", async () => {
 
 
     score.textContent =
-        `Passed: ${data.passed}/${data.total} | Percentage: ${data.percentage}`;
+        `Passed: ${data.passed ?? 0}/${data.total ?? 0} | Percentage: ${data.percentage ?? "N/A"}`;
 
 
 
