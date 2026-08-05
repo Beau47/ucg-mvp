@@ -1226,6 +1226,19 @@ def edit_profile():
     )
 
 # =====================================================
+# SETTINGS
+# Allows student to change email and password
+# =====================================================
+
+@app.route("/settings")
+def settings():
+
+    if "user_id" not in session:
+        return redirect("/login")
+
+    return render_template("settings.html")
+
+# =====================================================
 # LIST PROBLEMS
 # Sends summary data for all available problems.
 # =====================================================
