@@ -171,38 +171,48 @@ def get_or_create_profile(user_id):
 
 def complete_lesson(user_id, lesson_id):
 
-    # Check if already completed
+    # Read any existing row instead of relying on a database-specific upsert
+    # conflict target. Some deployed Supabase projects do not have that
+    # composite unique constraint yet.
     existing = (
         supabase
         .table("lesson_progress")
-        .select("id")
+        .select("id,completed")
         .eq("user_id", user_id)
         .eq("lesson_id", lesson_id)
-        .eq("completed", True)
         .execute()
     )
 
 
     # Already completed
-    if existing.data:
+    if any(row.get("completed") for row in existing.data):
 
         return False
 
     # Award XP for completing a lesson
     LESSON_XP_REWARD = 100
 
-    # Save lesson completion
-    supabase.table("lesson_progress").upsert(
+    progress_data = {
+        "user_id": user_id,
+        "lesson_id": lesson_id,
+        "completed": True
+    }
 
-        {
-            "user_id": user_id,
-            "lesson_id": lesson_id,
-            "completed": True
-        },
-
-        on_conflict="user_id,lesson_id"
-
-    ).execute()
+    if existing.data:
+        (
+            supabase
+            .table("lesson_progress")
+            .update(progress_data)
+            .eq("id", existing.data[0]["id"])
+            .execute()
+        )
+    else:
+        (
+            supabase
+            .table("lesson_progress")
+            .insert(progress_data)
+            .execute()
+        )
 
 
     # Count completed lessons
@@ -772,6 +782,7 @@ def lessons():
             "user_id",
             session["user_id"]
         )
+        .eq("completed", True)
         .execute()
     )
 
@@ -845,18 +856,49 @@ def complete_task_api():
         }),401
 
 
-    data=request.get_json()
+    data = request.get_json() or {}
+    lesson_id = data.get("lesson_id")
+    task_id = data.get("task_id")
+
+    lesson = get_lesson(lesson_id) if lesson_id else None
+
+    if lesson is None or not task_id:
+        return jsonify({
+            "error": "A valid lesson and task are required."
+        }), 400
 
 
     complete_task(
         session["user_id"],
-        data["lesson_id"],
-        data["task_id"]
+        lesson_id,
+        task_id
     )
+
+    newly_completed = False
+
+    # The same persisted page marker that unlocks exercises now also records
+    # completion of the unit when it belongs to the final lesson page. This
+    # keeps exercise access, lesson checkmarks, XP, and dashboard progress in
+    # sync and backfills older accounts when they revisit a completed page.
+    if task_id.startswith(PAGE_COMPLETION_PREFIX):
+        page_text = task_id.removeprefix(PAGE_COMPLETION_PREFIX)
+
+        if page_text.isdigit():
+            page = int(page_text)
+            final_page = max(
+                block["page"] for block in lesson["blocks"]
+            )
+
+            if page == final_page:
+                newly_completed = complete_lesson(
+                    session["user_id"],
+                    lesson_id
+                )
 
 
     return jsonify({
-        "success":True
+        "success": True,
+        "newly_completed": newly_completed
     })
 
 

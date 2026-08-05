@@ -1512,6 +1512,930 @@ PROBLEMS = {
             {"input": [7, 1, 4, 8], "expected": 20},
         ],
     },
+
+    "count_vowels": {
+        "id": "count_vowels",
+        "lesson_number": "LESSON 4.1",
+        "title": "Count Vowels",
+        "description": "Use a for loop to count uppercase and lowercase vowels in a string.",
+        "function_name": "count_vowels",
+        "starter_code": '''def count_vowels(word):
+    """
+    Given a string,
+
+    return the number of vowels in the string.
+
+    Count both uppercase and lowercase vowels.
+
+    Examples:
+    count_vowels("Python")
+    -> 1
+
+    count_vowels("Education")
+    -> 5
+
+    Hint:
+    Iterate through the string using a for loop.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Iterates Through the String",
+            "Counts Uppercase and Lowercase Vowels",
+            "Returns the Correct Count",
+        ],
+        "test_cases": [
+            {"input": "Python", "expected": 1},
+            {"input": "Education", "expected": 5},
+            {"input": "AEIOUaeiou", "expected": 10},
+            {"input": "rhythm", "expected": 0},
+            {"input": "", "expected": 0},
+        ],
+    },
+
+    "largest_coordinate": {
+        "id": "largest_coordinate",
+        "lesson_number": "LESSON 4.1",
+        "title": "Largest Coordinate",
+        "description": "Iterate through a tuple of numbers and return its largest value.",
+        "function_name": "largest_coordinate",
+        "starter_code": '''def largest_coordinate(coordinates):
+    """
+    Given a tuple of numbers,
+
+    return the largest value.
+
+    Examples:
+    largest_coordinate((35.4, -97.5, 42.1))
+    -> 42.1
+
+    largest_coordinate((8, 3, 10, 6))
+    -> 10
+
+    Hint:
+    Iterate through the tuple with a for loop.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Iterates Through the Tuple",
+            "Handles Negative Values",
+            "Returns the Largest Coordinate",
+        ],
+        "test_cases": [
+            {"input": ((35.4, -97.5, 42.1),), "expected": 42.1},
+            {"input": ((8, 3, 10, 6),), "expected": 10},
+            {"input": ((-8, -3, -10, -6),), "expected": -3},
+            {"input": ((4.5,),), "expected": 4.5},
+        ],
+    },
+
+    "print_dictionary_keys": {
+        "id": "print_dictionary_keys",
+        "lesson_number": "LESSON 4.1",
+        "title": "Print Dictionary Keys",
+        "description": "Use a for loop to print every dictionary key on its own line.",
+        "function_name": "print_dictionary_keys",
+        "starter_code": '''def print_dictionary_keys(profile):
+    """
+    Given a dictionary,
+
+    print each key on its own line.
+
+    Example:
+    print_dictionary_keys({
+        "name": "Jordan",
+        "grade": 11,
+        "gpa": 3.8
+    })
+
+    Output:
+    name
+    grade
+    gpa
+
+    Hint:
+    Remember what a for loop iterates through by default.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Iterates Through Dictionary Keys",
+            "Preserves Key Order",
+            "Prints One Key per Line",
+        ],
+        "test_cases": [
+            {
+                "input": {"name": "Jordan", "grade": 11, "gpa": 3.8},
+                "expected": "name\ngrade\ngpa\n",
+                "compare_output": True
+            },
+            {
+                "input": {"city": "Tulsa", "active": True},
+                "expected": "city\nactive\n",
+                "compare_output": True
+            },
+            {
+                "input": {},
+                "expected": "",
+                "compare_output": True
+            },
+        ],
+    },
+
+    "print_even_numbers": {
+        "id": "print_even_numbers",
+        "lesson_number": "LESSON 4.1",
+        "title": "Print Even Numbers",
+        "description": "Print every even number from start to stop, including the endpoints when even.",
+        "function_name": "print_even_numbers",
+        "starter_code": '''def print_even_numbers(start, stop):
+    """
+    Print every even number from start to stop (inclusive).
+
+    Example:
+    print_even_numbers(2, 10)
+
+    Output:
+    2
+    4
+    6
+    8
+    10
+
+    Hint:
+    Use range() with an appropriate step size.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Handles Even and Odd Start Values",
+            "Includes an Even Stop Value",
+            "Prints One Even Number per Line",
+        ],
+        "test_cases": [
+            {
+                "input": (2, 10),
+                "expected": "2\n4\n6\n8\n10\n",
+                "compare_output": True
+            },
+            {
+                "input": (3, 9),
+                "expected": "4\n6\n8\n",
+                "compare_output": True
+            },
+            {
+                "input": (8, 8),
+                "expected": "8\n",
+                "compare_output": True
+            },
+            {
+                "input": (9, 9),
+                "expected": "",
+                "compare_output": True
+            },
+        ],
+    },
+
+    # =====================================================
+    # LESSON 4.2
+    # =====================================================
+
+    "multiplication_table": {
+        "id": "multiplication_table",
+        "lesson_number": "LESSON 4.2",
+        "title": "Multiplication Table",
+        "description": "Print the 3-times multiplication table from 3 x 1 through 3 x 10 using nested loops.",
+        "function_name": "multiplication_table",
+        "starter_code": '''def multiplication_table():
+    """
+    Print the 3-times multiplication table from
+
+    3 x 1
+
+    through
+
+    3 x 10
+
+    using nested loops.
+
+    Output:
+
+    3 x 1 = 3
+    3 x 2 = 6
+
+    ...
+    3 x 10 = 30
+
+    Hint:
+    Use one outer loop and one inner loop,
+    even though the outer loop only executes once.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Prints the 3-Times Table",
+            "Includes 3 x 1 Through 3 x 10",
+            "Matches the Required Output",
+        ],
+        "test_cases": [
+            {
+                "input": (),
+                "expected": (
+                    "3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9\n"
+                    "3 x 4 = 12\n3 x 5 = 15\n3 x 6 = 18\n"
+                    "3 x 7 = 21\n3 x 8 = 24\n3 x 9 = 27\n"
+                    "3 x 10 = 30\n"
+                ),
+                "compare_output": True
+            },
+        ],
+    },
+
+    "total_seats": {
+        "id": "total_seats",
+        "lesson_number": "LESSON 4.2",
+        "title": "Total Seats",
+        "description": "Given a classroom represented as a list of lists, return the total number of students.",
+        "function_name": "total_seats",
+        "starter_code": '''def total_seats(classroom):
+    """
+    Given a classroom represented as a list of lists,
+    return the total number of students.
+
+    Example:
+    total_seats([
+        ["Alex", "Maria", "Jordan"],
+        ["Sophia", "Liam"],
+        ["Emma"]
+    ])
+    -> 6
+
+    Hint:
+    Use nested for loops to visit every student.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Visits Every Classroom Row",
+            "Counts Every Student",
+            "Handles Empty Rows",
+        ],
+        "test_cases": [
+            {
+                "input": [
+                    ["Alex", "Maria", "Jordan"],
+                    ["Sophia", "Liam"],
+                    ["Emma"],
+                ],
+                "expected": 6
+            },
+            {
+                "input": [[], ["Alex"], [], ["Maria", "Jordan"]],
+                "expected": 3
+            },
+            {"input": [], "expected": 0},
+            {"input": [[]], "expected": 0},
+            {"input": [[1], [2, 3], [4, 5, 6]], "expected": 6},
+        ],
+    },
+
+    "checkerboard": {
+        "id": "checkerboard",
+        "lesson_number": "LESSON 4.2",
+        "title": "Checkerboard",
+        "description": "Print a checkerboard pattern using X and O.",
+        "function_name": "checkerboard",
+        "starter_code": '''def checkerboard(rows, columns):
+    """
+    Print a checkerboard pattern using X and O.
+
+    Example:
+    checkerboard(3, 4)
+
+    Output:
+    XOXO
+    OXOX
+    XOXO
+
+    Hint:
+    The character printed depends on both
+    the current row and current column.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Both Row and Column Positions",
+            "Alternates X and O",
+            "Prints the Requested Dimensions",
+        ],
+        "test_cases": [
+            {
+                "input": (3, 4),
+                "expected": "XOXO\nOXOX\nXOXO\n",
+                "compare_output": True
+            },
+            {
+                "input": (1, 1),
+                "expected": "X\n",
+                "compare_output": True
+            },
+            {
+                "input": (2, 3),
+                "expected": "XOX\nOXO\n",
+                "compare_output": True
+            },
+            {
+                "input": (4, 1),
+                "expected": "X\nO\nX\nO\n",
+                "compare_output": True
+            },
+        ],
+    },
+
+    # =====================================================
+    # LESSON 4.3
+    # =====================================================
+
+    "first_negative": {
+        "id": "first_negative",
+        "lesson_number": "LESSON 4.3",
+        "title": "First Negative",
+        "description": "Return the first negative number and stop searching as soon as it is found.",
+        "function_name": "first_negative",
+        "starter_code": '''def first_negative(numbers):
+    """
+    Given a list of numbers,
+
+    return the first negative number.
+
+    As soon as a negative number is found,
+    stop searching.
+
+    If the list contains no negative numbers,
+    return None.
+
+    Examples:
+
+    first_negative([4, 7, -3, -8])
+
+    -> -3
+
+    first_negative([5, 8, 10])
+
+    -> None
+
+    Hint:
+    Use break to stop the search early.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Finds the First Negative Number",
+            "Stops Searching Early",
+            "Returns None When No Negative Exists",
+        ],
+        "test_cases": [
+            {"input": [4, 7, -3, -8], "expected": -3},
+            {"input": [5, 8, 10], "expected": None},
+            {"input": [-1, -2], "expected": -1},
+            {"input": [0, -4, 2], "expected": -4},
+            {"input": [], "expected": None},
+        ],
+    },
+
+    "average_positive": {
+        "id": "average_positive",
+        "lesson_number": "LESSON 4.3",
+        "title": "Average Positive",
+        "description": "Calculate and return the average of only the positive numbers.",
+        "function_name": "average_positive",
+        "starter_code": '''def average_positive(numbers):
+    """
+    Given a list of numbers,
+
+    calculate and return the average
+    of only the positive numbers.
+
+    Ignore all negative numbers.
+
+    If there are no positive numbers,
+    return 0.
+
+    Examples:
+
+    average_positive([4, -2, 6, -1])
+
+    -> 5.0
+
+    average_positive([-5, -8])
+
+    -> 0
+
+    Hint:
+    Use continue to skip negative numbers.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Skips Negative Numbers",
+            "Averages Only Positive Numbers",
+            "Returns Zero When No Positive Exists",
+        ],
+        "test_cases": [
+            {"input": [4, -2, 6, -1], "expected": 5.0},
+            {"input": [-5, -8], "expected": 0},
+            {"input": [2, 4, 6], "expected": 4.0},
+            {"input": [0, 10, -5], "expected": 10.0},
+            {"input": [], "expected": 0},
+        ],
+    },
+
+    "placeholder_example": {
+        "id": "placeholder_example",
+        "lesson_number": "LESSON 4.3",
+        "title": "Placeholder Example",
+        "description": "Find and return the largest even number while ignoring odd numbers.",
+        "function_name": "placeholder_example",
+        "starter_code": '''def placeholder_example(numbers):
+    """
+    Given a list of numbers,
+
+    find and return the largest even number.
+
+    Ignore odd numbers for now by using
+    the pass statement as a placeholder.
+
+    Examples:
+
+    placeholder_example([7, 8, 12, 3])
+
+    -> 12
+
+    placeholder_example([1, 3, 5])
+
+    -> None
+
+    Hint:
+    This exercise is designed to practice
+    using pass while developing a program.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Ignores Odd Numbers",
+            "Finds the Largest Even Number",
+            "Returns None When No Even Number Exists",
+        ],
+        "test_cases": [
+            {"input": [7, 8, 12, 3], "expected": 12},
+            {"input": [1, 3, 5], "expected": None},
+            {"input": [-8, -2, -10], "expected": -2},
+            {"input": [4], "expected": 4},
+            {"input": [], "expected": None},
+            {"input": [0, -3, -2], "expected": 0},
+        ],
+    },
+
+    # =====================================================
+    # LESSON 5.0
+    # =====================================================
+
+    "calculate_ticket_price": {
+        "id": "calculate_ticket_price",
+        "lesson_number": "LESSON 5.0",
+        "title": "Calculate Ticket Price",
+        "description": "Calculate a ticket price using age, student status, and weekend pricing rules.",
+        "function_name": "calculate_ticket_price",
+        "starter_code": '''def calculate_ticket_price(age, is_student, is_weekend):
+    """
+    Given a person's age, student status, and whether it is the weekend,
+    calculate and return their ticket price.
+
+    Pricing Rules:
+    - Children younger than 13 pay $6.
+    - Adults 65 or older pay $7.
+    - Everyone else pays $12.
+    - Students receive a $2 discount.
+    - Weekend tickets cost an additional $3.
+
+    The final price cannot be less than $0.
+
+    Examples:
+    calculate_ticket_price(10, False, False)
+    -> 6
+
+    calculate_ticket_price(20, True, True)
+    -> 13
+
+    calculate_ticket_price(70, False, True)
+    -> 10
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Applies the Correct Base Price",
+            "Applies Student and Weekend Adjustments",
+            "Never Returns a Negative Price",
+        ],
+        "test_cases": [
+            {"input": (10, False, False), "expected": 6},
+            {"input": (20, True, True), "expected": 13},
+            {"input": (70, False, True), "expected": 10},
+            {"input": (13, False, False), "expected": 12},
+            {"input": (65, False, False), "expected": 7},
+            {"input": (10, True, False), "expected": 4},
+            {"input": (70, True, True), "expected": 8},
+        ],
+    },
+
+    "create_grade_report": {
+        "id": "create_grade_report",
+        "lesson_number": "LESSON 5.0",
+        "title": "Create Grade Report",
+        "description": "Calculate a student's average and highest score and return a grade report dictionary.",
+        "function_name": "create_grade_report",
+        "starter_code": '''def create_grade_report(student_name, scores):
+    """
+    Given a student's name and a nonempty list of scores,
+    calculate the student's average and highest score.
+
+    Return a dictionary in this form:
+
+    {
+        "name": student_name,
+        "average": average_score,
+        "highest": highest_score,
+        "passed": True or False
+    }
+
+    The student passes if their average is at least 70.
+
+    Example:
+    create_grade_report("Maria", [80, 95, 75])
+    -> {
+        "name": "Maria",
+        "average": 83.33333333333333,
+        "highest": 95,
+        "passed": True
+    }
+
+    Do not use sum() or max().
+    Calculate both values using a loop.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Calculates the Average",
+            "Finds the Highest Score",
+            "Builds the Complete Grade Report",
+        ],
+        "test_cases": [
+            {
+                "input": ("Maria", [80, 95, 75]),
+                "expected": {
+                    "name": "Maria",
+                    "average": 83.33333333333333,
+                    "highest": 95,
+                    "passed": True,
+                }
+            },
+            {
+                "input": ("Alex", [70]),
+                "expected": {
+                    "name": "Alex",
+                    "average": 70.0,
+                    "highest": 70,
+                    "passed": True,
+                }
+            },
+            {
+                "input": ("Jordan", [68, 70]),
+                "expected": {
+                    "name": "Jordan",
+                    "average": 69.0,
+                    "highest": 70,
+                    "passed": False,
+                }
+            },
+            {
+                "input": ("Sam", [0, 100]),
+                "expected": {
+                    "name": "Sam",
+                    "average": 50.0,
+                    "highest": 100,
+                    "passed": False,
+                }
+            },
+        ],
+    },
+
+    "update_inventory_copy": {
+        "id": "update_inventory_copy",
+        "lesson_number": "LESSON 5.0",
+        "title": "Update Inventory Copy",
+        "description": "Return an updated copy of an inventory without modifying the original dictionary.",
+        "function_name": "update_inventory_copy",
+        "starter_code": '''def update_inventory_copy(inventory, item, amount):
+    """
+    Given an inventory dictionary, an item name, and an amount,
+    return an updated COPY of the inventory.
+
+    Rules:
+    - Do not modify the original dictionary.
+    - If the item already exists, add amount to its current quantity.
+    - If the item does not exist, add it with the given amount.
+    - If the resulting quantity is 0 or less, remove the item.
+
+    Examples:
+    update_inventory_copy(
+        {"Rice": 10, "Beans": 5},
+        "Rice",
+        3
+    )
+    -> {"Rice": 13, "Beans": 5}
+
+    update_inventory_copy(
+        {"Rice": 10, "Beans": 5},
+        "Beans",
+        -5
+    )
+    -> {"Rice": 10}
+
+    The original inventory must remain unchanged.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Returns a New Dictionary",
+            "Leaves the Original Unchanged",
+            "Updates, Adds, and Removes Items Correctly",
+        ],
+        "test_cases": [
+            {
+                "input": ({"Rice": 10, "Beans": 5}, "Rice", 3),
+                "expected": {"Rice": 13, "Beans": 5},
+                "preserve_input": True,
+                "require_new_result": True
+            },
+            {
+                "input": ({"Rice": 10, "Beans": 5}, "Beans", -5),
+                "expected": {"Rice": 10},
+                "preserve_input": True,
+                "require_new_result": True
+            },
+            {
+                "input": ({"Rice": 10}, "Beans", 4),
+                "expected": {"Rice": 10, "Beans": 4},
+                "preserve_input": True,
+                "require_new_result": True
+            },
+            {
+                "input": ({"Rice": 2}, "Rice", -5),
+                "expected": {},
+                "preserve_input": True,
+                "require_new_result": True
+            },
+            {
+                "input": ({"Rice": 10}, "Beans", 0),
+                "expected": {"Rice": 10},
+                "preserve_input": True,
+                "require_new_result": True
+            },
+        ],
+    },
+
+    "analyze_message": {
+        "id": "analyze_message",
+        "lesson_number": "LESSON 5.0",
+        "title": "Analyze Message",
+        "description": "Return a message summary with its length, vowel count, and allowed status.",
+        "function_name": "analyze_message",
+        "starter_code": '''def analyze_message(message, banned_words):
+    """
+    Given a message and a list of banned words,
+    return a summary dictionary in this form:
+
+    {
+        "length": number_of_characters,
+        "vowels": number_of_vowels,
+        "allowed": True or False
+    }
+
+    The message is allowed only if none of the banned words
+    appear inside it.
+
+    Ignore capitalization when checking banned words.
+
+    Examples:
+    analyze_message(
+        "Welcome to Python!",
+        ["spam", "scam"]
+    )
+    -> {
+        "length": 18,
+        "vowels": 5,
+        "allowed": True
+    }
+
+    analyze_message(
+        "This looks like a SCAM",
+        ["spam", "scam"]
+    )
+    -> {
+        "length": 22,
+        "vowels": 7,
+        "allowed": False
+    }
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Counts Characters and Vowels",
+            "Checks Banned Words Inside the Message",
+            "Ignores Capitalization",
+        ],
+        "test_cases": [
+            {
+                "input": ("Welcome to Python!", ["spam", "scam"]),
+                "expected": {"length": 18, "vowels": 5, "allowed": True}
+            },
+            {
+                "input": ("This looks like a SCAM", ["spam", "scam"]),
+                "expected": {"length": 22, "vowels": 7, "allowed": False}
+            },
+            {
+                "input": ("SpAmmy message", ["spam"]),
+                "expected": {"length": 14, "vowels": 4, "allowed": False}
+            },
+            {
+                "input": ("AEIOU", []),
+                "expected": {"length": 5, "vowels": 5, "allowed": True}
+            },
+            {
+                "input": ("", ["spam"]),
+                "expected": {"length": 0, "vowels": 0, "allowed": True}
+            },
+        ],
+    },
+
+    # =====================================================
+    # LESSON 5.1
+    # =====================================================
+
+    "class_statistics": {
+        "id": "class_statistics",
+        "lesson_number": "LESSON 5.1",
+        "title": "Class Statistics",
+        "description": "Return class statistics using helper functions and loop-based calculations.",
+        "function_name": "class_statistics",
+        "starter_code": '''def class_statistics(scores):
+    """
+    Given a nonempty list of quiz scores,
+    return a dictionary containing:
+
+    {
+        "average": average_score,
+        "highest": highest_score,
+        "lowest": lowest_score,
+        "passed": number_of_passing_students
+    }
+
+    A passing score is 70 or higher.
+
+    Example:
+
+    class_statistics([82, 95, 61, 74])
+
+    -> {
+        "average": 78.0,
+        "highest": 95,
+        "lowest": 61,
+        "passed": 3
+    }
+
+    Requirements:
+    - Create at least TWO helper functions to avoid repeating code.
+      (For example, one function could count passing students,
+      while another could calculate the average.)
+    - Do NOT use sum(), max(), or min().
+    - Use descriptive function names and write docstrings for each helper function.
+    - Do not use global variables.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses at Least Two Documented Helper Functions",
+            "Calculates Statistics Without sum(), max(), or min()",
+            "Returns the Complete Class Report",
+        ],
+        "min_helper_functions": 2,
+        "require_helper_docstrings": True,
+        "forbidden_calls": ("sum", "max", "min"),
+        "forbid_global_variables": True,
+        "test_cases": [
+            {
+                "input": [82, 95, 61, 74],
+                "expected": {
+                    "average": 78.0,
+                    "highest": 95,
+                    "lowest": 61,
+                    "passed": 3,
+                }
+            },
+            {
+                "input": [70],
+                "expected": {
+                    "average": 70.0,
+                    "highest": 70,
+                    "lowest": 70,
+                    "passed": 1,
+                }
+            },
+            {
+                "input": [69, 70],
+                "expected": {
+                    "average": 69.5,
+                    "highest": 70,
+                    "lowest": 69,
+                    "passed": 1,
+                }
+            },
+            {
+                "input": [100, 0, 50],
+                "expected": {
+                    "average": 50.0,
+                    "highest": 100,
+                    "lowest": 0,
+                    "passed": 1,
+                }
+            },
+            {
+                "input": [-5, -10],
+                "expected": {
+                    "average": -7.5,
+                    "highest": -5,
+                    "lowest": -10,
+                    "passed": 0,
+                }
+            },
+            {
+                "input": [88.5, 72.5],
+                "expected": {
+                    "average": 80.5,
+                    "highest": 88.5,
+                    "lowest": 72.5,
+                    "passed": 2,
+                }
+            },
+        ],
+    },
+
     # =====================================================
     # LESSON 6
     # =====================================================
@@ -1611,6 +2535,7 @@ PROBLEMS = {
             "Returns Correct List",
             "No Extra Output",
         ],
+        "require_recursion": True,
         "test_cases": [
             {"input": 1, "expected": [1]},
             {"input": 2, "expected": [2, 1]},
@@ -1645,11 +2570,152 @@ PROBLEMS = {
             "Returns Correct String",
             "No Extra Output",
         ],
+        "require_recursion": True,
         "test_cases": [
             {"input": ("A", 1), "expected": "A"},
             {"input": ("Hi", 3), "expected": "HiHiHi"},
             {"input": ("Go", 2), "expected": "GoGo"},
             {"input": ("Python", 4), "expected": "PythonPythonPythonPython"},
+        ],
+    },
+
+    "digit_sum": {
+        "id": "digit_sum",
+        "lesson_number": "LESSON 6.0",
+        "title": "Digit Sum",
+        "description": "Return the sum of a positive integer's digits using recursion.",
+        "function_name": "digit_sum",
+        "starter_code": '''def digit_sum(number):
+    """
+    Given a positive integer,
+    return the sum of its digits using recursion.
+
+    Examples:
+
+    digit_sum(482)
+
+    -> 14
+
+    because
+
+    4 + 8 + 2 = 14
+
+    digit_sum(7)
+
+    -> 7
+
+    Hint:
+    The last digit is number % 10.
+    The remaining digits are number // 10.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Recursion",
+            "Handles the Base Case",
+            "Returns the Sum of Every Digit",
+        ],
+        "require_recursion": True,
+        "test_cases": [
+            {"input": 482, "expected": 14},
+            {"input": 7, "expected": 7},
+            {"input": 10, "expected": 1},
+            {"input": 9999, "expected": 36},
+            {"input": 10005, "expected": 6},
+        ],
+    },
+
+    "count_letter": {
+        "id": "count_letter",
+        "lesson_number": "LESSON 6.0",
+        "title": "Count Letter",
+        "description": "Count how many times a letter appears in a string using recursion.",
+        "function_name": "count_letter",
+        "starter_code": '''def count_letter(word, letter):
+    """
+    Given a string and a letter,
+    return the number of times the letter
+    appears in the string using recursion.
+
+    Examples:
+
+    count_letter("banana", "a")
+
+    -> 3
+
+    count_letter("Python", "z")
+
+    -> 0
+
+    Hint:
+    Solve one character, then recursively
+    solve the rest of the string.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Recursion",
+            "Handles an Empty String",
+            "Counts Matching Letters Correctly",
+        ],
+        "require_recursion": True,
+        "test_cases": [
+            {"input": ("banana", "a"), "expected": 3},
+            {"input": ("Python", "z"), "expected": 0},
+            {"input": ("", "a"), "expected": 0},
+            {"input": ("Mississippi", "s"), "expected": 4},
+            {"input": ("AaA", "A"), "expected": 2},
+        ],
+    },
+
+    "largest_recursive": {
+        "id": "largest_recursive",
+        "lesson_number": "LESSON 6.0",
+        "title": "Largest Recursive",
+        "description": "Return the largest value in a nonempty list using recursion.",
+        "function_name": "largest_recursive",
+        "starter_code": '''def largest_recursive(numbers):
+    """
+    Given a nonempty list of numbers,
+    return the largest value using recursion.
+
+    Examples:
+
+    largest_recursive([4, 8, 2, 10, 5])
+
+    -> 10
+
+    largest_recursive([7])
+
+    -> 7
+
+    Hint:
+    Compare the first element with the
+    largest element in the rest of the list.
+    """
+
+    # WRITE CODE HERE
+    pass
+''',
+        "challenges": [
+            "Function Exists",
+            "Uses Recursion",
+            "Handles a One-Item List",
+            "Returns the Largest Value",
+        ],
+        "require_recursion": True,
+        "test_cases": [
+            {"input": [4, 8, 2, 10, 5], "expected": 10},
+            {"input": [7], "expected": 7},
+            {"input": [-4, -8, -2], "expected": -2},
+            {"input": [3, 3, 3], "expected": 3},
+            {"input": [1.5, 9.2, 4.8], "expected": 9.2},
         ],
     }
 
@@ -1764,6 +2830,53 @@ EXERCISE_CURRICULUM = (
         "problem_ids": (
             "count_to_n",
             "sum_list",
+            "count_vowels",
+            "largest_coordinate",
+            "print_dictionary_keys",
+            "print_even_numbers",
+        ),
+    },
+    {
+        "lesson_id": "loops",
+        "lesson_page": 3,
+        "lesson_label": "Lesson 4.2",
+        "featured_problem_id": "multiplication_table",
+        "problem_ids": (
+            "multiplication_table",
+            "total_seats",
+            "checkerboard",
+        ),
+    },
+    {
+        "lesson_id": "loops",
+        "lesson_page": 4,
+        "lesson_label": "Lesson 4.3",
+        "featured_problem_id": "first_negative",
+        "problem_ids": (
+            "first_negative",
+            "average_positive",
+            "placeholder_example",
+        ),
+    },
+    {
+        "lesson_id": "functions_modularity",
+        "lesson_page": 1,
+        "lesson_label": "Lesson 5.0",
+        "featured_problem_id": "calculate_ticket_price",
+        "problem_ids": (
+            "calculate_ticket_price",
+            "create_grade_report",
+            "update_inventory_copy",
+            "analyze_message",
+        ),
+    },
+    {
+        "lesson_id": "functions_modularity",
+        "lesson_page": 2,
+        "lesson_label": "Lesson 5.1",
+        "featured_problem_id": "class_statistics",
+        "problem_ids": (
+            "class_statistics",
         ),
     },
     {
@@ -1774,6 +2887,9 @@ EXERCISE_CURRICULUM = (
         "problem_ids": (
             "countdown",
             "repeat_word",
+            "digit_sum",
+            "count_letter",
+            "largest_recursive",
         ),
     },
 )
