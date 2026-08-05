@@ -1304,7 +1304,8 @@ def run_code():
 
 
     if (
-        result.get("passed")
+        not result.get("error")
+        and result.get("passed") == result.get("total")
         and "user_id" in session
     ):
 

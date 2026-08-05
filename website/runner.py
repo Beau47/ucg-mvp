@@ -99,9 +99,15 @@ def run_problem(code, problem):
     passed = 0
     total = len(problem["test_cases"])
     results = []
+    validation_error = None
 
     try:
-        _validate_source_requirements(code, problem)
+        try:
+            _validate_source_requirements(code, problem)
+        except Exception as error:
+            # Keep testing so students can still see prints and functional
+            # feedback, but report the unmet structural requirement.
+            validation_error = str(error)
 
         with redirect_stdout(output):
             exec(code, namespace)
@@ -191,7 +197,7 @@ def run_problem(code, problem):
             "passed": passed,
             "total": total,
             "percentage": percentage,
-            "error": None
+            "error": validation_error
         }
 
     except Exception as e:

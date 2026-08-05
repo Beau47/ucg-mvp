@@ -504,8 +504,8 @@ or an exception message is returned to the lesson IDE.
 5. Compares return values or printed output and can verify simulated input,
    input preservation, and creation of a new result object.
 6. Returns console output, per-test results, totals, percentage, and errors.
-7. Records exercise progress for a logged-in user based on the returned pass
-   count.
+7. Records exercise progress only when every test passes and no source-code
+   requirement remains unmet.
 
 ## Progress and XP
 
@@ -564,8 +564,6 @@ editor-specific settings.
   and should become an environment-specific setting before another deployment.
 - The project does not yet include automated backend, frontend, or end-to-end
   tests.
-- The `/run` route currently records an exercise as completed when at least one
-  test passes. It should require `passed == total` before progress is saved.
 - Frontend dependencies are loaded from CDNs rather than bundled locally.
 
 ## Next Features

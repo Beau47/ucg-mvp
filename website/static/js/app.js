@@ -97,7 +97,7 @@ runButton.addEventListener("click", async () => {
             document.createElement("div");
 
         errorResult.textContent =
-            `Could not grade submission: ${data.error}`;
+            `Submission requirement not met: ${data.error}`;
 
         errorResult.style.color =
             "red";
