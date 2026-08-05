@@ -7,7 +7,7 @@ single Flask application.
 
 The current repository contains an MVP with account management, persistent
 course progress, student profiles, a dashboard, seven numbered curriculum
-units, a prerequisite lesson, and 26 coding exercises.
+units, a prerequisite lesson, 16 lesson pages, and 57 coding exercises.
 
 ## Table of Contents
 
@@ -34,12 +34,13 @@ units, a prerequisite lesson, and 26 coding exercises.
 - Sign-up, login, logout, email verification, and password reset flows
 - Student dashboard with course progress, next lesson, and next exercise
 - Editable student profiles with avatar uploads
-- Multi-page Python curriculum organized into Units 0-6 and Lesson 0.5
+- Sixteen-page Python curriculum organized into Units 0-6 and Lesson 0.5
 - Rich lesson blocks for explanations, examples, vocabulary, tables, tips,
   warnings, quizzes, and embedded coding activities
 - Monaco Editor instances for in-browser Python practice
 - Multiple-choice questions within lessons to track learning progress
-- Automatically graded coding exercises with visible test-case feedback
+- Fifty-seven automatically graded coding exercises with visible test-case
+  feedback
 - Persistent lesson, task, and exercise completion records
 - Browser-side restoration of completed quizzes and lesson IDE activities
 - XP, levels, and progress summaries derived from completed work
@@ -280,14 +281,33 @@ The current curriculum is defined in `website/lessons.py`:
 
 | Unit ID | Displayed unit | Topic | Pages |
 | --- | --- | --- | --- |
-| `why_python` | Unit 0 | Why Python? | 2 |
+| `why_python` | Unit 0 | Why Python? | 1 |
 | `functions_preview` | Lesson 0.5 | Read This Before Exercises | 1 |
-| `variables` | Unit 1 | Variables and Data Types | 2 |
+| `variables` | Unit 1 | Variables & Data Types | 3 |
 | `conditionals` | Unit 2 | Conditionals | 1 |
 | `lists_dictionaries` | Unit 3 | Collections | 3 |
 | `loops` | Unit 4 | Loops | 4 |
-| `functions_modularity` | Unit 5 | Functions and Modularity | 2 |
+| `functions_modularity` | Unit 5 | Functions & Modularity | 2 |
 | `recursion_capstone` | Unit 6 | Recursion | 1 |
+
+The 57 active exercises are ordered and unlocked through
+`EXERCISE_CURRICULUM` in `website/problems.py`:
+
+| Required lesson | Exercises |
+| --- | ---: |
+| Lesson 0.5 | 2 |
+| Lesson 1.1 | 13 |
+| Lesson 2.0 | 5 |
+| Lesson 3.0 | 2 |
+| Lesson 3.1 | 5 |
+| Lesson 3.2 | 5 |
+| Lesson 4.0 | 3 |
+| Lesson 4.1 | 6 |
+| Lesson 4.2 | 3 |
+| Lesson 4.3 | 3 |
+| Lesson 5.0 | 4 |
+| Lesson 5.1 | 1 |
+| Lesson 6.0 | 5 |
 
 ## Creating a Lesson
 
@@ -452,6 +472,12 @@ arguments or no arguments, use a tuple:
 {"input": (), "expected": "Hello"}
 ```
 
+Test cases can also opt into output comparison, simulated input, and mutation
+checks with `compare_output`, `stdin`, `preserve_input`, and
+`require_new_result`. Problem-level structural checks include
+`require_recursion`, `min_helper_functions`, `require_helper_docstrings`,
+`forbidden_calls`, and `forbid_global_variables`.
+
 Add the problem ID to the appropriate `EXERCISE_CURRICULUM` group after
 creating its definition. The group determines where the exercise appears,
 which lesson unlocks it, and whether it is the featured lesson-end link.
@@ -472,11 +498,13 @@ or an exception message is returned to the lesson IDE.
 `run_problem()`. The runner:
 
 1. Executes the submitted Python code in a new namespace.
-2. Finds the required function by `function_name`.
-3. Calls it once for each test case.
-4. Compares actual and expected return values.
-5. Returns console output, per-test results, totals, percentage, and errors.
-6. Records exercise progress for a logged-in user based on the returned pass
+2. Validates any configured source-code requirements.
+3. Finds the required function by `function_name`.
+4. Deep-copies inputs and calls the function once for each test case.
+5. Compares return values or printed output and can verify simulated input,
+   input preservation, and creation of a new result object.
+6. Returns console output, per-test results, totals, percentage, and errors.
+7. Records exercise progress for a logged-in user based on the returned pass
    count.
 
 ## Progress and XP
@@ -487,6 +515,8 @@ Progress is split between Supabase and browser storage:
   exercises, profile data, and avatars.
 - `lesson_tasks` stores `page-complete-N` records used to unlock exercises at
   the end of individual lesson pages such as Lesson 1.1 or Lesson 3.2.
+- Completing a lesson's final page also updates `lesson_progress`, keeping
+  lesson checkmarks, the dashboard, XP, and exercise access synchronized.
 - `localStorage` stores per-page quiz and lesson IDE display state so completed
   controls are restored when a student navigates backward or refreshes.
 - Flask checks Supabase completion records before rendering a workspace,
