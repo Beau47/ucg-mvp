@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Urban Coders Guild</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="icon" type="image/webp" href="/static/images/ucg_logo.webp">
+
+</head>
+
+<body class="profile-page">
+
+{% from "components/navbar.html" import navbar with context %}
+{{ navbar("profile") }}
+
+<div class="page">
+
+    <aside class="sidebar">
+
+        <a href="/profile" class="back-button">
+            ← Back to Profile
+        </a>
+
+    </aside>
+
+    <main
+        class="main"
+        style="
+            overflow-y:auto;
+            padding:50px;
+            background:white;
+        "
+    >
+
+        <h1 style="margin-bottom:10px;">
+            Account Settings
+        </h1>
+
+        <p style="color:#666;margin-bottom:40px;">
+            Manage your account email and password.
+        </p>
+
+        {% if success %}
+        <div class="success-message">
+            {{ success }}
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <!-- ======================================= -->
+        <!-- CURRENT EMAIL -->
+        <!-- ======================================= -->
+
+        <div class="content-card">
+
+            <h2>Current Email</h2>
+
+            <p style="margin-top:10px;">
+                {{ masked_email }}
+            </p>
+
+        </div>
+
+        <!-- ======================================= -->
+        <!-- CHANGE EMAIL -->
+        <!-- ======================================= -->
+
+        <div class="content-card" style="margin-top:30px;">
+
+            <h2>Change Email</h2>
+
+            <p style="color:#666;">
+                A verification email will be sent to your new email address.
+                Your email won't change until it has been verified.
+            </p>
+
+            <form action="/change-email" method="POST">
+
+                <input
+                    type="email"
+                    name="new_email"
+                    placeholder="New email address"
+                    required
+                >
+
+                <button type="submit">
+                    Change Email
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- ======================================= -->
+        <!-- CHANGE PASSWORD -->
+        <!-- ======================================= -->
+
+        <div class="content-card" style="margin-top:30px;">
+
+            <h2>Change Password</h2>
+
+            <p style="color:#666;">
+                We'll send a password reset email to your current email address.
+            </p>
+
+            <form action="/send-password-reset" method="POST">
+
+                <button type="submit">
+                    Send Password Reset Email
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

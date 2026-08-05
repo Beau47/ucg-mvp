@@ -1939,3 +1939,26 @@ body::after {
     }
 
 }
+
+/* Authentication Buttons */
+.auth-button {
+    background: #e5e7eb;
+    color: #555;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.auth-button:hover {
+    background: #d6d9de;
+    color: #333;
+}
+
+.auth-button:active {
+    background: #c9ccd1;
+}
