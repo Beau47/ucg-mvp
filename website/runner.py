@@ -156,7 +156,7 @@ def run_problem(code, problem):
                 )
                 original_result_object = (
                     test_input[0]
-                    if isinstance(test_input, tuple)
+                    if isinstance(test_input, tuple) and len(test_input) > 0
                     else test_input
                 )
                 returned_new_object = (
