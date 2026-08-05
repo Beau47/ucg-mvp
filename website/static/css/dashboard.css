@@ -535,3 +535,8 @@ body::after {
     }
 
 }
+
+.card-icon {
+  vertical-align: -5px;
+  margin-right: 8px;
+}
